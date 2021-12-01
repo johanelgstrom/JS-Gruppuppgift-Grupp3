@@ -3,7 +3,7 @@ import * as data from "../products-data.json";
 export class Product {
     id: number;
     name: string;
-    imageUrl: string;
+    imageUrl: string[];
     price: number;
     description: string;
     categories: string[];
@@ -12,7 +12,7 @@ export class Product {
     constructor(
         id: number,
         name: string,
-        imageUrl: string,
+        imageUrl: string[],
         price: number,
         description: string,
         categories: string[],
@@ -33,7 +33,7 @@ export function createProductObjectsFromData(): Product[] {
         return new Product(
             productJson.id,
             productJson.name,
-            productJson.imageUrl,
+            productJson.imagesUrl,
             productJson.price,
             productJson.description,
             productJson.categories,
