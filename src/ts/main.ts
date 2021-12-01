@@ -14,7 +14,7 @@ window.onload = function (): void {
 
 function runTests(): void {
     //TESTS
-    //get all products
+    //##################### GET ALL PRODUCTS (NEED TO HAPPEND FIRST) #####################
     let products: Product[] = createProductObjectsFromData();
     console.log("ALL: ", products);
 
