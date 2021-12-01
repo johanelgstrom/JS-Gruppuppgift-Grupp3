@@ -21,9 +21,9 @@
     },
     {
         "id": 3,
-        "name": "TEST",
+        "name": "Test",
         "imagesUrl": ["TEST"],
-        "price": 100,
+        "price": 300,
         "description": "test",
         "categories": [],
         "filter": ["Onormal", "Konstig"]

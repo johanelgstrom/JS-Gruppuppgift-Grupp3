@@ -6,27 +6,38 @@ import {
     getProductById,
 } from "./models/produkt";
 
-window.onload = function () {
+import { Sort, sortProductsBy } from "./models/sorting";
+
+window.onload = function (): void {
+    runTests();
+};
+
+function runTests(): void {
     //TESTS
     //get all products
     let products: Product[] = createProductObjectsFromData();
     console.log("ALL: ", products);
 
-    //get filtered products
-    let filteredProducts: Product[] = getFilteredProducts(
-        ["Konstig"],
-        products
-    );
-    console.log("FILTERED: 'Konstig' ", filteredProducts);
+    //##################### SORT #####################
+    let sort: Sort = Sort.PRICE_DECENDING;
+    let sortedProducts: Product[] = sortProductsBy(sort, products);
+    console.log("SORTED ", sort, ": ", sortedProducts);
 
-    //get categorized products
+    //##################### GET FILTERED PRODUCTS #####################
+    let filter: string[] = ["Konstig"];
+    let filteredProducts: Product[] = getFilteredProducts(filter, products);
+    console.log("FILTERED ", filter, ": ", filteredProducts);
+
+    //##################### GET CATEGORIZED PRODUCTS #####################
+    let category: string[] = ["Dator"];
     let categorizedProducts: Product[] = getCategoryProducts(
-        ["Dator"],
+        category,
         products
     );
-    console.log("CATEGORIZED: ", categorizedProducts);
+    console.log("CATEGORIZED ", category, ": ", categorizedProducts);
 
-    //get product by id
-    let product: Product[] = getProductById(3, products);
-    console.log("BY ID: ", product);
-};
+    //##################### GET PRODUCT BY ID #####################
+    let id: number = 1;
+    let product: Product[] = getProductById(id, products);
+    console.log("BY ID ", id, ": ", product);
+}
