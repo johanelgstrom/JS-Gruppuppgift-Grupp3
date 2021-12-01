@@ -1,0 +1,10 @@
+@import "mixins";
+@import "variables";
+@import "header";
+@import "footer";
+
+html,
+body {
+  height: 100%;
+  font-size: 12pt;
+}
