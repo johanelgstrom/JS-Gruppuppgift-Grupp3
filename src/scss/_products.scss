@@ -1,0 +1,28 @@
+@import "mixins";
+@import "variables";
+@import "header";
+@import "footer";
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    .new-item-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        margin: 30px;
+        .new-item {
+            border: 2px solid black;
+            width: 300px;
+            height: 550px;
+        }
+        h2 {
+            align-self: flex-start;
+        }
+    }
+}
