@@ -11,10 +11,10 @@
     "author": "",
     "license": "ISC",
     "dependencies": {
-        "cypress": "^9.1.0",
-        "parcel": "^2.0.1"
+        "cypress": "^9.1.0"
     },
     "devDependencies": {
-        "@parcel/transformer-sass": "^2.0.1"
+        "@parcel/transformer-sass": "^2.0.1",
+        "parcel": "^2.0.1"
     }
 }

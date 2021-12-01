@@ -1,5 +1,4 @@
 import * as data from "../products-data.json";
-import { ProductError } from "./productError";
 
 export class Product {
     id: number;
@@ -8,7 +7,7 @@ export class Product {
     price: number;
     description: string;
     categories: string[];
-    filter: string[];
+    filters: string[];
 
     constructor(
         id: number,
@@ -17,7 +16,7 @@ export class Product {
         price: number,
         description: string,
         categories: string[],
-        filter: string[]
+        filters: string[]
     ) {
         this.id = id;
         this.name = name;
@@ -25,7 +24,7 @@ export class Product {
         this.price = price;
         this.description = description;
         this.categories = categories;
-        this.filter = filter;
+        this.filters = filters;
     }
 }
 
@@ -43,51 +42,57 @@ export function createProductObjectsFromData(): Product[] {
     });
 }
 
-export function getFilterProducts(
-    filter: string,
+export function getFilteredProducts(
+    searchFilters: string[],
     products: Product[]
 ): Product[] {
     let result: Product[] = [];
+    let wrongProduct: boolean = false;
+
     products.forEach((p: Product) => {
-        for (let productFilter of p.filter) {
-            if (productFilter == filter) {
-                result.push(p);
+        for (let filter of searchFilters) {
+            if (!p.filters.includes(filter)) {
+                wrongProduct = true;
             }
         }
-    });
 
-    if (result.length <= 0) {
-        throw new ProductError("No products with that filter exists.");
-    }
+        if (wrongProduct == false) {
+            result.push(p);
+        }
+        wrongProduct = false;
+    });
 
     return result;
 }
 
 export function getCategoryProducts(
-    category: string,
+    searchCategories: string[],
     products: Product[]
 ): Product[] {
     let result: Product[] = [];
+    let wrongProduct: boolean = false;
+
     products.forEach((p: Product) => {
-        for (let productCategory of p.categories) {
-            if (productCategory == category) {
-                result.push(p);
+        for (let category of searchCategories) {
+            if (!p.categories.includes(category)) {
+                wrongProduct = true;
             }
         }
-    });
 
-    if (result.length <= 0) {
-        throw new ProductError("No products with that category exists.");
-    }
+        if (wrongProduct == false) {
+            result.push(p);
+        }
+        wrongProduct = false;
+    });
 
     return result;
 }
 
-export function getProductById(id: number, products: Product[]): Product {
+export function getProductById(id: number, products: Product[]): Product[] {
     for (let product of products) {
         if (product.id == id) {
-            return product;
+            return [product];
         }
     }
-    throw new ProductError("No product with that ID exists.");
+    return [];
 }

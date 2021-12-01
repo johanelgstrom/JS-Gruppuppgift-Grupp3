@@ -2,19 +2,30 @@
     {
         "id": 1,
         "name": "Får toalettpappershållare",
-        "imageUrl": "../../assets/images/products/sheepToiletpaperHolder.jpg",
+        "imagesUrl": ["https://varuhus1.se/cache/a2/500x300-toafar210105.jpg"],
         "price": 200,
         "description": "Här har vi en riktigt unik toalettpappers hållare för er alla fårälskare!",
         "categories": ["Badrum", "Djur"],
-        "filter": ["Jättekonstig"]
+        "filter": ["Onormal", "Jättekonstig"]
     },
     {
         "id": 2,
         "name": "Nicolas Cage Musmatta",
-        "imageUrl": "../../assets/images/products/NicolasCageMusmatta.jpg",
+        "imagesUrl": [
+            "https://i.etsystatic.com/14448442/r/il/b98acb/3475084255/il_fullxfull.3475084255_jsyf.jpg"
+        ],
         "price": 100,
         "description": "Visst känns det bra att känna att Nicolas Cage är aldrig långt borta!",
         "categories": ["Dator", "Matta"],
         "filter": ["Konstig"]
+    },
+    {
+        "id": 3,
+        "name": "TEST",
+        "imagesUrl": ["TEST"],
+        "price": 100,
+        "description": "test",
+        "categories": [],
+        "filter": ["Onormal", "Konstig"]
     }
 ]

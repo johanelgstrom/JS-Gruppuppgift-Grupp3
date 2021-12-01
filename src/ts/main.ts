@@ -1,7 +1,7 @@
 import {
     Product,
     createProductObjectsFromData,
-    getFilterProducts,
+    getFilteredProducts,
     getCategoryProducts,
     getProductById,
 } from "./models/produkt";
@@ -13,17 +13,20 @@ window.onload = function () {
     console.log("ALL: ", products);
 
     //get filtered products
-    let filteredProducts: Product[] = getFilterProducts(
-        "Jättekonstig",
+    let filteredProducts: Product[] = getFilteredProducts(
+        ["Konstig"],
         products
     );
-    console.log("FILTERED: ", filteredProducts);
+    console.log("FILTERED: 'Konstig' ", filteredProducts);
 
     //get categorized products
-    let categorizedProducts: Product[] = getCategoryProducts("skor", products);
+    let categorizedProducts: Product[] = getCategoryProducts(
+        ["Dator"],
+        products
+    );
     console.log("CATEGORIZED: ", categorizedProducts);
 
     //get product by id
-    let product: Product = getProductById(3, products);
+    let product: Product[] = getProductById(3, products);
     console.log("BY ID: ", product);
 };
