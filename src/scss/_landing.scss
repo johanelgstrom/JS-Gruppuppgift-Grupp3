@@ -1,0 +1,179 @@
+@use "mixins";
+@import "variables";
+
+html,
+body {
+  height: 100%;
+  font-size: 12pt;
+  margin: 0;
+
+  header {
+    height: 20%;
+    display: none;
+    @include mixins.tablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @include mixins.desktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  main {
+    height: 100%;
+    background-image: url(/assets/images/MicrosoftTeams-image.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 20%;
+    @include mixins.tablet {
+      height: 80%;
+      background-position: 1%;
+    }
+    @include mixins.desktop {
+      height: 80%;
+      background-position: 1%;
+    }
+
+    .phone-icon-container {
+      height: 10%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-right: 10px;
+      margin-left: 10px;
+      @include mixins.tablet {
+        display: none;
+      }
+      @include mixins.desktop {
+        display: none;
+      }
+
+      .burger-menu {
+        i {
+          font-size: 2rem;
+        }
+      }
+      .cart-icon {
+        i {
+          font-size: 2rem;
+        }
+      }
+    }
+    .main-wrapper {
+      height: 80%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .content-container {
+        display: none;
+        width: 80%;
+        flex-direction: column;
+        align-items: center;
+        @include mixins.tablet {
+          display: flex;
+        }
+        @include mixins.desktop {
+          display: flex;
+        }
+
+        .team-container {
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          .person-container {
+            width: 30%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .img-container {
+              height: 170px;
+              width: 170px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              @include mixins.desktop {
+                height: 200px;
+                width: 200px;
+              }
+              img {
+                height: 170px;
+                width: 170px;
+                border-radius: 100%;
+                @include mixins.desktop {
+                  height: 200px;
+                  width: 200px;
+                }
+              }
+            }
+            .name {
+              font-size: 1.5rem;
+              height: 50px;
+            }
+            .quote {
+              width: 75%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              p {
+                font-size: 0.8rem;
+              }
+            }
+          }
+        }
+      }
+      .logo-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+        @include mixins.tablet {
+          display: none;
+        }
+        @include mixins.desktop {
+          display: none;
+        }
+        img {
+          height: 100%;
+        }
+      }
+    }
+    .to-mainpage {
+      height: 10%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include mixins.desktop {
+        align-items: flex-end;
+        height: 15%;
+      }
+      button {
+        display: none;
+        height: 35px;
+        width: 200px;
+        font-size: 1rem;
+        background-color: $primary-color;
+        border-radius: 4px;
+        @include mixins.tablet {
+          display: unset;
+        }
+        @include mixins.desktop {
+          display: unset;
+        }
+      }
+      i {
+        font-size: 2rem;
+        color: white;
+        @include mixins.tablet {
+          display: none;
+        }
+        @include mixins.desktop {
+          display: none;
+        }
+      }
+    }
+  }
+}
