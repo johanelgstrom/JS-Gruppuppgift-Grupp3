@@ -2,11 +2,13 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
    xmlns:cc="http://creativecommons.org/ns#"
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="210mm"
@@ -18,6 +20,14 @@
    sodipodi:docname="logotype-mobile.svg">
   <defs
      id="defs2">
+    <linearGradient
+       id="linearGradient5986"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop5984" />
+    </linearGradient>
     <pattern
        inkscape:stockid="Stripes 1:1"
        id="Strips1_1"
@@ -34,6 +44,16 @@
          x="0"
          style="fill:black;stroke:none" />
     </pattern>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5986"
+       id="linearGradient5988"
+       x1="3.7317055"
+       y1="178.96743"
+       x2="203.9965"
+       y2="178.96743"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1,0,-2.5066908,-2,449.75192,545.59981)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -43,8 +63,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.7"
-     inkscape:cx="321.46333"
-     inkscape:cy="568.61197"
+     inkscape:cx="437.72696"
+     inkscape:cy="351.43276"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -52,7 +72,8 @@
      inkscape:window-height="1001"
      inkscape:window-x="-9"
      inkscape:window-y="-9"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="1"
+     inkscape:lockguides="false" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -71,20 +92,23 @@
      id="layer1">
     <text
        xml:space="preserve"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71605873px;line-height:1.25;font-family:'HP Simplified Hans';-inkscape-font-specification:'HP Simplified Hans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.74324323;stroke:none;stroke-width:4.35217047;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.86602873"
-       x="80.605446"
-       y="154.34282"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.27777863px;line-height:1.25;font-family:'HP Simplified Hans';-inkscape-font-specification:'HP Simplified Hans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.74324323;stroke:none;stroke-width:4.35217047;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.86602873"
+       x="33.709896"
+       y="163.00175"
        id="text3682"
        transform="scale(1.0103513,0.98975475)"><tspan
          sodipodi:role="line"
          id="tspan3680"
-         x="80.605446"
-         y="154.34282"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:11.71605873px;font-family:'HP Simplified Hans';-inkscape-font-specification:'HP Simplified Hans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.74324323;stroke:none;stroke-width:4.35217047;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.86602873">Onormal.</tspan></text>
+         x="33.709896"
+         y="163.00175"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:35.27777863px;font-family:'HP Simplified Hans';-inkscape-font-specification:'HP Simplified Hans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:0.74324323;stroke:none;stroke-width:4.35217047;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.86602873">Onormal.</tspan></text>
     <path
-       style="fill:#1a1a1a;stroke:#0068df;stroke-width:0.53917366;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.86602873"
-       d="M 64.802792,162.2755 H 145.1972"
+       style="fill:url(#linearGradient5988);fill-opacity:1;stroke:#0068df;stroke-width:1.20346391;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.86602873"
+       d="M 4.867605,187.66495 H 105.90807 205.1324"
        id="path3684"
-       inkscape:connector-curvature="0" />
+       inkscape:connector-curvature="0"
+       inkscape:transform-center-y="-2.3718577"
+       inkscape:transform-center-x="4.1451885"
+       sodipodi:nodetypes="ccc" />
   </g>
 </svg>

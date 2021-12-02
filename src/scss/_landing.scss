@@ -1,4 +1,5 @@
 @use "mixins";
+@import "header";
 @import "variables";
 
 html,
@@ -9,16 +10,18 @@ body {
 
   header {
     height: 20%;
+    display: flex;
+    justify-content: center;
     display: none;
+    @extend %headertop;
+    @extend %headerbottom;
     @include mixins.tablet {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
     }
     @include mixins.desktop {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
     }
   }
 
@@ -137,7 +140,7 @@ body {
           display: none;
         }
         img {
-          height: 100%;
+          width: 60%;
         }
       }
     }
