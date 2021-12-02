@@ -45,7 +45,8 @@ main {
         grid-area: news;
 
         border: 4px solid yellow;
-        .news-container-header {
+        .news-container-header,
+        .campaigns-container-header {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
@@ -59,7 +60,8 @@ main {
                 color: green;
             }
         }
-        .news-container {
+        .news-container,
+        .campaigns-container {
             justify-self: center;
 
             display: flex;
@@ -80,7 +82,8 @@ main {
                 height: 300px;
                 gap: 30px;
             }
-            .new-item {
+            .new-item,
+            .campaign-item {
                 display: inline-block;
                 border: 2px solid black;
                 width: 200px;
