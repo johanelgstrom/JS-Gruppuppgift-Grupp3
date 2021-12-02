@@ -98,5 +98,18 @@ main {
                 }
             }
         }
+        .blue-line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgb(255, 196, 0);
+            width: 100%;
+            height: 100px;
+            .blue-line {
+                width: 90%;
+                height: 3%;
+                background-color: rgb(0, 116, 248);
+            }
+        }
     }
 }
