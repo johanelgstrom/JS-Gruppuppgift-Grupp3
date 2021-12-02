@@ -105,8 +105,6 @@ body {
 html header,
 body header {
   height: 20%;
-  display: flex;
-  justify-content: center;
   display: none;
 }
 @media screen and (min-width: 512px) {
