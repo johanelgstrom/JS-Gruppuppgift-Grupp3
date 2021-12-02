@@ -1,0 +1,238 @@
+html,
+body {
+  height: 100%;
+  font-size: 12pt;
+  margin: 0;
+}
+html header,
+body header {
+  height: 20%;
+  display: none;
+}
+@media screen and (min-width: 512px) {
+  html header,
+body header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html header,
+body header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+html main,
+body main {
+  height: 100%;
+  background-image: url(MicrosoftTeams-image.b7de78e9.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20%;
+}
+@media screen and (min-width: 512px) {
+  html main,
+body main {
+    height: 80%;
+    background-position: 1%;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html main,
+body main {
+    height: 80%;
+    background-position: 1%;
+  }
+}
+html main .phone-icon-container,
+body main .phone-icon-container {
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+@media screen and (min-width: 512px) {
+  html main .phone-icon-container,
+body main .phone-icon-container {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html main .phone-icon-container,
+body main .phone-icon-container {
+    display: none;
+  }
+}
+html main .phone-icon-container .burger-menu i,
+body main .phone-icon-container .burger-menu i {
+  font-size: 2rem;
+}
+html main .phone-icon-container .cart-icon i,
+body main .phone-icon-container .cart-icon i {
+  font-size: 2rem;
+}
+html main .main-wrapper,
+body main .main-wrapper {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+html main .main-wrapper .content-container,
+body main .main-wrapper .content-container {
+  display: none;
+  width: 80%;
+  flex-direction: column;
+  align-items: center;
+}
+@media screen and (min-width: 512px) {
+  html main .main-wrapper .content-container,
+body main .main-wrapper .content-container {
+    display: flex;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html main .main-wrapper .content-container,
+body main .main-wrapper .content-container {
+    display: flex;
+  }
+}
+html main .main-wrapper .content-container .team-container,
+body main .main-wrapper .content-container .team-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+html main .main-wrapper .content-container .team-container .person-container,
+body main .main-wrapper .content-container .team-container .person-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+html main .main-wrapper .content-container .team-container .person-container .img-container,
+body main .main-wrapper .content-container .team-container .person-container .img-container {
+  height: 170px;
+  width: 170px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1024px) {
+  html main .main-wrapper .content-container .team-container .person-container .img-container,
+body main .main-wrapper .content-container .team-container .person-container .img-container {
+    height: 200px;
+    width: 200px;
+  }
+}
+html main .main-wrapper .content-container .team-container .person-container .img-container img,
+body main .main-wrapper .content-container .team-container .person-container .img-container img {
+  height: 170px;
+  width: 170px;
+  border-radius: 100%;
+}
+@media screen and (min-width: 1024px) {
+  html main .main-wrapper .content-container .team-container .person-container .img-container img,
+body main .main-wrapper .content-container .team-container .person-container .img-container img {
+    height: 200px;
+    width: 200px;
+  }
+}
+html main .main-wrapper .content-container .team-container .person-container .name,
+body main .main-wrapper .content-container .team-container .person-container .name {
+  font-size: 1.5rem;
+  height: 50px;
+}
+html main .main-wrapper .content-container .team-container .person-container .quote,
+body main .main-wrapper .content-container .team-container .person-container .quote {
+  width: 75%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+html main .main-wrapper .content-container .team-container .person-container .quote p,
+body main .main-wrapper .content-container .team-container .person-container .quote p {
+  font-size: 0.8rem;
+}
+html main .main-wrapper .logo-container,
+body main .main-wrapper .logo-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+}
+@media screen and (min-width: 512px) {
+  html main .main-wrapper .logo-container,
+body main .main-wrapper .logo-container {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html main .main-wrapper .logo-container,
+body main .main-wrapper .logo-container {
+    display: none;
+  }
+}
+html main .main-wrapper .logo-container img,
+body main .main-wrapper .logo-container img {
+  height: 100%;
+}
+html main .to-mainpage,
+body main .to-mainpage {
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (min-width: 1024px) {
+  html main .to-mainpage,
+body main .to-mainpage {
+    align-items: flex-end;
+    height: 15%;
+  }
+}
+html main .to-mainpage button,
+body main .to-mainpage button {
+  display: none;
+  height: 35px;
+  width: 200px;
+  font-size: 1rem;
+  background-color: #0051ff;
+  border-radius: 4px;
+}
+@media screen and (min-width: 512px) {
+  html main .to-mainpage button,
+body main .to-mainpage button {
+    display: unset;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html main .to-mainpage button,
+body main .to-mainpage button {
+    display: unset;
+  }
+}
+html main .to-mainpage i,
+body main .to-mainpage i {
+  font-size: 2rem;
+  color: white;
+}
+@media screen and (min-width: 512px) {
+  html main .to-mainpage i,
+body main .to-mainpage i {
+    display: none;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html main .to-mainpage i,
+body main .to-mainpage i {
+    display: none;
+  }
+}
+/*# sourceMappingURL=index.4726d293.css.map */
