@@ -1,11 +1,25 @@
 @mixin tablet {
-  @media screen and (min-width: 512px) {
-    @content;
-  }
+    @media screen and (min-width: 512px) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1024px) {
-    @content;
-  }
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
+}
+
+%clickable {
+    transition: 0.2s ease transform, 0.1s ease color;
+
+    &:hover,
+    &:active {
+        transform: scale(110%);
+    }
+
+    &:active {
+        transform: scale(107%);
+        color: white;
+    }
 }

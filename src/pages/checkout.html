@@ -37,26 +37,33 @@
         </header>
 
         <main id="checkout-main">
-            <!-- BASKET -->
-            <div id="basket-container">
-                <h4 id="basket-title">Varukorg</h4>
-                <div id="basket">
-                    <div id="basket-inner-wrapper">
-                        <div class="product">TEST</div>
-                        <div class="product">TEST</div>
-                        <div class="product">TEST</div>
-                        <div class="product">TEST</div>
-                        <div class="product">TEST</div>
+            <!-- BASKET AND TOTAL -->
+            <div id="basket-total-wrapper">
+                <!-- BASKET -->
+                <div id="basket-container">
+                    <h4 id="basket-title">Din varukorg</h4>
+                    <div id="basket">
+                        <div id="basket-inner-wrapper">
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                        </div>
                     </div>
                 </div>
+                <!-- TOTAL COST -->
+                <div id="total-cost-container">
+                    <h2 id="total-cost">Total: 9500kr</h2>
+                    <div id="blue-line"></div>
+                </div>
             </div>
-            <!-- TOTAL COST -->
-            <div id="total-cost-container">
-                <h2 id="total-cost">Total: 9500kr</h2>
-                <div id="blue-line"></div>
-            </div>
+
             <!-- CUSTOMER DETAILS -->
             <div id="customer-details-container">
+                <h4 id="input-title">Fyll i här</h4>
                 <div id="input-wrapper">
                     <div id="input-container">
                         <!-- NAME SECTION -->
@@ -131,6 +138,12 @@
                         </div>
                         <!-- CONFIRM BUTTON -->
                         <button id="pay-button">Betala</button>
+                    </div>
+
+                    <div id="basket-details-container">
+                        <div id="details">
+                            <h5>Details</h5>
+                        </div>
                     </div>
                 </div>
             </div>
