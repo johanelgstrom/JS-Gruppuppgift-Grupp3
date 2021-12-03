@@ -5,9 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Onormal</title>
-
+        
         <!-- MAIN SCSS -->
-        <link rel="stylesheet" href="scss/_landing.scss" />
+        <link rel="stylesheet" href="scss/main.scss" />
 
         <!-- MAIN TS -->
         <script type="module" src="ts/main.ts"></script>
@@ -19,18 +19,42 @@
             integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
             crossorigin="anonymous"
         />
-
-        <!-- GOOGLE FONT -->
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap"
-            rel="stylesheet"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap" rel="stylesheet">
     </head>
     <body>
-        <header>header</header>
-        <main>
+        <header id="index-header">
+            <div class="header-top">
+                <div class="social-container">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                </div>
+                <div class="slogan-container">
+                    <p>Onormal är det nya normala</p>
+                </div>
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="menu-search-container">
+                    <div class="burger-menu">
+                        <i class="fas fa-hamburger"></i>
+                        <p>Meny</p>
+                    </div>
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Sök">
+                    </div>
+                </div>
+                <div class="header-logo-container">
+                    logo :-)
+                </div>
+            </div>
+        </header>
+        <main id="index-main">
             <!-- MOBILIKONER -->
             <div class="phone-icon-container">
                 <div class="burger-menu">
@@ -58,10 +82,7 @@
                     <div class="team-container">
                         <div class="person-container">
                             <div class="img-container">
-                                <img
-                                    src="/assets/images/members/Elias.png"
-                                    alt=""
-                                />
+                                <img src="/assets/images/members/Johan.jpg" alt="">
                             </div>
                             <div class="name">
                                 <p>Johan Elgström</p>

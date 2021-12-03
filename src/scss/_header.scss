@@ -1,0 +1,85 @@
+@use "mixins";
+@import "variables";
+%headertop {
+  .header-top {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    .social-container {
+      width: 33%;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      i {
+        padding-left: 10px;
+        font-size: 1.7rem;
+        color: $secondary-color;
+      }
+    }
+    .slogan-container {
+      width: 33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        color: $primary-color;
+      }
+    }
+    .cart-container {
+      width: 34%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      i {
+        font-size: 1.7rem;
+        padding-right: 10px;
+        color: $secondary-color;
+      }
+    }
+  }
+}
+%headerbottom {
+  .header-bottom {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid $secondary-color;
+    .menu-search-container {
+      width: 50%;
+      @include mixins.desktop {
+        width: 25%;
+      }
+      display: flex;
+      .burger-menu {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        padding: 15px;
+        i {
+          font-size: 1.7rem;
+          color: $secondary-color;
+        }
+        p {
+          color: $secondary-color;
+        }
+      }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        i {
+          color: $secondary-color;
+        }
+        input {
+          width: 130px;
+        }
+      }
+    }
+    .header-logo-container {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

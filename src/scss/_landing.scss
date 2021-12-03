@@ -1,4 +1,5 @@
 @use "mixins";
+@use "header";
 @import "variables";
 
 html,
@@ -7,22 +8,22 @@ body {
   font-size: 12pt;
   margin: 0;
 
-  header {
+  #index-header {
     height: 20%;
     display: none;
+    @extend %headertop;
+    @extend %headerbottom;
     @include mixins.tablet {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
     }
     @include mixins.desktop {
       display: flex;
-      justify-content: center;
-      align-items: center;
+      flex-direction: column;
     }
   }
 
-  main {
+  #index-main {
     height: 100%;
     background-image: url(/assets/images/MicrosoftTeams-image.png);
     background-repeat: no-repeat;
@@ -137,7 +138,7 @@ body {
           display: none;
         }
         img {
-          height: 100%;
+          width: 60%;
         }
       }
     }
