@@ -80,6 +80,23 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      @include mixins.tablet {
+        #logo-tablet {
+          width: 100%;
+        }
+        #logo-desktop {
+          display: none;
+        }
+      }
+      @include mixins.desktop {
+        #logo-tablet {
+          display: none;
+        }
+        #logo-desktop {
+          display: unset;
+          width: 65%;
+        }
+      }
     }
   }
 }
