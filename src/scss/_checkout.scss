@@ -2,12 +2,233 @@
 @use "variables";
 
 #checkout-body {
+    background-color: variables.$secondary-color;
+
     #checkout-header {
+        margin: 0 auto;
+        background-color: lightgray;
+        width: 100%;
+
+        height: 70px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        position: relative;
+
+        @include mixins.desktop {
+            width: 80%;
+        }
+
+        a {
+            position: absolute;
+            left: 20px;
+            color: gray;
+            i {
+                font-size: 30px;
+            }
+        }
+
+        h2 {
+            margin: 0;
+        }
     }
 
     #checkout-main {
-    }
+        margin: 0 auto;
+        background-color: white;
 
-    #checkout-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        @include mixins.desktop {
+            width: 80%;
+        }
+
+        #basket-container {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-top: 20px;
+            #basket-title {
+                width: 90%;
+                margin: 0;
+                margin-bottom: 4px;
+            }
+
+            #basket {
+                border: 2px solid gray;
+                width: 90%;
+
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+
+                #basket-inner-wrapper {
+                    width: 95%;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                    .product {
+                        height: 150px;
+                        width: 100%;
+                        border: 2px solid gray;
+                        box-sizing: border-box;
+
+                        @include mixins.tablet {
+                            width: 50%;
+                        }
+                    }
+                }
+            }
+        }
+        #total-cost-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            width: 100%;
+            margin-bottom: 20px;
+            margin-top: 20px;
+
+            #total-cost {
+                margin: 0;
+                margin-bottom: 7px;
+            }
+            #blue-line {
+                height: 4px;
+                width: 85%;
+                background-color: variables.$primary-color;
+                border-radius: 10px;
+            }
+        }
+        #customer-details-container {
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            margin-bottom: 20px;
+
+            #input-wrapper {
+                width: 90%;
+                background-color: variables.$secondary-color;
+                border-radius: 5px;
+
+                box-sizing: border-box;
+
+                display: flex;
+                justify-content: center;
+
+                #input-container {
+                    width: 80%;
+
+                    margin-top: 10px;
+                    margin-bottom: 20px;
+
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    align-items: center;
+                    justify-content: center;
+
+                    label {
+                        margin-top: 10px;
+                        width: 100%;
+                    }
+
+                    #name-section,
+                    #mobile-adress-section,
+                    #delivery-card-section {
+                        width: 100%;
+
+                        display: flex;
+                        flex-direction: column;
+
+                        @include mixins.tablet {
+                            flex-direction: row;
+                            gap: 20px;
+                        }
+
+                        > div {
+                            width: 100%;
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+
+                    #customer-firstname,
+                    #customer-lastname,
+                    #customer-mobile,
+                    #customer-adress,
+                    #customer-delivery,
+                    #customer-card-number-container > input,
+                    #customer-card-cvc-container > input {
+                        width: 100%;
+                        height: 30px;
+                        border: none;
+                        border-radius: 3px;
+                    }
+
+                    #customer-card-container {
+                        width: 100%;
+
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+
+                        #customer-card-number-container {
+                            width: 60%;
+                        }
+
+                        #customer-card-cvc-container {
+                            width: 30%;
+                        }
+
+                        #customer-card-number-container,
+                        #customer-card-cvc-container {
+                            display: flex;
+                            flex-direction: column;
+                        }
+                    }
+
+                    #pay-button {
+                        border: none;
+                        background-color: variables.$primary-color;
+                        color: white;
+                        font-size: 16pt;
+                        padding: 10px;
+                        width: 150px;
+                        border-radius: 5px;
+                        margin-top: 20px;
+
+                        transition: 0.2s ease transform,
+                            0.2s ease background-color;
+
+                        &:hover,
+                        &:active {
+                            transform: scale(110%);
+                        }
+
+                        &:active {
+                            background-color: black;
+                            transform: scale(107%);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "parcel src/index.html",
-        "build/products": "parcel src/checkout.html",
+        "build/products": "parcel src/products.html",
+        "build/checkout": "parcel src/pages/checkout.html",
         "cypress:open": "cypress open"
     },
     "author": "",

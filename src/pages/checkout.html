@@ -9,6 +9,9 @@
         <!-- MAIN SCSS -->
         <link rel="stylesheet" href="../scss/main.scss" />
 
+        <!-- MAIN TS -->
+        <script type="module" src="../ts/main.ts"></script>
+
         <!-- GOOGLE FONT -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,16 +20,120 @@
             rel="stylesheet"
         />
 
-        <!-- MAIN TS -->
-        <script type="module" src="../ts/main.ts"></script>
+        <!-- FONT AWSOME -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+            crossorigin="anonymous"
+        />
     </head>
     <body id="checkout-body">
         <header id="checkout-header">
+            <a href="javascript:history.back()"
+                ><i class="fas fa-arrow-left"></i
+            ></a>
             <h2>Varukorg</h2>
         </header>
 
-        <main id="checkout-main"></main>
+        <main id="checkout-main">
+            <!-- BASKET -->
+            <div id="basket-container">
+                <h4 id="basket-title">Varukorg</h4>
+                <div id="basket">
+                    <div id="basket-inner-wrapper">
+                        <div class="product">TEST</div>
+                        <div class="product">TEST</div>
+                        <div class="product">TEST</div>
+                        <div class="product">TEST</div>
+                        <div class="product">TEST</div>
+                    </div>
+                </div>
+            </div>
+            <!-- TOTAL COST -->
+            <div id="total-cost-container">
+                <h2 id="total-cost">Total: 9500kr</h2>
+                <div id="blue-line"></div>
+            </div>
+            <!-- CUSTOMER DETAILS -->
+            <div id="customer-details-container">
+                <div id="input-wrapper">
+                    <div id="input-container">
+                        <!-- NAME SECTION -->
+                        <div id="name-section">
+                            <!-- FIRST NAME -->
+                            <div>
+                                <label for="customer-firstname">Förnamn</label>
+                                <input id="customer-firstname" type="text" />
+                            </div>
 
-        <footer id="checkout-footer"></footer>
+                            <!-- LAST NAME -->
+                            <div>
+                                <label for="customer-lastname">Efternamn</label>
+                                <input id="customer-lastname" type="text" />
+                            </div>
+                        </div>
+
+                        <!-- MOBILE ADRESS SECTION -->
+                        <div id="mobile-adress-section">
+                            <div>
+                                <!-- MOBILE NUMBER -->
+                                <label for="customer-mobile"
+                                    >Mobilnummer (+46)</label
+                                >
+                                <input id="customer-mobile" type="text" />
+                            </div>
+
+                            <div>
+                                <!-- CUSTOMER ADRESS -->
+                                <label for="customer-adress">Adress</label>
+                                <input id="customer-adress" type="text" />
+                            </div>
+                        </div>
+
+                        <!-- DELIVERY CARD SECTION -->
+                        <div id="delivery-card-section">
+                            <div>
+                                <!-- DELIVERY CHOICE -->
+                                <label for="customer-delivery"
+                                    >Leveranssätt</label
+                                >
+                                <select id="customer-delivery">
+                                    <option value="PostNord">Post Nord</option>
+                                    <option value="USP">USP</option>
+                                    <option value="InstaBox">InstaBox</option>
+                                </select>
+                            </div>
+                            <!-- CUSTOMER CARD INFO -->
+                            <div>
+                                <div id="customer-card-container">
+                                    <div id="customer-card-number-container">
+                                        <label for="customer-card"
+                                            >Kortnummer</label
+                                        >
+                                        <input
+                                            id="customer-card"
+                                            type="number"
+                                        />
+                                    </div>
+
+                                    <div id="customer-card-cvc-container">
+                                        <label for="customer-card-cvc"
+                                            >CVC</label
+                                        >
+                                        <input
+                                            id="customer-card-cvc"
+                                            type="number"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONFIRM BUTTON -->
+                        <button id="pay-button">Betala</button>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
