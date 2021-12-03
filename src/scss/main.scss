@@ -1,8 +1,9 @@
+@use "products";
+@use "product";
 @import "mixins";
 @import "variables";
 @import "header";
 @import "footer";
-@use "products";
 
 html,
 body {
