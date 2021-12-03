@@ -1,6 +1,6 @@
 @use "mixins";
-@import "header";
-@import "variables";
+@use "header";
+@use "variables";
 
 html,
 body {
@@ -8,7 +8,7 @@ body {
   font-size: 12pt;
   margin: 0;
 
-  header {
+  #index-header {
     height: 20%;
     display: none;
     @extend %headertop;
@@ -23,7 +23,7 @@ body {
     }
   }
 
-  main {
+  #index-main {
     height: 100%;
     background-image: url(/assets/images/MicrosoftTeams-image.png);
     background-repeat: no-repeat;

@@ -2,9 +2,11 @@
 @import "variables";
 @import "header";
 @import "footer";
+@import "landing";
 
 html,
 body {
   height: 100%;
   font-size: 12pt;
+  font-family: "Maven Pro", sans-serif;
 }
