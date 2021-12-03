@@ -10,6 +10,8 @@ import { Sort, sortProductsBy } from "./models/sorting";
 
 window.onload = function (): void {
     runTests();
+    let mobileBurger: HTMLDivElement = document.getElementById("burger-menu") as HTMLDivElement;
+    mobileBurger.addEventListener("click", menuSlideIn);
 };
 
 function runTests(): void {
@@ -40,4 +42,24 @@ function runTests(): void {
     let id: number = 1;
     let product: Product[] = getProductById(id, products);
     console.log("BY ID ", id, ": ", product);
+}
+
+function menuSlideIn() {
+    let menu: HTMLDivElement = document.getElementById("menu-container") as HTMLDivElement;
+    let topBun: HTMLDivElement = document.getElementById("top-bun") as HTMLDivElement;
+    let patty: HTMLDivElement = document.getElementById("patty") as HTMLDivElement;
+    let bottomBun: HTMLDivElement = document.getElementById("bottom-bun") as HTMLDivElement;
+
+    if (menu.classList.contains("show-menu")) {
+        menu.classList.remove("show-menu");
+        topBun.classList.remove("top-bun-toggle");
+        patty.classList.remove("patty-toggle");
+        bottomBun.classList.remove("bottom-bun-toggle");
+    } 
+    else {
+        menu.classList.add("show-menu");
+        topBun.classList.add("top-bun-toggle");
+        patty.classList.add("patty-toggle");
+        bottomBun.classList.add("bottom-bun-toggle");
+    }
 }
