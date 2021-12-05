@@ -37,42 +37,7 @@ body {
       height: 80%;
       background-position: 1%;
     }
-    .menu-container {
-      position: fixed;
-      transform: translateX(-100%);
-      transition: transform 0.5s;
-      width: 100%;
-      height: 100%;
-      bottom: 0;
-      z-index: 99;
-      background-color: white;
-      opacity: 90%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-      .menu-list {
-        list-style: none;
-        height: 80%;
-        width: 100%;
-        a {
-          text-decoration: none;
-        }
-        
-        .menu-item {
-          font-size: 1rem;
-          height: 20%;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-      }
-    }
-    .show-menu {
-      transform: translateX(0%);
-    }
+    
 
     .phone-icon-container {
       height: 10%;
@@ -81,40 +46,7 @@ body {
       align-items: center;
       margin-right: 10px;
       margin-left: 10px;
-      #burger-menu {
-        z-index: 100;
-        .top-bun {
-          height: 5px;
-          width: 35px;
-          background-color: $secondary-color;
-          margin-bottom: 5px;
-          transition: transform 0.1s ease-in-out;
-        }
-        .patty {
-          height: 5px;
-          width: 35px;
-          background-color: $secondary-color;
-          margin-bottom: 5px;
-          transition: transform 0.1s ease-in-out;
-        }
-        .bottom-bun {
-          height: 5px;
-          width: 35px;
-          background-color: $secondary-color;
-          transition: transform 0.1s ease-in-out;
-        }
-      }
-      .top-bun-toggle {
-        transform: rotate(-45deg);
-        margin-top: 22.5px;
-      }
-      .patty-toggle {
-        transform: rotate(45deg);
-        margin-top: -10px;
-      }
-      .bottom-bun-toggle {
-        transform: scale(0);
-      }
+      @extend %burger-animation;
       
       @include mixins.tablet {
         display: none;
