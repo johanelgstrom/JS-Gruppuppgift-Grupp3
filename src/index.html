@@ -40,10 +40,16 @@
             </div>
             <div class="header-bottom">
                 <div class="menu-search-container">
-                    <div class="burger-menu">
-                        <i class="fas fa-hamburger"></i>
+                    <div class="burger-container">
+                        <div class="burger-menu" id="burger-menu">
+                            <div class="top-bun" id="top-bun"></div>
+                            <div class="patty" id="patty"></div>
+                            <div class="bottom-bun" id="bottom-bun"></div>
+                        </div>
                         <p>Meny</p>
                     </div>
+                    
+                    
                     <div class="search">
                         <i class="fas fa-search"></i>
                         <input type="text" placeholder="Sök">
@@ -56,11 +62,26 @@
             </div>
         </header>
         <main id="index-main">
+            <!-- SLIDE-IN MENU -->
+            <div class="menu-container" id="menu-container">
+                <div class="menu-logo-container">
+                    <img src="/assets/images/logo/logotype-mobile.svg" alt="Onormal logga">
+                </div>
+                <ul class="menu-list">
+                    <a href="http://dn.se"><li class="menu-item">Hem</li></a>
+                    <a href="http://dn.se"><li class="menu-item">Produkter</li></a>
+                    <a href="http://dn.se"><li class="menu-item">Kampanjer</li></a>
+                    <a href="http://dn.se"><li class="menu-item">Nyheter</li></a>
+                    <a href="http://dn.se"><li class="menu-item">Information</li></a>
+                    <a href="http://dn.se"><li class="menu-item menu-item-last">Kontakt</li></a>
+                </ul>
+            </div>
             <!-- MOBILIKONER -->
             <div class="phone-icon-container">
-                <div class="burger-menu">
-                    <!-- tillfällig tills hamburgarmenyn är klar -->
-                    <i class="fas fa-hamburger"></i>
+                <div class="burger-menu" id="burger-menu-phone">
+                    <div class="top-bun" id="top-bun-phone"></div>
+                    <div class="patty" id="patty-phone"></div>
+                    <div class="bottom-bun" id="bottom-bun-phone"></div>
                 </div>
                 <div class="cart-icon">
                     <i class="fas fa-shopping-cart"></i>
@@ -83,7 +104,7 @@
                     <div class="team-container">
                         <div class="person-container">
                             <div class="img-container">
-                                <img src="/assets/images/members/Johan.jpg" alt="">
+                                <img src="/assets/images/members/Johan.jpg" alt="Johan Elgström">
                             </div>
                             <div class="name">
                                 <p>Johan Elgström</p>
@@ -99,7 +120,7 @@
                             <div class="img-container">
                                 <img
                                     src="/assets/images/members/Elias.png"
-                                    alt=""
+                                    alt="Filip Engberg"
                                 />
                             </div>
                             <div class="name">
@@ -119,7 +140,7 @@
                             <div class="img-container">
                                 <img
                                     src="/assets/images/members/Elias.png"
-                                    alt=""
+                                    alt="Elias Fredriksson"
                                 />
                             </div>
                             <div class="name">

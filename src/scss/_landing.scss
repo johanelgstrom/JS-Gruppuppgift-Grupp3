@@ -37,6 +37,7 @@ body {
       height: 80%;
       background-position: 1%;
     }
+    
 
     .phone-icon-container {
       height: 10%;
@@ -45,21 +46,18 @@ body {
       align-items: center;
       margin-right: 10px;
       margin-left: 10px;
+      @extend %burger-animation;
+      
       @include mixins.tablet {
         display: none;
       }
       @include mixins.desktop {
         display: none;
       }
-
-      .burger-menu {
-        i {
-          font-size: 2rem;
-        }
-      }
       .cart-icon {
         i {
           font-size: 2rem;
+          color: $secondary-color;
         }
       }
     }

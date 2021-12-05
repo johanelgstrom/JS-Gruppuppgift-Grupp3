@@ -1,3 +1,4 @@
+@import "variables";
 @mixin tablet {
     @media screen and (min-width: 512px) {
         @content;
@@ -22,4 +23,45 @@
         transform: scale(107%);
         color: white;
     }
+}
+%burger-animation {
+    .burger-menu {
+        z-index: 100;
+        
+
+        .top-bun {
+          height: 5px;
+          width: 35px;
+          background-color: $secondary-color;
+          margin-bottom: 5px;
+          transition: transform 0.1s ease-in-out;
+        }
+        .patty {
+          height: 5px;
+          width: 35px;
+          background-color: $secondary-color;
+          margin-bottom: 5px;
+          transition: transform 0.1s ease-in-out;
+        }
+        .bottom-bun {
+          height: 5px;
+          width: 35px;
+          background-color: $secondary-color;
+          transition: transform 0.1s ease-in-out;
+        }
+        p {
+          color: $secondary-color;
+        }
+      }
+      .top-bun-toggle {
+        transform: rotate(-45deg);
+        margin-top: 10px;
+      }
+      .patty-toggle {
+        transform: rotate(45deg);
+        margin-top: -10px;
+      }
+      .bottom-bun-toggle {
+        transform: scale(0);
+      }
 }
