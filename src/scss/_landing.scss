@@ -49,6 +49,7 @@ body {
         width: 80%;
         flex-direction: column;
         align-items: center;
+        gap: 20px;
         @include mixins.tablet {
           display: flex;
         }
@@ -126,28 +127,32 @@ body {
         align-items: flex-end;
         height: 15%;
       }
-      button {
-        display: none;
-        height: 35px;
-        width: 200px;
-        font-size: 1rem;
-        background-color: $primary-color;
-        border-radius: 4px;
-        @include mixins.tablet {
-          display: unset;
-        }
-        @include mixins.desktop {
-          display: unset;
-        }
-      }
-      i {
-        font-size: 2rem;
+      a {
         color: white;
-        @include mixins.tablet {
+        text-decoration: none;
+        button {
           display: none;
+          height: 35px;
+          width: 200px;
+          font-size: 1rem;
+          background-color: $primary-color;
+          border-radius: 4px;
+          @include mixins.tablet {
+            display: unset;
+          }
+          @include mixins.desktop {
+            display: unset;
+          }
         }
-        @include mixins.desktop {
-          display: none;
+        i {
+          font-size: 2rem;
+          color: white;
+          @include mixins.tablet {
+            display: none;
+          }
+          @include mixins.desktop {
+            display: none;
+          }
         }
       }
     }
