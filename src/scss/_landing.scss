@@ -37,30 +37,7 @@ body {
       height: 80%;
       background-position: 1%;
     }
-    
 
-    .phone-icon-container {
-      height: 10%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-right: 10px;
-      margin-left: 10px;
-      @extend %burger-animation;
-      
-      @include mixins.tablet {
-        display: none;
-      }
-      @include mixins.desktop {
-        display: none;
-      }
-      .cart-icon {
-        i {
-          font-size: 2rem;
-          color: $secondary-color;
-        }
-      }
-    }
     .main-wrapper {
       height: 80%;
       display: flex;
