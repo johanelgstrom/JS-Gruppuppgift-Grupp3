@@ -1,148 +1,149 @@
 @use "mixins";
-@import "variables";
-@import "header";
-@import "footer";
+@use "variables";
+@use "header";
+@use "footer";
 
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Maven Pro", sans-serif;
 }
 
 #products-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "news";
-  @include mixins.desktop {
-    grid-template-columns: 200px 1fr 200px;
+    display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "left-bar news right-bar";
-  }
-  .left-bar {
-    display: none;
-    border: 2px solid black;
-    width: 200px;
+    grid-template-areas: "news";
     @include mixins.desktop {
-      display: grid;
-      grid-area: left-bar;
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-rows: 1fr;
+        grid-template-areas: "left-bar news right-bar";
     }
-  }
-  .right-bar {
-    display: none;
-    border: 2px solid black;
-    width: 200px;
-    @include mixins.desktop {
-      display: grid;
-      grid-area: right-bar;
-    }
-  }
-  .middle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    grid-area: news;
-
-    border: 4px solid yellow;
-    .news-container-header,
-    .campaigns-container-header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      border: 4px solid pink;
-      width: 90%;
-      h2 {
-        color: blue;
-      }
-      button {
-        color: green;
-      }
-    }
-    .news-container,
-    .campaigns-container {
-      justify-self: center;
-
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 20px;
-      flex-shrink: 0;
-
-      overflow-x: scroll;
-      width: 90%;
-      height: 300px;
-      border: 4px solid red;
-      @include mixins.tablet {
-        height: 350px;
-        gap: 40px;
-      }
-      @include mixins.desktop {
-        height: 300px;
-        gap: 30px;
-      }
-      .new-item,
-      .campaign-item {
-        display: inline-block;
+    .left-bar {
+        display: none;
         border: 2px solid black;
         width: 200px;
-        height: 300px;
-        @include mixins.tablet {
-          width: 250px;
-          height: 350px;
-        }
         @include mixins.desktop {
-          width: 200px;
-          height: 300px;
+            display: grid;
+            grid-area: left-bar;
         }
-      }
     }
-    .blue-line-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 2px solid rgb(255, 196, 0);
-      width: 100%;
-      height: 100px;
-      .blue-line {
-        width: 90%;
-        height: 3%;
-        background-color: rgb(0, 116, 248);
-      }
-    }
-    .products-container-header {
-      display: flex;
-      flex-direction: row;
-
-      border: 4px solid green;
-      width: 90%;
-      h2 {
-        color: brown;
-      }
-    }
-    .products-container {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 10px;
-
-      width: 90%;
-
-      border: 2px solid green;
-      @include mixins.tablet {
-        gap: 30px;
-      }
-      .product-item {
-        width: 150px;
-        height: 250px;
+    .right-bar {
+        display: none;
         border: 2px solid black;
-        @include mixins.tablet {
-          width: 200px;
-          height: 300px;
+        width: 200px;
+        @include mixins.desktop {
+            display: grid;
+            grid-area: right-bar;
         }
-      }
     }
-  }
+    .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        grid-area: news;
+
+        border: 4px solid yellow;
+        .news-container-header,
+        .campaigns-container-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            border: 4px solid pink;
+            width: 90%;
+            h2 {
+                color: blue;
+            }
+            button {
+                color: green;
+            }
+        }
+        .news-container,
+        .campaigns-container {
+            justify-self: center;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex-shrink: 0;
+
+            overflow-x: scroll;
+            width: 90%;
+            height: 300px;
+            border: 4px solid red;
+            @include mixins.tablet {
+                height: 350px;
+                gap: 40px;
+            }
+            @include mixins.desktop {
+                height: 300px;
+                gap: 30px;
+            }
+            .new-item,
+            .campaign-item {
+                display: inline-block;
+                border: 2px solid black;
+                width: 200px;
+                height: 300px;
+                @include mixins.tablet {
+                    width: 250px;
+                    height: 350px;
+                }
+                @include mixins.desktop {
+                    width: 200px;
+                    height: 300px;
+                }
+            }
+        }
+        .blue-line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid rgb(255, 196, 0);
+            width: 100%;
+            height: 100px;
+            .blue-line {
+                width: 90%;
+                height: 3%;
+                background-color: variables.$primary-color;
+            }
+        }
+        .products-container-header {
+            display: flex;
+            flex-direction: row;
+
+            border: 4px solid green;
+            width: 90%;
+            h2 {
+                color: brown;
+            }
+        }
+        .products-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            width: 90%;
+
+            border: 2px solid green;
+            @include mixins.tablet {
+                gap: 30px;
+            }
+            .product-item {
+                width: 150px;
+                height: 250px;
+                border: 2px solid black;
+                @include mixins.tablet {
+                    width: 200px;
+                    height: 300px;
+                }
+            }
+        }
+    }
 }
