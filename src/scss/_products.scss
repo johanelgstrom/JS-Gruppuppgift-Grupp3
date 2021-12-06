@@ -30,10 +30,16 @@
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-template-areas: "middle-part";
+
+    background-image: url(../../assets/images/backgrounds/products-mobile-background.svg);
+    background-size: contain;
+
     @include mixins.desktop {
         grid-template-columns: 200px 1fr 200px;
         grid-template-rows: 1fr;
         grid-template-areas: "left-bar middle-part right-bar";
+
+        background-image: none;
     }
     .left-bar {
         display: none;
