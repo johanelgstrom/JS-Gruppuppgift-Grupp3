@@ -21,11 +21,254 @@
     },
     {
         "id": 3,
-        "name": "Test",
-        "imagesUrl": ["TEST"],
-        "price": 300,
-        "description": "test",
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
         "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 4,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 5,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 6,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 7,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 8,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 9,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 10,
+        "name": "elias produkt",
+        "imagesUrl": [""],
+        "price": 0,
+        "description": "",
+        "categories": [],
+        "filter": [""]
+    },
+    {
+        "id": 11,
+        "name": "Pennfodral, Karp",
+        "imagesUrl": ["https://www.scoutmag.ph/wp-content/uploads/2020/10/weird-fish-pouch-lazada-shopee.jpg"],
+        "price": 149,
+        "description": "Störiga klasskamrater? Med hjälp av detta fruktansvärt vidriga pennfodral så kommer ingen någonsin sitta bredvid dig i klassrummet igen. Perfekt för ensamvargen eller fiskälskaren.",
+        "categories": ["Kläder"],
+        "filter": ["Onormal"]
+    },
+    {
+        "id": 12,
+        "name": "Kökskniv mobilskal",
+        "imagesUrl": ["https://www.scoutmag.ph/wp-content/uploads/2020/10/knife-phone-case-lazada-shopee.jpg"],
+        "price": 199,
+        "description": "Svårt att laga mat och dokumentera din fantastiska skapelse samtidigt? Detta mobilskal är då den perfekta lösningen. Du kan nu ta din instagram feed till nästa nivå!",
+        "categories": ["Mobil"],
+        "filter": ["Onormal"]
+    },
+    {
+        "id": 13,
+        "name": "Kalender, bajsande hundar",
+        "imagesUrl": ["https://helios-i.mashable.com/imagery/articles/00NfHWB3BVmnayJhOUYXr35/images-1.fit_lim.size_2000x.v1624239926.jpg"],
+        "price": 199,
+        "description": "Otroligt söt (och weird), kalender. Olika dofter för varje månad.",
+        "categories": ["Heminredning"],
+        "filter": ["Konstig"]
+    },
+    {
+        "id": 14,
+        "name": "Putin rider björn prydnad",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/51PKrGEerwL._AC_SL1001_.jpg"],
+        "price": 499,
+        "description": "En levande meme. Finns det ens någon så bra meme alls? Precis, detta köp är en no-brainer. OBS! Inte lifesized (sorry), 5cm hög.",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 15,
+        "name": "NoPhone Air",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/614r61MyCWL._AC_SL1000_.jpg"],
+        "price": 8990,
+        "description": "Du klickade på denna artikel för att du är en tech-fantast. Detta är det senaste släppet från Bapelsin som du verkligen inte vill missa. Passar alla handstorlekar.",
+        "categories": ["Mobil"],
+        "filter": ["Jättekonstig"]
+    },
+    {
+        "id": 16,
+        "name": "White trash cooking",
+        "imagesUrl": ["https://images-na.ssl-images-amazon.com/images/I/61xcP2461dL._SX393_BO1,204,203,200_.jpg"],
+        "price": 299,
+        "description": "Önskar du att du bodde i en trailer park med fantastiska människor liknande Bubbles, Rick och Jim Lahey? Så enkelt är det inte men för att förbereda dig på white trash trailer park-livet så måste du veta hur man lagar de perfekt trashiga chicken fingers.",
+        "categories": ["Kök"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 17,
+        "name": "Fisktofflor",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/81GnvG20tkL._AC_UY535_.jpg"],
+        "price": 399,
+        "description": "Foppatofflor? Nej. Birkenstocks? Nej. Extremt sköna och kladdiga abborretofflor? Ja.",
+        "categories": ["Kläder"],
+        "filter": ["Jättekonstig", "Vad i hela världen"]
+    },
+    {
+        "id": 18,
+        "name": "Kycklingarmar",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/710krDjVchL._AC_SL1500_.jpg"],
+        "price": 99,
+        "description": "Har dina tuppar svårt att avgöra vem som är alphahanen? Ge dem varsin av denna produkt och både du och tupparna vet vem det är som bestämmer.",
+        "categories": ["Djur"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 19,
+        "name": "Rökt skallerorm",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/71DawbUDc4L._SL1280_.jpg"],
+        "price": 299,
+        "description": "Trist julbord? Krydda upp det enkelt med rökt skallerorm. Konsistens som leverpastej, lukt som svett och smak som surströmming.",
+        "categories": ["Kök"],
+        "filter": ["Jättekonstig", "Vad i hela världen"]
+    },
+    {
+        "id": 20,
+        "name": "Näsflöjt",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/51W4sXlW-oL._AC_.jpg"],
+        "price": 99,
+        "description": "We get it, du spelar Wonderwall jättebra på gitarr men ibland räcker det inte hela vägen för att gå med i ett band. Efter endast en veckas träning med detta underbara och lätta instrument kan du lätt gå med i självaste Oasis. You're my wonderwaaaaaaaaaaaaaaaaaaaaaall",
+        "categories": ["Musik"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 21,
+        "name": "Odla en bajskorv",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/71wLPu5aGEL._AC_SL1294_.jpg"],
+        "price": 59,
+        "description": "Odla din alldeles egna bajs-emoji, det ända du behöver göra är att tillsätta vatten.",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal"]
+    },
+    {
+        "id": 22,
+        "name": "Par ankfötter",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/51oiUlzJt6L._AC_SL1001_.jpg"],
+        "price": 99,
+        "description": "Om någon skriker, anka! De pratar bara om din hand att lägga dessa ankfötter på spetsarna på fingrarna och att gå igenom pölar kommer att få dina vänner att quacka! Denna tilltalande 5,4 cm webbade undrar är gjord av mjuk vinyl. Den hjälper dig inte att simma, men din hand kommer att vaddla upp en storm! Levereras med en enda ankfot.",
+        "categories": ["Accessoarer"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 23,
+        "name": "Nyckelpigor i burk",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/81duCVGexpL._AC_SL1500_.jpg"],
+        "price": 299,
+        "description": "Det finns säkert massor av vettiga anledningar till varför man skulle behöva c:a 1.500 levande nyckelpigor. Såvitt jag vet så är de bra mot skadedjur.Man kan säkert hitta nån pop-diet som förespråkar dem i smoothie också.",
+        "categories": ["Kök"],
+        "filter": ["Jättekonstig", "Vad i hela världen"]
+    },
+    {
+        "id": 24,
+        "name": "Donald Trump kartongfigur",
+        "imagesUrl": ["https://static.partyking.org/fit-in/1300x0/products/original/donald-trump-kartongfigur-1.jpg"],
+        "price": 349,
+        "description": "Vill du också vakna upp av att Donald Trump står vid sängaveln och viskar: billions and billions and billions and billions? Då kommer du sannerligen älska denna kartongfigur! ",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 25,
+        "name": "Shackbräda för tre",
+        "imagesUrl": ["https://static.partyking.org/fit-in/1300x0/products/original/schack-for-tre-1.jpg"],
+        "price": 599,
+        "description": "Med denna fantastiska uppfinning kan ni spela schack med hela tre personer istället för två! What.. hur går det till? Reglerna har inte alls ändrats, det finns nu bara ett tilläggsprotokoll som skall följas för att upprätthålla ordningen mellan varje spelare. Schack för tre låter svårare än vad det är, du spelar bara som vanligt, fast med ytterligare en spelare! ",
+        "categories": ["Spel"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 26,
+        "name": "En burk med ingenting",
+        "imagesUrl": ["https://varuhus1.se/cache/b5/500x300-burk.ingenting.jpg"],
+        "price": 49,
+        "description": "Kort och gott en glasburk med plåtlock med ingenting. Burken har texten En burk med ingenting När du fått frågan vad du önskar dig har du svarat med INGENTING. Den här gången är det någon som hört dig, letat och sökt överallt för att till slut hitta denna perfekta gåvan. Mått:8,5x10cm.",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 27,
+        "name": "Tvålnäsa",
+        "imagesUrl": ["https://www.coolstuff.se/pub_images/original/1616_01.jpg?extend=copy&method=resize&type=auto&width=1656&height=1242"],
+        "price": 99,
+        "description": "Av alla saker det kan komma klet ur är näsan en av de jobbigaste och tub med duschkräm en av de mest glädjande. Hur ofta har du inte svurit över en ovälkommen förkylning* eller, för den delen, över att stå i duschen och vilja bli ren men upptäcka att duschkrämen är slut? Därför bör du naturligtvis ha en näsa på duschväggen. Inte din egen utan en näsa fylld av duschkräm. Tryck, klet, klart. Ingen förkylning, ingen smutsighet. Perfekt.",
+        "categories": ["Badrum"],
+        "filter": ["Konstig", "Jättekonstig"]
+    },
+    {
+        "id": 28,
+        "name": "Happy Face Trainer",
+        "imagesUrl": ["https://m.media-amazon.com/images/I/71Az0ixDVzL._AC_SL1500_.jpg"],
+        "price": 199,
+        "description": "Du kanske tycker att du har ett vackert leende? Fel, fel, fel! Man kan aldrig ha ett tillräckligt vackert leende utan den fantastiska Happy Face Trainer! Tydligen... Happy Face Trainer är i alla fall ett träningsredskap som tydligen stärker dina skrattmuskler. Den som inte har tillräckligt vackert leende har alltså inte pumpat upp sina skrattmuskler ordentligt.",
+        "categories": ["Accessoarer"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 29,
+        "name": "Flick- & Pojkvänskudde",
+        "imagesUrl": ["https://static.partyking.org/fit-in/1300x0/products/original/pojkvanskudde-6.jpg"],
+        "price": 199,
+        "description": "Äntligen kan du smyga iväg på natten utan att din älskade ska vakna av din saknade famn. Denna kramkudde är den ultimata kudden för dig eller den som har svårt att somna ensam om natten. Du lägger bara huvudet på kudden varpå handen på kudden kramar om dig. Bättre än äkta vara då den varken rör på sig eller klagar på dina snarkningar.",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal", "Konstig"]
+    },
+    {
+        "id": 30,
+        "name": "Toalett golf",
+        "imagesUrl": ["https://www.coolstuff.se/pub_images/original/1085_01.jpg?extend=copy&method=resize&type=auto&width=1656&height=1242"],
+        "price": 179,
+        "description": "Golf, strax över ostbågar och strax under rökheroin på listan över beroendeframkallande saker. För den inbitne golfaren finns det inget tillfälle som inte skulle bli bättre med lite golf inblandat. En regnruskig söndagsmorgon runt halv sju? Golf. Sen kväll i november? Golf (med pannlampa). Syrrans bröllopsdag.... ja, ni fattar. Varje sekund är en bra sekund att öva puttar. Men det finns tillfällen då även den mest fanatiske golfentusiast måste hejda sig och sitta ner. Eller, det fanns kanske man ska säga. Vi har nämligen - som namnet på den här produkten tydligt demonstrerar - löst det problemet nu. Nu kan du utnyttja tiden maximalt och i tid och otid finputsa dina puttar samtidigt som du utövar andra nödvändiga behov.",
+        "categories": ["Badrum"],
         "filter": ["Onormal", "Konstig"]
     }
 ]
