@@ -14,11 +14,11 @@
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "news";
+    grid-template-areas: "middle-part";
     @include mixins.desktop {
         grid-template-columns: 200px 1fr 200px;
         grid-template-rows: 1fr;
-        grid-template-areas: "left-bar news right-bar";
+        grid-template-areas: "left-bar middle-part right-bar";
     }
     .left-bar {
         display: none;
@@ -43,22 +43,19 @@
         flex-direction: column;
         align-items: center;
 
-        grid-area: news;
-
-        border: 4px solid yellow;
+        grid-area: middle-part;
         .news-container-header,
         .campaigns-container-header {
             display: flex;
             flex-direction: row;
             justify-content: space-between;
 
-            border: 4px solid pink;
             width: 90%;
             h2 {
-                color: blue;
+                color: black;
             }
             button {
-                color: green;
+                color: black;
             }
         }
         .news-container,
@@ -71,10 +68,10 @@
             gap: 20px;
             flex-shrink: 0;
 
+            border: 1px solid grey;
             overflow-x: scroll;
             width: 90%;
             height: 300px;
-            border: 4px solid red;
             @include mixins.tablet {
                 height: 350px;
                 gap: 40px;
@@ -103,7 +100,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            border: 2px solid rgb(255, 196, 0);
+
             width: 100%;
             height: 100px;
             .blue-line {
@@ -116,10 +113,12 @@
             display: flex;
             flex-direction: row;
 
-            border: 4px solid green;
             width: 90%;
+            @include mixins.desktop {
+                width: 80%;
+            }
             h2 {
-                color: brown;
+                color: black;
             }
         }
         .products-container {
@@ -130,8 +129,6 @@
             gap: 10px;
 
             width: 90%;
-
-            border: 2px solid green;
             @include mixins.tablet {
                 gap: 30px;
             }
