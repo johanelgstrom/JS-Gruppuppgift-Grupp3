@@ -45,20 +45,24 @@
     }
     .left-bar {
         display: none;
-        border: 2px solid black;
         width: 200px;
         @include mixins.desktop {
             display: grid;
             grid-area: left-bar;
+
+            background-image: url(../../assets/images/backgrounds/products-desktop-left-background.svg);
+            background-size: contain;
         }
     }
     .right-bar {
         display: none;
-        border: 2px solid black;
         width: 200px;
         @include mixins.desktop {
             display: grid;
             grid-area: right-bar;
+
+            background-image: url(../../assets/images/backgrounds/products-desktop-right-background.svg);
+            background-size: contain;
         }
     }
     .middle {
