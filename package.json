@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "parcel src/index.html",
-        "build/products": "parcel src/pages/products.html",
+        "build/browse": "parcel src/pages/browse.html",
         "build/product": "parcel src/pages/product.html",
         "build/checkout": "parcel src/pages/checkout.html",
         "build/receipt": "parcel src/pages/receipt.html",
