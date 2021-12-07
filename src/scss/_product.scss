@@ -9,6 +9,21 @@
     box-sizing: border-box;
 }
 
+.product-similiar-product::-webkit-scrollbar {
+    width: 20px;
+}
+.product-similiar-product::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+.product-similiar-product::-webkit-scrollbar-thumb {
+    background: rgb($color: #038537, $alpha: 0.8);
+    border-radius: 10px;
+}
+.product-similiar-product::-webkit-scrollbar-thumb:hover {
+    background: rgb($color: #038537, $alpha: 0.8);
+}
+
 #product-header {
     height: 20%;
     display: none;
