@@ -5,12 +5,151 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Onormal</title>
+
+        <!-- MAIN SCSS -->
+        <link rel="stylesheet" href="../scss/main.scss" />
+
+        <!-- MAIN TS -->
+        <script type="module" src="../ts/main.ts"></script>
+
+        <!-- GOOGLE FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- FONT AWSOME -->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+            crossorigin="anonymous"
+        />
     </head>
-    <body>
-        <header></header>
+    <body id="receipt-body">
+        <header id="receipt-header">
+            <a href="javascript:history.back()"
+                ><i class="fas fa-arrow-left"></i
+            ></a>
+            <h2>Kvitto</h2>
+        </header>
 
-        <main></main>
+        <main id="receipt-main">
+            <!-- BASKET AND TOTAL -->
+            <div id="thank-you">
+                <h3>Tack så mycket!</h3>
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div id="basket-total-wrapper">
+                <!-- BASKET -->
+                <div id="basket-container">
+                    <h4 id="basket-title">Din varukorg</h4>
+                    <div id="basket">
+                        <div id="basket-inner-wrapper">
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                            <div class="product">Test Product</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- TOTAL COST -->
+                <div id="total-cost-container">
+                    <h2 id="total-cost">Total: 9500kr</h2>
+                    <div id="blue-line"></div>
+                </div>
+            </div>
 
-        <footer></footer>
+            <!-- CUSTOMER DETAILS -->
+            <div id="customer-details-container">
+                <div id="input-wrapper">
+                    <div id="input-container">
+                        <!-- NAME SECTION -->
+                        <div id="name-section">
+                            <!-- FIRST NAME -->
+                            <div>
+                                <label for="customer-firstname">Förnamn</label>
+                                <input id="customer-firstname" type="text" />
+                            </div>
+
+                            <!-- LAST NAME -->
+                            <div>
+                                <label for="customer-lastname">Efternamn</label>
+                                <input id="customer-lastname" type="text" />
+                            </div>
+                        </div>
+
+                        <!-- MOBILE ADRESS SECTION -->
+                        <div id="mobile-adress-section">
+                            <div>
+                                <!-- MOBILE NUMBER -->
+                                <label for="customer-mobile"
+                                    >Mobilnummer (+46)</label
+                                >
+                                <input id="customer-mobile" type="text" />
+                            </div>
+
+                            <div>
+                                <!-- CUSTOMER ADRESS -->
+                                <label for="customer-adress">Adress</label>
+                                <input id="customer-adress" type="text" />
+                            </div>
+                        </div>
+
+                        <!-- DELIVERY CARD SECTION -->
+                        <div id="delivery-card-section">
+                            <div>
+                                <!-- DELIVERY CHOICE -->
+                                <label for="customer-delivery"
+                                    >Leveranssätt</label
+                                >
+                                <select id="customer-delivery">
+                                    <option value="PostNord">Post Nord</option>
+                                    <option value="USP">USP</option>
+                                    <option value="InstaBox">InstaBox</option>
+                                </select>
+                            </div>
+                            <!-- CUSTOMER CARD INFO -->
+                            <div>
+                                <div id="customer-card-container">
+                                    <div id="customer-card-number-container">
+                                        <label for="customer-card"
+                                            >Kortnummer</label
+                                        >
+                                        <input
+                                            id="customer-card"
+                                            type="number"
+                                        />
+                                    </div>
+
+                                    <div id="customer-card-cvc-container">
+                                        <label for="customer-card-cvc"
+                                            >CVC</label
+                                        >
+                                        <input
+                                            id="customer-card-cvc"
+                                            type="number"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- CONFIRM BUTTON -->
+                        <button id="pay-button">Betala</button>
+                    </div>
+
+                    <div id="basket-details-container">
+                        <div id="details">
+                            <h5>Details</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>

@@ -65,19 +65,27 @@
             <div id="customer-details-container">
                 <h4 id="input-title">Fyll i här</h4>
                 <div id="input-wrapper">
-                    <div id="input-container">
+                    <form id="input-container">
                         <!-- NAME SECTION -->
                         <div id="name-section">
                             <!-- FIRST NAME -->
                             <div>
                                 <label for="customer-firstname">Förnamn</label>
-                                <input id="customer-firstname" type="text" />
+                                <input
+                                    id="customer-firstname"
+                                    name="firstname"
+                                    type="text"
+                                />
                             </div>
 
                             <!-- LAST NAME -->
                             <div>
                                 <label for="customer-lastname">Efternamn</label>
-                                <input id="customer-lastname" type="text" />
+                                <input
+                                    id="customer-lastname"
+                                    name="lastname"
+                                    type="text"
+                                />
                             </div>
                         </div>
 
@@ -88,13 +96,21 @@
                                 <label for="customer-mobile"
                                     >Mobilnummer (+46)</label
                                 >
-                                <input id="customer-mobile" type="text" />
+                                <input
+                                    id="customer-mobile"
+                                    name="mobile"
+                                    type="text"
+                                />
                             </div>
 
                             <div>
                                 <!-- CUSTOMER ADRESS -->
                                 <label for="customer-adress">Adress</label>
-                                <input id="customer-adress" type="text" />
+                                <input
+                                    id="customer-adress"
+                                    name="adress"
+                                    type="text"
+                                />
                             </div>
                         </div>
 
@@ -105,7 +121,7 @@
                                 <label for="customer-delivery"
                                     >Leveranssätt</label
                                 >
-                                <select id="customer-delivery">
+                                <select id="customer-delivery" name="delivery">
                                     <option value="PostNord">Post Nord</option>
                                     <option value="USP">USP</option>
                                     <option value="InstaBox">InstaBox</option>
@@ -121,6 +137,7 @@
                                         <input
                                             id="customer-card"
                                             type="number"
+                                            name="card-number"
                                         />
                                     </div>
 
@@ -131,14 +148,15 @@
                                         <input
                                             id="customer-card-cvc"
                                             type="number"
+                                            name="card-cvc"
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- CONFIRM BUTTON -->
-                        <button id="pay-button">Betala</button>
-                    </div>
+                        <input id="pay-button" type="submit" value="Betala"></input>
+                    </form>
 
                     <div id="basket-details-container">
                         <div id="details">
