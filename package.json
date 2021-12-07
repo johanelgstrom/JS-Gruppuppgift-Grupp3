@@ -7,6 +7,7 @@
         "test": "echo \"Error: no test specified\" && exit 1",
         "build": "parcel src/index.html",
         "build/products": "parcel src/pages/products.html",
+        "build/product": "parcel src/pages/product.html",
         "build/checkout": "parcel src/pages/checkout.html",
         "build/receipt": "parcel src/pages/receipt.html",
         "cypress:open": "cypress open"
@@ -18,6 +19,7 @@
     },
     "devDependencies": {
         "@parcel/transformer-sass": "^2.0.1",
-        "parcel": "^2.0.1"
+        "parcel": "^2.0.1",
+        "typescript": "^4.5.2"
     }
 }

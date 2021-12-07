@@ -16,9 +16,58 @@
             integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
             crossorigin="anonymous"
         />
+        <!-- FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap"
+            rel="stylesheet"
+        />
     </head>
     <body id="product-body">
-        <header id="product-header"></header>
+        <header id="product-header">
+            <div class="header-top">
+                <div class="social-container">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                </div>
+                <div class="slogan-container">
+                    <p>Onormal är det nya normala</p>
+                </div>
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="menu-search-container">
+                    <div class="burger-container">
+                        <div class="burger-menu" id="burger-menu">
+                            <div class="top-bun" id="top-bun"></div>
+                            <div class="patty" id="patty"></div>
+                            <div class="bottom-bun" id="bottom-bun"></div>
+                        </div>
+                        <p>Meny</p>
+                    </div>
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Sök" />
+                    </div>
+                </div>
+                <div class="header-logo-container">
+                    <img
+                        src="/assets/images/logo/logotype-tablet.svg"
+                        alt="Onormal logga"
+                        id="logo-tablet"
+                    />
+                    <img
+                        src="/assets/images/logo/logotype-desktop.svg"
+                        alt="Onormal logga"
+                        id="logo-desktop"
+                    />
+                </div>
+            </div>
+        </header>
         <!-- MAIN PART-->
         <main id="product-main">
             <!-- BACK ICON -->
@@ -33,7 +82,7 @@
                 <!-- Contains pictures from each individual product and and two buttons that trigger the image to go right and left -->
                 <div class="product-image-container">
                     <i id="left-arrow" class="fas fa-chevron-left"></i>
-                    <div class="product-image"></div>
+                    <div class="product-image">Image</div>
                     <i id="right-arrow" class="fas fa-chevron-right"></i>
                 </div>
                 <!-- PRODUCT TITLE -->

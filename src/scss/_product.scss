@@ -9,6 +9,21 @@
     box-sizing: border-box;
 }
 
+#product-header {
+    height: 20%;
+    display: none;
+    @extend %headertop;
+    @extend %headerbottom;
+    @include mixins.tablet {
+        display: flex;
+        flex-direction: column;
+    }
+    @include mixins.desktop {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 #product-main {
     display: flex;
     flex-direction: column;
@@ -20,9 +35,7 @@
         justify-content: flex-start;
 
         width: 95%;
-        height: 50px;
-        border: 2px solid blue;
-
+        height: 100px;
         #back-icon {
             font-size: 30px;
         }
@@ -31,8 +44,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
-        border: 3px solid yellow;
         @include mixins.tablet {
             align-self: center;
 
@@ -66,14 +77,14 @@
 
             width: 90%;
             height: 450px;
-            border: 2px solid black;
+            border: 2px solid grey;
             @include mixins.tablet {
                 grid-area: product-image;
 
                 width: 110%;
             }
             @include mixins.desktop {
-                width: 100%;
+                width: 95%;
             }
             #left-arrow {
                 font-size: 30px;
@@ -84,9 +95,12 @@
                 opacity: 0.4;
             }
             .product-image {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
                 width: 80%;
                 height: 80%;
-                border: 2px solid purple;
             }
         }
         .product-title-container {
@@ -94,7 +108,6 @@
             align-items: center;
             justify-content: center;
 
-            border: 2px solid purple;
             width: 90%;
             height: 80px;
             @include mixins.tablet {
@@ -104,10 +117,7 @@
                 width: 110%;
             }
             @include mixins.desktop {
-                width: 100%;
-            }
-            .product-title {
-                border: 2px solid black;
+                width: 95%;
             }
         }
         .product-information-container {
@@ -117,7 +127,7 @@
 
             width: 90%;
             height: 200px;
-            border: 2px solid black;
+            border: 2px solid grey;
             @include mixins.tablet {
                 justify-self: flex-end;
                 grid-area: product-information;
@@ -132,7 +142,6 @@
             .product-information {
                 width: 90%;
                 height: 90%;
-                border: 2px solid blue;
                 @include mixins.tablet {
                     height: 80%;
                 }
@@ -149,7 +158,6 @@
 
             width: 90%;
             height: 50px;
-            border: 2px solid red;
             @include mixins.tablet {
                 justify-self: flex-end;
                 align-items: flex-start;
@@ -169,7 +177,6 @@
                 justify-content: space-between;
 
                 width: 40%;
-                border: 2px solid yellow;
                 @include mixins.desktop {
                     width: 90%;
                 }
@@ -179,7 +186,7 @@
                 #add-button {
                     font-size: larger;
                     color: white;
-                    background-color: blue;
+                    background-color: variables.$primary-color;
                 }
             }
         }
@@ -188,13 +195,13 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 2px solid rgb(255, 196, 0);
+
         width: 100%;
         height: 60px;
         .product-blueline {
             width: 90%;
             height: 5%;
-            background-color: rgb(0, 116, 248);
+            background-color: variables.$primary-color;
         }
     }
     .product-similiar-title-container {
@@ -206,17 +213,12 @@
 
         width: 90%;
         height: 40px;
-        border: 2px solid green;
-        .product-similiar-title {
-            border: 2px solid red;
-        }
     }
     .product-similiar-product-container {
         display: flex;
         justify-content: center;
 
         height: 300px;
-        border: 2px solid blue;
         @include mixins.tablet {
             align-self: center;
 
