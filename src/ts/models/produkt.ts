@@ -104,3 +104,11 @@ export function getProductById(id: number, products: Product[]): Product[] {
     }
     return [];
 }
+
+//Find all products which match the current list of IDs
+// export function getProductsByIds(
+//     ids: number[],
+//     products: Product[]
+// ): Product[] {
+//     return;
+// }
