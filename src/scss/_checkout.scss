@@ -1,6 +1,17 @@
 @use "mixins";
 @use "variables";
 
+@keyframes rotation {
+    from {
+        transform-origin: center center;
+        transform: rotate(0deg);
+    }
+    to {
+        transform-origin: center center;
+        transform: rotate(360deg);
+    }
+}
+
 #checkout-body {
     background-color: variables.$secondary-color;
 
@@ -207,6 +218,7 @@
                     #customer-mobile,
                     #customer-adress,
                     #customer-delivery,
+                    #customer-region,
                     #customer-card-number-container > input,
                     #customer-card-cvc-container > input {
                         width: 100%;
@@ -238,25 +250,25 @@
                     }
 
                     #pay-button {
-                        border: none;
                         background-color: variables.$primary-color;
                         padding: 10px;
                         width: 150px;
                         height: 50px;
+
+                        font-size: 16pt;
+                        color: white;
+                        border: none;
                         border-radius: 5px;
+
                         margin-top: 20px;
 
                         @extend %clickable;
+                    }
 
-                        input {
-                            font-size: 16pt;
-                            color: white;
-                            border: none;
-                            width: 100%;
-                            height: 100%s;
-                            background-color: variables.$primary-color;
-                            pointer-events: none;
-                        }
+                    .rotating {
+                        color: white;
+                        font-size: 22px;
+                        animation: rotation 2s linear infinite;
                     }
 
                     @include mixins.desktop {

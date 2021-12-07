@@ -46,11 +46,6 @@
                         <div id="basket-inner-wrapper">
                             <div class="product">Test Product</div>
                             <div class="product">Test Product</div>
-                            <div class="product">Test Product</div>
-                            <div class="product">Test Product</div>
-                            <div class="product">Test Product</div>
-                            <div class="product">Test Product</div>
-                            <div class="product">Test Product</div>
                         </div>
                     </div>
                 </div>
@@ -74,6 +69,7 @@
                                 <input
                                     id="customer-firstname"
                                     type="text"
+                                    required
                                 />
                             </div>
 
@@ -83,6 +79,7 @@
                                 <input
                                     id="customer-lastname"
                                     type="text"
+                                    required
                                 />
                             </div>
                         </div>
@@ -96,7 +93,8 @@
                                 >
                                 <input
                                     id="customer-mobile"
-                                    type="text"
+                                    type="tel"
+                                    required
                                 />
                             </div>
 
@@ -106,6 +104,16 @@
                                 <input
                                     id="customer-adress"
                                     type="text"
+                                    required
+                                />
+                            </div>
+
+                            <div>
+                                <label for="customer-region">Postnummer</label>
+                                <input
+                                    id="customer-region"
+                                    type="text"
+                                    required
                                 />
                             </div>
                         </div>
@@ -117,7 +125,7 @@
                                 <label for="customer-delivery"
                                     >Leveranssätt</label
                                 >
-                                <select id="customer-delivery">
+                                <select id="customer-delivery" required>
                                     <option value="PostNord">Post Nord</option>
                                     <option value="USP">USP</option>
                                     <option value="InstaBox">InstaBox</option>
@@ -133,7 +141,7 @@
                                         <input
                                             id="customer-card"
                                             type="number"
-                                        
+                                            required
                                         />
                                     </div>
 
@@ -144,16 +152,14 @@
                                         <input
                                             id="customer-card-cvc"
                                             type="number"
-                        
+                                            required
                                         />
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <!-- CONFIRM BUTTON -->
-                        <a id="pay-button" href="./receipt.html">
-                            <input type="submit" value="Betala"></input>
-                        </a>
+                        <button id="pay-button" type="submit">Betala</button>
                     </form>
 
                     <div id="basket-details-container">

@@ -3,6 +3,7 @@ export class Customer {
     lastname: string;
     mobile: string;
     adress: string;
+    region: string;
     delivery: string;
     cardNumber: number;
     cardCvc: number;
@@ -12,6 +13,7 @@ export class Customer {
         lName: string,
         mobile: string,
         adress: string,
+        region: string,
         delivery: string,
         cardNum: number,
         cardCvc: number
@@ -20,6 +22,7 @@ export class Customer {
         this.lastname = lName;
         this.mobile = mobile;
         this.adress = adress;
+        this.region = region;
         this.delivery = delivery;
         this.cardNumber = cardNum;
         this.cardCvc = cardCvc;
