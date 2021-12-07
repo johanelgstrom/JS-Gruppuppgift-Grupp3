@@ -4,13 +4,156 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Onormal</title>
+        <title>Onormal-products</title>
+        <!-- MAIN SCSS -->
+        <link rel="stylesheet" href="../scss/main.scss" />
+        <!-- MAIN TYPESCRIPT-->
+        <script type="module" src="../ts/main.ts"></script>
+        <!-- LINK TO FONTAWESOME-->
+        <link
+            rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+            integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+            crossorigin="anonymous"
+        />
+        <!-- FONT -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Maven+Pro&display=swap"
+            rel="stylesheet"
+        />
     </head>
-    <body>
-        <header></header>
-
-        <main></main>
-
-        <footer></footer>
+    <body id="products-body">
+        <header id="products-header">
+            <div class="header-top">
+                <div class="social-container">
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-facebook-square"></i>
+                    <i class="fab fa-twitter-square"></i>
+                </div>
+                <div class="slogan-container">
+                    <p>Onormal är det nya normala</p>
+                </div>
+                <div class="cart-container">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+            </div>
+            <div class="header-bottom">
+                <div class="menu-search-container">
+                    <div class="burger-container">
+                        <div class="burger-menu" id="burger-menu">
+                            <div class="top-bun" id="top-bun"></div>
+                            <div class="patty" id="patty"></div>
+                            <div class="bottom-bun" id="bottom-bun"></div>
+                        </div>
+                        <p>Meny</p>
+                    </div>
+                    <div class="search">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Sök" />
+                    </div>
+                </div>
+                <div class="header-logo-container">
+                    <img
+                        src="/assets/images/logo/logotype-tablet.svg"
+                        alt="Onormal logga"
+                        id="logo-tablet"
+                    />
+                    <img
+                        src="/assets/images/logo/logotype-desktop.svg"
+                        alt="Onormal logga"
+                        id="logo-desktop"
+                    />
+                </div>
+            </div>
+        </header>
+        <main id="products-main">
+            <!-- SLIDE-IN MENU -->
+            <div class="menu-container" id="menu-container">
+                <div class="menu-logo-container">
+                    <img
+                        src="/assets/images/logo/logotype-mobile.svg"
+                        alt="Onormal logga"
+                    />
+                </div>
+                <ul class="menu-list">
+                    <a href="http://dn.se"><li class="menu-item">Hem</li></a>
+                    <a href="http://dn.se"
+                        ><li class="menu-item">Produkter</li></a
+                    >
+                    <a href="http://dn.se"
+                        ><li class="menu-item">Kampanjer</li></a
+                    >
+                    <a href="http://dn.se"
+                        ><li class="menu-item">Nyheter</li></a
+                    >
+                    <a href="http://dn.se"
+                        ><li class="menu-item">Information</li></a
+                    >
+                    <a href="http://dn.se"
+                        ><li class="menu-item menu-item-last">Kontakt</li></a
+                    >
+                </ul>
+            </div>
+            <!-- RIGHT DESKTOP BAR -->
+            <!-- Contains wallpaper of design purpose -->
+            <div class="right-bar"></div>
+            <!-- LEFT DESKTOP BAR -->
+            <!-- Contains wallpaper of design purpose -->
+            <div class="left-bar"></div>
+            <!-- MIDDLE-->
+            <!-- Contains all content for the website -->
+            <div class="middle">
+                <!-- NEWS CONTAINER -->
+                <!-- Contains all news products -->
+                <div class="news-container-header" id="news">
+                    <h2>Nyheter</h2>
+                    <button>Test</button>
+                </div>
+                <div class="news-container">
+                    <div class="new-item"></div>
+                    <div class="new-item"></div>
+                    <div class="new-item"></div>
+                    <div class="new-item"></div>
+                </div>
+                <!-- CAMPAIGNS CONTAINER -->
+                <!-- Contains all promotional products -->
+                <div class="campaigns-container-header" id="campaigns">
+                    <h2>Kampanjer</h2>
+                    <button>Test</button>
+                </div>
+                <div class="campaigns-container">
+                    <div class="campaign-item"></div>
+                    <div class="campaign-item"></div>
+                    <div class="campaign-item"></div>
+                    <div class="campaign-item"></div>
+                </div>
+                <!-- BLUE LINE -->
+                <!-- Contains a blue line for design purposes -->
+                <div class="blue-line-container">
+                    <div class="blue-line"></div>
+                </div>
+                <!-- PRODUCTS CONTAINER -->
+                <!-- Contains all available products on the site -->
+                <div class="products-container-header" id="products">
+                    <h2>Produkter</h2>
+                </div>
+                <div class="products-container">
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                    <div class="product-item"></div>
+                </div>
+            </div>
+        </main>
     </body>
 </html>
