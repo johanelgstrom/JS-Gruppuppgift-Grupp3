@@ -9,6 +9,21 @@
     box-sizing: border-box;
 }
 
+#product-header {
+    height: 20%;
+    display: none;
+    @extend %headertop;
+    @extend %headerbottom;
+    @include mixins.tablet {
+        display: flex;
+        flex-direction: column;
+    }
+    @include mixins.desktop {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 #product-main {
     display: flex;
     flex-direction: column;
@@ -20,7 +35,7 @@
         justify-content: flex-start;
 
         width: 95%;
-        height: 50px;
+        height: 100px;
         #back-icon {
             font-size: 30px;
         }
