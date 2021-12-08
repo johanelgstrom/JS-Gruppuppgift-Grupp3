@@ -23,19 +23,6 @@ let cart: number[][] = [];
 
 window.onload = function (): void {
     runTests();
-    let mobileBurger: HTMLDivElement = document.getElementById(
-        "burger-menu-phone"
-    ) as HTMLDivElement;
-    mobileBurger.addEventListener("click", menuSlideIn);
-    let burger: HTMLDivElement = document.getElementById(
-        "burger-menu"
-    ) as HTMLDivElement;
-    burger.addEventListener("click", menuSlideIn);
-    
-    let mobileCart: HTMLDivElement = document.getElementById("cart-icon") as HTMLDivElement;
-    mobileCart.addEventListener("click", cartSlideIn);
-    let cart: HTMLDivElement = document.getElementById("cart-container") as HTMLDivElement;
-    cart.addEventListener("click", cartSlideIn);
 };
 
 function runTests(): void {
@@ -67,8 +54,9 @@ function runTests(): void {
     let product: Product[] = getProductById(id, products);
     console.log("BY ID ", id, ": ", product);
 }
-
-function menuSlideIn() {
+// Meny, gör så att menyn kommer in/ut, även animering för ikonen
+// Om din sida har en hamburgarmeny, importera denna
+export function menuSlideIn() {
     let menu: HTMLDivElement = document.getElementById(
         "menu-container"
     ) as HTMLDivElement;
@@ -107,6 +95,30 @@ function menuSlideIn() {
         topBun.classList.add("top-bun-toggle");
         patty.classList.add("patty-toggle");
         bottomBun.classList.add("bottom-bun-toggle");
+    }
+}
+// Varukorg, gör så att varukorgen kommer in/ut, även viss animering för ikonerna
+// Om din sida har en varukorg, importera denna
+export function cartSlideIn() {
+    let basket: HTMLDivElement = document.getElementById("basket-menu-container") as HTMLDivElement;
+    let cartOn: HTMLElement = document.getElementById("cart-on");
+    let cartOff: HTMLElement = document.getElementById("cart-off");
+    let cartOnMobile: HTMLElement = document.getElementById("cart-on-mobile")
+    let cartOffMobile: HTMLElement = document.getElementById("cart-off-mobile")
+    
+    if (basket.classList.contains("show-basket")) {
+        basket.classList.remove("show-basket");
+        cartOn.classList.remove("cart-toggle")
+        cartOff.classList.add("cart-toggle")
+        cartOnMobile.classList.remove("cart-toggle")
+        cartOffMobile.classList.add("cart-toggle")
+    }
+    else {
+        basket.classList.add("show-basket");
+        cartOn.classList.add("cart-toggle")
+        cartOff.classList.remove("cart-toggle")
+        cartOnMobile.classList.add("cart-toggle")
+        cartOffMobile.classList.remove("cart-toggle")
     }
 }
 
@@ -169,26 +181,4 @@ export function getProductObjectsFromCart(): Product[] {
     });
     return answer;
 }
-function cartSlideIn() {
-    console.log("hej")
-    let basket: HTMLDivElement = document.getElementById("basket-menu-container") as HTMLDivElement;
-    let cartOn: HTMLElement = document.getElementById("cart-on");
-    let cartOff: HTMLElement = document.getElementById("cart-off");
-    let cartOnMobile: HTMLElement = document.getElementById("cart-on-mobile")
-    let cartOffMobile: HTMLElement = document.getElementById("cart-off-mobile")
-    
-    if (basket.classList.contains("show-basket")) {
-        basket.classList.remove("show-basket");
-        cartOn.classList.remove("cart-toggle")
-        cartOff.classList.add("cart-toggle")
-        cartOnMobile.classList.remove("cart-toggle")
-        cartOffMobile.classList.add("cart-toggle")
-    }
-    else {
-        basket.classList.add("show-basket");
-        cartOn.classList.add("cart-toggle")
-        cartOff.classList.remove("cart-toggle")
-        cartOnMobile.classList.add("cart-toggle")
-        cartOffMobile.classList.remove("cart-toggle")
-    }
-}
+
