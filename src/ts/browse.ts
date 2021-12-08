@@ -24,12 +24,10 @@ function createElementForProducts() {
     for (let index: number = 0; index < allProducts.length; index++) {
         let product: Product = allProducts[index];
 
-        // PRODUCT CONTAINER //
+        // PRODUCT ITEM //
         let productContainer: HTMLDivElement = document.querySelector(
             ".products-container"
         ) as HTMLDivElement;
-
-        // PRODUCT ITEM //
         let productItem: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
@@ -50,25 +48,41 @@ function createElementForProducts() {
         let titleContainer: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
+        titleContainer.className = "title-container";
         let productName: HTMLSpanElement = document.createElement(
             "span"
         ) as HTMLSpanElement;
-        titleContainer.className = "title-container";
         productName.innerHTML = product.name;
 
         // PRODUCT PRICE //
         let priceContainer: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
+        priceContainer.className = "price-container";
         let currencyText: HTMLSpanElement = document.createElement(
             "span"
         ) as HTMLSpanElement;
+        currencyText.innerHTML = "kr";
         let productPrice: HTMLSpanElement = document.createElement(
             "span"
         ) as HTMLSpanElement;
-        priceContainer.className = "price-container";
-        currencyText.innerHTML = "kr";
         productPrice.innerHTML = product.price.toString();
+
+        // SHOPPING BAG //
+
+        let shoppingContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        shoppingContainer.className = "shopping-container";
+        let shoppingIcon: HTMLLIElement = document.createElement(
+            "i"
+        ) as HTMLLIElement;
+        shoppingIcon.className = "fas fa-shopping-bag";
+        let shoppingButton: HTMLButtonElement = document.createElement(
+            "button"
+        ) as HTMLButtonElement;
+        shoppingButton.type = "button";
+        shoppingButton.id = "add-to-cart";
 
         // APPENDS //
         imageContainer.appendChild(productImage);
@@ -78,6 +92,9 @@ function createElementForProducts() {
         priceContainer.appendChild(productPrice);
         priceContainer.appendChild(currencyText);
         productItem.appendChild(priceContainer);
+        shoppingButton.appendChild(shoppingIcon);
+        shoppingContainer.appendChild(shoppingButton);
+        productItem.appendChild(shoppingContainer);
         productContainer.appendChild(productItem);
     }
 }
