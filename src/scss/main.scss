@@ -6,12 +6,13 @@
 @use "receipt";
 @use "products";
 @use "landing";
+@use "basket";
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    font-size: 12pt;
-    font-family: "Maven Pro", sans-serif;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-size: 12pt;
+  font-family: "Maven Pro", sans-serif;
 }
