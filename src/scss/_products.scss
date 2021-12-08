@@ -2,41 +2,14 @@
 @use "variables";
 @use "header";
 @use "footer";
+@use "extends";
 
 * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
     font-family: "Maven Pro", sans-serif;
-}
-.news-container::-webkit-scrollbar {
-    width: 20px;
-}
-.news-container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
-.news-container::-webkit-scrollbar-thumb {
-    background: rgb($color: #038537, $alpha: 1);
-    border-radius: 10px;
-}
-.news-container::-webkit-scrollbar-thumb:hover {
-    background: rgb($color: #035e27, $alpha: 1);
-}
-
-.campaigns-container::-webkit-scrollbar {
-    width: 20px;
-}
-.campaigns-container::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
-.campaigns-container::-webkit-scrollbar-thumb {
-    background: rgb($color: #038537, $alpha: 1);
-    border-radius: 10px;
-}
-.campaigns-container::-webkit-scrollbar-thumb:hover {
-    background: rgb($color: #035e27, $alpha: 1);
+    font-size: 12pt;
 }
 
 #products-header {
@@ -107,11 +80,14 @@
             justify-content: space-between;
 
             width: 90%;
+            color: black;
             h2 {
-                color: black;
+                font-size: 1.5rem;
             }
             button {
-                color: black;
+                @include mixins.tablet {
+                    display: none;
+                }
             }
         }
         .news-container,
@@ -125,6 +101,7 @@
             flex-shrink: 0;
 
             border: 1px solid grey;
+            background-color: white;
             overflow-x: scroll;
             width: 90%;
             height: 300px;
@@ -139,7 +116,8 @@
             .new-item,
             .campaign-item {
                 display: inline-block;
-                border: 2px solid black;
+                border-radius: 10px;
+                box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
                 background-color: white;
                 width: 200px;
                 height: 300px;
@@ -170,11 +148,16 @@
             display: flex;
             flex-direction: row;
 
-            width: 90%;
+            width: 88%;
+            height: 50px;
+            @include mixins.tablet {
+                width: 86%;
+            }
             @include mixins.desktop {
                 width: 80%;
             }
             h2 {
+                font-size: 1.5rem;
                 color: black;
             }
         }
@@ -190,10 +173,64 @@
                 gap: 30px;
             }
             .product-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
                 width: 150px;
                 height: 250px;
-                border: 2px solid black;
                 background-color: white;
+                border-radius: 10px;
+                box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
+                .image-container {
+                    height: 150px;
+                    @include mixins.tablet {
+                        height: 200px;
+                    }
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .title-container {
+                    height: 30px;
+                    span {
+                        font-size: 0.7rem;
+                        font-weight: bold;
+                        color: rgb($color: #5f5f5f, $alpha: 1);
+                        word-break: break-word;
+                        height: 100%;
+                        @include mixins.tablet {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .price-container {
+                    height: 10px;
+                    span {
+                        font-size: 0.9rem;
+                        font-weight: bolder;
+                        @include mixins.tablet {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+                .shopping-container {
+                    display: flex;
+                    justify-content: flex-end;
+                    height: 40px;
+                    width: 80%;
+                    #add-to-cart {
+                        border: none;
+                        background-color: white;
+                        i {
+                            color: rgb($color: black, $alpha: 0.6);
+                            cursor: pointer;
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
                 @include mixins.tablet {
                     width: 200px;
                     height: 300px;
