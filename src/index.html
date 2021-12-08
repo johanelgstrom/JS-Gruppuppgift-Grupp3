@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="scss/main.scss" />
 
         <!-- MAIN TS -->
-        <script type="module" src="ts/main.ts"></script>
+        <script type="module" src="ts/landing.ts"></script>
 
         <!-- FONT AWSOME -->
         <link
@@ -106,105 +106,19 @@
             <!-- SLIDE-IN BASKET -->
             <div class="basket-menu-container" id="basket-menu-container">
                 <div class="basket-text-and-item">
-                    <p>Din varukorg</p>
-                    <div class="basket-container">
+                    <p id="your-basket">Din varukorg</p>
+                    <div class="basket-container" id="basket-container">
                         <!-- MALL FÖR PRODUKT I VARUKORG -->
-                        <div class="item-container">
-                            <div class="item-picture">
-                                <img src="/assets/images/members/Johan.jpg" alt="">
-                            </div>
-                            <div class="item-info-and-buttons">
-                                <div class="item-info">
-                                    <p>Nicholas Cage Musmatta</p>
-                                    <p>pris: 2kr</p>
-                                    <p>antal: 45st</p>
-                                    <p>total: 90kr</p>
-                                </div>
-                                <div class="item-buttons">
-                                    <button id="plus-item">+</button>
-                                    <button id="minus-item">-</button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- EVENTUELLT FLERA -->
                         <!-- <div class="item-container">
                             <div class="item-picture">
                                 <img src="/assets/images/members/Johan.jpg" alt="">
                             </div>
                             <div class="item-info-and-buttons">
                                 <div class="item-info">
-                                    <p>Nicholas Cage Musmatta</p>
-                                    <p>pris: 2kr</p>
-                                    <p>antal: 45st</p>
-                                    <p>total: 90kr</p>
-                                </div>
-                                <div class="item-buttons">
-                                    <button id="plus-item">+</button>
-                                    <button id="minus-item">-</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-container">
-                            <div class="item-picture">
-                                <img src="/assets/images/members/Johan.jpg" alt="">
-                            </div>
-                            <div class="item-info-and-buttons">
-                                <div class="item-info">
-                                    <p>Nicholas Cage Musmatta</p>
-                                    <p>pris: 2kr</p>
-                                    <p>antal: 45st</p>
-                                    <p>total: 90kr</p>
-                                </div>
-                                <div class="item-buttons">
-                                    <button id="plus-item">+</button>
-                                    <button id="minus-item">-</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-container">
-                            <div class="item-picture">
-                                <img src="/assets/images/members/Johan.jpg" alt="">
-                            </div>
-                            <div class="item-info-and-buttons">
-                                <div class="item-info">
-                                    <p>Nicholas Cage Musmatta</p>
-                                    <p>pris: 2kr</p>
-                                    <p>antal: 45st</p>
-                                    <p>total: 90kr</p>
-                                </div>
-                                <div class="item-buttons">
-                                    <button id="plus-item">+</button>
-                                    <button id="minus-item">-</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-container">
-                            <div class="item-picture">
-                                <img src="/assets/images/members/Johan.jpg" alt="">
-                            </div>
-                            <div class="item-info-and-buttons">
-                                <div class="item-info">
-                                    <p>Nicholas Cage Musmatta</p>
-                                    <p>pris: 2kr</p>
-                                    <p>antal: 45st</p>
-                                    <p>total: 90kr</p>
-                                </div>
-                                <div class="item-buttons">
-                                    <button id="plus-item">+</button>
-                                    <button id="minus-item">-</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item-container">
-                            <div class="item-picture">
-                                <img src="/assets/images/members/Johan.jpg" alt="">
-                            </div>
-                            <div class="item-info-and-buttons">
-                                <div class="item-info">
-                                    <p>Nicholas Cage Musmatta</p>
-                                    <p>pris: 2kr</p>
-                                    <p>antal: 45st</p>
-                                    <p>total: 90kr</p>
+                                    <p id="pName">Nicholas Cage Musmatta</p>
+                                    <p id="pPrice">pris: 2kr</p>
+                                    <p id="pAmount">antal: 45st</p>
+                                    <p id="pTotal">total: 90kr</p>
                                 </div>
                                 <div class="item-buttons">
                                     <button id="plus-item">+</button>
@@ -212,11 +126,12 @@
                                 </div>
                             </div>
                         </div> -->
-                        <!-- TOTAL SUMMA OCH FORTSÄTTNING -->
-                        <div class="basket-total-and-button">
+                        
+                        <!-- MALL FÖR TOTAL SUMMA OCH FORTSÄTTNING -->
+                        <!-- <div class="basket-total-and-button">
                             <h3>Total: undefinedkr</h3>
                             <button>Till Kassan</button>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -270,7 +185,7 @@
                         <div class="person-container">
                             <div class="img-container">
                                 <img
-                                    src="/assets/images/members/Elias.png"
+                                    src="/assets/images/members/Filip.png"
                                     alt="Filip Engberg"
                                 />
                             </div>
