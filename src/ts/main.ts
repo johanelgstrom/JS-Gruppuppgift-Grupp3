@@ -19,10 +19,10 @@ export let allProducts: Product[] = createProductObjectsFromData();
 //  [1,2],      id = 1, quantity = 2
 //  [10,5]      id = 10, quantity = 5
 // ]
-let cart: number[][] = [];
+let cart: number[][] = getCartIds();
 
 window.onload = function (): void {
-    runTests();
+    //runTests();
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
     ) as HTMLDivElement;
@@ -119,7 +119,12 @@ export function storeCartIds(): void {
 }
 
 export function getCartIds(): number[][] {
-    return JSON.parse(localStorage.getItem("cart"));
+    let result: number[][] = JSON.parse(localStorage.getItem("cart"));
+    if (result == null) {
+        return [];
+    } else {
+        return result;
+    }
 }
 
 export function addProductToCart(product: Product): void {
@@ -163,4 +168,8 @@ export function getProductObjectsFromCart(): Product[] {
         });
     });
     return answer;
+}
+
+export function emptyCart(): void {
+    cart = [];
 }
