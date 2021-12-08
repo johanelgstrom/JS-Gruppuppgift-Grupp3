@@ -17,16 +17,7 @@
         @include mixins.desktop {
             width: 80%;
         }
-        a {
-            position: absolute;
-            left: 20px;
-            color: rgb(111, 111, 122);
-            i {
-                font-size: 30px;
-            }
 
-            @extend %clickable;
-        }
         h2 {
             margin: 0;
         }
@@ -104,14 +95,7 @@
                             flex-wrap: wrap;
 
                             .product {
-                                height: 150px;
-                                width: 100%;
-                                border: 2px solid gray;
-                                box-sizing: border-box;
-
-                                @include mixins.tablet {
-                                    width: 50%;
-                                }
+                                @extend %checkoutAndReceiptProduct;
                             }
                         }
                     }

@@ -1,69 +1,134 @@
 @import "variables";
 @mixin tablet {
-  @media screen and (min-width: 512px) {
-    @content;
-  }
+    @media screen and (min-width: 512px) {
+        @content;
+    }
 }
 
 @mixin desktop {
-  @media screen and (min-width: 1024px) {
-    @content;
-  }
+    @media screen and (min-width: 1024px) {
+        @content;
+    }
 }
 
 %clickable {
-  transition: 0.2s ease transform, 0.1s ease color;
+    transition: 0.2s ease transform, 0.1s ease color;
 
-  &:hover,
-  &:active {
-    transform: scale(110%);
-  }
+    &:hover,
+    &:active {
+        transform: scale(110%);
+        cursor: pointer;
+    }
 
-  &:active {
-    transform: scale(107%);
-    color: white;
-  }
+    &:active {
+        transform: scale(107%);
+        color: white;
+    }
 }
 %burger-animation {
-  .burger-menu {
-    z-index: 100;
+    .burger-menu {
+        z-index: 100;
 
-    &:hover {
-      cursor: pointer;
+        &:hover {
+            cursor: pointer;
+        }
+        .top-bun {
+            height: 5px;
+            width: 35px;
+            background-color: $secondary-color;
+            margin-bottom: 5px;
+            transition: transform 0.1s ease-in-out;
+        }
+        .patty {
+            height: 5px;
+            width: 35px;
+            background-color: $secondary-color;
+            margin-bottom: 5px;
+            transition: transform 0.1s ease-in-out;
+        }
+        .bottom-bun {
+            height: 5px;
+            width: 35px;
+            background-color: $secondary-color;
+            transition: transform 0.1s ease-in-out;
+        }
+        p {
+            color: $secondary-color;
+        }
     }
-    .top-bun {
-      height: 5px;
-      width: 35px;
-      background-color: $secondary-color;
-      margin-bottom: 5px;
-      transition: transform 0.1s ease-in-out;
+    .top-bun-toggle {
+        transform: rotate(-45deg);
+        margin-top: 10px;
     }
-    .patty {
-      height: 5px;
-      width: 35px;
-      background-color: $secondary-color;
-      margin-bottom: 5px;
-      transition: transform 0.1s ease-in-out;
+    .patty-toggle {
+        transform: rotate(45deg);
+        margin-top: -10px;
     }
-    .bottom-bun {
-      height: 5px;
-      width: 35px;
-      background-color: $secondary-color;
-      transition: transform 0.1s ease-in-out;
+    .bottom-bun-toggle {
+        transform: scale(0);
     }
-    p {
-      color: $secondary-color;
+}
+%checkoutAndReceiptProduct {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+
+    .product-image {
+        height: 100px;
+        width: 100px;
+        border-left: 3px solid rgb(220, 230, 240);
+        border-top: 3px solid rgb(220, 230, 240);
+        border-bottom: 3px solid rgb(220, 230, 240);
+
+        img {
+            min-width: 100px;
+            height: 100%;
+        }
     }
-  }
-  .top-bun-toggle {
-    transform: rotate(-45deg);
-    margin-top: 10px;
-  }
-  .patty-toggle {
-    transform: rotate(45deg);
-    margin-top: -10px;
-  }
-  .bottom-bun-toggle {
-    transform: scale(0);
-  }
+
+    .product-info {
+        border: 3px solid rgb(220, 230, 240);
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        flex-grow: 1;
+
+        padding: 5px;
+
+        .product-text {
+            font-size: 10pt;
+            word-break: break-word;
+            flex-grow: 1;
+            background-color: white;
+            @include desktop {
+                font-size: 8pt;
+            }
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 30%;
+
+            button {
+                width: 60px;
+                border: none;
+                font-size: 18pt;
+
+                @extend %clickable;
+
+                @include desktop {
+                    width: 40px;
+                }
+            }
+        }
+    }
+
+    @include tablet {
+        width: 50%;
+    }
 }

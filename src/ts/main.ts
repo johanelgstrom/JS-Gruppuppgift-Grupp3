@@ -19,10 +19,10 @@ export let allProducts: Product[] = createProductObjectsFromData();
 //  [1,2],      id = 1, quantity = 2
 //  [10,5]      id = 10, quantity = 5
 // ]
-let cart: number[][] = [];
+let cart: number[][] = getCartIds();
 
 window.onload = function (): void {
-    runTests();
+    //runTests();
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
     ) as HTMLDivElement;
@@ -31,10 +31,14 @@ window.onload = function (): void {
         "burger-menu"
     ) as HTMLDivElement;
     burger.addEventListener("click", menuSlideIn);
-    
-    let mobileCart: HTMLDivElement = document.getElementById("cart-icon") as HTMLDivElement;
+
+    let mobileCart: HTMLDivElement = document.getElementById(
+        "cart-icon"
+    ) as HTMLDivElement;
     mobileCart.addEventListener("click", cartSlideIn);
-    let cart: HTMLDivElement = document.getElementById("cart-container") as HTMLDivElement;
+    let cart: HTMLDivElement = document.getElementById(
+        "cart-container"
+    ) as HTMLDivElement;
     cart.addEventListener("click", cartSlideIn);
 };
 
@@ -124,7 +128,12 @@ export function storeCartIds(): void {
 }
 
 export function getCartIds(): number[][] {
-    return JSON.parse(localStorage.getItem("cart"));
+    let result: number[][] = JSON.parse(localStorage.getItem("cart"));
+    if (result == null) {
+        return [];
+    } else {
+        return result;
+    }
 }
 
 export function addProductToCart(product: Product): void {
@@ -170,25 +179,29 @@ export function getProductObjectsFromCart(): Product[] {
     return answer;
 }
 function cartSlideIn() {
-    console.log("hej")
-    let basket: HTMLDivElement = document.getElementById("basket-menu-container") as HTMLDivElement;
+    console.log("hej");
+    let basket: HTMLDivElement = document.getElementById(
+        "basket-menu-container"
+    ) as HTMLDivElement;
     let cartOn: HTMLElement = document.getElementById("cart-on");
     let cartOff: HTMLElement = document.getElementById("cart-off");
-    let cartOnMobile: HTMLElement = document.getElementById("cart-on-mobile")
-    let cartOffMobile: HTMLElement = document.getElementById("cart-off-mobile")
-    
+    let cartOnMobile: HTMLElement = document.getElementById("cart-on-mobile");
+    let cartOffMobile: HTMLElement = document.getElementById("cart-off-mobile");
+
     if (basket.classList.contains("show-basket")) {
         basket.classList.remove("show-basket");
-        cartOn.classList.remove("cart-toggle")
-        cartOff.classList.add("cart-toggle")
-        cartOnMobile.classList.remove("cart-toggle")
-        cartOffMobile.classList.add("cart-toggle")
-    }
-    else {
+        cartOn.classList.remove("cart-toggle");
+        cartOff.classList.add("cart-toggle");
+        cartOnMobile.classList.remove("cart-toggle");
+        cartOffMobile.classList.add("cart-toggle");
+    } else {
         basket.classList.add("show-basket");
-        cartOn.classList.add("cart-toggle")
-        cartOff.classList.remove("cart-toggle")
-        cartOnMobile.classList.add("cart-toggle")
-        cartOffMobile.classList.remove("cart-toggle")
+        cartOn.classList.add("cart-toggle");
+        cartOff.classList.remove("cart-toggle");
+        cartOnMobile.classList.add("cart-toggle");
+        cartOffMobile.classList.remove("cart-toggle");
     }
+}
+export function emptyCart(): void {
+    cart = [];
 }

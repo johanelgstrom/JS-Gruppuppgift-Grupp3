@@ -1,33 +1,131 @@
 import { Customer } from "./models/customer";
-import { allProducts, addProductToCart, getCartIds } from "./main";
-import { createProductObjectsFromData, Product } from "./models/produkt";
+import {
+    allProducts,
+    addProductToCart,
+    getCartIds,
+    getProductObjectsFromCart,
+    removeProductFromCart,
+} from "./main";
+import { getProductById, Product } from "./models/produkt";
 
 window.onload = function () {
     initialize();
 
     // TEMPORARY
-    addProductToCart(allProducts[0]);
-    addProductToCart(allProducts[10]);
-    addProductToCart(allProducts[10]);
+
+    // addProductToCart(allProducts[0]);
+    // addProductToCart(allProducts[10]);
+    // addProductToCart(allProducts[26]);
     //console.log("CART IDS: ", getCartIds());
+
+    renderHTML();
 };
 
 function initialize(): void {
-    document.getElementById("pay-button").addEventListener("click", () => {
-        payOrder();
-    });
+    document.getElementById("pay-button").addEventListener("click", () => {});
 
     let form: HTMLFormElement = document.getElementById(
         "input-container"
     ) as HTMLFormElement;
 
     form.addEventListener("submit", (e: Event) => {
+        runLoadingButton();
         setTimeout(triggerBuy, 3000);
         e.preventDefault();
     });
 }
 
-function payOrder() {
+function renderHTML(): void {
+    let cart: number[][] = getCartIds();
+    let cartProducts: Product[] = getProductObjectsFromCart();
+    let totalCost: number = 0;
+
+    let basketContainer: HTMLDivElement = document.getElementById(
+        "basket-inner-wrapper"
+    ) as HTMLDivElement;
+    basketContainer.innerHTML = "";
+
+    for (let i = 0; i < cart.length; i++) {
+        let cartItem: number[] = cart[i];
+        let product: Product = getProductById(cartItem[0], cartProducts)[0];
+
+        //Product wrapper
+        let productDiv: HTMLDivElement = document.createElement("div");
+        productDiv.className = "product";
+
+        //Product image
+        let imgDiv: HTMLDivElement = document.createElement("div");
+        imgDiv.className = "product-image";
+        let img: HTMLImageElement = document.createElement("img");
+        img.src = product.imageUrl[0];
+        imgDiv.appendChild(img);
+        productDiv.appendChild(imgDiv);
+
+        //Product info ################################
+        let infoDiv: HTMLDivElement = document.createElement("div");
+        infoDiv.className = "product-info";
+
+        //Text
+        let textDiv: HTMLDivElement = document.createElement("div");
+        textDiv.className = "product-text";
+        let name: HTMLParagraphElement = document.createElement("p");
+        let price: HTMLParagraphElement = document.createElement("p");
+        let quantity: HTMLParagraphElement = document.createElement("p");
+        name.innerText = product.name;
+        price.innerText = "Pris: " + product.price.toString() + "kr";
+        quantity.innerText = "Antal: " + cartItem[1].toString();
+        textDiv.appendChild(name);
+        textDiv.appendChild(price);
+        textDiv.appendChild(quantity);
+        infoDiv.appendChild(textDiv);
+
+        //Product action buttons
+        let actionDiv: HTMLDivElement = document.createElement("div");
+        actionDiv.className = "product-actions";
+        let addButton: HTMLButtonElement = document.createElement("button");
+        addButton.innerText = "+";
+        addButton.addEventListener("click", () => {
+            let productToAdd: Product[] = getProductById(
+                cart[i][0],
+                cartProducts
+            );
+
+            if (productToAdd.length > 0) {
+                addProductToCart(productToAdd[0]);
+                renderHTML();
+            }
+        });
+        actionDiv.appendChild(addButton);
+        let removeButton: HTMLButtonElement = document.createElement("button");
+        removeButton.innerText = "-";
+        removeButton.addEventListener("click", () => {
+            let productToRemove: Product[] = getProductById(
+                cart[i][0],
+                cartProducts
+            );
+
+            if (productToRemove.length > 0) {
+                removeProductFromCart(productToRemove[0]);
+                renderHTML();
+            }
+        });
+        actionDiv.appendChild(removeButton);
+        infoDiv.appendChild(actionDiv);
+
+        //Add info###########################################
+        productDiv.appendChild(infoDiv);
+
+        //Add the finished product to html
+        basketContainer.appendChild(productDiv);
+
+        totalCost += product.price * cartItem[1];
+    }
+
+    document.getElementById("total-cost").innerHTML =
+        "Total: " + totalCost.toString() + "kr";
+}
+
+function runLoadingButton(): void {
     let button: HTMLButtonElement = document.getElementById(
         "pay-button"
     ) as HTMLButtonElement;
@@ -77,7 +175,7 @@ function triggerBuy(): void {
 
     sessionStorage.setItem("customer", JSON.stringify(customer));
 
-    let targetUrl: string = window.location.host + "/pages/receipt.html";
+    let targetUrl: string = "receipt.html";
     console.log(targetUrl);
-    window.location.href = targetUrl;
+    window.location.replace(targetUrl);
 }

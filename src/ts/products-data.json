@@ -3,10 +3,10 @@
         "id": 1,
         "name": "Får toalettpappershållare",
         "imagesUrl": ["https://varuhus1.se/cache/a2/500x300-toafar210105.jpg"],
-        "price": 200,
+        "price": 199,
         "description": "Här har vi en riktigt unik toalettpappers hållare för er alla fårälskare!",
         "categories": ["Badrum", "Djur"],
-        "filter": ["Onormal", "Jättekonstig"]
+        "filter": ["Onormal", "Konstig"]
     },
     {
         "id": 2,
@@ -14,82 +14,98 @@
         "imagesUrl": [
             "https://i.etsystatic.com/14448442/r/il/b98acb/3475084255/il_fullxfull.3475084255_jsyf.jpg"
         ],
-        "price": 100,
+        "price": 99,
         "description": "Visst känns det bra att känna att Nicolas Cage är aldrig långt borta!",
         "categories": ["Dator", "Matta"],
         "filter": ["Konstig"]
     },
     {
         "id": 3,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Skrämmande Hästhuvudprydnad",
+        "imagesUrl": [
+            "https://cdn.shopify.com/s/files/1/0072/1432/products/accoutrements-archie-mcphee-home-decor-creepy-horse-head-ornament-funny-gag-gifts-17290037887137_1800x1800.jpg?v=1628163472"
+        ],
+        "price": 89,
+        "description": "Fyll julgranen med hästar!",
+        "categories": ["Heminredning"],
+        "filter": ["Konstig"]
     },
     {
         "id": 4,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Dusch Vinhållare",
+        "imagesUrl": [
+            "https://cdn.shopify.com/s/files/1/0072/1432/products/30-watt-home-home-personal-shower-wine-holder-16299811668104_1800x1800.jpg?v=1591614041"
+        ],
+        "price": 129,
+        "description": "När du behöver en ännu lugnare dusch.",
+        "categories": ["Badrum"],
+        "filter": ["Konstig"]
     },
     {
         "id": 5,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Stress Gurka",
+        "imagesUrl": [
+            "https://cdn.shopify.com/s/files/1/0072/1432/products/gift-republic-impulse-im-squishies-stress-pickle-funny-gag-gifts-30384691970209_1800x1800.jpg?v=1628415100"
+        ],
+        "price": 49,
+        "description": "Denna här stressbollen är ingen boll alls. Utan en stressgurka!",
+        "categories": ["Accessoarer"],
+        "filter": ["Jättekonstig"]
     },
     {
         "id": 6,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Banan USB-hub",
+        "imagesUrl": [
+            "https://img.buzzfeed.com/buzzfeed-static/static/2019-04/8/16/asset/buzzfeed-prod-web-06/sub-buzz-31280-1554755590-7.jpg?crop=1500:1155;0,150"
+        ],
+        "price": 199,
+        "description": "Behöver du mer USB portar? Passa på med en banan variant!",
+        "categories": ["Dator"],
+        "filter": ["Onormal", "Konstig"]
     },
     {
         "id": 7,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Uppstoppad Anklampa",
+        "imagesUrl": [
+            "https://th.bing.com/th/id/R.1d5187e3fb8d9b18b3049fed9040f1ba?rik=%2fJEgMV3Gg1ybnA&riu=http%3a%2f%2f4.bp.blogspot.com%2f_Ei3r-xRLApk%2fTLpLPGYpSXI%2fAAAAAAAALVA%2fsN8QWSvpuIU%2fs1600%2f56_duck-lamp-high-1-z.jpg&ehk=ImN8nLluCJkrI2NuFT11Ij2QH4dKG3WQiHT%2boxQo%2fjY%3d&risl=&pid=ImgRaw&r=0"
+        ],
+        "price": 799,
+        "description": "En riktig uppstoppad anka med inbyggd lampa!",
+        "categories": ["Heminredning"],
+        "filter": ["Jättekonstig", "Vad i hela världen"]
     },
     {
         "id": 8,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Stol med riktiga ben.",
+        "imagesUrl": [
+            "https://i.pinimg.com/originals/f1/bc/5a/f1bc5aa2c57f9ad9431a38a28fd003c3.jpg"
+        ],
+        "price": 799,
+        "description": "Är du trött på stolar med svaga och opålitliga ben? Då är denna stol för dig!",
+        "categories": ["Heminredning"],
+        "filter": ["Konstig", "Jättekonstig"]
     },
     {
         "id": 9,
-        "name": "elias produkt",
-        "imagesUrl": [""],
-        "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "name": "Morot Byrå",
+        "imagesUrl": [
+            "https://i.pinimg.com/originals/96/aa/15/96aa15e7f10ea1bd50678614c5f35e22.png"
+        ],
+        "price": 699,
+        "description": "Här har du en byrå för dig som gillar rotsaker!",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal", "Konstig"]
     },
     {
         "id": 10,
-        "name": "elias produkt",
-        "imagesUrl": [""],
+        "name": "Sto Bord",
+        "imagesUrl": [
+            "https://i.pinimg.com/originals/fc/fd/39/fcfd393da518d149a3aed70aa70c921e.jpg"
+        ],
         "price": 0,
-        "description": "",
-        "categories": [],
-        "filter": [""]
+        "description": "En stol och ett bord. Vad mer behöver man? Förutom att kunna sitta kanske.",
+        "categories": ["Heminredning"],
+        "filter": ["Onormal", "Konstig"]
     },
     {
         "id": 11,

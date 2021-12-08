@@ -99,14 +99,7 @@
                         flex-wrap: wrap;
 
                         .product {
-                            height: 150px;
-                            width: 100%;
-                            border: 2px solid gray;
-                            box-sizing: border-box;
-
-                            @include mixins.tablet {
-                                width: 50%;
-                            }
+                            @extend %checkoutAndReceiptProduct;
                         }
                     }
                 }
