@@ -1,10 +1,12 @@
+import { CartItem } from "./models/CartItem";
+import { Customer } from "./models/Customer";
 import {
     Product,
     createProductObjectsFromData,
     getFilteredProducts,
     getCategoryProducts,
     getProductById,
-} from "./models/produkt";
+} from "./models/Produkt";
 
 window.onload = function () {
     createElementForProducts();

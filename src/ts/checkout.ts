@@ -1,6 +1,6 @@
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
-import { Product, createProductObjectsFromData } from "./models/produkt";
+import { Product, createProductObjectsFromData } from "./models/Produkt";
 
 window.onload = function () {
     initialize();

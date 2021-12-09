@@ -1,6 +1,5 @@
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
-import { Product, getProductById } from "./models/produkt";
 
 window.onload = function () {
     initialize();

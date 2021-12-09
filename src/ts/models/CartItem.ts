@@ -1,4 +1,4 @@
-import { Product } from "./produkt";
+import { Product } from "./Produkt";
 
 export class CartItem {
     product: Product;
