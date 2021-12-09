@@ -45,6 +45,24 @@
 
         background-image: none;
     }
+    .filter-button-show {
+        position: fixed;
+        bottom: 10px;
+        left: 15px;
+        width: 70px;
+        height: 70px;
+        border: none;
+        border-radius: 50%;
+        @include mixins.desktop {
+            display: none;
+        }
+        i {
+            font-size: 1.5rem;
+        }
+    }
+    .filter-button-hide {
+        display: none;
+    }
     .left-bar {
         display: none;
         width: 200px;
@@ -234,6 +252,71 @@
                 @include mixins.tablet {
                     width: 200px;
                     height: 300px;
+                }
+            }
+        }
+    }
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    @include mixins.tablet {
+        justify-self: flex-start;
+
+        bottom: 20px;
+        width: 50%;
+        height: 60%;
+    }
+    .filter-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 80px;
+        .filter-button-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 90%;
+            i {
+                font-size: 2rem;
+            }
+            .cross-button {
+                border: none;
+                background-color: white;
+                i {
+                    font-size: 2.8rem;
+                }
+            }
+        }
+    }
+    .filter-main {
+        display: flex;
+        justify-content: center;
+
+        height: 100%;
+        border: 1px solid grey;
+        .filter-catagories-container {
+            display: flex;
+            align-items: center;
+
+            width: 90%;
+            height: 40%;
+            form {
+                input {
+                    transform: scale(2);
+                }
+                label {
+                    padding: 10px;
+                    font-size: 1.5rem;
                 }
             }
         }
