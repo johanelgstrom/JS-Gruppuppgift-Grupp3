@@ -22,16 +22,20 @@ window.onload = function () {
 function createElementForProducts(): void {
     let allProducts: Product[] = createProductObjectsFromData();
 
+    let productContainer: HTMLDivElement = document.querySelector(
+        ".products-container"
+    ) as HTMLDivElement;
+
     for (let index: number = 0; index < allProducts.length; index++) {
         let product: Product = allProducts[index];
 
         // PRODUCT ITEM //
-        let productContainer: HTMLDivElement = document.querySelector(
-            ".products-container"
-        ) as HTMLDivElement;
         let productItem: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
+        productItem.addEventListener("click", () => {
+            goToProductPage();
+        });
         productItem.className = "product-item";
 
         // PRODUCT IMAGE //
@@ -99,14 +103,23 @@ function createElementForProducts(): void {
         productContainer.appendChild(productItem);
     }
 }
+// GOING TO PRODUCT-PAGE //
+function goToProductPage() {
+    window.location.replace("product.html");
+}
+
 function createProductFilter(): void {
     // FILTER BUTTON //
-    let mainPart = document.getElementById("products-main");
+    let mainPart: HTMLLIElement = document.getElementById(
+        "products-main"
+    ) as HTMLLIElement;
 
     let filterButton: HTMLButtonElement = document.createElement(
         "button"
     ) as HTMLButtonElement;
     filterButton.type = "button";
+
+    filterButton.addEventListener("click", createFilterWindow);
 
     let filterIcon: HTMLLIElement = document.createElement(
         "i"
@@ -117,7 +130,6 @@ function createProductFilter(): void {
     mainPart.appendChild(filterButton);
 
     // The icon becomes visible when passing a certain value on the y-axis //
-
     let myScrollFunc = function (): void {
         let y = window.scrollY;
         if (y >= 300) {
@@ -127,4 +139,18 @@ function createProductFilter(): void {
         }
     };
     window.addEventListener("scroll", myScrollFunc);
+
+    // FILTER WINDOW //
+    function createFilterWindow() {
+        let filterContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        filterContainer.className = "filter-container";
+
+        let filterButtonContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+
+        mainPart.appendChild(filterContainer);
+    }
 }
