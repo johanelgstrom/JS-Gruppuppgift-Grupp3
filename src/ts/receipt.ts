@@ -21,6 +21,8 @@ function renderHTML(): void {
         "basket-inner-wrapper"
     ) as HTMLDivElement;
 
+    console.log("CUSTOMER: ", customer);
+
     customer.cart.forEach((cartItem: CartItem) => {
         //Product wrapper
         let productDiv: HTMLDivElement = document.createElement("div");
@@ -46,7 +48,7 @@ function renderHTML(): void {
         let quantity: HTMLParagraphElement = document.createElement("p");
         name.innerText = cartItem.product.name;
         price.innerText = "Pris: " + cartItem.product.price.toString() + "kr";
-        quantity.innerText = "Antal: " + cartItem[1].toString();
+        quantity.innerText = "Antal: " + cartItem.quantity.toString();
         textDiv.appendChild(name);
         textDiv.appendChild(price);
         textDiv.appendChild(quantity);
