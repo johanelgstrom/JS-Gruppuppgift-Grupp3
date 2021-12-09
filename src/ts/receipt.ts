@@ -1,5 +1,5 @@
-import { Customer } from "./models/customer";
-import { getCartIds, getProductObjectsFromCart } from "./main";
+import { CartItem } from "./models/CartItem";
+import { Customer } from "./models/Customer";
 import { Product, getProductById } from "./models/produkt";
 
 window.onload = function () {
@@ -14,18 +14,14 @@ function initialize(): void {
 }
 
 function renderHTML(): void {
-    let cart: number[][] = getCartIds();
-    let cartProducts: Product[] = getProductObjectsFromCart();
+    let customer: Customer = Customer.prototype.getCustomer();
     let totalCost: number = 0;
 
     let basketContainer: HTMLDivElement = document.getElementById(
         "basket-inner-wrapper"
     ) as HTMLDivElement;
 
-    for (let i = 0; i < cart.length; i++) {
-        let cartItem: number[] = cart[i];
-        let product: Product = getProductById(cartItem[0], cartProducts)[0];
-
+    customer.cart.forEach((cartItem: CartItem) => {
         //Product wrapper
         let productDiv: HTMLDivElement = document.createElement("div");
         productDiv.className = "product";
@@ -34,7 +30,7 @@ function renderHTML(): void {
         let imgDiv: HTMLDivElement = document.createElement("div");
         imgDiv.className = "product-image";
         let img: HTMLImageElement = document.createElement("img");
-        img.src = product.imageUrl[0];
+        img.src = cartItem.product.imageUrl[0];
         imgDiv.appendChild(img);
         productDiv.appendChild(imgDiv);
 
@@ -48,8 +44,8 @@ function renderHTML(): void {
         let name: HTMLParagraphElement = document.createElement("p");
         let price: HTMLParagraphElement = document.createElement("p");
         let quantity: HTMLParagraphElement = document.createElement("p");
-        name.innerText = product.name;
-        price.innerText = "Pris: " + product.price.toString() + "kr";
+        name.innerText = cartItem.product.name;
+        price.innerText = "Pris: " + cartItem.product.price.toString() + "kr";
         quantity.innerText = "Antal: " + cartItem[1].toString();
         textDiv.appendChild(name);
         textDiv.appendChild(price);
@@ -62,13 +58,12 @@ function renderHTML(): void {
         //Add the finished product to html
         basketContainer.appendChild(productDiv);
 
-        totalCost += product.price * cartItem[1];
-    }
+        totalCost += cartItem.product.price * cartItem.quantity;
+    });
 
     document.getElementById("total-cost").innerText =
         "Total: " + totalCost.toString() + "kr";
 
-    let customer: Customer = JSON.parse(sessionStorage.getItem("customer"));
     console.log("CUSTOMER: ", customer);
 
     //sessionStorage.removeItem("customer");
@@ -85,11 +80,13 @@ function renderHTML(): void {
     //be no duplicates. And if the page is refreshed, we get the info via
     //the ordernumber. The ordernumber would the only thing remaining in the
     //session storage after refresh.
-    document.getElementById("order-number").innerText =
-        getRandomNumber().toString();
+    let ordernumber: number = getRandomNumber();
+    document.getElementById("order-number").innerText = ordernumber.toString();
+    customer.ordernumbers.push(ordernumber);
 
     //We generate a new date every time the page is refreshed. In real life
-    //this would not be the case. We would find the order via the ordernumber,
+    //this would not be the case. We would find the order via the ordernumber
+    //by finding it in the current logged in users orders,
     //and get the date object via that.
     document.getElementById("date").innerText = createDateString(new Date());
     document.getElementById("delivery-time").innerText = "3 veckor";

@@ -1,3 +1,5 @@
+@use "mixins";
+
 .news-container::-webkit-scrollbar {
     width: 20px;
 }
@@ -26,4 +28,69 @@
 }
 .campaigns-container::-webkit-scrollbar-thumb:hover {
     background: rgb($color: #01355a, $alpha: 1);
+}
+
+%checkoutAndReceiptProduct {
+    width: 100%;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+
+    .product-image {
+        height: 100px;
+        width: 100px;
+        border-left: 3px solid rgb(220, 230, 240);
+        border-top: 3px solid rgb(220, 230, 240);
+        border-bottom: 3px solid rgb(220, 230, 240);
+
+        img {
+            min-width: 100px;
+            height: 100%;
+        }
+    }
+
+    .product-info {
+        border: 3px solid rgb(220, 230, 240);
+        display: flex;
+        flex-direction: column;
+        background-color: white;
+        flex-grow: 1;
+
+        padding: 5px;
+
+        .product-text {
+            font-size: 10pt;
+            word-break: break-word;
+            flex-grow: 1;
+            background-color: white;
+            @include mixins.desktop {
+                font-size: 8pt;
+            }
+        }
+
+        .product-actions {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            height: 30%;
+
+            button {
+                width: 60px;
+                border: none;
+                font-size: 18pt;
+
+                @extend %clickable;
+
+                @include mixins.desktop {
+                    width: 40px;
+                }
+            }
+        }
+    }
+
+    @include mixins.tablet {
+        width: 50%;
+    }
 }

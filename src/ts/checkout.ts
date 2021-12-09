@@ -1,19 +1,17 @@
-import { Customer } from "./models/customer";
-import {
-    allProducts,
-    addProductToCart,
-    getCartIds,
-    getProductObjectsFromCart,
-    removeProductFromCart,
-} from "./main";
-import { getProductById, Product } from "./models/produkt";
+import { CartItem } from "./models/CartItem";
+import { Customer } from "./models/Customer";
+import { Product, createProductObjectsFromData } from "./models/produkt";
 
 window.onload = function () {
     initialize();
 
     // TEMPORARY
 
-    // addProductToCart(allProducts[0]);
+    let allProducts: Product[] = createProductObjectsFromData();
+    let cust: Customer = Customer.prototype.getCustomer();
+    console.log("CUSTOMER: ", cust);
+    //cust.addProductToCart(allProducts[0]);
+
     // addProductToCart(allProducts[10]);
     // addProductToCart(allProducts[26]);
     //console.log("CART IDS: ", getCartIds());
@@ -36,8 +34,7 @@ function initialize(): void {
 }
 
 function renderHTML(): void {
-    let cart: number[][] = getCartIds();
-    let cartProducts: Product[] = getProductObjectsFromCart();
+    let customer: Customer = Customer.prototype.getCustomer();
     let totalCost: number = 0;
 
     let basketContainer: HTMLDivElement = document.getElementById(
@@ -45,10 +42,7 @@ function renderHTML(): void {
     ) as HTMLDivElement;
     basketContainer.innerHTML = "";
 
-    for (let i = 0; i < cart.length; i++) {
-        let cartItem: number[] = cart[i];
-        let product: Product = getProductById(cartItem[0], cartProducts)[0];
-
+    customer.cart.forEach((cartItem: CartItem) => {
         //Product wrapper
         let productDiv: HTMLDivElement = document.createElement("div");
         productDiv.className = "product";
@@ -57,7 +51,7 @@ function renderHTML(): void {
         let imgDiv: HTMLDivElement = document.createElement("div");
         imgDiv.className = "product-image";
         let img: HTMLImageElement = document.createElement("img");
-        img.src = product.imageUrl[0];
+        img.src = cartItem.product.imageUrl[0];
         imgDiv.appendChild(img);
         productDiv.appendChild(imgDiv);
 
@@ -71,9 +65,9 @@ function renderHTML(): void {
         let name: HTMLParagraphElement = document.createElement("p");
         let price: HTMLParagraphElement = document.createElement("p");
         let quantity: HTMLParagraphElement = document.createElement("p");
-        name.innerText = product.name;
-        price.innerText = "Pris: " + product.price.toString() + "kr";
-        quantity.innerText = "Antal: " + cartItem[1].toString();
+        name.innerText = cartItem.product.name;
+        price.innerText = "Pris: " + cartItem.product.price.toString() + "kr";
+        quantity.innerText = "Antal: " + cartItem.quantity.toString();
         textDiv.appendChild(name);
         textDiv.appendChild(price);
         textDiv.appendChild(quantity);
@@ -85,29 +79,15 @@ function renderHTML(): void {
         let addButton: HTMLButtonElement = document.createElement("button");
         addButton.innerText = "+";
         addButton.addEventListener("click", () => {
-            let productToAdd: Product[] = getProductById(
-                cart[i][0],
-                cartProducts
-            );
-
-            if (productToAdd.length > 0) {
-                addProductToCart(productToAdd[0]);
-                renderHTML();
-            }
+            customer.addProductToCart(cartItem.product);
+            renderHTML();
         });
         actionDiv.appendChild(addButton);
         let removeButton: HTMLButtonElement = document.createElement("button");
         removeButton.innerText = "-";
         removeButton.addEventListener("click", () => {
-            let productToRemove: Product[] = getProductById(
-                cart[i][0],
-                cartProducts
-            );
-
-            if (productToRemove.length > 0) {
-                removeProductFromCart(productToRemove[0]);
-                renderHTML();
-            }
+            customer.removeProductFromCart(cartItem.product);
+            renderHTML();
         });
         actionDiv.appendChild(removeButton);
         infoDiv.appendChild(actionDiv);
@@ -118,8 +98,8 @@ function renderHTML(): void {
         //Add the finished product to html
         basketContainer.appendChild(productDiv);
 
-        totalCost += product.price * cartItem[1];
-    }
+        totalCost += cartItem.product.price * cartItem.quantity;
+    });
 
     document.getElementById("total-cost").innerHTML =
         "Total: " + totalCost.toString() + "kr";
@@ -162,18 +142,17 @@ function triggerBuy(): void {
         "customer-card-cvc"
     ) as HTMLInputElement;
 
-    let customer: Customer = new Customer(
-        firstNameInput.value,
-        lastNameInput.value,
-        mobileInput.value,
-        adressInput.value,
-        regionInput.value,
-        deliveryInput[deliveryInput.selectedIndex].innerText,
-        parseInt(cardNumberInput.value),
-        parseInt(cardCvcInput.value)
-    );
+    let customer: Customer = Customer.prototype.getCustomer();
+    customer.firstname = firstNameInput.value;
+    customer.lastname = lastNameInput.value;
+    customer.mobile = mobileInput.value;
+    customer.adress = adressInput.value;
+    customer.region = regionInput.value;
+    customer.delivery = deliveryInput.value;
+    customer.cardNumber = parseInt(cardNumberInput.value);
+    customer.cardCvc = parseInt(cardCvcInput.value);
 
-    sessionStorage.setItem("customer", JSON.stringify(customer));
+    customer.storeCustomer();
 
     let targetUrl: string = "receipt.html";
     console.log(targetUrl);
