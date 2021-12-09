@@ -145,6 +145,7 @@ function createProductFilter(): void {
         let filterContainer: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
+        filterContainer.id = "loading";
         filterContainer.className = "filter-container";
 
         let filterHeader: HTMLDivElement = document.createElement(
