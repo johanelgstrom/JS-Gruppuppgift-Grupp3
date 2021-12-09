@@ -12,13 +12,6 @@
     font-size: 12pt;
 }
 
-.filter-container {
-    position: fixed;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-}
-
 #products-header {
     height: 20%;
     display: none;
@@ -61,7 +54,7 @@
         border: none;
         border-radius: 50%;
         @include mixins.desktop {
-            bottom: 200px;
+            display: none;
         }
         i {
             font-size: 1.5rem;
@@ -261,6 +254,53 @@
                     height: 300px;
                 }
             }
+        }
+    }
+}
+
+.filter-container {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    background-color: white;
+    .filter-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 80px;
+        border: 2px solid black;
+        .filter-button-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 90%;
+
+            i {
+                font-size: 2rem;
+            }
+            .cross-button {
+                border: none;
+                background-color: white;
+                i {
+                    font-size: 2.8rem;
+                }
+            }
+        }
+    }
+    .filter-main {
+        display: flex;
+        justify-content: center;
+
+        height: 100%;
+        border: 1px solid grey;
+        .filter-catagories-container {
+            width: 90%;
         }
     }
 }
