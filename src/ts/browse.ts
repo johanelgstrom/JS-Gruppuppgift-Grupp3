@@ -7,18 +7,19 @@ import {
 } from "./models/produkt";
 
 window.onload = function () {
+    // getProductsSessionStorage();
     createElementForProducts();
-    getProductsSessionStorage();
+    createProductFilter();
 };
 
-function getProductsSessionStorage(): void {
-    let products: Product[] = createProductObjectsFromData();
+// function getProductsSessionStorage(): void {
+//     let products: Product[] = createProductObjectsFromData();
 
-    let productsLocalStorage: string = JSON.stringify(products);
-    sessionStorage.setItem("browse", productsLocalStorage);
-}
+//     let productsLocalStorage: string = JSON.stringify(products);
+//     sessionStorage.setItem("browse", productsLocalStorage);
+// }
 
-function createElementForProducts() {
+function createElementForProducts(): void {
     let allProducts: Product[] = createProductObjectsFromData();
 
     for (let index: number = 0; index < allProducts.length; index++) {
@@ -97,4 +98,33 @@ function createElementForProducts() {
         productItem.appendChild(shoppingContainer);
         productContainer.appendChild(productItem);
     }
+}
+function createProductFilter(): void {
+    // FILTER BUTTON //
+    let mainPart = document.getElementById("products-main");
+
+    let filterButton: HTMLButtonElement = document.createElement(
+        "button"
+    ) as HTMLButtonElement;
+    filterButton.type = "button";
+
+    let filterIcon: HTMLLIElement = document.createElement(
+        "i"
+    ) as HTMLLIElement;
+    filterIcon.className = "fas fa-filter";
+
+    filterButton.appendChild(filterIcon);
+    mainPart.appendChild(filterButton);
+
+    // The icon becomes visible when passing a certain value on the y-axis //
+
+    let myScrollFunc = function (): void {
+        let y = window.scrollY;
+        if (y >= 300) {
+            filterButton.className = "filter-button-show";
+        } else {
+            filterButton.className = "filter-button-hide";
+        }
+    };
+    window.addEventListener("scroll", myScrollFunc);
 }
