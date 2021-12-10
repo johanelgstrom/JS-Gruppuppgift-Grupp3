@@ -5,6 +5,7 @@ import { Product } from "./Produkt";
 export class Customer {
     firstname: string;
     lastname: string;
+    email: string;
     mobile: string;
     adress: string;
     region: string;
@@ -18,6 +19,7 @@ export class Customer {
     constructor() {
         this.firstname = "";
         this.lastname = "";
+        this.email = "";
         this.mobile = "";
         this.adress = "";
         this.region = "";
@@ -42,6 +44,7 @@ export class Customer {
             let customer: Customer = new Customer();
             customer.firstname = Icustomer.firstname;
             customer.lastname = Icustomer.lastname;
+            customer.email = Icustomer.email;
             customer.mobile = Icustomer.mobile;
             customer.adress = Icustomer.adress;
             customer.region = Icustomer.region;

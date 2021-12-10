@@ -14,294 +14,325 @@
 }
 
 #checkout-body {
-    background-color: variables.$secondary-color;
+    background-color: rgb(211, 221, 243);
 
-    #checkout-header {
-        margin: 0 auto;
-        background-color: rgb(220, 230, 240);
+    display: flex;
+    flex-direction: row;
+
+    #middle {
         width: 100%;
+        #checkout-header {
+            z-index: 1;
+            margin: 0 auto;
+            background-color: rgb(220, 230, 240);
+            width: 100%;
 
-        height: 70px;
+            height: 70px;
 
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-
-        position: relative;
-
-        @include mixins.desktop {
-            width: 80%;
-        }
-
-        a {
-            position: absolute;
-            left: 20px;
-            color: rgb(111, 111, 122);
-            i {
-                font-size: 30px;
-            }
-
-            @extend %clickable;
-        }
-
-        h2 {
-            margin: 0;
-        }
-    }
-
-    #checkout-main {
-        min-height: 90%;
-        margin: 0 auto;
-        background-color: white;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-        @include mixins.desktop {
-            width: 80%;
+            display: flex;
             flex-direction: row;
-            align-items: flex-start;
-        }
+            justify-content: center;
+            align-items: center;
 
-        #basket-total-wrapper {
-            width: 100%;
+            position: relative;
 
-            #basket-container {
-                width: 100%;
-
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-
-                margin-top: 20px;
-                #basket-title {
-                    width: 90%;
-                    margin: 0;
-                    margin-bottom: 4px;
+            a {
+                position: absolute;
+                left: 20px;
+                color: rgb(111, 111, 122);
+                i {
+                    font-size: 30px;
                 }
 
-                #basket {
-                    border: 2px solid gray;
-                    width: 90%;
-
-                    display: flex;
-                    flex-direction: row;
-                    justify-content: center;
-
-                    #basket-inner-wrapper {
-                        width: 95%;
-                        margin-top: 10px;
-                        margin-bottom: 10px;
-
-                        display: flex;
-                        flex-direction: row;
-                        flex-wrap: wrap;
-
-                        .product {
-                            @extend %checkoutAndReceiptProduct;
-                        }
-                    }
-                }
-            }
-            #total-cost-container {
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-
-                width: 100%;
-                margin-bottom: 20px;
-                margin-top: 20px;
-
-                #total-cost {
-                    margin: 0;
-                    margin-bottom: 7px;
-                }
-                #blue-line {
-                    height: 4px;
-                    width: 85%;
-                    background-color: variables.$primary-color;
-                    border-radius: 10px;
-                }
+                @extend %clickable;
             }
 
-            @include mixins.desktop {
-                width: 55%;
+            h2 {
+                margin: 0;
             }
         }
 
-        #customer-details-container {
-            width: 100%;
+        #checkout-main {
+            z-index: 1;
+            min-height: 91%;
+            margin: 0 auto;
+
+            background-color: white;
 
             display: flex;
             flex-direction: column;
             align-items: center;
 
-            margin-bottom: 20px;
-
-            position: sticky;
-            top: 0px;
-
-            #input-title {
-                width: 90%;
-                margin: 0;
-                margin-bottom: 4px;
-
-                @include mixins.desktop {
-                    margin-top: 20px;
-                }
+            @include mixins.desktop {
+                flex-direction: row;
+                align-items: flex-start;
             }
 
-            #input-wrapper {
-                width: 90%;
-                background-color: variables.$secondary-color;
-                border-radius: 5px;
+            #basket-total-wrapper {
+                width: 100%;
+                z-index: 2;
 
-                box-sizing: border-box;
-
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-
-                #input-container {
-                    width: 80%;
-
-                    margin-top: 10px;
-                    margin-bottom: 20px;
-
+                #basket-container {
+                    width: 100%;
                     display: flex;
-                    flex-direction: row;
-                    flex-wrap: wrap;
+                    flex-direction: column;
                     align-items: center;
-                    justify-content: center;
 
-                    label {
-                        margin-top: 10px;
-                        width: 100%;
+                    margin-top: 20px;
+                    #basket-title {
+                        width: 90%;
+                        margin: 0;
+                        margin-bottom: 4px;
                     }
 
-                    #name-section,
-                    #mobile-adress-section,
-                    #delivery-card-section {
-                        width: 100%;
-
-                        display: flex;
-                        flex-direction: column;
-
-                        @include mixins.tablet {
-                            flex-direction: row;
-                            gap: 20px;
-                        }
-
-                        @include mixins.desktop {
-                            flex-direction: column;
-                            gap: 0px;
-                        }
-
-                        > div {
-                            width: 100%;
-                            display: flex;
-                            flex-direction: column;
-                        }
-                    }
-
-                    #customer-firstname,
-                    #customer-lastname,
-                    #customer-mobile,
-                    #customer-adress,
-                    #customer-delivery,
-                    #customer-region,
-                    #customer-card-number-container > input,
-                    #customer-card-cvc-container > input {
-                        width: 100%;
-                        height: 30px;
-                        border: none;
-                        border-radius: 3px;
-                    }
-
-                    #customer-card-container {
-                        width: 100%;
+                    #basket {
+                        border: 2px solid gray;
+                        width: 90%;
 
                         display: flex;
                         flex-direction: row;
-                        justify-content: space-between;
+                        justify-content: center;
 
-                        #customer-card-number-container {
-                            width: 60%;
-                        }
+                        #basket-inner-wrapper {
+                            width: 95%;
+                            margin-top: 10px;
+                            margin-bottom: 10px;
 
-                        #customer-card-cvc-container {
-                            width: 30%;
-                        }
-
-                        #customer-card-number-container,
-                        #customer-card-cvc-container {
                             display: flex;
-                            flex-direction: column;
+                            flex-direction: row;
+                            flex-wrap: wrap;
+
+                            .product {
+                                @extend %checkoutAndReceiptProduct;
+                            }
                         }
-                    }
-
-                    #pay-button {
-                        background-color: variables.$primary-color;
-                        padding: 10px;
-                        width: 150px;
-                        height: 50px;
-
-                        font-size: 16pt;
-                        color: white;
-                        border: none;
-                        border-radius: 5px;
-
-                        margin-top: 20px;
-
-                        @extend %clickable;
-                    }
-
-                    .rotating {
-                        color: white;
-                        font-size: 22px;
-                        animation: rotation 2s linear infinite;
-                    }
-
-                    @include mixins.desktop {
-                        width: 70%;
                     }
                 }
+                #total-cost-container {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
 
-                #basket-details-container {
-                    display: none;
+                    width: 100%;
+                    margin-bottom: 20px;
+                    margin-top: 20px;
 
-                    @include mixins.desktop {
-                        display: flex;
-                        flex-direction: column;
-                        justify-content: center;
-                        width: 20%;
+                    #total-cost {
+                        margin: 0;
+                        margin-bottom: 7px;
                     }
-
-                    #details {
-                        background-color: rgb(170, 190, 200);
-                        border: 2px solid rgb(160, 170, 170);
-                        border-radius: 3px;
-
-                        width: 100%;
-                        height: 90%;
-
-                        display: flex;
-                        flex-direction: column;
-                        align-items: center;
+                    #blue-line {
+                        height: 4px;
+                        width: 85%;
+                        background-color: variables.$primary-color;
+                        border-radius: 10px;
                     }
                 }
 
                 @include mixins.desktop {
-                    gap: 20px;
+                    width: 55%;
                 }
             }
 
-            @include mixins.desktop {
-                width: 45%;
+            #customer-details-container {
+                width: 100%;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                margin-bottom: 20px;
+
+                position: sticky;
+                top: 0px;
+
+                #input-title {
+                    width: 90%;
+                    margin: 0;
+                    margin-bottom: 4px;
+
+                    @include mixins.desktop {
+                        margin-top: 20px;
+                    }
+                }
+
+                #input-wrapper {
+                    width: 90%;
+                    background-color: variables.$secondary-color;
+                    border-radius: 5px;
+
+                    box-sizing: border-box;
+
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: center;
+
+                    #input-container {
+                        width: 80%;
+
+                        margin-top: 10px;
+                        margin-bottom: 20px;
+
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        align-items: center;
+                        justify-content: center;
+
+                        label {
+                            margin-top: 10px;
+                            width: 100%;
+                        }
+
+                        #name-section,
+                        #mobile-adress-section,
+                        #delivery-card-section {
+                            width: 100%;
+
+                            display: flex;
+                            flex-direction: column;
+
+                            @include mixins.tablet {
+                                flex-direction: row;
+                                gap: 20px;
+                            }
+
+                            @include mixins.desktop {
+                                flex-direction: column;
+                                gap: 0px;
+                            }
+
+                            > div {
+                                width: 100%;
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        }
+
+                        #customer-firstname,
+                        #customer-lastname,
+                        #customer-email,
+                        #customer-mobile,
+                        #customer-adress,
+                        #customer-delivery,
+                        #customer-region,
+                        #customer-card-number-container > input,
+                        #customer-card-cvc-container > input {
+                            width: 100%;
+                            height: 30px;
+                            border: none;
+                            border-radius: 3px;
+                        }
+
+                        #customer-card-container {
+                            width: 100%;
+
+                            display: flex;
+                            flex-direction: row;
+                            justify-content: space-between;
+
+                            #customer-card-number-container {
+                                width: 60%;
+                            }
+
+                            #customer-card-cvc-container {
+                                width: 30%;
+                            }
+
+                            #customer-card-number-container,
+                            #customer-card-cvc-container {
+                                display: flex;
+                                flex-direction: column;
+                            }
+                        }
+
+                        #pay-button {
+                            background-color: variables.$primary-color;
+                            padding: 10px;
+                            width: 150px;
+                            height: 50px;
+
+                            font-size: 16pt;
+                            color: white;
+                            border: none;
+                            border-radius: 5px;
+
+                            margin-top: 20px;
+
+                            @extend %clickable;
+                        }
+
+                        .rotating {
+                            color: white;
+                            font-size: 22px;
+                            animation: rotation 2s linear infinite;
+                        }
+
+                        @include mixins.desktop {
+                            width: 70%;
+                        }
+                    }
+
+                    #basket-details-container {
+                        display: none;
+
+                        @include mixins.desktop {
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: center;
+                            width: 20%;
+                        }
+
+                        #details {
+                            background-color: rgb(170, 190, 200);
+                            border: 2px solid rgb(160, 170, 170);
+                            border-radius: 3px;
+
+                            width: 100%;
+                            height: 90%;
+
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                        }
+                    }
+
+                    @include mixins.desktop {
+                        gap: 20px;
+                    }
+                }
+
+                @include mixins.desktop {
+                    width: 45%;
+                }
             }
         }
+
+        @include mixins.desktop {
+            width: 80%;
+        }
+    }
+
+    #left-svg,
+    #right-svg {
+        width: 10%;
+        display: none;
+        align-self: stretch;
+
+        @include mixins.desktop {
+            display: block;
+        }
+    }
+
+    #left-svg {
+        z-index: 10;
+        background-image: url("../../assets/images/backgrounds/products-desktop-left-background.svg");
+        background-size: contain;
+    }
+
+    #right-svg {
+        background-image: url("../../assets/images/backgrounds/products-desktop-right-background.svg");
+        background-size: contain;
     }
 }

@@ -134,6 +134,9 @@ function triggerBuy(): void {
     let lastNameInput: HTMLInputElement = document.getElementById(
         "customer-lastname"
     ) as HTMLInputElement;
+    let emailInput: HTMLInputElement = document.getElementById(
+        "customer-email"
+    ) as HTMLInputElement;
     let mobileInput: HTMLInputElement = document.getElementById(
         "customer-mobile"
     ) as HTMLInputElement;
@@ -156,6 +159,7 @@ function triggerBuy(): void {
     let customer: Customer = Customer.prototype.getCustomer();
     customer.firstname = firstNameInput.value;
     customer.lastname = lastNameInput.value;
+    customer.email = emailInput.value;
     customer.mobile = mobileInput.value;
     customer.adress = adressInput.value;
     customer.region = regionInput.value;

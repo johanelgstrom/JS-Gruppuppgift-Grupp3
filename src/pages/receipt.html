@@ -29,78 +29,89 @@
         />
     </head>
     <body id="receipt-body">
-        <header id="receipt-header">
-            <h2>Kvitto</h2>
-        </header>
+        <div id="left-svg"></div>
 
-        <main id="receipt-main">
-            <!-- BASKET AND TOTAL -->
-            <div id="thanks-basket-wrapper">
-                <div id="thank-you">
-                    <h3>Tack så mycket!</h3>
-                    <i class="fas fa-check-circle"></i>
-                </div>
-                <div id="basket-total-wrapper">
-                    <!-- BASKET -->
-                    <div id="basket-container">
-                        <h4 id="basket-title">Kvitto</h4>
-                        <div id="basket">
-                            <div id="basket-inner-wrapper"></div>
-                        </div>
-                    </div>
-                    <!-- TOTAL COST -->
-                    <div id="total-cost-container">
-                        <div class="blue-line"></div>
-                    </div>
-                </div>
-            </div>
+        <div id="middle">
+            <header id="receipt-header">
+                <h2>Kvitto</h2>
+            </header>
 
-            <!-- CUSTOMER DETAILS -->
-            <div id="customer-receipt-container">
-                <div id="receipt-outer-wrapper">
-                    <div id="receipt-middle">
-                        <!-- TOP -->
-                        <div id="receipt-top-wrapper">
-                            <div id="name-adress-section">
-                                <p id="fullname"></p>
-                                <p id="adress"></p>
-                                <p id="region-code"></p>
-                            </div>
-                            <div id="card-section">
-                                <p>Kortnummer:</p>
-                                <p id="card"></p>
-                            </div>
-                            <div id="order-section">
-                                <p>Ordernummer:</p>
-                                <p id="order-number"></p>
-                            </div>
-                        </div>
-                        <!-- MIDDLE -->
-                        <div id="receipt-middle-wrapper">
-                            <div id="date-section">
-                                <p>Beställningsdatum:</p>
-                                <p id="date"></p>
-                            </div>
-                            <div id="delivery-time-section">
-                                <p>Leveranstid:</p>
-                                <p id="delivery-time"></p>
-                            </div>
-                        </div>
-                        <!-- BOTTOM -->
-                        <div id="receipt-bottom-wrapper">
-                            <div id="total-cost-section">
-                                <h1 id="total-cost"></h1>
-                                <div class="blue-line"></div>
-                            </div>
-                        </div>
+            <main id="receipt-main">
+                <!-- BASKET AND TOTAL -->
+                <div id="thanks-basket-wrapper">
+                    <div id="thank-you">
+                        <h3>Tack så mycket!</h3>
+                        <i class="fas fa-check-circle"></i>
                     </div>
-                    <div id="button-section">
-                        <a id="back-button">
-                            <button>Klar</button>
-                        </a>
+                    <div id="basket-total-wrapper">
+                        <!-- BASKET -->
+                        <div id="basket-container">
+                            <h4 id="basket-title">Kvitto</h4>
+                            <div id="basket">
+                                <div id="basket-inner-wrapper"></div>
+                            </div>
+                        </div>
+                        <!-- TOTAL COST -->
+                        <div id="total-cost-container">
+                            <div class="blue-line"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+
+                <!-- CUSTOMER DETAILS -->
+                <div id="customer-receipt-container">
+                    <div id="receipt-outer-wrapper">
+                        <div id="receipt-middle">
+                            <!-- TOP -->
+                            <div id="receipt-top-wrapper">
+                                <div id="name-adress-section">
+                                    <p><b>Personuppgifter:</b></p>
+                                    <p id="fullname"></p>
+                                    <p id="adress"></p>
+                                    <p id="region-code"></p>
+                                </div>
+                                <div id="email-section">
+                                    <p><b> E-post:</b></p>
+                                    <p id="email"></p>
+                                </div>
+                                <div id="card-section">
+                                    <p><b>Kortnummer:</b></p>
+                                    <p id="card"></p>
+                                </div>
+                                <div id="order-section">
+                                    <p><b>Ordernummer:</b></p>
+                                    <p id="order-number"></p>
+                                </div>
+                            </div>
+                            <!-- MIDDLE -->
+                            <div id="receipt-middle-wrapper">
+                                <div id="date-section">
+                                    <p><b>Beställningsdatum:</b></p>
+                                    <p id="date"></p>
+                                </div>
+                                <div id="delivery-time-section">
+                                    <p><b>Leveranstid:</b></p>
+                                    <p id="delivery-time"></p>
+                                </div>
+                            </div>
+                            <!-- BOTTOM -->
+                            <div id="receipt-bottom-wrapper">
+                                <div id="total-cost-section">
+                                    <h1 id="total-cost"></h1>
+                                    <div class="blue-line"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="button-section">
+                            <a id="back-button">
+                                <button>Klar</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+
+        <div id="right-svg"></div>
     </body>
 </html>

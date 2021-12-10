@@ -29,141 +29,171 @@
         />
     </head>
     <body id="checkout-body">
-        <header id="checkout-header">
-            <a href="javascript:history.back()"
-                ><i class="fas fa-arrow-left"></i
-            ></a>
-            <h2>Varukorg</h2>
-        </header>
+        <div id="left-svg"></div>
 
-        <main id="checkout-main">
-            <!-- BASKET AND TOTAL -->
-            <div id="basket-total-wrapper">
-                <!-- BASKET -->
-                <div id="basket-container">
-                    <h4 id="basket-title">Din varukorg</h4>
-                    <div id="basket">
-                        <div id="basket-inner-wrapper"></div>
+        <div id="middle">
+            <header id="checkout-header">
+                <a href="javascript:history.back()"
+                    ><i class="fas fa-arrow-left"></i
+                ></a>
+                <h2>Varukorg</h2>
+            </header>
+
+            <main id="checkout-main">
+                <!-- BASKET AND TOTAL -->
+                <div id="basket-total-wrapper">
+                    <!-- BASKET -->
+                    <div id="basket-container">
+                        <h4 id="basket-title">Din varukorg</h4>
+                        <div id="basket">
+                            <div id="basket-inner-wrapper"></div>
+                        </div>
+                    </div>
+                    <!-- TOTAL COST -->
+                    <div id="total-cost-container">
+                        <h2 id="total-cost"></h2>
+                        <div id="blue-line"></div>
                     </div>
                 </div>
-                <!-- TOTAL COST -->
-                <div id="total-cost-container">
-                    <h2 id="total-cost"></h2>
-                    <div id="blue-line"></div>
-                </div>
-            </div>
 
-            <!-- CUSTOMER DETAILS -->
-            <div id="customer-details-container">
-                <h4 id="input-title">Fyll i här</h4>
-                <div id="input-wrapper">
-                    <form id="input-container">
-                        <!-- NAME SECTION -->
-                        <div id="name-section">
-                            <!-- FIRST NAME -->
-                            <div>
-                                <label for="customer-firstname">Förnamn</label>
-                                <input
-                                    id="customer-firstname"
-                                    type="text"
-                                    required
-                                />
+                <!-- CUSTOMER DETAILS -->
+                <div id="customer-details-container">
+                    <h4 id="input-title">Fyll i här</h4>
+                    <div id="input-wrapper">
+                        <form id="input-container">
+                            <!-- NAME SECTION -->
+                            <div id="name-section">
+                                <!-- FIRST NAME -->
+                                <div>
+                                    <label for="customer-firstname"
+                                        >Förnamn</label
+                                    >
+                                    <input
+                                        id="customer-firstname"
+                                        type="text"
+                                        required
+                                    />
+                                </div>
+
+                                <!-- LAST NAME -->
+                                <div>
+                                    <label for="customer-lastname"
+                                        >Efternamn</label
+                                    >
+                                    <input
+                                        id="customer-lastname"
+                                        type="text"
+                                        required
+                                    />
+                                </div>
+
+                                <!-- EMAIL -->
+                                <div>
+                                    <label for="customer-email">Emejl</label>
+                                    <input
+                                        id="customer-email"
+                                        type="text"
+                                        required
+                                    />
+                                </div>
                             </div>
 
-                            <!-- LAST NAME -->
-                            <div>
-                                <label for="customer-lastname">Efternamn</label>
-                                <input
-                                    id="customer-lastname"
-                                    type="text"
-                                    required
-                                />
-                            </div>
-                        </div>
+                            <!-- MOBILE ADRESS SECTION -->
+                            <div id="mobile-adress-section">
+                                <div>
+                                    <!-- MOBILE NUMBER -->
+                                    <label for="customer-mobile"
+                                        >Mobilnummer (+46)</label
+                                    >
+                                    <input
+                                        id="customer-mobile"
+                                        type="tel"
+                                        required
+                                    />
+                                </div>
 
-                        <!-- MOBILE ADRESS SECTION -->
-                        <div id="mobile-adress-section">
-                            <div>
-                                <!-- MOBILE NUMBER -->
-                                <label for="customer-mobile"
-                                    >Mobilnummer (+46)</label
-                                >
-                                <input
-                                    id="customer-mobile"
-                                    type="tel"
-                                    required
-                                />
+                                <div>
+                                    <!-- CUSTOMER ADRESS -->
+                                    <label for="customer-adress">Adress</label>
+                                    <input
+                                        id="customer-adress"
+                                        type="text"
+                                        required
+                                    />
+                                </div>
+
+                                <div>
+                                    <label for="customer-region"
+                                        >Postnummer</label
+                                    >
+                                    <input
+                                        id="customer-region"
+                                        type="number"
+                                        required
+                                    />
+                                </div>
                             </div>
 
-                            <div>
-                                <!-- CUSTOMER ADRESS -->
-                                <label for="customer-adress">Adress</label>
-                                <input
-                                    id="customer-adress"
-                                    type="text"
-                                    required
-                                />
-                            </div>
-
-                            <div>
-                                <label for="customer-region">Postnummer</label>
-                                <input
-                                    id="customer-region"
-                                    type="number"
-                                    required
-                                />
-                            </div>
-                        </div>
-
-                        <!-- DELIVERY CARD SECTION -->
-                        <div id="delivery-card-section">
-                            <div>
-                                <!-- DELIVERY CHOICE -->
-                                <label for="customer-delivery"
-                                    >Leveranssätt</label
-                                >
-                                <select id="customer-delivery" required>
-                                    <option value="PostNord">Post Nord</option>
-                                    <option value="USP">USP</option>
-                                    <option value="InstaBox">InstaBox</option>
-                                </select>
-                            </div>
-                            <!-- CUSTOMER CARD INFO -->
-                            <div>
-                                <div id="customer-card-container">
-                                    <div id="customer-card-number-container">
-                                        <label for="customer-card"
-                                            >Kortnummer</label
+                            <!-- DELIVERY CARD SECTION -->
+                            <div id="delivery-card-section">
+                                <div>
+                                    <!-- DELIVERY CHOICE -->
+                                    <label for="customer-delivery"
+                                        >Leveranssätt</label
+                                    >
+                                    <select id="customer-delivery" required>
+                                        <option value="PostNord">
+                                            Post Nord
+                                        </option>
+                                        <option value="USP">USP</option>
+                                        <option value="InstaBox">
+                                            InstaBox
+                                        </option>
+                                    </select>
+                                </div>
+                                <!-- CUSTOMER CARD INFO -->
+                                <div>
+                                    <div id="customer-card-container">
+                                        <div
+                                            id="customer-card-number-container"
                                         >
-                                        <input
-                                            id="customer-card"
-                                            type="number"
-                                            required
-                                        />
-                                    </div>
+                                            <label for="customer-card"
+                                                >Kortnummer</label
+                                            >
+                                            <input
+                                                id="customer-card"
+                                                type="number"
+                                                required
+                                            />
+                                        </div>
 
-                                    <div id="customer-card-cvc-container">
-                                        <label for="customer-card-cvc"
-                                            >CVC</label
-                                        >
-                                        <input
-                                            id="customer-card-cvc"
-                                            type="number"
-                                            required
-                                        />
+                                        <div id="customer-card-cvc-container">
+                                            <label for="customer-card-cvc"
+                                                >CVC</label
+                                            >
+                                            <input
+                                                id="customer-card-cvc"
+                                                type="number"
+                                                required
+                                            />
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- CONFIRM BUTTON -->
-                        <button id="pay-button" type="submit">Betala</button>
-                    </form>
+                            <!-- CONFIRM BUTTON -->
+                            <button id="pay-button" type="submit">
+                                Betala
+                            </button>
+                        </form>
 
-                    <div id="basket-details-container">
-                        <div id="details"></div>
+                        <div id="basket-details-container">
+                            <div id="details"></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
+
+        <div id="right-svg"></div>
     </body>
 </html>

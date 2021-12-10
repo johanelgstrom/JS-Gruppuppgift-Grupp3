@@ -65,12 +65,11 @@ function renderHTML(): void {
     document.getElementById("total-cost").innerText =
         "Total: " + totalCost.toString() + "kr";
 
-    console.log("CUSTOMER: ", customer);
-
     //sessionStorage.removeItem("customer");
 
     document.getElementById("fullname").innerText =
         customer.firstname + " " + customer.lastname;
+    document.getElementById("email").innerText = customer.email;
     document.getElementById("adress").innerText = customer.adress;
     document.getElementById("region-code").innerText = customer.region;
     document.getElementById("card").innerText =
