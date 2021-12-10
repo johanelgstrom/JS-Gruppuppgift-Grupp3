@@ -20,7 +20,10 @@
         "price": 99,
         "description": "Visst känns det bra att känna att Nicolas Cage är aldrig långt borta!",
         "categories": ["Dator", "Matta"],
-        "filter": ["Konstig"]
+        "filter": ["Konstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [4, 8, 10, 17, 23, 32]
     },
     {
         "id": 3,
@@ -31,7 +34,10 @@
         "price": 89,
         "description": "Fyll julgranen med hästar!",
         "categories": ["Heminredning"],
-        "filter": ["Konstig"]
+        "filter": ["Konstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [6, 12, 23, 27, 31, 34]
     },
     {
         "id": 4,
@@ -42,7 +48,10 @@
         "price": 129,
         "description": "När du behöver en ännu lugnare dusch.",
         "categories": ["Badrum"],
-        "filter": ["Konstig"]
+        "filter": ["Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [1, 7, 19, 28, 32, 35]
     },
     {
         "id": 5,
@@ -53,7 +62,10 @@
         "price": 49,
         "description": "Denna här stressbollen är ingen boll alls. Utan en stressgurka!",
         "categories": ["Accessoarer"],
-        "filter": ["Jättekonstig"]
+        "filter": ["Jättekonstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [2, 8, 15, 21, 25, 33]
     },
     {
         "id": 6,
@@ -64,7 +76,10 @@
         "price": 199,
         "description": "Behöver du mer USB portar? Passa på med en banan variant!",
         "categories": ["Dator"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [10, 14, 22, 26, 29, 34]
     },
     {
         "id": 7,
@@ -75,7 +90,10 @@
         "price": 799,
         "description": "En riktig uppstoppad anka med inbyggd lampa!",
         "categories": ["Heminredning"],
-        "filter": ["Jättekonstig", "Vad i hela världen"]
+        "filter": ["Jättekonstig", "Vad i hela världen"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [7, 9, 15, 17, 26, 33]
     },
     {
         "id": 8,
@@ -86,7 +104,10 @@
         "price": 799,
         "description": "Är du trött på stolar med svaga och opålitliga ben? Då är denna stol för dig!",
         "categories": ["Heminredning"],
-        "filter": ["Konstig", "Jättekonstig"]
+        "filter": ["Konstig", "Jättekonstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [3, 7, 12, 16, 23, 30]
     },
     {
         "id": 9,
@@ -97,7 +118,10 @@
         "price": 699,
         "description": "Här har du en byrå för dig som gillar rotsaker!",
         "categories": ["Heminredning"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [2, 7, 11, 15, 22, 31]
     },
     {
         "id": 10,
@@ -108,7 +132,10 @@
         "price": 0,
         "description": "En stol och ett bord. Vad mer behöver man? Förutom att kunna sitta kanske.",
         "categories": ["Heminredning"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [2, 6, 9, 14, 17, 31]
     },
     {
         "id": 11,
@@ -119,7 +146,10 @@
         "price": 149,
         "description": "Störiga klasskamrater? Med hjälp av detta fruktansvärt vidriga pennfodral så kommer ingen någonsin sitta bredvid dig i klassrummet igen. Perfekt för ensamvargen eller fiskälskaren.",
         "categories": ["Kläder"],
-        "filter": ["Onormal"]
+        "filter": ["Onormal"],
+        "isNew": true,
+        "isOnSale": true,
+        "related": [5, 8, 13, 17, 24, 30]
     },
     {
         "id": 12,
@@ -130,7 +160,10 @@
         "price": 199,
         "description": "Svårt att laga mat och dokumentera din fantastiska skapelse samtidigt? Detta mobilskal är då den perfekta lösningen. Du kan nu ta din instagram feed till nästa nivå!",
         "categories": ["Mobil"],
-        "filter": ["Onormal"]
+        "filter": ["Onormal"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [11, 15, 18, 21, 25, 35]
     },
     {
         "id": 13,
@@ -141,7 +174,10 @@
         "price": 199,
         "description": "Otroligt söt (och weird), kalender. Olika dofter för varje månad.",
         "categories": ["Heminredning"],
-        "filter": ["Konstig"]
+        "filter": ["Konstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [14, 19, 3, 21, 28, 32]
     },
     {
         "id": 14,
@@ -152,7 +188,10 @@
         "price": 499,
         "description": "En levande meme. Finns det ens någon så bra meme alls? Precis, detta köp är en no-brainer. OBS! Inte lifesized (sorry), 5cm hög.",
         "categories": ["Heminredning"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [5, 18, 22, 34, 26, 15]
     },
     {
         "id": 15,
@@ -163,7 +202,10 @@
         "price": 8990,
         "description": "Du klickade på denna artikel för att du är en tech-fantast. Detta är det senaste släppet från Bapelsin som du verkligen inte vill missa. Passar alla handstorlekar.",
         "categories": ["Mobil"],
-        "filter": ["Jättekonstig"]
+        "filter": ["Jättekonstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [6, 12, 24, 28, 29, 32]
     },
     {
         "id": 16,
@@ -174,7 +216,10 @@
         "price": 299,
         "description": "Önskar du att du bodde i en trailer park med fantastiska människor liknande Bubbles, Rick och Jim Lahey? Så enkelt är det inte men för att förbereda dig på white trash trailer park-livet så måste du veta hur man lagar de perfekt trashiga chicken fingers.",
         "categories": ["Kök"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [2, 11, 22, 24, 28, 33]
     },
     {
         "id": 17,
@@ -185,7 +230,10 @@
         "price": 399,
         "description": "Foppatofflor? Nej. Birkenstocks? Nej. Extremt sköna och kladdiga abborretofflor? Ja.",
         "categories": ["Kläder"],
-        "filter": ["Jättekonstig", "Vad i hela världen"]
+        "filter": ["Jättekonstig", "Vad i hela världen"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [6, 12, 24, 28, 29, 32]
     },
     {
         "id": 18,
@@ -196,7 +244,10 @@
         "price": 99,
         "description": "Har dina tuppar svårt att avgöra vem som är alphahanen? Ge dem varsin av denna produkt och både du och tupparna vet vem det är som bestämmer.",
         "categories": ["Djur"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [3, 11, 13, 18, 26, 31]
     },
     {
         "id": 19,
@@ -207,7 +258,10 @@
         "price": 299,
         "description": "Trist julbord? Krydda upp det enkelt med rökt skallerorm. Konsistens som leverpastej, lukt som svett och smak som surströmming.",
         "categories": ["Kök"],
-        "filter": ["Jättekonstig", "Vad i hela världen"]
+        "filter": ["Jättekonstig", "Vad i hela världen"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [2, 8, 12, 18, 23, 27]
     },
     {
         "id": 20,
@@ -218,7 +272,10 @@
         "price": 99,
         "description": "We get it, du spelar Wonderwall jättebra på gitarr men ibland räcker det inte hela vägen för att gå med i ett band. Efter endast en veckas träning med detta underbara och lätta instrument kan du lätt gå med i självaste Oasis. You're my wonderwaaaaaaaaaaaaaaaaaaaaaall",
         "categories": ["Musik"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [2, 9, 13, 18, 26, 30]
     },
     {
         "id": 21,
@@ -229,7 +286,10 @@
         "price": 59,
         "description": "Odla din alldeles egna bajs-emoji, det ända du behöver göra är att tillsätta vatten.",
         "categories": ["Heminredning"],
-        "filter": ["Onormal"]
+        "filter": ["Onormal"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [3, 11, 16, 22, 25, 30]
     },
     {
         "id": 22,
@@ -240,7 +300,10 @@
         "price": 99,
         "description": "Om någon skriker, anka! De pratar bara om din hand att lägga dessa ankfötter på spetsarna på fingrarna och att gå igenom pölar kommer att få dina vänner att quacka! Denna tilltalande 5,4 cm webbade undrar är gjord av mjuk vinyl. Den hjälper dig inte att simma, men din hand kommer att vaddla upp en storm! Levereras med en enda ankfot.",
         "categories": ["Accessoarer"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [6, 12, 24, 28, 29, 32]
     },
     {
         "id": 23,
@@ -251,7 +314,10 @@
         "price": 299,
         "description": "Det finns säkert massor av vettiga anledningar till varför man skulle behöva c:a 1.500 levande nyckelpigor. Såvitt jag vet så är de bra mot skadedjur.Man kan säkert hitta nån pop-diet som förespråkar dem i smoothie också.",
         "categories": ["Kök"],
-        "filter": ["Jättekonstig", "Vad i hela världen"]
+        "filter": ["Jättekonstig", "Vad i hela världen"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [21, 4, 16, 27, 8, 30]
     },
     {
         "id": 24,
@@ -262,7 +328,10 @@
         "price": 349,
         "description": "Vill du också vakna upp av att Donald Trump står vid sängaveln och viskar: billions and billions and billions and billions? Då kommer du sannerligen älska denna kartongfigur! ",
         "categories": ["Heminredning"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": true,
+        "related": [3, 11, 17, 21, 26, 30]
     },
     {
         "id": 25,
@@ -273,7 +342,10 @@
         "price": 599,
         "description": "Med denna fantastiska uppfinning kan ni spela schack med hela tre personer istället för två! What.. hur går det till? Reglerna har inte alls ändrats, det finns nu bara ett tilläggsprotokoll som skall följas för att upprätthålla ordningen mellan varje spelare. Schack för tre låter svårare än vad det är, du spelar bara som vanligt, fast med ytterligare en spelare! ",
         "categories": ["Spel"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": true,
+        "related": [2, 7, 15, 22, 28, 30]
     },
     {
         "id": 26,
@@ -284,7 +356,10 @@
         "price": 49,
         "description": "Kort och gott en glasburk med plåtlock med ingenting. Burken har texten En burk med ingenting När du fått frågan vad du önskar dig har du svarat med INGENTING. Den här gången är det någon som hört dig, letat och sökt överallt för att till slut hitta denna perfekta gåvan. Mått:8,5x10cm.",
         "categories": ["Heminredning"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [5, 9, 17, 23, 27, 32]
     },
     {
         "id": 27,
@@ -295,7 +370,10 @@
         "price": 99,
         "description": "Av alla saker det kan komma klet ur är näsan en av de jobbigaste och tub med duschkräm en av de mest glädjande. Hur ofta har du inte svurit över en ovälkommen förkylning* eller, för den delen, över att stå i duschen och vilja bli ren men upptäcka att duschkrämen är slut? Därför bör du naturligtvis ha en näsa på duschväggen. Inte din egen utan en näsa fylld av duschkräm. Tryck, klet, klart. Ingen förkylning, ingen smutsighet. Perfekt.",
         "categories": ["Badrum"],
-        "filter": ["Konstig", "Jättekonstig"]
+        "filter": ["Konstig", "Jättekonstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [3, 8, 12, 26, 30, 33]
     },
     {
         "id": 28,
@@ -306,7 +384,10 @@
         "price": 199,
         "description": "Du kanske tycker att du har ett vackert leende? Fel, fel, fel! Man kan aldrig ha ett tillräckligt vackert leende utan den fantastiska Happy Face Trainer! Tydligen... Happy Face Trainer är i alla fall ett träningsredskap som tydligen stärker dina skrattmuskler. Den som inte har tillräckligt vackert leende har alltså inte pumpat upp sina skrattmuskler ordentligt.",
         "categories": ["Accessoarer"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [5, 8, 14, 21, 25, 31]
     },
     {
         "id": 29,
@@ -317,7 +398,10 @@
         "price": 199,
         "description": "Äntligen kan du smyga iväg på natten utan att din älskade ska vakna av din saknade famn. Denna kramkudde är den ultimata kudden för dig eller den som har svårt att somna ensam om natten. Du lägger bara huvudet på kudden varpå handen på kudden kramar om dig. Bättre än äkta vara då den varken rör på sig eller klagar på dina snarkningar.",
         "categories": ["Heminredning"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [4, 9, 14, 23, 27, 30]
     },
     {
         "id": 30,
@@ -328,7 +412,10 @@
         "price": 179,
         "description": "Golf, strax över ostbågar och strax under rökheroin på listan över beroendeframkallande saker. För den inbitne golfaren finns det inget tillfälle som inte skulle bli bättre med lite golf inblandat. En regnruskig söndagsmorgon runt halv sju? Golf. Sen kväll i november? Golf (med pannlampa). Syrrans bröllopsdag.... ja, ni fattar. Varje sekund är en bra sekund att öva puttar. Men det finns tillfällen då även den mest fanatiske golfentusiast måste hejda sig och sitta ner. Eller, det fanns kanske man ska säga. Vi har nämligen - som namnet på den här produkten tydligt demonstrerar - löst det problemet nu. Nu kan du utnyttja tiden maximalt och i tid och otid finputsa dina puttar samtidigt som du utövar andra nödvändiga behov.",
         "categories": ["Badrum"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [2, 6, 13, 18, 22, 31]
     },
     {
         "id": 31,
@@ -339,7 +426,10 @@
         "price": 99,
         "description": "Vi har alla någon på jobbet som förtjänar ett litet prank. Servera denna person en kopp te eller kaffe i denna mugg och skåda sedan skräcken i blicken när det tuggade tuggummit upptäcks i botten. ",
         "categories": ["Kök"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [8, 10, 15, 21, 26, 35]
     },
     {
         "id": 32,
@@ -350,7 +440,10 @@
         "price": 39,
         "description": "Roligt pussel för den som gillar (omöjliga) utmaningar och har glimten i ögat. Detta omöjliga pussel bestående av en påse sågspån är perfekt som en rolig liten present. Mått på förpackningen 13x10cm. ",
         "categories": ["Spel"],
-        "filter": ["Onormal"]
+        "filter": ["Onormal"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [8, 14, 21, 27, 29, 15]
     },
     {
         "id": 33,
@@ -359,7 +452,10 @@
         "price": 99,
         "description": "Flytväst för vinflaskan. Utmärkt present till stugan eller till vinälskare eller kanske för den blöta festen. Kommer med visselpipa ca 25cm. ",
         "categories": ["Accessoarer"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": true,
+        "isOnSale": false,
+        "related": [3, 8, 22, 23, 29, 31]
     },
     {
         "id": 34,
@@ -370,7 +466,10 @@
         "price": 199,
         "description": "Ladda dig med ammunition för en riktigt galen festkväll! Din främsta fiende: den fruktade törsten som smyger sig på. Ditt weapon of choice? Vår ölväst, såklart! Bär 12 burkar (33 cl) utan ansträngning och bli hjälten som räddar kvällen med detta praktiska ölbälte!",
         "categories": ["Kläder"],
-        "filter": ["Onormal"]
+        "filter": ["Onormal"],
+        "isNew": true,
+        "isOnSale": true,
+        "related": [4, 11, 16, 17, 25, 33]
     },
     {
         "id": 35,
@@ -381,6 +480,9 @@
         "price": 49,
         "description": "80-talet ringde och ville ha tillbaka sin mobiltelefon! Lämna din smartphone hemma och ta med 80-talets modernaste pryl! En självklart tillbehör till 80-tals outfit.",
         "categories": ["Mobil"],
-        "filter": ["Onormal", "Jättekonstig"]
+        "filter": ["Onormal", "Jättekonstig"],
+        "isNew": false,
+        "isOnSale": false,
+        "related": [3, 7, 14, 17, 25, 32]
     }
 ]
