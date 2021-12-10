@@ -24,6 +24,10 @@ window.onload = function () {
 function createElementForProducts(): void {
     let allProducts: Product[] = createProductObjectsFromData();
 
+    allProducts.forEach((p: Product) => {
+        p.related.forEach((pRelated: Product) => {});
+    });
+
     let productContainer: HTMLDivElement = document.querySelector(
         ".products-container"
     ) as HTMLDivElement;

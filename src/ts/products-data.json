@@ -6,7 +6,10 @@
         "price": 199,
         "description": "Här har vi en riktigt unik toalettpappers hållare för er alla fårälskare!",
         "categories": ["Badrum", "Djur"],
-        "filter": ["Onormal", "Konstig"]
+        "filter": ["Onormal", "Konstig"],
+        "isNew": false,
+        "isOnSale": true,
+        "related": [2, 4]
     },
     {
         "id": 2,

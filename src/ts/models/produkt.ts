@@ -8,6 +8,9 @@ export class Product {
     description: string;
     categories: string[];
     filters: string[];
+    isNew: boolean;
+    isOnSale: boolean;
+    related: Product[];
 
     constructor(
         id: number,
@@ -16,7 +19,10 @@ export class Product {
         price: number,
         description: string,
         categories: string[],
-        filters: string[]
+        filters: string[],
+        isNew: boolean,
+        isOnSale: boolean,
+        related: Product[] = []
     ) {
         this.id = id;
         this.name = name;
@@ -25,6 +31,9 @@ export class Product {
         this.description = description;
         this.categories = categories;
         this.filters = filters;
+        this.isNew = isNew;
+        this.isOnSale = isOnSale;
+        this.related = related;
     }
 }
 
@@ -33,6 +42,22 @@ export class Product {
 //we know all its attributenames.
 export function createProductObjectsFromData(): Product[] {
     return data.map((productJson) => {
+        let relatedProducts: Product[] = [];
+        productJson["related"].forEach((id: number) => {
+            relatedProducts.push(
+                new Product(
+                    productJson.id,
+                    productJson.name,
+                    productJson.imagesUrl,
+                    productJson.price,
+                    productJson.description,
+                    productJson.categories,
+                    productJson.filter,
+                    productJson.isNew,
+                    productJson.isOnSale
+                )
+            );
+        });
         return new Product(
             productJson.id,
             productJson.name,
@@ -40,7 +65,10 @@ export function createProductObjectsFromData(): Product[] {
             productJson.price,
             productJson.description,
             productJson.categories,
-            productJson.filter
+            productJson.filter,
+            productJson.isNew,
+            productJson.isOnSale,
+            relatedProducts
         );
     });
 }
@@ -105,10 +133,24 @@ export function getProductById(id: number, products: Product[]): Product[] {
     return [];
 }
 
-//Find all products which match the current list of IDs
-// export function getProductsByIds(
-//     ids: number[],
-//     products: Product[]
-// ): Product[] {
-//     return;
-// }
+//Finds the products that are new and returns them in a list.
+export function getNewProducts(products: Product[]): Product[] {
+    let newProducts: Product[] = [];
+    products.forEach((p: Product) => {
+        if (p.isNew) {
+            newProducts.push(p);
+        }
+    });
+    return newProducts;
+}
+
+//Finds the product that are on sale and returns them in a list.
+export function getSaleProducts(products: Product[]): Product[] {
+    let saleProducts: Product[] = [];
+    products.forEach((p: Product) => {
+        if (p.isOnSale) {
+            saleProducts.push(p);
+        }
+    });
+    return saleProducts;
+}
