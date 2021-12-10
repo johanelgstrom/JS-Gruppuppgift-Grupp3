@@ -1,5 +1,7 @@
-import { cartSlideIn, getCartIds, getProductObjectsFromCart, menuSlideIn, addProductToCart, allProducts, removeProductFromCart } from "./main";
-import { getProductById, Product } from "./models/produkt";
+import { cartSlideIn, menuSlideIn } from "./main";
+import { CartItem } from "./models/CartItem";
+import { Customer } from "./models/customer";
+import { createProductObjectsFromData, getProductById, Product } from "./models/produkt";
 window.onload = function () {
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
@@ -16,22 +18,31 @@ window.onload = function () {
     cart.addEventListener("click", cartSlideIn);
 
 }
-addProductToCart(allProducts[18]);
-addProductToCart(allProducts[24]);
+
+
 // addProductToCart(allProducts[24]);
 // addProductToCart(allProducts[29]);
 // addProductToCart(allProducts[14]);
-let cart: number[][] = getCartIds();
-console.log(cart)
-if (cart.length === 0) {
+let customer: Customer = Customer.prototype.getCustomer();
+let allProducts: Product[] = createProductObjectsFromData();
+customer.addProductToCart(allProducts[15]);
+// let cart = CartItem.prototype.product;
+console.log(customer.cart);
+// console.log(cart);
+
+
+
+
+
+console.log(customer)
+if (customer.cart.length === 0) {
     console.log("den är tom");
     let yourBasketText: HTMLParagraphElement = document.getElementById("your-basket") as HTMLParagraphElement;
     yourBasketText.innerHTML = "Lägg till något onormalt i din varukorg innan du försöker gå till kassan ;)"
 }
 else {
 
-    let cartProducts: Product[] = getProductObjectsFromCart();
-console.log(cart)
+    let cartProducts: CartItem[] = customer.cart;
     console.log(cartProducts)
     let totalNum : number = 0;
 
@@ -45,11 +56,11 @@ let basketTotalAndButton: HTMLDivElement = document.createElement("div");
     linkToCheckout.href = "/pages/checkout.html"
 
 
-cart.forEach((cartItem: number[]) => {
-    let id: number = cartItem[0];
-    let quantity: number = cartItem[1];
+customer.cart.forEach((cartItem: CartItem) => {
+    let quantity: number = cartItem.quantity;
+    console.log(cartItem.product.name)
 
-    let cartProduct: Product[] = getProductById(id, cartProducts);
+    // let cartProduct: Product[] = getProductById(id, cartProducts);
 
     // console.log(id)
     // console.log(quantity)
@@ -65,8 +76,8 @@ cart.forEach((cartItem: number[]) => {
     itemPictureContainer.classList.add("item-picture")
 
     let itemPicture: HTMLImageElement = document.createElement("img");
-    itemPicture.src = cartProduct[0].imageUrl as unknown as string;
-    itemPicture.alt = cartProduct[0].name;
+    itemPicture.src = cartItem.product.imageUrl[0] as unknown as string;
+    itemPicture.alt = cartItem.product.name;
 
     // INFO OCH KNAPPAR
     let itemInfoAndButtons: HTMLDivElement = document.createElement("div");
@@ -76,13 +87,13 @@ cart.forEach((cartItem: number[]) => {
     itemInfo.classList.add("item-info");
 
     let pName: HTMLParagraphElement = document.createElement("p");
-    pName.innerHTML = cartProduct[0].name;
+    pName.innerHTML = cartItem.product.name;
     let pPrice: HTMLParagraphElement = document.createElement("p");
-    pPrice.innerHTML = "Pris: " + cartProduct[0].price + "kr";
+    pPrice.innerHTML = "Pris: " + cartItem.product.price + "kr";
     let pAmount: HTMLParagraphElement = document.createElement("p");
     pAmount.innerHTML = "Antal: " + quantityNum;
     let pTotal: HTMLParagraphElement = document.createElement("p");
-    let productTotalAmount: number = cartProduct[0].price*quantity;
+    let productTotalAmount: number = cartItem.product.price*quantity;
     pTotal.innerHTML = "Totalt: " + productTotalAmount + "kr";
     totalNum += productTotalAmount;
     console.log(productTotalAmount)
@@ -94,11 +105,11 @@ cart.forEach((cartItem: number[]) => {
     let plusButton: HTMLButtonElement = document.createElement("button");
     plusButton.innerHTML = "+";
     plusButton.addEventListener("click", () => {
-        addProductToCart(cartProduct[0]);
+        customer.addProductToCart(cartItem.product);
         quantity++
         pAmount.innerHTML = "Antal: " + quantity;
-        pTotal.innerHTML = "Totalt: " + cartProduct[0].price*quantity + "kr";
-        totalNum += cartProduct[0].price;
+        pTotal.innerHTML = "Totalt: " + cartItem.product.price*quantity + "kr";
+        totalNum += cartItem.product.price;
         calculateTotalNum();
         console.log(quantity)
     })
@@ -106,20 +117,19 @@ cart.forEach((cartItem: number[]) => {
     minusButton.innerHTML = "-";
     minusButton.addEventListener("click", () => {
         if (quantity > 1) {
-            removeProductFromCart(cartProduct[0])
+            customer.removeProductFromCart(cartItem.product);
             quantity--
             pAmount.innerHTML = "Antal: " + quantity;
-        pTotal.innerHTML = "Totalt: " + cartProduct[0].price*quantity + "kr";
-        totalNum -= cartProduct[0].price;
+        pTotal.innerHTML = "Totalt: " + cartItem.product.price*quantity + "kr";
+        totalNum -= cartItem.product.price;
         calculateTotalNum();
         }
         else {
             if (confirm("Är du saker att du vill ta bort denna onormala grej från varukorgen?")) {
-                removeProductFromCart(cartProduct[0])
+                customer.removeProductFromCart(cartItem.product);
                 itemContainer.remove();
-                totalNum -= cartProduct[0].price;
+                totalNum -= cartItem.product.price;
                 calculateTotalNum();
-                console.log(cart)
                 let test = localStorage.getItem("cart")
                 JSON.parse(test)
                 console.log(test)
@@ -168,7 +178,4 @@ basketTotalAndButton.appendChild(h3Total)
 basketTotalAndButton.appendChild(linkToCheckout)
 linkToCheckout.appendChild(continueButton)
 }
-
-
-
 
