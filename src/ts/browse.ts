@@ -107,7 +107,7 @@ function createElementForProducts(): void {
 }
 // GOING TO PRODUCT-PAGE //
 function goToProductPage() {
-    window.location.replace("product.html");
+    window.location.href = "product.html";
 }
 
 function createProductFilter(): void {
