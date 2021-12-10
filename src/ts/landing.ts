@@ -1,7 +1,8 @@
 import { cartSlideIn, menuSlideIn } from "./main";
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/customer";
-import { createProductObjectsFromData, getProductById, Product } from "./models/produkt";
+import { Product } from "./models/produkt";
+import { createProductObjectsFromData } from "./productFunctions";
 window.onload = function () {
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
