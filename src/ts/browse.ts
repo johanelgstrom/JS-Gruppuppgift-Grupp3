@@ -144,7 +144,7 @@ function createProductFilter(): void {
     };
     window.addEventListener("scroll", myScrollFunc);
 
-    // FILTER WINDOW //
+    // FILTER ###########
     function createFilterWindow() {
         let filterContainer: HTMLDivElement = document.createElement(
             "div"
@@ -152,10 +152,14 @@ function createProductFilter(): void {
         filterContainer.id = "loading";
         filterContainer.className = "filter-container";
 
+        // FILTER HEADER ####################################################################
+
         let filterHeader: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
         filterHeader.className = "filter-header";
+
+        // FILTER HEADER BUTTONS ####################################################################
 
         let filterButtonContainer: HTMLDivElement = document.createElement(
             "div"
@@ -180,6 +184,8 @@ function createProductFilter(): void {
         ) as HTMLLIElement;
         crossIcon.className = "fas fa-times";
 
+        // FILTER MAIN ####################################################################
+
         let filterMain: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
@@ -190,6 +196,10 @@ function createProductFilter(): void {
         ) as HTMLDivElement;
         filterCategoriesContainer.className = "filter-catagories-container";
 
+        // FILTER FORM ####################################################################
+
+        let filters: string[] = [];
+
         let filterForm: HTMLFormElement = document.createElement(
             "form"
         ) as HTMLFormElement;
@@ -197,10 +207,21 @@ function createProductFilter(): void {
         let firstCategory: HTMLInputElement = document.createElement(
             "input"
         ) as HTMLInputElement;
-        firstCategory.name = "onormal";
-        firstCategory.value = "onormal";
+        firstCategory.value = "Onormal";
         firstCategory.id = "onormal";
         firstCategory.type = "checkbox";
+
+        firstCategory.addEventListener("click", () => {
+            if (firstCategory.checked) {
+                filters.push(firstCategory.value);
+                runFilter(filters);
+            } else {
+                if (firstCategory.value in filters) {
+                    filters.splice(filters.indexOf(firstCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
         let firstLabel: HTMLLabelElement = document.createElement(
             "label"
@@ -212,10 +233,21 @@ function createProductFilter(): void {
         let secondCategory: HTMLInputElement = document.createElement(
             "input"
         ) as HTMLInputElement;
-        secondCategory.name = "konstigt";
-        secondCategory.value = "konstigt";
+        secondCategory.value = "Konstig";
         secondCategory.id = "konstigt";
         secondCategory.type = "checkbox";
+
+        secondCategory.addEventListener("click", () => {
+            if (secondCategory.checked) {
+                filters.push(secondCategory.value);
+                runFilter(filters);
+            } else {
+                if (secondCategory.value in filters) {
+                    filters.splice(filters.indexOf(secondCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
         let secondLabel: HTMLLabelElement = document.createElement(
             "label"
@@ -227,10 +259,22 @@ function createProductFilter(): void {
         let thirdCategory: HTMLInputElement = document.createElement(
             "input"
         ) as HTMLInputElement;
-        thirdCategory.name = "jättekonstigt";
-        thirdCategory.value = "jättekonstigt";
+
+        thirdCategory.value = "Jättekonstig";
         thirdCategory.id = "jättekonstigt";
         thirdCategory.type = "checkbox";
+
+        thirdCategory.addEventListener("click", () => {
+            if (thirdCategory.checked) {
+                filters.push(thirdCategory.value);
+                runFilter(filters);
+            } else {
+                if (thirdCategory.value in filters) {
+                    filters.splice(filters.indexOf(thirdCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
         let thirdLabel: HTMLLabelElement = document.createElement(
             "label"
@@ -242,10 +286,25 @@ function createProductFilter(): void {
         let fourthCategory: HTMLInputElement = document.createElement(
             "input"
         ) as HTMLInputElement;
-        fourthCategory.name = "vadihelavärlden";
-        fourthCategory.value = "vadihelavärlden";
+        fourthCategory.value = "Vad i hela världen";
         fourthCategory.id = "vadihelavärlden";
         fourthCategory.type = "checkbox";
+
+        thirdCategory.value = "Jättekonstig";
+        thirdCategory.id = "jättekonstigt";
+        thirdCategory.type = "checkbox";
+
+        fourthCategory.addEventListener("click", () => {
+            if (fourthCategory.checked) {
+                filters.push(fourthCategory.value);
+                runFilter(filters);
+            } else {
+                if (fourthCategory.value in filters) {
+                    filters.splice(filters.indexOf(fourthCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
         let fourthLabel: HTMLLabelElement = document.createElement(
             "label"
@@ -274,3 +333,5 @@ function createProductFilter(): void {
         mainPart.appendChild(filterContainer);
     }
 }
+
+function runFilter(filters: string[]): void {}
