@@ -7,6 +7,8 @@ import {
     getFilteredProducts,
 } from "./productFunctions";
 
+let allProducts: Product[] = [];
+
 window.onload = function () {
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
@@ -22,7 +24,8 @@ window.onload = function () {
     let cart: HTMLDivElement = document.getElementById("cart-container") as HTMLDivElement;
     cart.addEventListener("click", cartSlideIn);
     // getProductsSessionStorage();
-    createElementForProducts();
+    allProducts = createProductObjectsFromData();
+    createElementForProducts(allProducts);
     createProductFilter();
 };
 basketFunction();
@@ -33,19 +36,14 @@ basketFunction();
 //     sessionStorage.setItem("browse", productsLocalStorage);
 // }
 
-function createElementForProducts(): void {
-    let allProducts: Product[] = createProductObjectsFromData();
-
-    allProducts.forEach((p: Product) => {
-        p.related.forEach((pRelated: Product) => {});
-    });
-
+function createElementForProducts(productPool: Product[]): void {
     let productContainer: HTMLDivElement = document.querySelector(
         ".products-container"
     ) as HTMLDivElement;
+    productContainer.innerHTML = "";
 
-    for (let index: number = 0; index < allProducts.length; index++) {
-        let product: Product = allProducts[index];
+    for (let index: number = 0; index < productPool.length; index++) {
+        let product: Product = productPool[index];
 
         // PRODUCT ITEM //
         let productItem: HTMLDivElement = document.createElement(
@@ -137,7 +135,7 @@ function createProductFilter(): void {
     ) as HTMLButtonElement;
     filterButton.type = "button";
 
-    filterButton.addEventListener("click", createFilterWindow);
+    filterButton.addEventListener("click", triggerFilterWindow);
 
     let filterIcon: HTMLLIElement = document.createElement(
         "i"
@@ -158,133 +156,94 @@ function createProductFilter(): void {
     };
     window.addEventListener("scroll", myScrollFunc);
 
-    // FILTER WINDOW //
-    function createFilterWindow() {
-        let filterContainer: HTMLDivElement = document.createElement(
-            "div"
+    // FILTER ###########
+    function triggerFilterWindow() {
+        let filterContainer: HTMLDivElement = document.querySelector(
+            ".filter-container"
         ) as HTMLDivElement;
-        filterContainer.id = "loading";
-        filterContainer.className = "filter-container";
 
-        let filterHeader: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterHeader.className = "filter-header";
+        filterContainer.style.display = "flex";
 
-        let filterButtonContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterButtonContainer.className = "filter-button-container";
-
-        let filterLogo: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        filterLogo.className = "fas fa-filter";
-
-        let crossButton: HTMLButtonElement = document.createElement(
-            "button"
+        let exitButton: HTMLButtonElement = document.querySelector(
+            ".cross-button"
         ) as HTMLButtonElement;
-        crossButton.className = "cross-button";
-        crossButton.addEventListener("click", () => {
-            filterContainer.remove();
+        exitButton.addEventListener("click", () => {
+            filterContainer.style.display = "none";
         });
 
-        let crossIcon: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        crossIcon.className = "fas fa-times";
+        // FILTER FORM ####################################################################
 
-        let filterMain: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterMain.className = "filter-main";
+        let filters: string[] = [];
 
-        let filterCategoriesContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterCategoriesContainer.className = "filter-catagories-container";
-
-        let filterForm: HTMLFormElement = document.createElement(
-            "form"
-        ) as HTMLFormElement;
-
-        let firstCategory: HTMLInputElement = document.createElement(
-            "input"
+        let firstCategory: HTMLInputElement = document.getElementById(
+            "onormal"
         ) as HTMLInputElement;
-        firstCategory.name = "onormal";
-        firstCategory.value = "onormal";
-        firstCategory.id = "onormal";
-        firstCategory.type = "checkbox";
 
-        let firstLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        firstLabel.innerHTML = "onormal";
+        firstCategory.addEventListener("click", () => {
+            if (firstCategory.checked) {
+                filters.push(firstCategory.value);
+                runFilter(filters);
+            } else {
+                if (filters.includes(firstCategory.value)) {
+                    filters.splice(filters.indexOf(firstCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
-        let breakPoint: HTMLBRElement = document.createElement("br");
-
-        let secondCategory: HTMLInputElement = document.createElement(
-            "input"
+        let secondCategory: HTMLInputElement = document.getElementById(
+            "konstigt"
         ) as HTMLInputElement;
-        secondCategory.name = "konstigt";
-        secondCategory.value = "konstigt";
-        secondCategory.id = "konstigt";
-        secondCategory.type = "checkbox";
 
-        let secondLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        secondLabel.innerHTML = "Konstigt";
+        secondCategory.addEventListener("click", () => {
+            if (secondCategory.checked) {
+                filters.push(secondCategory.value);
+                runFilter(filters);
+            } else {
+                if (filters.includes(secondCategory.value)) {
+                    filters.splice(filters.indexOf(secondCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
-        let secondBreakPoint: HTMLBRElement = document.createElement("br");
-
-        let thirdCategory: HTMLInputElement = document.createElement(
-            "input"
+        let thirdCategory: HTMLInputElement = document.getElementById(
+            "jättekonstigt"
         ) as HTMLInputElement;
-        thirdCategory.name = "jättekonstigt";
-        thirdCategory.value = "jättekonstigt";
-        thirdCategory.id = "jättekonstigt";
-        thirdCategory.type = "checkbox";
 
-        let thirdLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        thirdLabel.innerHTML = "Jättekonstigt";
+        thirdCategory.addEventListener("click", () => {
+            if (thirdCategory.checked) {
+                filters.push(thirdCategory.value);
+                runFilter(filters);
+            } else {
+                if (filters.includes(thirdCategory.value)) {
+                    filters.splice(filters.indexOf(thirdCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
-        let thirdBreakPoint: HTMLBRElement = document.createElement("br");
-
-        let fourthCategory: HTMLInputElement = document.createElement(
-            "input"
+        let fourthCategory: HTMLInputElement = document.getElementById(
+            "vadihelavärlden"
         ) as HTMLInputElement;
-        fourthCategory.name = "vadihelavärlden";
-        fourthCategory.value = "vadihelavärlden";
-        fourthCategory.id = "vadihelavärlden";
-        fourthCategory.type = "checkbox";
 
-        let fourthLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        fourthLabel.innerHTML = "Vad i hela världen";
+        fourthCategory.addEventListener("click", () => {
+            if (fourthCategory.checked) {
+                filters.push(fourthCategory.value);
+                runFilter(filters);
+            } else {
+                if (filters.includes(fourthCategory.value)) {
+                    filters.splice(filters.indexOf(fourthCategory.value), 1);
+                    runFilter(filters);
+                }
+            }
+        });
 
-        crossButton.appendChild(crossIcon);
-        filterButtonContainer.appendChild(filterLogo);
-        filterButtonContainer.appendChild(crossButton);
-        filterHeader.appendChild(filterButtonContainer);
-        filterForm.appendChild(firstCategory);
-        filterForm.appendChild(firstLabel);
-        filterForm.appendChild(breakPoint);
-        filterForm.appendChild(secondCategory);
-        filterForm.appendChild(secondLabel);
-        filterForm.appendChild(secondBreakPoint);
-        filterForm.appendChild(thirdCategory);
-        filterForm.appendChild(thirdLabel);
-        filterForm.appendChild(thirdBreakPoint);
-        filterForm.appendChild(fourthCategory);
-        filterForm.appendChild(fourthLabel);
-        filterCategoriesContainer.appendChild(filterForm);
-        filterMain.appendChild(filterCategoriesContainer);
-        filterContainer.appendChild(filterHeader);
-        filterContainer.appendChild(filterMain);
         mainPart.appendChild(filterContainer);
     }
+}
+
+function runFilter(filters: string[]): void {
+    let filterProducts: Product[] = getFilteredProducts(filters, allProducts);
+    createElementForProducts(filterProducts);
 }

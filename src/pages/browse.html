@@ -82,18 +82,14 @@
             <!-- SLIDE-IN MENU -->
             <div class="menu-container" id="menu-container">
                 <ul class="menu-list">
-                    <a href="./browse.html"
-                        ><li class="menu-item">Hem</li></a
-                    >
+                    <a href="./browse.html"><li class="menu-item">Hem</li></a>
                     <a href="./browse.html#news"
                         ><li class="menu-item">Nyheter</li></a
                     >
                     <a href="./browse.html#campaigns"
                         ><li class="menu-item">Kampanjer</li></a
                     >
-                    <a href="#products"
-                        ><li class="menu-item">Produkter</li></a
-                    >
+                    <a href="#products"><li class="menu-item">Produkter</li></a>
                     <a href="../index.html"
                         ><li class="menu-item">Information</li></a
                     >
@@ -125,7 +121,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        
+
                         <!-- MALL FÖR TOTAL SUMMA OCH FORTSÄTTNING -->
                         <!-- <div class="basket-total-and-button">
                             <h3>Total: undefinedkr</h3>
@@ -145,7 +141,10 @@
                 <!-- VARUKORG- OCH KRYSSKNAPP -->
                 <div class="cart-icon" id="cart-icon">
                     <i class="fas fa-shopping-cart" id="cart-on-mobile"></i>
-                    <i class="fas fa-times cart-toggle" id="cart-off-mobile"></i>
+                    <i
+                        class="fas fa-times cart-toggle"
+                        id="cart-off-mobile"
+                    ></i>
                 </div>
             </div>
             <!-- RIGHT DESKTOP BAR -->
@@ -192,6 +191,50 @@
                     <h2>Produkter</h2>
                 </div>
                 <div class="products-container"></div>
+            </div>
+            <!-- FILTER WINDOW -->
+            <div class="filter-container">
+                <div class="filter-header">
+                    <div class="filter-button-container">
+                        <i class="fas fa-filter"></i>
+                        <button class="cross-button">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="filter-main">
+                    <div class="filter-catagories-container">
+                        <form>
+                            <input
+                                id="onormal"
+                                type="checkbox"
+                                value="Onormal"
+                            />
+                            <label>Onormal</label>
+                            <br />
+                            <input
+                                id="konstigt"
+                                type="checkbox"
+                                value="Konstig"
+                            />
+                            <label>Konstigt</label>
+                            <br />
+                            <input
+                                id="jättekonstigt"
+                                type="checkbox"
+                                value="Jättekonstig"
+                            />
+                            <label>Jättekonstigt</label>
+                            <br />
+                            <input
+                                id="vadihelavärlden"
+                                type="checkbox"
+                                value="Vad i hela världen"
+                            />
+                            <label>Vad i hela världen</label>
+                        </form>
+                    </div>
+                </div>
             </div>
         </main>
     </body>
