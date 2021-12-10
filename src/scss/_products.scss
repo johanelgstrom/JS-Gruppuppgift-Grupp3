@@ -4,326 +4,318 @@
 @use "footer";
 @use "extends";
 
-* {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
-  font-family: "Maven Pro", sans-serif;
-  font-size: 12pt;
-}
-
 #products-header {
-  height: 20%;
-  display: none;
-  @extend %headertop;
-  @extend %headerbottom;
-  @include mixins.tablet {
-    display: flex;
-    flex-direction: column;
-  }
-  @include mixins.desktop {
-    display: flex;
-    flex-direction: column;
-  }
+    height: 20%;
+    display: none;
+    @extend %headertop;
+    @extend %headerbottom;
+    @include mixins.tablet {
+        display: flex;
+        flex-direction: column;
+    }
+    @include mixins.desktop {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 #products-main {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "middle-part";
-
-  background-image: url(../../assets/images/backgrounds/products-mobile-background.svg);
-  background-size: contain;
-  @include mixins.tablet {
-    background-image: url(../../assets/images/backgrounds/products-tablet-background.svg);
-  }
-  @include mixins.desktop {
-    grid-template-columns: 200px 1fr 200px;
+    display: grid;
+    grid-template-columns: 1fr;
     grid-template-rows: 1fr;
-    grid-template-areas: "left-bar middle-part right-bar";
+    grid-template-areas: "middle-part";
 
-    background-image: none;
-  }
-  .filter-button-show {
-    position: fixed;
-    bottom: 10px;
-    left: 15px;
-    width: 70px;
-    height: 70px;
-    border: none;
-    border-radius: 50%;
-    @extend %clickable;
+    background-image: url(../../assets/images/backgrounds/products-mobile-background.svg);
+    background-size: contain;
+    @include mixins.tablet {
+        background-image: url(../../assets/images/backgrounds/products-tablet-background.svg);
+    }
     @include mixins.desktop {
-      display: none;
+        grid-template-columns: 200px 1fr 200px;
+        grid-template-rows: 1fr;
+        grid-template-areas: "left-bar middle-part right-bar";
+
+        background-image: none;
     }
-    i {
-      font-size: 1.5rem;
-    }
-  }
-  .filter-button-hide {
-    display: none;
-  }
-  .left-bar {
-    display: none;
-    width: 200px;
-    @include mixins.desktop {
-      display: grid;
-      grid-area: left-bar;
-
-      background-image: url(../../assets/images/backgrounds/products-desktop-left-background.svg);
-      background-size: contain;
-    }
-  }
-  .right-bar {
-    display: none;
-    width: 200px;
-    @include mixins.desktop {
-      display: grid;
-      grid-area: right-bar;
-
-      background-image: url(../../assets/images/backgrounds/products-desktop-right-background.svg);
-      background-size: contain;
-    }
-  }
-  .middle {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    grid-area: middle-part;
-    .news-container-header,
-    .campaigns-container-header {
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-
-      width: 90%;
-      color: black;
-      h2 {
-        font-size: 1.5rem;
-      }
-      button {
-        @include mixins.tablet {
-          display: none;
-        }
-      }
-    }
-    .news-container,
-    .campaigns-container {
-      justify-self: center;
-
-      display: flex;
-      flex-direction: column;
-      flex-wrap: wrap;
-      gap: 20px;
-      flex-shrink: 0;
-
-      border: 1px solid grey;
-      background-color: white;
-      overflow-x: scroll;
-      width: 90%;
-      height: 300px;
-      @include mixins.tablet {
-        height: 350px;
-        gap: 40px;
-      }
-      @include mixins.desktop {
-        height: 300px;
-        gap: 30px;
-      }
-      .new-item,
-      .campaign-item {
-        display: inline-block;
-        border-radius: 10px;
-        box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
-        background-color: white;
-        width: 200px;
-        height: 300px;
-        @include mixins.tablet {
-          width: 250px;
-          height: 350px;
-        }
-        @include mixins.desktop {
-          width: 200px;
-          height: 300px;
-        }
-      }
-    }
-    .blue-line-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      width: 100%;
-      height: 100px;
-      .blue-line {
-        width: 90%;
-        height: 3%;
-        background-color: variables.$primary-color;
-      }
-    }
-    .products-container-header {
-      display: flex;
-      flex-direction: row;
-
-      width: 88%;
-      height: 50px;
-      @include mixins.tablet {
-        width: 86%;
-      }
-      @include mixins.desktop {
-        width: 80%;
-      }
-      h2 {
-        font-size: 1.5rem;
-        color: black;
-      }
-    }
-    .products-container {
-      display: flex;
-      justify-content: center;
-      flex-direction: row;
-      flex-wrap: wrap;
-      gap: 10px;
-
-      width: 90%;
-      @include mixins.tablet {
-        gap: 30px;
-      }
-      .product-item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-
-        width: 150px;
-        height: 250px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
-
+    .filter-button-show {
+        position: fixed;
+        bottom: 10px;
+        left: 15px;
+        width: 70px;
+        height: 70px;
+        border: none;
+        border-radius: 50%;
         @extend %clickable;
-        .image-container {
-          height: 150px;
-          @include mixins.tablet {
-            height: 200px;
-          }
-          img {
-            height: 100%;
-            width: 100%;
-          }
+        @include mixins.desktop {
+            display: none;
         }
-        .title-container {
-          height: 30px;
-          span {
-            font-size: 0.7rem;
-            font-weight: bold;
-            color: rgb($color: #5f5f5f, $alpha: 1);
-            word-break: break-word;
-            height: 100%;
-            @include mixins.tablet {
-              font-size: 1rem;
-            }
-          }
+        i {
+            font-size: 1.5rem;
         }
-        .price-container {
-          height: 10px;
-          span {
-            font-size: 0.9rem;
-            font-weight: bolder;
-            @include mixins.tablet {
-              font-size: 1.4rem;
-            }
-          }
-        }
-        .shopping-container {
-          display: flex;
-          justify-content: flex-end;
-          height: 40px;
-          width: 80%;
-          #add-to-cart {
-            border: none;
-            background-color: white;
-            i {
-              color: rgb($color: black, $alpha: 0.6);
-              cursor: pointer;
-              font-size: 1.6rem;
-            }
-          }
-        }
-        @include mixins.tablet {
-          width: 200px;
-          height: 300px;
-        }
-      }
     }
-  }
+    .filter-button-hide {
+        display: none;
+    }
+    .left-bar {
+        display: none;
+        width: 200px;
+        @include mixins.desktop {
+            display: grid;
+            grid-area: left-bar;
+
+            background-image: url(../../assets/images/backgrounds/products-desktop-left-background.svg);
+            background-size: contain;
+        }
+    }
+    .right-bar {
+        display: none;
+        width: 200px;
+        @include mixins.desktop {
+            display: grid;
+            grid-area: right-bar;
+
+            background-image: url(../../assets/images/backgrounds/products-desktop-right-background.svg);
+            background-size: contain;
+        }
+    }
+    .middle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        grid-area: middle-part;
+        .news-container-header,
+        .campaigns-container-header {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+
+            width: 90%;
+            color: black;
+            h2 {
+                font-size: 1.5rem;
+            }
+            button {
+                @include mixins.tablet {
+                    display: none;
+                }
+            }
+        }
+        .news-container,
+        .campaigns-container {
+            justify-self: center;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            gap: 20px;
+            flex-shrink: 0;
+
+            border: 1px solid grey;
+            background-color: white;
+            overflow-x: scroll;
+            width: 90%;
+            height: 300px;
+            @include mixins.tablet {
+                height: 350px;
+                gap: 40px;
+            }
+            @include mixins.desktop {
+                height: 300px;
+                gap: 30px;
+            }
+            .new-item,
+            .campaign-item {
+                display: inline-block;
+                border-radius: 10px;
+                box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
+                background-color: white;
+                width: 200px;
+                height: 300px;
+                @include mixins.tablet {
+                    width: 250px;
+                    height: 350px;
+                }
+                @include mixins.desktop {
+                    width: 200px;
+                    height: 300px;
+                }
+            }
+        }
+        .blue-line-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 100%;
+            height: 100px;
+            .blue-line {
+                width: 90%;
+                height: 3%;
+                background-color: variables.$primary-color;
+            }
+        }
+        .products-container-header {
+            display: flex;
+            flex-direction: row;
+
+            width: 88%;
+            height: 50px;
+            @include mixins.tablet {
+                width: 86%;
+            }
+            @include mixins.desktop {
+                width: 80%;
+            }
+            h2 {
+                font-size: 1.5rem;
+                color: black;
+            }
+        }
+        .products-container {
+            display: flex;
+            justify-content: center;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 10px;
+
+            width: 90%;
+            @include mixins.tablet {
+                gap: 30px;
+            }
+            .product-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                width: 150px;
+                height: 250px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
+
+                @extend %clickable;
+                .image-container {
+                    height: 150px;
+                    @include mixins.tablet {
+                        height: 200px;
+                    }
+                    img {
+                        height: 100%;
+                        width: 100%;
+                    }
+                }
+                .title-container {
+                    height: 30px;
+                    span {
+                        font-size: 0.7rem;
+                        font-weight: bold;
+                        color: rgb($color: #5f5f5f, $alpha: 1);
+                        word-break: break-word;
+                        height: 100%;
+                        @include mixins.tablet {
+                            font-size: 1rem;
+                        }
+                    }
+                }
+                .price-container {
+                    height: 10px;
+                    span {
+                        font-size: 0.9rem;
+                        font-weight: bolder;
+                        @include mixins.tablet {
+                            font-size: 1.4rem;
+                        }
+                    }
+                }
+                .shopping-container {
+                    display: flex;
+                    justify-content: flex-end;
+                    height: 40px;
+                    width: 80%;
+                    #add-to-cart {
+                        border: none;
+                        background-color: white;
+                        i {
+                            color: rgb($color: black, $alpha: 0.6);
+                            cursor: pointer;
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+                @include mixins.tablet {
+                    width: 200px;
+                    height: 300px;
+                }
+            }
+        }
+    }
 }
 
 .filter-container {
-  display: flex;
-  flex-direction: column;
-
-  position: fixed;
-  height: 100%;
-  width: 100%;
-  background-color: white;
-  @include mixins.tablet {
-    justify-self: flex-start;
-
-    bottom: 20px;
-    width: 50%;
-    height: 60%;
-  }
-  .filter-header {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
 
-    width: 100%;
-    height: 80px;
-    .filter-button-container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      width: 90%;
-
-      i {
-        font-size: 2rem;
-      }
-      .cross-button {
-        border: none;
-        background-color: white;
-        i {
-          font-size: 2.8rem;
-          @extend %clickable;
-        }
-      }
-    }
-  }
-  .filter-main {
-    display: flex;
-    justify-content: center;
-
+    position: fixed;
     height: 100%;
-    border: 1px solid grey;
-    .filter-catagories-container {
-      display: flex;
-      align-items: center;
+    width: 100%;
+    background-color: white;
+    @include mixins.tablet {
+        justify-self: flex-start;
 
-      width: 90%;
-      height: 40%;
-      form {
-        input {
-          transform: scale(2);
-        }
-        label {
-          padding: 10px;
-          font-size: 1.5rem;
-        }
-      }
+        bottom: 20px;
+        width: 50%;
+        height: 60%;
     }
-  }
+    .filter-header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 100%;
+        height: 80px;
+        .filter-button-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            width: 90%;
+
+            i {
+                font-size: 2rem;
+            }
+            .cross-button {
+                border: none;
+                background-color: white;
+                i {
+                    font-size: 2.8rem;
+                    @extend %clickable;
+                }
+            }
+        }
+    }
+    .filter-main {
+        display: flex;
+        justify-content: center;
+
+        height: 100%;
+        border: 1px solid grey;
+        .filter-catagories-container {
+            display: flex;
+            align-items: center;
+
+            width: 90%;
+            height: 40%;
+            form {
+                input {
+                    transform: scale(2);
+                }
+                label {
+                    padding: 10px;
+                    font-size: 1.5rem;
+                }
+            }
+        }
+    }
 }
