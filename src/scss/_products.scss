@@ -26,12 +26,14 @@
     flex-direction: column;
   }
 }
-
+.phone-icon-container-browse {
+  height: 100%;
+}
 #products-main {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr;
-  grid-template-areas: "middle-part";
+  grid-template-rows: 1% 1fr;
+  grid-template-areas: "phone-icons" "middle-part";
 
   background-image: url(../../assets/images/backgrounds/products-mobile-background.svg);
   background-size: contain;
