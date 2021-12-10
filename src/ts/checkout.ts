@@ -1,6 +1,7 @@
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
-import { Product, createProductObjectsFromData } from "./models/Produkt";
+import { Product } from "./models/Produkt";
+import { createProductObjectsFromData } from "./productFunctions";
 
 window.onload = function () {
     initialize();
@@ -86,8 +87,18 @@ function renderHTML(): void {
         let removeButton: HTMLButtonElement = document.createElement("button");
         removeButton.innerText = "-";
         removeButton.addEventListener("click", () => {
-            customer.removeProductFromCart(cartItem.product);
-            renderHTML();
+            if (cartItem.quantity == 1) {
+                let answer: boolean = confirm(
+                    "Säker du vill ta bort sista produkten?"
+                );
+                if (answer) {
+                    customer.removeProductFromCart(cartItem.product);
+                    renderHTML();
+                }
+            } else {
+                customer.removeProductFromCart(cartItem.product);
+                renderHTML();
+            }
         });
         actionDiv.appendChild(removeButton);
         infoDiv.appendChild(actionDiv);
