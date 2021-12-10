@@ -121,7 +121,7 @@ function createProductFilter(): void {
     ) as HTMLButtonElement;
     filterButton.type = "button";
 
-    filterButton.addEventListener("click", createFilterWindow);
+    filterButton.addEventListener("click", triggerFilterWindow);
 
     let filterIcon: HTMLLIElement = document.createElement(
         "i"
@@ -143,71 +143,27 @@ function createProductFilter(): void {
     window.addEventListener("scroll", myScrollFunc);
 
     // FILTER ###########
-    function createFilterWindow() {
-        let filterContainer: HTMLDivElement = document.createElement(
-            "div"
+    function triggerFilterWindow() {
+        let filterContainer: HTMLDivElement = document.querySelector(
+            ".filter-container"
         ) as HTMLDivElement;
-        filterContainer.id = "loading";
-        filterContainer.className = "filter-container";
 
-        // FILTER HEADER ####################################################################
+        filterContainer.style.display = "flex";
 
-        let filterHeader: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterHeader.className = "filter-header";
-
-        // FILTER HEADER BUTTONS ####################################################################
-
-        let filterButtonContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterButtonContainer.className = "filter-button-container";
-
-        let filterLogo: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        filterLogo.className = "fas fa-filter";
-
-        let crossButton: HTMLButtonElement = document.createElement(
-            "button"
+        let exitButton: HTMLButtonElement = document.querySelector(
+            ".cross-button"
         ) as HTMLButtonElement;
-        crossButton.className = "cross-button";
-        crossButton.addEventListener("click", () => {
-            filterContainer.remove();
+        exitButton.addEventListener("click", () => {
+            filterContainer.style.display = "none";
         });
-
-        let crossIcon: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        crossIcon.className = "fas fa-times";
-
-        // FILTER MAIN ####################################################################
-
-        let filterMain: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterMain.className = "filter-main";
-
-        let filterCategoriesContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        filterCategoriesContainer.className = "filter-catagories-container";
 
         // FILTER FORM ####################################################################
 
         let filters: string[] = [];
 
-        let filterForm: HTMLFormElement = document.createElement(
-            "form"
-        ) as HTMLFormElement;
-
-        let firstCategory: HTMLInputElement = document.createElement(
-            "input"
+        let firstCategory: HTMLInputElement = document.getElementById(
+            "onormal"
         ) as HTMLInputElement;
-        firstCategory.value = "Onormal";
-        firstCategory.id = "onormal";
-        firstCategory.type = "checkbox";
 
         firstCategory.addEventListener("click", () => {
             if (firstCategory.checked) {
@@ -221,19 +177,9 @@ function createProductFilter(): void {
             }
         });
 
-        let firstLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        firstLabel.innerHTML = "onormal";
-
-        let breakPoint: HTMLBRElement = document.createElement("br");
-
-        let secondCategory: HTMLInputElement = document.createElement(
-            "input"
+        let secondCategory: HTMLInputElement = document.getElementById(
+            "konstigt"
         ) as HTMLInputElement;
-        secondCategory.value = "Konstig";
-        secondCategory.id = "konstigt";
-        secondCategory.type = "checkbox";
 
         secondCategory.addEventListener("click", () => {
             if (secondCategory.checked) {
@@ -247,20 +193,9 @@ function createProductFilter(): void {
             }
         });
 
-        let secondLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        secondLabel.innerHTML = "Konstigt";
-
-        let secondBreakPoint: HTMLBRElement = document.createElement("br");
-
-        let thirdCategory: HTMLInputElement = document.createElement(
-            "input"
+        let thirdCategory: HTMLInputElement = document.getElementById(
+            "jättekonstigt"
         ) as HTMLInputElement;
-
-        thirdCategory.value = "Jättekonstig";
-        thirdCategory.id = "jättekonstigt";
-        thirdCategory.type = "checkbox";
 
         thirdCategory.addEventListener("click", () => {
             if (thirdCategory.checked) {
@@ -274,23 +209,9 @@ function createProductFilter(): void {
             }
         });
 
-        let thirdLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        thirdLabel.innerHTML = "Jättekonstigt";
-
-        let thirdBreakPoint: HTMLBRElement = document.createElement("br");
-
-        let fourthCategory: HTMLInputElement = document.createElement(
-            "input"
+        let fourthCategory: HTMLInputElement = document.getElementById(
+            "vadihelavärlden"
         ) as HTMLInputElement;
-        fourthCategory.value = "Vad i hela världen";
-        fourthCategory.id = "vadihelavärlden";
-        fourthCategory.type = "checkbox";
-
-        thirdCategory.value = "Jättekonstig";
-        thirdCategory.id = "jättekonstigt";
-        thirdCategory.type = "checkbox";
 
         fourthCategory.addEventListener("click", () => {
             if (fourthCategory.checked) {
@@ -304,30 +225,6 @@ function createProductFilter(): void {
             }
         });
 
-        let fourthLabel: HTMLLabelElement = document.createElement(
-            "label"
-        ) as HTMLLabelElement;
-        fourthLabel.innerHTML = "Vad i hela världen";
-
-        crossButton.appendChild(crossIcon);
-        filterButtonContainer.appendChild(filterLogo);
-        filterButtonContainer.appendChild(crossButton);
-        filterHeader.appendChild(filterButtonContainer);
-        filterForm.appendChild(firstCategory);
-        filterForm.appendChild(firstLabel);
-        filterForm.appendChild(breakPoint);
-        filterForm.appendChild(secondCategory);
-        filterForm.appendChild(secondLabel);
-        filterForm.appendChild(secondBreakPoint);
-        filterForm.appendChild(thirdCategory);
-        filterForm.appendChild(thirdLabel);
-        filterForm.appendChild(thirdBreakPoint);
-        filterForm.appendChild(fourthCategory);
-        filterForm.appendChild(fourthLabel);
-        filterCategoriesContainer.appendChild(filterForm);
-        filterMain.appendChild(filterCategoriesContainer);
-        filterContainer.appendChild(filterHeader);
-        filterContainer.appendChild(filterMain);
         mainPart.appendChild(filterContainer);
     }
 }
