@@ -2,291 +2,306 @@
 @use "variables";
 @use "header";
 @use "footer";
+@use "extends";
 
 * {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+#product-header {
+  height: 20%;
+  display: none;
+  @extend %headertop;
+  @extend %headerbottom;
+  @include mixins.tablet {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mixins.desktop {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .product-similiar-product::-webkit-scrollbar {
-    width: 20px;
+  width: 20px;
 }
 .product-similiar-product::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
 .product-similiar-product::-webkit-scrollbar-thumb {
-    background: rgb($color: #038537, $alpha: 0.8);
-    border-radius: 10px;
+  background: rgb($color: #038537, $alpha: 0.8);
+  border-radius: 10px;
 }
 .product-similiar-product::-webkit-scrollbar-thumb:hover {
-    background: rgb($color: #038537, $alpha: 0.8);
+  background: rgb($color: #038537, $alpha: 0.8);
 }
 
 #product-header {
-    height: 20%;
-    display: none;
-    @extend %headertop;
-    @extend %headerbottom;
-    @include mixins.tablet {
-        display: flex;
-        flex-direction: column;
-    }
-    @include mixins.desktop {
-        display: flex;
-        flex-direction: column;
-    }
+  height: 20%;
+  display: none;
+  @extend %headertop;
+  @extend %headerbottom;
+  @include mixins.tablet {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mixins.desktop {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 #product-main {
+  display: flex;
+  flex-direction: column;
+  .back-icon-container {
+    align-self: center;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 95%;
+    height: 100px;
+    #back-icon {
+      font-size: 30px;
+    }
+  }
+  .content-container {
     display: flex;
     flex-direction: column;
-    .back-icon-container {
-        align-self: center;
+    align-items: center;
+    @include mixins.tablet {
+      align-self: center;
 
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas:
+        "product-image product-information"
+        " product-title product-buttons";
 
-        width: 95%;
-        height: 100px;
-        #back-icon {
-            font-size: 30px;
-        }
+      width: 90%;
+      height: 100%;
     }
-    .content-container {
+    @include mixins.desktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 100px;
+      grid-template-areas:
+        "product-image product-information"
+        " product-title product-information"
+        " product-buttons product-information";
+
+      width: 70%;
+      height: 80%;
+    }
+    .product-image-container {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 90%;
+      height: 450px;
+      border: 2px solid grey;
+      @include mixins.tablet {
+        grid-area: product-image;
+
+        width: 110%;
+      }
+      @include mixins.desktop {
+        width: 95%;
+      }
+      #left-arrow {
+        font-size: 30px;
+        opacity: 0.4;
+      }
+      #right-arrow {
+        font-size: 30px;
+        opacity: 0.4;
+      }
+      .product-image {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
+
+        width: 80%;
+        height: 80%;
+      }
+    }
+    .product-title-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 90%;
+      height: 80px;
+      @include mixins.tablet {
+        align-items: flex-start;
+        grid-area: product-title;
+
+        width: 110%;
+      }
+      @include mixins.desktop {
+        width: 95%;
+      }
+    }
+    .product-information-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      width: 90%;
+      height: 200px;
+      border: 2px solid grey;
+      @include mixins.tablet {
+        justify-self: flex-end;
+        grid-area: product-information;
+
+        height: 100%;
+        width: 85%;
+      }
+      @include mixins.desktop {
+        width: 100%;
+        height: 100%;
+      }
+      .product-information {
+        width: 90%;
+        height: 90%;
         @include mixins.tablet {
-            align-self: center;
-
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-            grid-template-areas:
-                "product-image product-information"
-                " product-title product-buttons";
-
-            width: 90%;
-            height: 100%;
+          height: 80%;
         }
         @include mixins.desktop {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 100px;
-            grid-template-areas:
-                "product-image product-information"
-                " product-title product-information"
-                " product-buttons product-information";
-
-            width: 70%;
-            height: 80%;
+          width: 80%;
+          height: 85%;
         }
-        .product-image-container {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-
-            width: 90%;
-            height: 450px;
-            border: 2px solid grey;
-            @include mixins.tablet {
-                grid-area: product-image;
-
-                width: 110%;
-            }
-            @include mixins.desktop {
-                width: 95%;
-            }
-            #left-arrow {
-                font-size: 30px;
-                opacity: 0.4;
-            }
-            #right-arrow {
-                font-size: 30px;
-                opacity: 0.4;
-            }
-            .product-image {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-
-                width: 80%;
-                height: 80%;
-            }
-        }
-        .product-title-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 90%;
-            height: 80px;
-            @include mixins.tablet {
-                align-items: flex-start;
-                grid-area: product-title;
-
-                width: 110%;
-            }
-            @include mixins.desktop {
-                width: 95%;
-            }
-        }
-        .product-information-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            width: 90%;
-            height: 200px;
-            border: 2px solid grey;
-            @include mixins.tablet {
-                justify-self: flex-end;
-                grid-area: product-information;
-
-                height: 100%;
-                width: 85%;
-            }
-            @include mixins.desktop {
-                width: 100%;
-                height: 100%;
-            }
-            .product-information {
-                width: 90%;
-                height: 90%;
-                @include mixins.tablet {
-                    height: 80%;
-                }
-                @include mixins.desktop {
-                    width: 80%;
-                    height: 85%;
-                }
-            }
-        }
-        .product-buttons-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 90%;
-            height: 50px;
-            @include mixins.tablet {
-                justify-self: flex-end;
-                align-items: flex-start;
-
-                grid-area: product-buttons;
-
-                width: 85%;
-                height: 100%;
-            }
-            @include mixins.desktop {
-                justify-self: flex-start;
-
-                width: 100%;
-            }
-            .product-buttons {
-                display: flex;
-                justify-content: space-between;
-
-                width: 40%;
-                @include mixins.desktop {
-                    width: 90%;
-                }
-                #count {
-                    font-size: larger;
-                }
-                #add-button {
-                    font-size: larger;
-                    color: white;
-                    background-color: variables.$primary-color;
-                }
-            }
-        }
+      }
     }
-    .product-blueline-container {
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    .product-buttons-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 90%;
+      height: 50px;
+      @include mixins.tablet {
+        justify-self: flex-end;
+        align-items: flex-start;
+
+        grid-area: product-buttons;
+
+        width: 85%;
+        height: 100%;
+      }
+      @include mixins.desktop {
+        justify-self: flex-start;
 
         width: 100%;
-        height: 60px;
-        .product-blueline {
-            width: 90%;
-            height: 5%;
-            background-color: variables.$primary-color;
+      }
+      .product-buttons {
+        display: flex;
+        justify-content: space-between;
+
+        width: 40%;
+        @include mixins.desktop {
+          width: 90%;
         }
+        #count {
+          font-size: larger;
+        }
+        #add-button {
+          font-size: larger;
+          color: white;
+          background-color: variables.$primary-color;
+        }
+      }
     }
-    .product-similiar-title-container {
-        align-self: center;
+  }
+  .product-blueline-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-
-        width: 90%;
-        height: 40px;
+    width: 100%;
+    height: 60px;
+    .product-blueline {
+      width: 90%;
+      height: 5%;
+      background-color: variables.$primary-color;
     }
-    .product-similiar-product-container {
-        display: flex;
-        justify-content: center;
+  }
+  .product-similiar-title-container {
+    align-self: center;
 
-        height: 300px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+    width: 90%;
+    height: 40px;
+  }
+  .product-similiar-product-container {
+    display: flex;
+    justify-content: center;
+
+    height: 300px;
+    @include mixins.tablet {
+      align-self: center;
+
+      justify-content: space-between;
+      align-items: center;
+
+      width: 90%;
+    }
+    #left-icon {
+      display: none;
+      @include mixins.tablet {
+        display: unset;
+
+        opacity: 0.4;
+        font-size: 30px;
+      }
+    }
+    #right-icon {
+      display: none;
+      @include mixins.tablet {
+        display: unset;
+
+        opacity: 0.4;
+        font-size: 30px;
+      }
+    }
+    .product-similiar-product {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 20px;
+      flex-shrink: 0;
+
+      overflow-x: scroll;
+      width: 90%;
+      height: 100%;
+      border: 2px solid black;
+      @include mixins.tablet {
+        gap: 10px;
+
+        height: 80%;
+      }
+      @include mixins.desktop {
+        width: 80%;
+      }
+      .product-similiar-item {
+        width: 250px;
+        height: 100%;
+        border: 2px solid grey;
         @include mixins.tablet {
-            align-self: center;
-
-            justify-content: space-between;
-            align-items: center;
-
-            width: 90%;
+          width: 200px;
         }
-        #left-icon {
-            display: none;
-            @include mixins.tablet {
-                display: unset;
-
-                opacity: 0.4;
-                font-size: 30px;
-            }
-        }
-        #right-icon {
-            display: none;
-            @include mixins.tablet {
-                display: unset;
-
-                opacity: 0.4;
-                font-size: 30px;
-            }
-        }
-        .product-similiar-product {
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            gap: 20px;
-            flex-shrink: 0;
-
-            overflow-x: scroll;
-            width: 90%;
-            height: 100%;
-            border: 2px solid black;
-            @include mixins.tablet {
-                gap: 10px;
-
-                height: 80%;
-            }
-            @include mixins.desktop {
-                width: 80%;
-            }
-            .product-similiar-item {
-                width: 250px;
-                height: 100%;
-                border: 2px solid grey;
-                @include mixins.tablet {
-                    width: 200px;
-                }
-            }
-        }
+      }
     }
+  }
 }

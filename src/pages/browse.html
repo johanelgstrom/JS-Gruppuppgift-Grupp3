@@ -27,21 +27,28 @@
     </head>
     <body id="products-body">
         <header id="products-header">
+            <!-- HEADER ÖVRE HALVAN -->
             <div class="header-top">
+                <!-- SOCIAL MEDIA -->
                 <div class="social-container">
                     <i class="fab fa-instagram"></i>
                     <i class="fab fa-facebook-square"></i>
                     <i class="fab fa-twitter-square"></i>
                 </div>
+                <!-- SLOGGA -->
                 <div class="slogan-container">
                     <p>Onormal är det nya normala</p>
                 </div>
-                <div class="cart-container">
-                    <i class="fas fa-shopping-cart"></i>
+                <!-- KUNDVAGN-/KRYSSIKON -->
+                <div class="cart-container" id="cart-container">
+                    <i class="fas fa-shopping-cart" id="cart-on"></i>
+                    <i class="fas fa-times cart-toggle" id="cart-off"></i>
                 </div>
             </div>
+            <!-- HEADER UNDRE HALVAN -->
             <div class="header-bottom">
                 <div class="menu-search-container">
+                    <!-- BURGARE TABLET & PC -->
                     <div class="burger-container">
                         <div class="burger-menu" id="burger-menu">
                             <div class="top-bun" id="top-bun"></div>
@@ -50,11 +57,13 @@
                         </div>
                         <p>Meny</p>
                     </div>
+                    <!-- SÖK -->
                     <div class="search">
                         <i class="fas fa-search"></i>
                         <input type="text" placeholder="Sök" />
                     </div>
                 </div>
+                <!-- LOGGA -->
                 <div class="header-logo-container">
                     <img
                         src="/assets/images/logo/logotype-tablet.svg"
@@ -72,30 +81,72 @@
         <main id="products-main">
             <!-- SLIDE-IN MENU -->
             <div class="menu-container" id="menu-container">
-                <div class="menu-logo-container">
-                    <img
-                        src="/assets/images/logo/logotype-mobile.svg"
-                        alt="Onormal logga"
-                    />
-                </div>
                 <ul class="menu-list">
-                    <a href="http://dn.se"><li class="menu-item">Hem</li></a>
-                    <a href="http://dn.se"
-                        ><li class="menu-item">Produkter</li></a
+                    <a href="./browse.html"
+                        ><li class="menu-item">Hem</li></a
                     >
-                    <a href="http://dn.se"
-                        ><li class="menu-item">Kampanjer</li></a
-                    >
-                    <a href="http://dn.se"
+                    <a href="./browse.html#news"
                         ><li class="menu-item">Nyheter</li></a
                     >
-                    <a href="http://dn.se"
+                    <a href="./browse.html#campaigns"
+                        ><li class="menu-item">Kampanjer</li></a
+                    >
+                    <a href="#products"
+                        ><li class="menu-item">Produkter</li></a
+                    >
+                    <a href="../index.html"
                         ><li class="menu-item">Information</li></a
                     >
                     <a href="http://dn.se"
                         ><li class="menu-item menu-item-last">Kontakt</li></a
                     >
                 </ul>
+            </div>
+            <!-- SLIDE-IN BASKET -->
+            <div class="basket-menu-container" id="basket-menu-container">
+                <div class="basket-text-and-item">
+                    <p id="your-basket">Din varukorg</p>
+                    <div class="basket-container" id="basket-container">
+                        <!-- MALL FÖR PRODUKT I VARUKORG -->
+                        <!-- <div class="item-container">
+                            <div class="item-picture">
+                                <img src="/assets/images/members/Johan.jpg" alt="">
+                            </div>
+                            <div class="item-info-and-buttons">
+                                <div class="item-info">
+                                    <p id="pName">Nicholas Cage Musmatta</p>
+                                    <p id="pPrice">pris: 2kr</p>
+                                    <p id="pAmount">antal: 45st</p>
+                                    <p id="pTotal">total: 90kr</p>
+                                </div>
+                                <div class="item-buttons">
+                                    <button id="plus-item">+</button>
+                                    <button id="minus-item">-</button>
+                                </div>
+                            </div>
+                        </div> -->
+                        
+                        <!-- MALL FÖR TOTAL SUMMA OCH FORTSÄTTNING -->
+                        <!-- <div class="basket-total-and-button">
+                            <h3>Total: undefinedkr</h3>
+                            <button>Till Kassan</button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+            <!-- MOBILIKONER -->
+            <div class="phone-icon-container">
+                <!-- BURGARE MOBILE -->
+                <div class="burger-menu" id="burger-menu-phone">
+                    <div class="top-bun" id="top-bun-phone"></div>
+                    <div class="patty" id="patty-phone"></div>
+                    <div class="bottom-bun" id="bottom-bun-phone"></div>
+                </div>
+                <!-- VARUKORG- OCH KRYSSKNAPP -->
+                <div class="cart-icon" id="cart-icon">
+                    <i class="fas fa-shopping-cart" id="cart-on-mobile"></i>
+                    <i class="fas fa-times cart-toggle" id="cart-off-mobile"></i>
+                </div>
             </div>
             <!-- RIGHT DESKTOP BAR -->
             <!-- Contains wallpaper of design purpose -->

@@ -161,6 +161,7 @@
 }
 .show-menu {
   transform: translateX(0%);
+  position: absolute;
 }
 
 .phone-icon-container {
@@ -321,6 +322,7 @@
 }
 .show-basket {
   transform: translateX(0%);
+  position: absolute;
 }
 .cart-toggle {
   transform: scale(0);

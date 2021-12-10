@@ -1,3 +1,4 @@
+import { basketFunction, cartSlideIn, menuSlideIn } from "./burgerAndBasketFunctions";
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
 import { Product } from "./models/Produkt";
@@ -7,11 +8,24 @@ import {
 } from "./productFunctions";
 
 window.onload = function () {
+    let mobileBurger: HTMLDivElement = document.getElementById(
+        "burger-menu-phone"
+    ) as HTMLDivElement;
+    mobileBurger.addEventListener("click", menuSlideIn);
+    let burger: HTMLDivElement = document.getElementById(
+        "burger-menu"
+    ) as HTMLDivElement;
+    burger.addEventListener("click", menuSlideIn);
+
+    let mobileCart: HTMLDivElement = document.getElementById("cart-icon") as HTMLDivElement;
+    mobileCart.addEventListener("click", cartSlideIn);
+    let cart: HTMLDivElement = document.getElementById("cart-container") as HTMLDivElement;
+    cart.addEventListener("click", cartSlideIn);
     // getProductsSessionStorage();
     createElementForProducts();
     createProductFilter();
 };
-
+basketFunction();
 // function getProductsSessionStorage(): void {
 //     let products: Product[] = createProductObjectsFromData();
 
