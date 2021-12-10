@@ -6,9 +6,12 @@ import {
     getFilteredProducts,
 } from "./productFunctions";
 
+let allProducts: Product[] = [];
+
 window.onload = function () {
     // getProductsSessionStorage();
-    createElementForProducts();
+    allProducts = createProductObjectsFromData();
+    createElementForProducts(allProducts);
     createProductFilter();
 };
 
@@ -19,19 +22,14 @@ window.onload = function () {
 //     sessionStorage.setItem("browse", productsLocalStorage);
 // }
 
-function createElementForProducts(): void {
-    let allProducts: Product[] = createProductObjectsFromData();
-
-    allProducts.forEach((p: Product) => {
-        p.related.forEach((pRelated: Product) => {});
-    });
-
+function createElementForProducts(productPool: Product[]): void {
     let productContainer: HTMLDivElement = document.querySelector(
         ".products-container"
     ) as HTMLDivElement;
+    productContainer.innerHTML = "";
 
-    for (let index: number = 0; index < allProducts.length; index++) {
-        let product: Product = allProducts[index];
+    for (let index: number = 0; index < productPool.length; index++) {
+        let product: Product = productPool[index];
 
         // PRODUCT ITEM //
         let productItem: HTMLDivElement = document.createElement(
@@ -216,7 +214,7 @@ function createProductFilter(): void {
                 filters.push(firstCategory.value);
                 runFilter(filters);
             } else {
-                if (firstCategory.value in filters) {
+                if (filters.includes(firstCategory.value)) {
                     filters.splice(filters.indexOf(firstCategory.value), 1);
                     runFilter(filters);
                 }
@@ -242,7 +240,7 @@ function createProductFilter(): void {
                 filters.push(secondCategory.value);
                 runFilter(filters);
             } else {
-                if (secondCategory.value in filters) {
+                if (filters.includes(secondCategory.value)) {
                     filters.splice(filters.indexOf(secondCategory.value), 1);
                     runFilter(filters);
                 }
@@ -269,7 +267,7 @@ function createProductFilter(): void {
                 filters.push(thirdCategory.value);
                 runFilter(filters);
             } else {
-                if (thirdCategory.value in filters) {
+                if (filters.includes(thirdCategory.value)) {
                     filters.splice(filters.indexOf(thirdCategory.value), 1);
                     runFilter(filters);
                 }
@@ -299,7 +297,7 @@ function createProductFilter(): void {
                 filters.push(fourthCategory.value);
                 runFilter(filters);
             } else {
-                if (fourthCategory.value in filters) {
+                if (filters.includes(fourthCategory.value)) {
                     filters.splice(filters.indexOf(fourthCategory.value), 1);
                     runFilter(filters);
                 }
@@ -334,4 +332,7 @@ function createProductFilter(): void {
     }
 }
 
-function runFilter(filters: string[]): void {}
+function runFilter(filters: string[]): void {
+    let filterProducts: Product[] = getFilteredProducts(filters, allProducts);
+    createElementForProducts(filterProducts);
+}
