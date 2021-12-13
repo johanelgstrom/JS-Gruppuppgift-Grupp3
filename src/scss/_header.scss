@@ -142,7 +142,7 @@
     .menu-item {
       font-size: 1.3rem;
       font-weight: 500;
-      height: 16.66%;
+      height: 20%;
       width: 100%;
       display: flex;
       align-items: center;
@@ -150,6 +150,9 @@
       padding-left: 30px;
       border-top: 1px solid $secondary-color;
       transition: 0.1s linear;
+      @include mixins.tablet {
+        height: 21%;
+      }
       &:hover {
         background-color: $secondary-color;
       }
@@ -202,13 +205,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow-y: auto;
   @include mixins.tablet {
     bottom: unset;
     width: 50%;
     right: 0;
     min-height: 50%;
     background-color: unset;
+    overflow-y: auto;
   }
   @include mixins.desktop {
     bottom: unset;
@@ -216,6 +219,7 @@
     right: 0;
     min-height: 80%;
     background-color: unset;
+    overflow-y: auto;
   }
   .basket-text-and-item {
     width: 100%;
@@ -230,6 +234,19 @@
     }
     p {
       padding: 5px;
+    }
+    .random-button {
+      background-color: #0051ff;
+      padding: 10px;
+      width: 80%;
+      height: 100%;
+      font-size: 1.3rem;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10%;
+      margin-top: 10px;
+      margin-bottom: 10px;
     }
     .basket-container {
       border: 1px solid $secondary-color;
@@ -249,8 +266,10 @@
         margin-top: 5px;
         margin-bottom: 5px;
         display: flex;
+        justify-content: space-between;
+        box-shadow: 0px 0px 3px 1px $secondary-color;
         .item-picture {
-          width: 45%;
+          width: 25%;
           height: 100%;
           @include mixins.desktop {
             width: 33%;
@@ -261,7 +280,7 @@
           }
         }
         .item-info-and-buttons {
-          width: 55%;
+          width: 70%;
           display: flex;
           flex-direction: column;
           justify-content: space-between;
@@ -274,8 +293,15 @@
           }
           .item-info {
             min-height: 75px;
+            width: 50%;
             font-size: 0.9rem;
             padding-left: 5px;
+            @include mixins.tablet {
+              width: 65%;
+            }
+            @include mixins.desktop {
+              width: 65%;
+            }
           }
           .item-buttons {
             height: 25px;
@@ -287,17 +313,20 @@
             @include mixins.tablet {
               flex-direction: column;
               height: 100%;
-              width: 50%;
+              width: 35%;
               align-items: flex-end;
             }
             @include mixins.desktop {
               flex-direction: column;
               height: 100%;
-              width: 50%;
+              width: 35%;
               align-items: flex-end;
             }
             button {
               width: 45%;
+              background-color: $secondary-color;
+              border: none;
+              border-radius: 5px;
               @include mixins.tablet {
                 width: 80%;
                 height: 30%;
@@ -316,7 +345,23 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        margin: 5px;
+        margin: 10px;
+        gap: 5px;
+        button {
+          background-color: #0051ff;
+          padding: 10px;
+          width: 200px;
+          height: 50px;
+          font-size: 1.3rem;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          @include mixins.desktop {
+            width: 160px;
+            font-size: 1rem;
+            padding: 5px;
+          }
+        }
       }
     }
   }

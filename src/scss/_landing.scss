@@ -66,6 +66,8 @@ body {
             display: flex;
             flex-direction: column;
             align-items: center;
+            padding-top: 5px;
+            padding-bottom: 5px;
             .img-container {
               height: 170px;
               width: 170px;
@@ -80,6 +82,7 @@ body {
                 height: 170px;
                 width: 170px;
                 border-radius: 100%;
+                box-shadow: 0px 0px 10px 3px $secondary-color;
                 @include mixins.desktop {
                   height: 200px;
                   width: 200px;
@@ -132,11 +135,14 @@ body {
         text-decoration: none;
         button {
           display: none;
-          height: 35px;
-          width: 200px;
+          background-color: #0051ff;
+          padding: 10px;
+          width: 180px;
+          height: 40px;
           font-size: 1rem;
-          background-color: $primary-color;
-          border-radius: 4px;
+          color: white;
+          border: none;
+          border-radius: 5px;
           @include mixins.tablet {
             display: unset;
           }
