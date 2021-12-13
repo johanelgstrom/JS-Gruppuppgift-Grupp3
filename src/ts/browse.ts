@@ -146,7 +146,7 @@ function createElementForProducts(productPool: Product[]): void {
             "div"
         ) as HTMLDivElement;
         productItem.addEventListener("click", () => {
-            goToProductPage();
+            goToProductPage(productPool[index]);
         });
         productItem.className = "product-item";
 
@@ -232,7 +232,7 @@ function createNewsProducts(productPool: Product[]): void {
             "div"
         ) as HTMLDivElement;
         productItem.addEventListener("click", () => {
-            goToProductPage();
+            goToProductPage(newProducts[index]);
         });
         productItem.className = "new-item";
 
@@ -318,7 +318,7 @@ function createCampaignProducts(productPool: Product[]): void {
             "div"
         ) as HTMLDivElement;
         productItem.addEventListener("click", () => {
-            goToProductPage();
+            goToProductPage(campaignProducts[index]);
         });
         productItem.className = "campaign-item";
 
@@ -389,7 +389,8 @@ function createCampaignProducts(productPool: Product[]): void {
 }
 
 // GOING TO PRODUCT-PAGE //
-function goToProductPage() {
+function goToProductPage(clickedProduct: Product) {
+    sessionStorage.setItem("clicked-product", JSON.stringify(clickedProduct));
     window.location.href = "product.html";
 }
 

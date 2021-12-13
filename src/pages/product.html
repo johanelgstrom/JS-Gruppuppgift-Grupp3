@@ -8,7 +8,7 @@
         <!-- SCSS MAIN -->
         <link rel="stylesheet" href="../scss/main.scss" />
         <!-- TYPESCRIPT MAIN -->
-        <script type="module" src="../ts/product.ts"></script>
+        <script type="module" src="../ts/singleProduct.ts"></script>
         <!-- FONTAWESOME -->
         <link
             rel="stylesheet"
@@ -82,9 +82,7 @@
             <!-- SLIDE-IN MENU -->
             <div class="menu-container" id="menu-container">
                 <ul class="menu-list">
-                    <a href="./browse.html"
-                        ><li class="menu-item">Hem</li></a
-                    >
+                    <a href="./browse.html"><li class="menu-item">Hem</li></a>
                     <a href="./browse.html#news"
                         ><li class="menu-item">Nyheter</li></a
                     >
@@ -125,7 +123,7 @@
                                 </div>
                             </div>
                         </div> -->
-                        
+
                         <!-- MALL FÖR TOTAL SUMMA OCH FORTSÄTTNING -->
                         <!-- <div class="basket-total-and-button">
                             <h3>Total: undefinedkr</h3>
@@ -145,7 +143,10 @@
                 <!-- VARUKORG- OCH KRYSSKNAPP -->
                 <div class="cart-icon" id="cart-icon">
                     <i class="fas fa-shopping-cart" id="cart-on-mobile"></i>
-                    <i class="fas fa-times cart-toggle" id="cart-off-mobile"></i>
+                    <i
+                        class="fas fa-times cart-toggle"
+                        id="cart-off-mobile"
+                    ></i>
                 </div>
             </div>
             <!-- BACK ICON -->
@@ -160,21 +161,21 @@
                 <!-- Contains pictures from each individual product and and two buttons that trigger the image to go right and left -->
                 <div class="product-image-container">
                     <i id="left-arrow" class="fas fa-chevron-left"></i>
-                    <div class="product-image">Image</div>
+                    <div class="product-image"></div>
                     <i id="right-arrow" class="fas fa-chevron-right"></i>
                 </div>
                 <!-- PRODUCT TITLE -->
                 <!-- Contains a heading that represents the productname -->
                 <div class="product-title-container">
                     <div class="product-title">
-                        <h2>Produktnamn</h2>
+                        <h2></h2>
                     </div>
                 </div>
                 <!-- PRODUCT INFORMATION -->
                 <!-- Contains information about the product -->
                 <div class="product-information-container">
                     <div class="product-information">
-                        <span>Information</span>
+                        <span></span>
                     </div>
                 </div>
                 <!-- ADD PRODUCT BUTTONS -->
@@ -207,15 +208,7 @@
             <!-- Contains products that are similar to the product in focus-->
             <div class="product-similiar-product-container">
                 <i id="left-icon" class="far fa-arrow-alt-circle-left"></i>
-                <div class="product-similiar-product">
-                    <div class="product-similiar-item"></div>
-                    <div class="product-similiar-item"></div>
-                    <div class="product-similiar-item"></div>
-                    <div class="product-similiar-item"></div>
-                    <div class="product-similiar-item"></div>
-                    <div class="product-similiar-item"></div>
-                    <div class="product-similiar-item"></div>
-                </div>
+                <div class="product-similiar-product"></div>
                 <i id="right-icon" class="far fa-arrow-alt-circle-right"></i>
             </div>
         </main>
