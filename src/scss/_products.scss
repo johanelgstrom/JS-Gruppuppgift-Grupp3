@@ -116,6 +116,7 @@
             border: 1px solid grey;
             background-color: white;
             overflow-x: scroll;
+            overflow-y: hidden;
             width: 90%;
             height: 300px;
             @include mixins.tablet {
@@ -142,6 +143,8 @@
                     width: 200px;
                     height: 300px;
                 }
+                @extend %browseProductsStyling;
+                @extend %clickable;
             }
         }
         .blue-line-container {
@@ -186,6 +189,7 @@
                 gap: 30px;
             }
             .product-item {
+                @extend %browseProductsStyling;
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -196,60 +200,15 @@
                 background-color: white;
                 border-radius: 10px;
                 box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
-
-                @extend %clickable;
-                .image-container {
-                    height: 150px;
-                    @include mixins.tablet {
-                        height: 200px;
-                    }
-                    img {
-                        height: 100%;
-                        width: 100%;
-                    }
-                }
-                .title-container {
-                    height: 30px;
-                    span {
-                        font-size: 0.7rem;
-                        font-weight: bold;
-                        color: rgb($color: #5f5f5f, $alpha: 1);
-                        word-break: break-word;
-                        height: 100%;
-                        @include mixins.tablet {
-                            font-size: 1rem;
-                        }
-                    }
-                }
-                .price-container {
-                    height: 10px;
-                    span {
-                        font-size: 0.9rem;
-                        font-weight: bolder;
-                        @include mixins.tablet {
-                            font-size: 1.4rem;
-                        }
-                    }
-                }
-                .shopping-container {
-                    display: flex;
-                    justify-content: flex-end;
-                    height: 40px;
-                    width: 80%;
-                    #add-to-cart {
-                        border: none;
-                        background-color: white;
-                        i {
-                            color: rgb($color: black, $alpha: 0.6);
-                            cursor: pointer;
-                            font-size: 1.6rem;
-                        }
-                    }
-                }
                 @include mixins.tablet {
+                    width: 250px;
+                    height: 350px;
+                }
+                @include mixins.desktop {
                     width: 200px;
                     height: 300px;
                 }
+                @extend %clickable;
             }
         }
     }

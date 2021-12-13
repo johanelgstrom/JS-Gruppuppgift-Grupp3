@@ -9,6 +9,8 @@ import { Product } from "./models/Produkt";
 import {
     createProductObjectsFromData,
     getFilteredProducts,
+    getNewProducts,
+    getSaleProducts,
 } from "./productFunctions";
 import { search } from "./search";
 
@@ -36,6 +38,7 @@ window.onload = function () {
     allProducts = createProductObjectsFromData();
     currentProducts = allProducts;
     createElementForProducts(allProducts);
+    createNewsProducts(allProducts);
     createProductFilter();
     initialize();
 };
@@ -211,6 +214,93 @@ function createElementForProducts(productPool: Product[]): void {
         productContainer.appendChild(productItem);
     }
 }
+
+function createNewsProducts(productPool: Product[]): void {
+    let newsContainer: HTMLDivElement = document.querySelector(
+        ".news-container"
+    ) as HTMLDivElement;
+    newsContainer.innerHTML = "";
+
+    let newProducts: Product[] = getNewProducts(allProducts);
+
+    for (let index = 0; index < newProducts.length; index++) {
+        let product: Product = newProducts[index];
+
+        // PRODUCT ITEM //
+        let productItem: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        productItem.addEventListener("click", () => {
+            goToProductPage();
+        });
+        productItem.className = "new-item";
+
+        // PRODUCT IMAGE //
+        let imageContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        imageContainer.className = "image-container";
+        let productImage: HTMLImageElement = document.createElement(
+            "img"
+        ) as HTMLImageElement;
+        productImage.src = product.imageUrl[0];
+        productImage.alt = "Image";
+
+        // PRODUCT TITLE //
+        let titleContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        titleContainer.className = "title-container";
+        let productName: HTMLSpanElement = document.createElement(
+            "span"
+        ) as HTMLSpanElement;
+        productName.innerHTML = product.name;
+
+        // PRODUCT PRICE //
+        let priceContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        priceContainer.className = "price-container";
+        let currencyText: HTMLSpanElement = document.createElement(
+            "span"
+        ) as HTMLSpanElement;
+        currencyText.innerHTML = "kr";
+        let productPrice: HTMLSpanElement = document.createElement(
+            "span"
+        ) as HTMLSpanElement;
+        productPrice.innerHTML = product.price.toString();
+
+        // SHOPPING BAG //
+
+        let shoppingContainer: HTMLDivElement = document.createElement(
+            "div"
+        ) as HTMLDivElement;
+        shoppingContainer.className = "shopping-container";
+        let shoppingIcon: HTMLLIElement = document.createElement(
+            "i"
+        ) as HTMLLIElement;
+        shoppingIcon.className = "fas fa-shopping-bag";
+        let shoppingButton: HTMLButtonElement = document.createElement(
+            "button"
+        ) as HTMLButtonElement;
+        shoppingButton.type = "button";
+        shoppingButton.id = "add-to-cart";
+
+        // APPENDS //
+        imageContainer.appendChild(productImage);
+        productItem.appendChild(imageContainer);
+        titleContainer.appendChild(productName);
+        productItem.appendChild(titleContainer);
+        priceContainer.appendChild(productPrice);
+        priceContainer.appendChild(currencyText);
+        productItem.appendChild(priceContainer);
+        shoppingButton.appendChild(shoppingIcon);
+        shoppingContainer.appendChild(shoppingButton);
+        productItem.appendChild(shoppingContainer);
+        newsContainer.appendChild(productItem);
+    }
+}
+
 // GOING TO PRODUCT-PAGE //
 function goToProductPage() {
     window.location.href = "product.html";
