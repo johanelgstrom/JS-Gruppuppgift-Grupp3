@@ -10,8 +10,10 @@ import {
     createProductObjectsFromData,
     getFilteredProducts,
 } from "./productFunctions";
+import { search } from "./search";
 
 let allProducts: Product[] = [];
+let currentProducts: Product[] = [];
 
 window.onload = function () {
     let mobileBurger: HTMLDivElement = document.getElementById(
@@ -32,10 +34,10 @@ window.onload = function () {
     ) as HTMLDivElement;
     cart.addEventListener("click", cartSlideIn);
     allProducts = createProductObjectsFromData();
+    currentProducts = allProducts;
     createElementForProducts(allProducts);
     createProductFilter();
     initialize();
-    console.log("hej");
 };
 basketFunction();
 
@@ -116,6 +118,14 @@ function initialize(): void {
     exitButton.addEventListener("click", () => {
         filterContainer.style.display = "none";
     });
+
+    let userInputTag: HTMLInputElement = document.getElementById(
+        "product-search"
+    ) as HTMLInputElement;
+
+    // userInputTag.addEventListener("keydown", () => {
+    //     runSearch();
+    // });
 }
 
 function createElementForProducts(productPool: Product[]): void {
@@ -254,8 +264,8 @@ function createProductFilter(): void {
 }
 
 function runFilter(filters: string[]): void {
-    let filterProducts: Product[] = getFilteredProducts(filters, allProducts);
-    createElementForProducts(filterProducts);
+    currentProducts = getFilteredProducts(filters, allProducts);
+    createElementForProducts(currentProducts);
 }
 
 // FILTER ###########
@@ -271,4 +281,20 @@ function triggerFilterWindow() {
     filterContainer.style.display = "flex";
 
     mainPart.appendChild(filterContainer);
+}
+
+function runSearch() {
+    let userInputTag: HTMLInputElement = document.getElementById(
+        "product-search"
+    ) as HTMLInputElement;
+
+    let foundProducts: Product[] = search(userInputTag.value, currentProducts);
+
+    createElementForProducts(foundProducts);
+
+    if (userInputTag.value == "") {
+        currentProducts = allProducts;
+    }
+
+    console.log("Current products:", currentProducts);
 }
