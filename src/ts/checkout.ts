@@ -1,35 +1,22 @@
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
-import { Product } from "./models/Produkt";
-import { createProductObjectsFromData } from "./productFunctions";
 
 window.onload = function () {
     initialize();
-
-    // TEMPORARY
-
-    let allProducts: Product[] = createProductObjectsFromData();
-    let cust: Customer = Customer.prototype.getCustomer();
-    console.log("CUSTOMER: ", cust);
-    //cust.addProductToCart(allProducts[0]);
-
-    // addProductToCart(allProducts[10]);
-    // addProductToCart(allProducts[26]);
-    //console.log("CART IDS: ", getCartIds());
-
     renderHTML();
 };
 
 function initialize(): void {
-    document.getElementById("pay-button").addEventListener("click", () => {});
-
     let form: HTMLFormElement = document.getElementById(
         "input-container"
     ) as HTMLFormElement;
-
     form.addEventListener("submit", (e: Event) => {
-        runLoadingButton();
-        setTimeout(triggerBuy, 3000);
+        if (Customer.prototype.getCustomer().cart.length != 0) {
+            runLoadingButton();
+            setTimeout(triggerBuy, 3000);
+        } else {
+            alert("Du kan inte checka ut med en tom varukorg.");
+        }
         e.preventDefault();
     });
 }

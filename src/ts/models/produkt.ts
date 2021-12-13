@@ -8,7 +8,7 @@ export class Product {
     filters: string[];
     isNew: boolean;
     isOnSale: boolean;
-    related: Product[];
+    related: number[];
 
     constructor(
         id: number,
@@ -20,7 +20,7 @@ export class Product {
         filters: string[],
         isNew: boolean,
         isOnSale: boolean,
-        related: Product[] = []
+        related: number[] = []
     ) {
         this.id = id;
         this.name = name;

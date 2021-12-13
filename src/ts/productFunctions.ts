@@ -6,22 +6,6 @@ import * as data from "./products-data.json";
 //we know all its attributenames.
 export function createProductObjectsFromData(): Product[] {
     return data.map((productJson) => {
-        let relatedProducts: Product[] = [];
-        productJson["related"].forEach((id: number) => {
-            relatedProducts.push(
-                new Product(
-                    productJson.id,
-                    productJson.name,
-                    productJson.imagesUrl,
-                    productJson.price,
-                    productJson.description,
-                    productJson.categories,
-                    productJson.filter,
-                    productJson.isNew,
-                    productJson.isOnSale
-                )
-            );
-        });
         return new Product(
             productJson.id,
             productJson.name,
@@ -32,7 +16,7 @@ export function createProductObjectsFromData(): Product[] {
             productJson.filter,
             productJson.isNew,
             productJson.isOnSale,
-            relatedProducts
+            productJson.related
         );
     });
 }
