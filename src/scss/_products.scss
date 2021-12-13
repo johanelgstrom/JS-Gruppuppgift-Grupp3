@@ -119,12 +119,13 @@
             overflow-y: hidden;
             width: 90%;
             height: 300px;
+            padding: 20px;
             @include mixins.tablet {
-                height: 350px;
+                // height: 350px;
                 gap: 40px;
             }
             @include mixins.desktop {
-                height: 300px;
+                // height: 300px;
                 gap: 30px;
             }
             .new-item,
