@@ -9,6 +9,7 @@ import {
     createProductObjectsFromData,
     getProductById,
 } from "./productFunctions";
+import { Customer } from "./models/Customer";
 
 let product: Product;
 
@@ -54,7 +55,15 @@ function initialize(): void {
         storedProduct.related
     );
 
-    console.log(product);
+    let addButton: HTMLButtonElement = document.getElementById(
+        "add-button"
+    ) as HTMLButtonElement;
+
+    addButton.addEventListener("click", () => {
+        let customer: Customer = Customer.prototype.getCustomer();
+        console.log(customer);
+        customer.addProductToCart(product);
+    });
 }
 
 function createElementForClickedProduct(): void {
