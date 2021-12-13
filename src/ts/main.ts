@@ -13,6 +13,7 @@ window.onload = function (): void {
     mobileCart.addEventListener("click", cartSlideIn);
     let cart: HTMLDivElement = document.getElementById("cart-container") as HTMLDivElement;
     cart.addEventListener("click", cartSlideIn);
+    basketFunction();
 };
-basketFunction();
+
 

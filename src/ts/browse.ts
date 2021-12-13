@@ -27,8 +27,9 @@ window.onload = function () {
     allProducts = createProductObjectsFromData();
     createElementForProducts(allProducts);
     createProductFilter();
+    basketFunction();
 };
-basketFunction();
+
 // function getProductsSessionStorage(): void {
 //     let products: Product[] = createProductObjectsFromData();
 

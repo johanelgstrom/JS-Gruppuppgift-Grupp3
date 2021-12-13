@@ -1,10 +1,9 @@
-// Meny, gör så att menyn kommer in/ut, även animering för ikonen
-
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/customer";
 import { Product } from "./models/Produkt";
 import { createProductObjectsFromData } from "./productFunctions";
 
+// Meny, gör så att menyn kommer in/ut, även animering för ikonen
 // Om din sida har en hamburgarmeny, importera denna
 export function menuSlideIn() {
     let menu: HTMLDivElement = document.getElementById(
@@ -75,15 +74,10 @@ export function cartSlideIn() {
 
 export function basketFunction() {
     let customer: Customer = Customer.prototype.getCustomer();
-let allProducts: Product[] = createProductObjectsFromData();
-// customer.addProductToCart(allProducts[4]);
-
-
-
-if (customer.cart.length === 0) {
-    console.log("den är tom");
-    // let yourBasketText: HTMLParagraphElement = document.getElementById("your-basket") as HTMLParagraphElement;
-    // yourBasketText.innerHTML = "Lägg till något onormalt i din varukorg innan du försöker gå till kassan ;)"
+    let allProducts: Product[] = createProductObjectsFromData();
+    
+    // Om varukorgen är tom, lägg till knapp som adderar slumpmässig produkt
+    if (customer.cart.length === 0) {
     let yourBasketText: HTMLParagraphElement = document.getElementById("your-basket") as HTMLParagraphElement;
     yourBasketText.innerHTML = "Beslutsångest? Tryck på knappen för att lägga till en slumpmässig artikel i varukorgen ;)"
     let basketTextAndItem: HTMLDivElement = document.getElementById("basket-text-and-item") as HTMLDivElement;
@@ -100,126 +94,105 @@ if (customer.cart.length === 0) {
         })
     
 }
+// annars, skapa html för alla artiklar som ligger i sessionstorage
 else {
-
-    let cartProducts: CartItem[] = customer.cart;
-    console.log(cartProducts)
+    
     let totalNum : number = 0;
 
-let basketContainer: HTMLDivElement = document.getElementById("basket-container") as HTMLDivElement;
+    let basketContainer: HTMLDivElement = document.getElementById("basket-container") as HTMLDivElement;
 
-let basketTotalAndButton: HTMLDivElement = document.createElement("div");
-basketTotalAndButton.classList.add("basket-total-and-button");
+    let basketTotalAndButton: HTMLDivElement = document.createElement("div");
+    basketTotalAndButton.classList.add("basket-total-and-button");
     let h3Total: HTMLHeadElement = document.createElement("h3");
     let continueButton: HTMLButtonElement = document.createElement("button");
     continueButton.innerHTML = "Fortsätt till kassan"
     let linkToCheckout: HTMLAnchorElement = document.createElement("a");
     linkToCheckout.href = "/pages/checkout.html"
 
-customer.cart.forEach((cartItem: CartItem) => {
-    let quantity: number = cartItem.quantity;
-    console.log(cartItem.product.name)
-    
+    customer.cart.forEach((cartItem: CartItem) => {
+        let quantity: number = cartItem.quantity;
+        let quantityNum = quantity.toString();
+        let itemContainer: HTMLDivElement = document.createElement("div")
+        itemContainer.classList.add("item-container");
+        // BILD
+        let itemPictureContainer: HTMLDivElement = document.createElement("div")
+        itemPictureContainer.classList.add("item-picture")
 
-    // let cartProduct: Product[] = getProductById(id, cartProducts);
+        let itemPicture: HTMLImageElement = document.createElement("img");
+        itemPicture.src = cartItem.product.imageUrl[0] as unknown as string;
+        itemPicture.alt = cartItem.product.name;
 
-    // console.log(id)
-    // console.log(quantity)
-    // console.log(cartProduct[0].name)
-    // console.log(cartProduct[0].price)
-    // console.log(cartProduct[0].imageUrl)
-    let quantityNum = quantity.toString();
-    // BILD
-    let itemContainer: HTMLDivElement = document.createElement("div")
-    itemContainer.classList.add("item-container");
+        // INFO OCH KNAPPAR
+        let itemInfoAndButtons: HTMLDivElement = document.createElement("div");
+        itemInfoAndButtons.classList.add("item-info-and-buttons");
 
-    let itemPictureContainer: HTMLDivElement = document.createElement("div")
-    itemPictureContainer.classList.add("item-picture")
+        let itemInfo:HTMLDivElement = document.createElement("div");
+        itemInfo.classList.add("item-info");
 
-    let itemPicture: HTMLImageElement = document.createElement("img");
-    itemPicture.src = cartItem.product.imageUrl[0] as unknown as string;
-    itemPicture.alt = cartItem.product.name;
+        let pName: HTMLParagraphElement = document.createElement("p");
+        pName.innerHTML = cartItem.product.name;
+        let pPrice: HTMLParagraphElement = document.createElement("p");
+        pPrice.innerHTML = "Pris: " + cartItem.product.price + "kr";
+        let pAmount: HTMLParagraphElement = document.createElement("p");
+        pAmount.innerHTML = "Antal: " + quantityNum;
+        let pTotal: HTMLParagraphElement = document.createElement("p");
+        let productTotalAmount: number = cartItem.product.price*quantity;
+        pTotal.innerHTML = "Totalt: " + productTotalAmount + "kr";
+        totalNum += productTotalAmount;
 
-    // INFO OCH KNAPPAR
-    let itemInfoAndButtons: HTMLDivElement = document.createElement("div");
-    itemInfoAndButtons.classList.add("item-info-and-buttons");
+        let itemButtonContainer: HTMLDivElement = document.createElement("div");
+        itemButtonContainer.classList.add("item-buttons");
 
-    let itemInfo:HTMLDivElement = document.createElement("div");
-    itemInfo.classList.add("item-info");
-
-    let pName: HTMLParagraphElement = document.createElement("p");
-    pName.innerHTML = cartItem.product.name;
-    let pPrice: HTMLParagraphElement = document.createElement("p");
-    pPrice.innerHTML = "Pris: " + cartItem.product.price + "kr";
-    let pAmount: HTMLParagraphElement = document.createElement("p");
-    pAmount.innerHTML = "Antal: " + quantityNum;
-    let pTotal: HTMLParagraphElement = document.createElement("p");
-    let productTotalAmount: number = cartItem.product.price*quantity;
-    pTotal.innerHTML = "Totalt: " + productTotalAmount + "kr";
-    totalNum += productTotalAmount;
-    console.log(productTotalAmount)
-    console.log(totalNum)
-
-    let itemButtonContainer: HTMLDivElement = document.createElement("div");
-    itemButtonContainer.classList.add("item-buttons");
-
-    let plusButton: HTMLButtonElement = document.createElement("button");
-    plusButton.innerHTML = "+";
-    plusButton.addEventListener("click", () => {
-        customer.addProductToCart(cartItem.product);
-        quantity++
-        pAmount.innerHTML = "Antal: " + quantity;
-        pTotal.innerHTML = "Totalt: " + cartItem.product.price*quantity + "kr";
-        totalNum += cartItem.product.price;
-        calculateTotalNum();
-        console.log(quantity)
-    })
-    let minusButton: HTMLButtonElement = document.createElement("button");
-    minusButton.innerHTML = "-";
-    minusButton.addEventListener("click", () => {
-        if (quantity > 1) {
-            customer.removeProductFromCart(cartItem.product);
-            quantity--
+        let plusButton: HTMLButtonElement = document.createElement("button");
+        plusButton.innerHTML = "+";
+        //Adderar +1 på antal
+        plusButton.addEventListener("click", () => {
+            customer.addProductToCart(cartItem.product);
+            quantity++
             pAmount.innerHTML = "Antal: " + quantity;
-        pTotal.innerHTML = "Totalt: " + cartItem.product.price*quantity + "kr";
-        totalNum -= cartItem.product.price;
-        calculateTotalNum();
-        }
-        else {
-            if (confirm("Är du saker att du vill ta bort denna onormala grej från varukorgen?")) {
+            pTotal.innerHTML = "Totalt: " + cartItem.product.price*quantity + "kr";
+            totalNum += cartItem.product.price;
+            calculateTotalNum();
+        })
+        let minusButton: HTMLButtonElement = document.createElement("button");
+        minusButton.innerHTML = "-";
+        // Subtraherar -1 på antal, om det endast finns 1, ta bort produkten
+        minusButton.addEventListener("click", () => {
+            if (quantity > 1) {
                 customer.removeProductFromCart(cartItem.product);
-                itemContainer.remove();
+                quantity--
+                pAmount.innerHTML = "Antal: " + quantity;
+                pTotal.innerHTML = "Totalt: " + cartItem.product.price*quantity + "kr";
                 totalNum -= cartItem.product.price;
                 calculateTotalNum();
-                let test = localStorage.getItem("cart")
-                JSON.parse(test)
-                console.log(test)
-              }
-            
+            }
+            else {
+                if (confirm("Är du saker att du vill ta bort denna onormala grej från varukorgen?")) {
+                    customer.removeProductFromCart(cartItem.product);
+                    itemContainer.remove();
+                    totalNum -= cartItem.product.price;
+                    calculateTotalNum();
+                }
+            }
+        })
 
-        }
+        basketContainer.appendChild(itemContainer);
+
+        itemContainer.appendChild(itemPictureContainer);
+        itemPictureContainer.appendChild(itemPicture);
+
+        itemContainer.appendChild(itemInfoAndButtons);
+        itemInfoAndButtons.appendChild(itemInfo);
+        itemInfo.appendChild(pName);
+        itemInfo.appendChild(pPrice);
+        itemInfo.appendChild(pAmount);
+        itemInfo.appendChild(pTotal);
+
+        itemInfoAndButtons.appendChild(itemButtonContainer);
+        itemButtonContainer.appendChild(plusButton);
+        itemButtonContainer.appendChild(minusButton);
     })
-
-
-
-    basketContainer.appendChild(itemContainer);
-
-    itemContainer.appendChild(itemPictureContainer);
-    itemPictureContainer.appendChild(itemPicture);
-
-    itemContainer.appendChild(itemInfoAndButtons);
-    itemInfoAndButtons.appendChild(itemInfo);
-    itemInfo.appendChild(pName);
-    itemInfo.appendChild(pPrice);
-    itemInfo.appendChild(pAmount);
-    itemInfo.appendChild(pTotal);
-
-    itemInfoAndButtons.appendChild(itemButtonContainer);
-    itemButtonContainer.appendChild(plusButton);
-    itemButtonContainer.appendChild(minusButton);
-})
-console.log(totalNum)
-calculateTotalNum()
+    calculateTotalNum()
 
     function calculateTotalNum() {
         if (totalNum > 0) {
@@ -229,24 +202,20 @@ calculateTotalNum()
             continueButton.remove();
             basketTotalAndButton.remove();
             h3Total.remove();
-            
             addRandomItem();
         }
-        
     }
 
-    
+    basketContainer.appendChild(basketTotalAndButton)
+    basketTotalAndButton.appendChild(h3Total)
+    basketTotalAndButton.appendChild(linkToCheckout)
+    linkToCheckout.appendChild(continueButton)
 
-
-basketContainer.appendChild(basketTotalAndButton)
-basketTotalAndButton.appendChild(h3Total)
-basketTotalAndButton.appendChild(linkToCheckout)
-linkToCheckout.appendChild(continueButton)
-
-function addRandomItem() {
-    let yourBasketText: HTMLParagraphElement = document.getElementById("your-basket") as HTMLParagraphElement;
-    yourBasketText.innerHTML = "Beslutsångest? Tryck på knappen för att lägga till en slumpmässig artikel i varukorgen ;)"
-    let basketTextAndItem: HTMLDivElement = document.getElementById("basket-text-and-item") as HTMLDivElement;
+// Om kundvagnen hade en vara som togs bort, lägg till knapp som adderar slumpmässig produkt
+    function addRandomItem() {
+        let yourBasketText: HTMLParagraphElement = document.getElementById("your-basket") as HTMLParagraphElement;
+        yourBasketText.innerHTML = "Beslutsångest? Tryck på knappen för att lägga till en slumpmässig artikel i varukorgen ;)"
+        let basketTextAndItem: HTMLDivElement = document.getElementById("basket-text-and-item") as HTMLDivElement;
         let randomButton: HTMLButtonElement = document.createElement("button");
         basketTextAndItem.appendChild(randomButton);
         randomButton.innerHTML = "Lägg till";
@@ -259,7 +228,6 @@ function addRandomItem() {
             randomButton.remove();
             basketFunction();
         })
-}
-
+    }
 }
 }

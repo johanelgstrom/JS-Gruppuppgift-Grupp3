@@ -1,71 +1,27 @@
 @import "variables";
 @mixin tablet {
-    @media screen and (min-width: 512px) {
-        @content;
-    }
+  @media screen and (min-width: 512px) {
+    @content;
+  }
 }
 
 @mixin desktop {
-    @media screen and (min-width: 1024px) {
-        @content;
-    }
+  @media screen and (min-width: 1024px) {
+    @content;
+  }
 }
 
 %clickable {
-    transition: 0.2s ease transform, 0.1s ease color;
+  transition: 0.2s ease transform, 0.1s ease color;
 
-    &:hover,
-    &:active {
-        transform: scale(110%);
-        cursor: pointer;
-    }
+  &:hover,
+  &:active {
+    transform: scale(110%);
+    cursor: pointer;
+  }
 
-    &:active {
-        transform: scale(107%);
-        color: white;
-    }
-}
-
-%burger-animation {
-    .burger-menu {
-        z-index: 100;
-
-        &:hover {
-            cursor: pointer;
-        }
-        .top-bun {
-            height: 5px;
-            width: 35px;
-            background-color: $secondary-color;
-            margin-bottom: 5px;
-            transition: transform 0.1s ease-in-out;
-        }
-        .patty {
-            height: 5px;
-            width: 35px;
-            background-color: $secondary-color;
-            margin-bottom: 5px;
-            transition: transform 0.1s ease-in-out;
-        }
-        .bottom-bun {
-            height: 5px;
-            width: 35px;
-            background-color: $secondary-color;
-            transition: transform 0.1s ease-in-out;
-        }
-        p {
-            color: $secondary-color;
-        }
-    }
-    .top-bun-toggle {
-        transform: rotate(-45deg);
-        margin-top: 10px;
-    }
-    .patty-toggle {
-        transform: rotate(45deg);
-        margin-top: -10px;
-    }
-    .bottom-bun-toggle {
-        transform: scale(0);
-    }
+  &:active {
+    transform: scale(107%);
+    color: white;
+  }
 }
