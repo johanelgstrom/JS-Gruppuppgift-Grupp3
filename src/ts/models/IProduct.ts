@@ -10,5 +10,5 @@ export interface IProduct {
     filters: string[];
     isNew: boolean;
     isOnSale: boolean;
-    related: Product[];
+    related: number[];
 }

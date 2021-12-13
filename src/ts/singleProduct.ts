@@ -5,6 +5,10 @@ import {
 } from "./burgerAndBasketFunctions";
 import { Product } from "./models/Produkt";
 import { IProduct } from "./models/IProduct";
+import {
+    createProductObjectsFromData,
+    getProductById,
+} from "./productFunctions";
 
 let product: Product;
 
@@ -96,8 +100,12 @@ function createElementForClickedProduct(): void {
 }
 
 function createRelatedProducts(): void {
+    let allProducts: Product[] = createProductObjectsFromData();
     for (let index = 0; index < product.related.length; index++) {
-        let relatedProduct = product.related[index];
+        let relatedProduct: Product = getProductById(
+            product.related[index],
+            allProducts
+        )[0];
 
         // PRODUCT CONTAINER //
         let relatedProductContainer: HTMLDivElement = document.querySelector(
