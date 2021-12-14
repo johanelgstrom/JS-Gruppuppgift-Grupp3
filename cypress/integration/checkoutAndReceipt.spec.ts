@@ -1,5 +1,5 @@
 import { first } from "cypress/types/lodash";
-import { Product } from "../../src/ts/models/produkt";
+import { Product } from "../../src/ts/models/Product";
 
 describe("Checkout and Receipt page tests", () => {
     beforeEach(() => {
@@ -8,170 +8,168 @@ describe("Checkout and Receipt page tests", () => {
     });
 
     //############################################### CHECKOUT //###############################################
-    // // CHECKS FOR ADDING AND REMOVING ITEMS FROM CART
-    // it("Should have added 1 product to cart and it shows up in checkout. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#cart-on").click();
+    // // CHECKS FOR ADDING AND REMOVING ITEMS FROM CART IN CHECKOUT
+    it("Should have added 1 product to cart and it shows up in checkout.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#cart-on").click();
 
-    //     //2. Act
-    //     cy.get(".basket-total-and-button > a > button").click();
+        //2. Act
+        cy.get(".basket-total-and-button > a > button").click();
 
-    //     //3. Asses
-    //     cy.get("#basket-inner-wrapper").should("have.length", 1);
-    // });
+        //3. Asses
+        cy.get("#basket-inner-wrapper").should("have.length", 1);
+    });
 
-    // it("Should have added 1 product x2 to cart and it shows up in checkout. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#cart-on").click();
+    it("Should have added 1 product x2 to cart and it shows up in checkout.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#add-button").click();
+        cy.get("#cart-on").click();
 
-    //     //2. Act
-    //     cy.get(".basket-total-and-button > a > button").click();
+        //2. Act
+        cy.get(".basket-total-and-button > a > button").click();
 
-    //     //3. Asses
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 1);
-    //     cy.get(".product-text > :nth-child(3)").should("have.text", "Antal: 2");
-    // });
+        //3. Asses
+        cy.get("#basket-inner-wrapper > div").should("have.length", 1);
+        cy.get(".product-text > :nth-child(3)").should("have.text", "Antal: 2");
+    });
 
-    // it("Should have added 2 products x1 to cart and it shows up in checkout. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
+    it("Should have added 2 products x1 to cart and it shows up in checkout.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
 
-    //     //2. Act
-    //     // first product
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#back-icon").click();
-    //     // second product
-    //     cy.get(".products-container > :nth-child(2)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#back-icon").click();
+        //2. Act
+        // first product
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#back-icon").click();
+        // second product
+        cy.get(".products-container > :nth-child(2)").click();
+        cy.get("#add-button").click();
+        cy.get("#back-icon").click();
 
-    //     // go to checkout
-    //     cy.get("#cart-on").click();
-    //     cy.get(".basket-total-and-button > a > button").click();
+        // go to checkout
+        cy.get("#cart-on").click();
+        cy.get(".basket-total-and-button > a > button").click();
 
-    //     //3. Asses
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 2);
-    //     cy.get(
-    //         "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
-    //     ).should("have.text", "Antal: 1");
-    //     cy.get(
-    //         "#basket-inner-wrapper > div:nth-child(2) > div:nth-child(2) p:nth-child(3)"
-    //     ).should("have.text", "Antal: 1");
-    // });
+        //3. Asses
+        cy.get("#basket-inner-wrapper > div").should("have.length", 2);
+        cy.get(
+            "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
+        ).should("have.text", "Antal: 1");
+        cy.get(
+            "#basket-inner-wrapper > div:nth-child(2) > div:nth-child(2) p:nth-child(3)"
+        ).should("have.text", "Antal: 1");
+    });
 
-    // it("Should add one product x1 to cart and then increase quantity to 2 in checkout. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#cart-on").click();
-    //     cy.get(".basket-total-and-button > a > button").click();
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 1);
-    //     cy.get(
-    //         "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
-    //     ).should("have.text", "Antal: 1");
+    it("Should add one product x1 to cart and then increase quantity to 2 in checkout.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#cart-on").click();
+        cy.get(".basket-total-and-button > a > button").click();
+        cy.get("#basket-inner-wrapper > div").should("have.length", 1);
+        cy.get(
+            "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
+        ).should("have.text", "Antal: 1");
 
-    //     //2. Act
-    //     cy.get(".product-actions button:nth-child(1)").click();
+        //2. Act
+        cy.get(".product-actions button:nth-child(1)").click();
 
-    //     //3. Asses
-    //     cy.get(
-    //         "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
-    //     ).should("have.text", "Antal: 2");
-    // });
+        //3. Asses
+        cy.get(
+            "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
+        ).should("have.text", "Antal: 2");
+    });
 
-    // it("Should add one product x1 to cart and then decrease quantity to 0 in checkout. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#cart-on").click();
-    //     cy.get(".basket-total-and-button > a > button").click();
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 1);
-    //     cy.get(
-    //         "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
-    //     ).should("have.text", "Antal: 1");
+    it("Should add one product x1 to cart and then decrease quantity to 0 in checkout.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#cart-on").click();
+        cy.get(".basket-total-and-button > a > button").click();
+        cy.get("#basket-inner-wrapper > div").should("have.length", 1);
+        cy.get(
+            "#basket-inner-wrapper > div:nth-child(1) > div:nth-child(2) p:nth-child(3)"
+        ).should("have.text", "Antal: 1");
 
-    //     //2. Act
-    //     cy.get(".product-actions button:nth-child(2)").click();
+        //2. Act
+        cy.get(".product-actions button:nth-child(2)").click();
 
-    //     //3. Asses
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 0);
-    // });
+        //3. Asses
+        cy.get("#basket-inner-wrapper > div").should("have.length", 0);
+    });
 
-    // // CHECKS FOR VALIDATION
-    // it("Should not allow you to check out without entering valid information. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#cart-on").click();
-    //     cy.get(".basket-total-and-button > a > button").click();
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 1);
+    // CHECKS FOR VALIDATION
+    it("Should not allow you to check out without entering valid information.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#cart-on").click();
+        cy.get(".basket-total-and-button > a > button").click();
+        cy.get("#basket-inner-wrapper > div").should("have.length", 1);
 
-    //     //2. Act
-    //     cy.get("#pay-button").click();
+        //2. Act
+        cy.get("#pay-button").click();
 
-    //     //3. Asses
-    //     cy.get("#input-container").within(() => {
-    //         cy.get("#customer-firstname")
-    //             .invoke("prop", "validationMessage")
-    //             .should("equal", "Please fill in this field.");
-    //     });
-    //     cy.url().should("include", "pages/checkout.html");
-    // });
+        //3. Asses
+        cy.get("#input-container").within(() => {
+            cy.get("#customer-firstname")
+                .invoke("prop", "validationMessage")
+                .should("equal", "Please fill in this field.");
+        });
+        cy.url().should("include", "pages/checkout.html");
+    });
 
-    // it("Should not allow you to check out with an empty cart. / Desktop", () => {
-    //     //1. Arrange
-    //     cy.viewport("macbook-15");
-    //     cy.get("#to-browse").click();
-    //     cy.get(".products-container > :nth-child(1)").click();
-    //     cy.get("#add-button").click();
-    //     cy.get("#cart-on").click();
-    //     cy.get(".basket-total-and-button > a > button").click();
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 1);
-    //     cy.get(".product-actions button:nth-child(2)").click();
-    //     cy.get("#basket-inner-wrapper > div").should("have.length", 0);
+    it("Should not allow you to check out with an empty cart.", () => {
+        //1. Arrange
+        cy.viewport("macbook-15");
+        cy.get("#to-browse").click();
+        cy.get(".products-container > :nth-child(1)").click();
+        cy.get("#add-button").click();
+        cy.get("#cart-on").click();
+        cy.get(".basket-total-and-button > a > button").click();
+        cy.get("#basket-inner-wrapper > div").should("have.length", 1);
+        cy.get(".product-actions button:nth-child(2)").click();
+        cy.get("#basket-inner-wrapper > div").should("have.length", 0);
+        cy.get("#customer-firstname").type("Bengt");
+        cy.get("#customer-lastname").type("Persson");
+        cy.get("#customer-email").type("bengt.person@gmail.com");
+        cy.get("#customer-mobile").type("123456789");
+        cy.get("#customer-adress").type("TheBestRoad 64");
+        cy.get("#customer-region").type("13833");
+        cy.get("#customer-region").type("13833");
+        cy.get("#customer-delivery").select(0);
+        cy.get("#customer-card").type("040012341234");
+        cy.get("#customer-card-cvc").type("123");
 
-    //     //2. Act
-    //     cy.get("#customer-firstname").type("Bengt");
-    //     cy.get("#customer-lastname").type("Persson");
-    //     cy.get("#customer-email").type("bengt.person@gmail.com");
-    //     cy.get("#customer-mobile").type("123456789");
-    //     cy.get("#customer-adress").type("TheBestRoad 64");
-    //     cy.get("#customer-region").type("13833");
-    //     cy.get("#customer-region").type("13833");
-    //     cy.get("#customer-delivery").select(0);
-    //     cy.get("#customer-card").type("040012341234");
-    //     cy.get("#customer-card-cvc").type("123");
-    //     cy.get("#pay-button").click();
+        //2. Act
+        cy.get("#pay-button").click();
 
-    //     //cy.wait(3500);
-
-    //     //3. Asses
-    //     cy.on("window:alert", (str: string) => {
-    //         expect(str).to.equal("Du kan inte checka ut med en tom varukorg.");
-    //     });
-    //     cy.url().should("include", "pages/checkout.html");
-    // });
+        //3. Asses
+        cy.on("window:alert", (str: string) => {
+            expect(str).to.equal("Du kan inte checka ut med en tom varukorg.");
+        });
+        cy.url().should("include", "pages/checkout.html");
+    });
 
     //############################################### RECEIPT ###############################################
 
-    it("Should simulate a purchase and end up on receipt page with correct products. / Desktop", () => {
+    it("Should simulate a purchase and end up on receipt page with correct products.", () => {
         //1. Arrange
         cy.viewport("macbook-15");
         cy.get("#to-browse").click();
@@ -256,7 +254,7 @@ describe("Checkout and Receipt page tests", () => {
             });
     });
 
-    it("Should check that the information displayed on receipt are the same as entered on checkout page. / Desktop", () => {
+    it("Should check that the information displayed on receipt are the same as entered on checkout page.", () => {
         //1. Arrange
         cy.viewport("macbook-15");
         cy.get("#to-browse").click();

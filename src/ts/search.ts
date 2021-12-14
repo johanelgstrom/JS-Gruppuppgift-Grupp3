@@ -1,4 +1,4 @@
-import { Product } from "./models/Produkt";
+import { Product } from "./models/Product";
 
 export function search(search: string, searchPool: Product[]): Product[] {
     let hits: Product[] = [];

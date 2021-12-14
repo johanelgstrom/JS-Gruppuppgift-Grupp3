@@ -1,5 +1,3 @@
-import { Product } from "./Produkt";
-
 export interface IProduct {
     id: number;
     name: string;

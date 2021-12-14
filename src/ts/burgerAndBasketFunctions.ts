@@ -1,6 +1,6 @@
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/customer";
-import { Product } from "./models/Produkt";
+import { Product } from "./models/Product";
 import { createProductObjectsFromData } from "./productFunctions";
 
 // Meny, gör så att menyn kommer in/ut, även animering för ikonen
