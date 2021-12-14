@@ -108,7 +108,7 @@ function createElementForClickedProduct(): void {
 
     productTitle.innerHTML = product.name;
 
-    // INFORMATION
+    // INFORMATION & PRICE
 
     let informationContainer: HTMLDivElement = document.querySelector(
         ".product-information"
@@ -120,9 +120,23 @@ function createElementForClickedProduct(): void {
 
     productInformation.innerHTML = product.description;
 
+    let priceContainer: HTMLDivElement = document.createElement(
+        "div"
+    ) as HTMLDivElement;
+
+    priceContainer.className = "price-container";
+
+    let productPrice: HTMLHeadingElement = document.createElement(
+        "h2"
+    ) as HTMLHeadingElement;
+
+    productPrice.innerHTML = JSON.stringify(product.price) + "kr";
+
     // APPENDS //
 
+    priceContainer.appendChild(productPrice);
     informationContainer.appendChild(productInformation);
+    informationContainer.appendChild(priceContainer);
     titleContainer.appendChild(productTitle);
     imageContainer.appendChild(productImage);
 }
@@ -220,6 +234,5 @@ function createRelatedProducts(): void {
         shoppingContainer.appendChild(shoppingButton);
         relatedItem.appendChild(shoppingContainer);
         relatedProductContainer.appendChild(relatedItem);
-        console.log(relatedProduct);
     }
 }

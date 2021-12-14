@@ -10,7 +10,7 @@
     box-sizing: border-box;
 }
 .phone-icon-container-product {
-  margin-top: 10px;
+    margin-top: 10px;
 }
 .product-similiar-product::-webkit-scrollbar {
     width: 20px;
@@ -91,11 +91,11 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
 
             width: 90%;
             height: 450px;
-            border: 2px solid grey;
+            border: 1px solid grey;
 
             img {
                 height: 100%;
@@ -108,14 +108,6 @@
             }
             @include mixins.desktop {
                 width: 95%;
-            }
-            #left-arrow {
-                font-size: 30px;
-                opacity: 0.4;
-            }
-            #right-arrow {
-                font-size: 30px;
-                opacity: 0.4;
             }
             .product-image {
                 display: flex;
@@ -134,7 +126,6 @@
             width: 90%;
             height: 80px;
             @include mixins.tablet {
-                align-items: flex-start;
                 grid-area: product-title;
 
                 width: 110%;
@@ -149,8 +140,8 @@
             align-items: center;
 
             width: 90%;
-            height: 200px;
-            border: 2px solid grey;
+            height: 90%;
+            border: 1px solid grey;
             @include mixins.tablet {
                 justify-self: flex-end;
                 grid-area: product-information;
@@ -163,6 +154,10 @@
                 height: 100%;
             }
             .product-information {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+
                 width: 90%;
                 height: 90%;
                 @include mixins.tablet {
@@ -171,6 +166,15 @@
                 @include mixins.desktop {
                     width: 80%;
                     height: 85%;
+                }
+                span {
+                    font-size: 1.2rem;
+                }
+                .price-container {
+                    display: flex;
+                    align-items: flex-end;
+                    justify-content: flex-start;
+                    height: 60%;
                 }
             }
         }
@@ -183,7 +187,6 @@
             height: 50px;
             @include mixins.tablet {
                 justify-self: flex-end;
-                align-items: flex-start;
 
                 grid-area: product-buttons;
 
@@ -193,21 +196,23 @@
             @include mixins.desktop {
                 justify-self: flex-start;
 
-                width: 100%;
+                width: 95%;
             }
             .product-buttons {
                 display: flex;
-                justify-content: space-between;
+                justify-content: center;
+
+                gap: 30px;
 
                 width: 40%;
                 @include mixins.desktop {
                     width: 90%;
                 }
                 #count {
-                    font-size: larger;
+                    transform: scale(1.6);
                 }
                 #add-button {
-                    font-size: larger;
+                    transform: scale(1.6);
                     color: white;
                     background-color: variables.$primary-color;
                 }
