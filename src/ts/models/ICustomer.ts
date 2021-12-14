@@ -8,8 +8,8 @@ export interface ICustomer {
     adress: string;
     region: string;
     delivery: string;
-    cardNumber: number;
-    cardCvc: number;
+    cardNumber: string;
+    cardCvc: string;
 
     ordernumbers: number[];
     cart: CartItem[];

@@ -10,8 +10,8 @@ export class Customer {
     adress: string;
     region: string;
     delivery: string;
-    cardNumber: number;
-    cardCvc: number;
+    cardNumber: string;
+    cardCvc: string;
 
     ordernumbers: number[];
     cart: CartItem[];
@@ -24,8 +24,8 @@ export class Customer {
         this.adress = "";
         this.region = "";
         this.delivery = "";
-        this.cardNumber = 0;
-        this.cardCvc = 0;
+        this.cardNumber = "";
+        this.cardCvc = "";
         this.ordernumbers = [];
         this.cart = [];
     }

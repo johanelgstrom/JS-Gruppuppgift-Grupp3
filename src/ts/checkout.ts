@@ -151,8 +151,8 @@ function triggerBuy(): void {
     customer.adress = adressInput.value;
     customer.region = regionInput.value;
     customer.delivery = deliveryInput.value;
-    customer.cardNumber = parseInt(cardNumberInput.value);
-    customer.cardCvc = parseInt(cardCvcInput.value);
+    customer.cardNumber = cardNumberInput.value;
+    customer.cardCvc = cardCvcInput.value;
 
     customer.storeCustomer();
 
