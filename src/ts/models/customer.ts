@@ -1,6 +1,6 @@
 import { ICustomer } from "./ICustomer";
 import { CartItem } from "./CartItem";
-import { Product } from "./Produkt";
+import { Product } from "./Product";
 
 export class Customer {
     firstname: string;

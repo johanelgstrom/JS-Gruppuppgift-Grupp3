@@ -1,4 +1,4 @@
-import { Product } from "./models/produkt";
+import { Product } from "./models/product";
 
 //Enum to make sure the developers input the correct syntax for the sorting.
 export enum Sort {

@@ -3,7 +3,7 @@ import {
     cartSlideIn,
     basketFunction,
 } from "./burgerAndBasketFunctions";
-import { Product } from "./models/Produkt";
+import { Product } from "./models/Product";
 import { IProduct } from "./models/IProduct";
 import {
     createProductObjectsFromData,

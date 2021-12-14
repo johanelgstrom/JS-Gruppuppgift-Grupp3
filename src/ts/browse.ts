@@ -5,7 +5,7 @@ import {
 } from "./burgerAndBasketFunctions";
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
-import { Product } from "./models/Produkt";
+import { Product } from "./models/Product";
 import {
     createProductObjectsFromData,
     getFilteredProducts,

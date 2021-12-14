@@ -1,4 +1,4 @@
-import { Product } from "./models/Produkt";
+import { Product } from "./models/Product";
 import * as data from "./products-data.json";
 
 //Create a new list of Product objects for each object found in
