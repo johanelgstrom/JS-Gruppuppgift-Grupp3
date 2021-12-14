@@ -164,6 +164,7 @@
         .products-container-header {
             display: flex;
             flex-direction: row;
+            justify-content: space-between;
 
             width: 88%;
             height: 50px;
@@ -176,6 +177,10 @@
             h2 {
                 font-size: 1.5rem;
                 color: black;
+            }
+            select {
+                width: 50%;
+                height: 30px;
             }
         }
         .products-container {
@@ -210,6 +215,11 @@
                     height: 300px;
                 }
                 @extend %clickable;
+                .shopping-container {
+                    #add-to-cart {
+                        z-index: 2;
+                    }
+                }
             }
         }
     }
@@ -284,7 +294,9 @@
 }
 .filter-main {
     display: flex;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
 
     height: 100%;
     border-top: 1px solid grey;
@@ -308,6 +320,20 @@
                     font-size: 0.9rem;
                 }
             }
+        }
+    }
+    .search-container {
+        display: flex;
+        justify-content: center;
+
+        padding: 10px;
+
+        i {
+            width: 20%;
+        }
+
+        input {
+            width: 80%;
         }
     }
 }

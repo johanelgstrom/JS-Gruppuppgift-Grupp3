@@ -127,9 +127,17 @@ function initialize(): void {
         "product-search"
     ) as HTMLInputElement;
 
-    // userInputTag.addEventListener("keydown", () => {
-    //     runSearch();
-    // });
+    userInputTag.addEventListener("keydown", () => {
+        runSearch(userInputTag);
+    });
+
+    let secondUserInputTag: HTMLInputElement = document.getElementById(
+        "second-product-search"
+    ) as HTMLInputElement;
+
+    secondUserInputTag.addEventListener("keydown", () => {
+        runSearch(secondUserInputTag);
+    });
 }
 
 function createElementForProducts(productPool: Product[]): void {
@@ -145,9 +153,6 @@ function createElementForProducts(productPool: Product[]): void {
         let productItem: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
-        productItem.addEventListener("click", () => {
-            goToProductPage(productPool[index]);
-        });
         productItem.className = "product-item";
 
         // PRODUCT IMAGE //
@@ -160,6 +165,9 @@ function createElementForProducts(productPool: Product[]): void {
         ) as HTMLImageElement;
         productImage.src = product.imageUrl[0];
         productImage.alt = "Image";
+        productImage.addEventListener("click", () => {
+            goToProductPage(productPool[index]);
+        });
 
         // PRODUCT TITLE //
         let titleContainer: HTMLDivElement = document.createElement(
@@ -200,6 +208,11 @@ function createElementForProducts(productPool: Product[]): void {
         ) as HTMLButtonElement;
         shoppingButton.type = "button";
         shoppingButton.id = "add-to-cart";
+        shoppingButton.addEventListener("click", () => {
+            let customer: Customer = Customer.prototype.getCustomer();
+
+            customer.addProductToCart(productPool[index]);
+        });
 
         // APPENDS //
         imageContainer.appendChild(productImage);
@@ -231,9 +244,6 @@ function createNewsProducts(productPool: Product[]): void {
         let productItem: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
-        productItem.addEventListener("click", () => {
-            goToProductPage(newProducts[index]);
-        });
         productItem.className = "new-item";
 
         // PRODUCT IMAGE //
@@ -246,6 +256,9 @@ function createNewsProducts(productPool: Product[]): void {
         ) as HTMLImageElement;
         productImage.src = product.imageUrl[0];
         productImage.alt = "Image";
+        productImage.addEventListener("click", () => {
+            goToProductPage(newProducts[index]);
+        });
 
         // PRODUCT TITLE //
         let titleContainer: HTMLDivElement = document.createElement(
@@ -286,6 +299,11 @@ function createNewsProducts(productPool: Product[]): void {
         ) as HTMLButtonElement;
         shoppingButton.type = "button";
         shoppingButton.id = "add-to-cart";
+        shoppingButton.addEventListener("click", () => {
+            let customer: Customer = Customer.prototype.getCustomer();
+
+            customer.addProductToCart(productPool[index]);
+        });
 
         // APPENDS //
         imageContainer.appendChild(productImage);
@@ -317,9 +335,6 @@ function createCampaignProducts(productPool: Product[]): void {
         let productItem: HTMLDivElement = document.createElement(
             "div"
         ) as HTMLDivElement;
-        productItem.addEventListener("click", () => {
-            goToProductPage(campaignProducts[index]);
-        });
         productItem.className = "campaign-item";
 
         // PRODUCT IMAGE //
@@ -332,6 +347,9 @@ function createCampaignProducts(productPool: Product[]): void {
         ) as HTMLImageElement;
         productImage.src = product.imageUrl[0];
         productImage.alt = "Image";
+        productImage.addEventListener("click", () => {
+            goToProductPage(campaignProducts[index]);
+        });
 
         // PRODUCT TITLE //
         let titleContainer: HTMLDivElement = document.createElement(
@@ -372,6 +390,11 @@ function createCampaignProducts(productPool: Product[]): void {
         ) as HTMLButtonElement;
         shoppingButton.type = "button";
         shoppingButton.id = "add-to-cart";
+        shoppingButton.addEventListener("click", () => {
+            let customer: Customer = Customer.prototype.getCustomer();
+
+            customer.addProductToCart(productPool[index]);
+        });
 
         // APPENDS //
         imageContainer.appendChild(productImage);
@@ -425,20 +448,6 @@ function createProductFilter(): void {
         }
     };
     window.addEventListener("scroll", iconScrollFunc);
-
-    let desktopFilter: HTMLDivElement = document.querySelector(
-        ".filter-container"
-    ) as HTMLDivElement;
-
-    let desktopScrollFunc = function (): void {
-        let y = window.scrollY;
-        if (y >= 200) {
-            desktopFilter.style.display = "flex";
-        } else {
-            desktopFilter.style.display = "none";
-        }
-    };
-    window.addEventListener("scroll", desktopScrollFunc);
 }
 
 function runFilter(filters: string[]): void {
@@ -461,16 +470,12 @@ function triggerFilterWindow() {
     mainPart.appendChild(filterContainer);
 }
 
-function runSearch() {
-    let userInputTag: HTMLInputElement = document.getElementById(
-        "product-search"
-    ) as HTMLInputElement;
-
-    let foundProducts: Product[] = search(userInputTag.value, currentProducts);
+function runSearch(whichTag: HTMLInputElement) {
+    let foundProducts: Product[] = search(whichTag.value, currentProducts);
 
     createElementForProducts(foundProducts);
 
-    if (userInputTag.value == "") {
+    if (whichTag.value == "") {
         currentProducts = allProducts;
     }
 
