@@ -31,9 +31,15 @@
             <div class="header-top">
                 <!-- SOCIAL MEDIA -->
                 <div class="social-container">
-                    <a href="http://www.instagram.com"><i class="fab fa-instagram"></i></a>
-                    <a href="http://www.facebook.com"><i class="fab fa-facebook-square"></i></a>
-                    <a href="http://twitter.com"><i class="fab fa-twitter-square"></i></a>
+                    <a href="http://www.instagram.com"
+                        ><i class="fab fa-instagram"></i
+                    ></a>
+                    <a href="http://www.facebook.com"
+                        ><i class="fab fa-facebook-square"></i
+                    ></a>
+                    <a href="http://twitter.com"
+                        ><i class="fab fa-twitter-square"></i
+                    ></a>
                 </div>
                 <!-- SLOGGA -->
                 <div class="slogan-container">
@@ -87,9 +93,7 @@
             <div class="menu-container" id="menu-container">
                 <ul class="menu-list">
                     <a href="./browse.html"><li class="menu-item">Hem</li></a>
-                    <a href="#news"
-                        ><li class="menu-item">Nyheter</li></a
-                    >
+                    <a href="#news"><li class="menu-item">Nyheter</li></a>
                     <a href="#campaigns"
                         ><li class="menu-item">Kampanjer</li></a
                     >
@@ -103,9 +107,7 @@
             <div class="basket-menu-container" id="basket-menu-container">
                 <div class="basket-text-and-item" id="basket-text-and-item">
                     <p id="your-basket">Din varukorg</p>
-                    <div class="basket-container" id="basket-container">
-                       
-                    </div>
+                    <div class="basket-container" id="basket-container"></div>
                 </div>
             </div>
             <!-- MOBILIKONER -->
@@ -162,6 +164,12 @@
                 <!-- Contains all available products on the site -->
                 <div class="products-container-header" id="products">
                     <h2>Produkter</h2>
+                    <select id="categories" name="catagories" size="1">
+                        <option value="1">Stigande pris</option>
+                        <option value="2">Sjukande pris</option>
+                        <option value="3">Alfabetisk ordning</option>
+                        <option value="4">Omvänd alfabetisk ordning</option>
+                    </select>
                 </div>
                 <div class="products-container"></div>
             </div>
@@ -206,6 +214,14 @@
                             />
                             <label>Vad i hela världen</label>
                         </form>
+                    </div>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input
+                            id="second-product-search"
+                            type="text"
+                            placeholder="Sök"
+                        />
                     </div>
                 </div>
             </div>
