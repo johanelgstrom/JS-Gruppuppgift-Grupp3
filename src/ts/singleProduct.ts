@@ -61,8 +61,19 @@ function initialize(): void {
 
     addButton.addEventListener("click", () => {
         let customer: Customer = Customer.prototype.getCustomer();
-        console.log(customer);
-        customer.addProductToCart(product);
+
+        let amountTag: HTMLSelectElement = document.getElementById(
+            "count"
+        ) as HTMLSelectElement;
+        let value: number = parseInt(
+            amountTag.options[amountTag.selectedIndex].value
+        );
+
+        for (let count = 0; count < value; count++) {
+            customer.addProductToCart(product);
+        }
+
+        basketFunction();
     });
 }
 
