@@ -75,6 +75,14 @@ function initialize(): void {
 
         basketFunction();
     });
+
+    let backButton: HTMLLIElement = document.getElementById(
+        "back-icon"
+    ) as HTMLLIElement;
+
+    backButton.addEventListener("click", () => {
+        history.back();
+    });
 }
 
 function createElementForClickedProduct(): void {
@@ -136,6 +144,13 @@ function createRelatedProducts(): void {
             "div"
         ) as HTMLDivElement;
         relatedItem.className = "product-similiar-item";
+        relatedItem.addEventListener("click", () => {
+            sessionStorage.setItem(
+                "clicked-product",
+                JSON.stringify(relatedProduct)
+            );
+            window.location.reload();
+        });
 
         // PRODUCT IMAGE //
         let imageContainer: HTMLDivElement = document.createElement(

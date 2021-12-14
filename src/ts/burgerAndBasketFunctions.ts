@@ -105,6 +105,7 @@ export function basketFunction() {
         let basketContainer: HTMLDivElement = document.getElementById(
             "basket-container"
         ) as HTMLDivElement;
+        basketContainer.innerHTML = "";
 
         let basketTotalAndButton: HTMLDivElement =
             document.createElement("div");

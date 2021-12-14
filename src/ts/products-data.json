@@ -9,7 +9,7 @@
         "filter": ["Onormal", "Konstig"],
         "isNew": false,
         "isOnSale": true,
-        "related": [2, 4]
+        "related": [2, 4, 20, 7, 9, 13]
     },
     {
         "id": 2,
