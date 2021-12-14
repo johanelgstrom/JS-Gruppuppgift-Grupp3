@@ -156,7 +156,5 @@ function triggerBuy(): void {
 
     customer.storeCustomer();
 
-    let targetUrl: string = "receipt.html";
-    console.log(targetUrl);
-    window.location.replace(targetUrl);
+    window.location.replace("receipt.html");
 }

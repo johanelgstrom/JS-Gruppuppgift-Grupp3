@@ -211,7 +211,6 @@ describe("Checkout and Receipt page tests", () => {
         cy.get("#customer-mobile").type("123456789");
         cy.get("#customer-adress").type("TheBestRoad 64");
         cy.get("#customer-region").type("13833");
-        cy.get("#customer-region").type("13833");
         cy.get("#customer-delivery").select(0);
         cy.get("#customer-card").type("040012341234");
         cy.get("#customer-card-cvc").type("123");
