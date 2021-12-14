@@ -6,7 +6,7 @@ import { Product } from "./models/product";
 //Enum to make sure the developers input the correct syntax for the sorting.
 export enum Sort {
     PRICE_ASCENDING = "Stigande pris",
-    PRICE_DECENDING = "Sjukande pris",
+    PRICE_DECENDING = "Sjunkande pris",
     NAME_ALPHABETIC = "Alfabetisk ordning",
     NAME_ALPHABETIC_REVERSE = "Omvänd alfabetisk ordning",
 }

@@ -16,7 +16,6 @@ import { search } from "./search";
 import { sortProductsBy, Sort } from "./sorting";
 
 let allProducts: Product[] = [];
-let currentProducts: Product[] = [];
 
 window.onload = function () {
     let mobileBurger: HTMLDivElement = document.getElementById(
@@ -37,7 +36,6 @@ window.onload = function () {
     ) as HTMLDivElement;
     cart.addEventListener("click", cartSlideIn);
     allProducts = createProductObjectsFromData();
-    currentProducts = allProducts;
     createElementForProducts(allProducts);
     createNewsProducts(allProducts);
     createCampaignProducts(allProducts);
@@ -47,76 +45,43 @@ window.onload = function () {
 };
 
 function initialize(): void {
-    let filters: string[] = [];
-
+    //FIRST
     let firstCategory: HTMLInputElement = document.getElementById(
         "onormal"
     ) as HTMLInputElement;
-
     firstCategory.addEventListener("click", () => {
-        if (firstCategory.checked) {
-            filters.push(firstCategory.value);
-            runFilter(filters);
-        } else {
-            if (filters.includes(firstCategory.value)) {
-                filters.splice(filters.indexOf(firstCategory.value), 1);
-                runFilter(filters);
-            }
-        }
+        createElementForProducts(getCurrentPool());
     });
 
+    //SECOND
     let secondCategory: HTMLInputElement = document.getElementById(
         "konstigt"
     ) as HTMLInputElement;
-
     secondCategory.addEventListener("click", () => {
-        if (secondCategory.checked) {
-            filters.push(secondCategory.value);
-            runFilter(filters);
-        } else {
-            if (filters.includes(secondCategory.value)) {
-                filters.splice(filters.indexOf(secondCategory.value), 1);
-                runFilter(filters);
-            }
-        }
+        createElementForProducts(getCurrentPool());
     });
 
+    //THIRD
     let thirdCategory: HTMLInputElement = document.getElementById(
         "jättekonstigt"
     ) as HTMLInputElement;
-
     thirdCategory.addEventListener("click", () => {
-        if (thirdCategory.checked) {
-            filters.push(thirdCategory.value);
-            runFilter(filters);
-        } else {
-            if (filters.includes(thirdCategory.value)) {
-                filters.splice(filters.indexOf(thirdCategory.value), 1);
-                runFilter(filters);
-            }
-        }
+        createElementForProducts(getCurrentPool());
     });
 
+    //FOURTH
     let fourthCategory: HTMLInputElement = document.getElementById(
         "vadihelavärlden"
     ) as HTMLInputElement;
-
     fourthCategory.addEventListener("click", () => {
-        if (fourthCategory.checked) {
-            filters.push(fourthCategory.value);
-            runFilter(filters);
-        } else {
-            if (filters.includes(fourthCategory.value)) {
-                filters.splice(filters.indexOf(fourthCategory.value), 1);
-                runFilter(filters);
-            }
-        }
+        createElementForProducts(getCurrentPool());
     });
 
     let filterContainer: HTMLDivElement = document.querySelector(
         ".filter-container"
     ) as HTMLDivElement;
 
+    //EXIT BUTTON
     let exitButton: HTMLButtonElement = document.querySelector(
         ".cross-button"
     ) as HTMLButtonElement;
@@ -124,62 +89,31 @@ function initialize(): void {
         filterContainer.style.display = "none";
     });
 
+    //TOP SEARCH
     let userInputTag: HTMLInputElement = document.getElementById(
         "product-search"
     ) as HTMLInputElement;
-
-    userInputTag.addEventListener("keydown", () => {
-        runSearch(userInputTag);
+    userInputTag.addEventListener("keyup", () => {
+        createElementForProducts(getCurrentPool());
     });
 
+    //IN FILTER SEARCH
     let secondUserInputTag: HTMLInputElement = document.getElementById(
         "second-product-search"
     ) as HTMLInputElement;
-
     secondUserInputTag.addEventListener("keyup", () => {
-        runSearch(secondUserInputTag);
+        createElementForProducts(getCurrentPool());
     });
 
+    //CATEGORIES
     let userChoiceTag: HTMLSelectElement = document.getElementById(
         "categories"
     ) as HTMLSelectElement;
     createElementForProducts(
-        sortProductsBy(Sort.PRICE_ASCENDING, currentProducts)
+        sortProductsBy(Sort.PRICE_ASCENDING, getCurrentPool())
     );
-
     userChoiceTag.addEventListener("change", () => {
-        let value: number = parseInt(
-            userChoiceTag.options[userChoiceTag.selectedIndex].value
-        );
-
-        if (value == 1) {
-            let categorizedProducts: Product[] = sortProductsBy(
-                Sort.PRICE_ASCENDING,
-                currentProducts
-            );
-            createElementForProducts(categorizedProducts);
-        }
-        if (value == 2) {
-            let categorizedProducts: Product[] = sortProductsBy(
-                Sort.PRICE_DECENDING,
-                currentProducts
-            );
-            createElementForProducts(categorizedProducts);
-        }
-        if (value == 3) {
-            let categorizedProducts: Product[] = sortProductsBy(
-                Sort.NAME_ALPHABETIC,
-                currentProducts
-            );
-            createElementForProducts(categorizedProducts);
-        }
-        if (value == 4) {
-            let categorizedProducts: Product[] = sortProductsBy(
-                Sort.NAME_ALPHABETIC_REVERSE,
-                currentProducts
-            );
-            createElementForProducts(categorizedProducts);
-        }
+        createElementForProducts(getCurrentPool());
     });
 }
 
@@ -493,20 +427,6 @@ function createProductFilter(): void {
     window.addEventListener("scroll", iconScrollFunc);
 }
 
-function runFilter(filters: string[], isFromSearch: boolean = false): void {
-    if (isFromSearch == false) {
-        let secondUserInputTag: HTMLInputElement = document.getElementById(
-            "second-product-search"
-        ) as HTMLInputElement;
-        runSearch(secondUserInputTag, true);
-        currentProducts = getFilteredProducts(filters, currentProducts);
-    } else {
-        currentProducts = getFilteredProducts(filters, allProducts);
-    }
-
-    createElementForProducts(currentProducts);
-}
-
 // FILTER ###########
 function triggerFilterWindow() {
     let mainPart: HTMLLIElement = document.getElementById(
@@ -522,46 +442,63 @@ function triggerFilterWindow() {
     mainPart.appendChild(filterContainer);
 }
 
-function runSearch(whichTag: HTMLInputElement, isFromFilter: boolean = false) {
-    if (isFromFilter == false) {
-        let firstCategory: HTMLInputElement = document.getElementById(
-            "onormal"
-        ) as HTMLInputElement;
-        let secondCategory: HTMLInputElement = document.getElementById(
-            "konstigt"
-        ) as HTMLInputElement;
-        let thirdCategory: HTMLInputElement = document.getElementById(
-            "jättekonstigt"
-        ) as HTMLInputElement;
-        let fourthCategory: HTMLInputElement = document.getElementById(
-            "vadihelavärlden"
-        ) as HTMLInputElement;
-
-        let filter: string[] = [];
-        if (firstCategory.checked) {
-            filter.push(firstCategory.value);
-        }
-        if (secondCategory.checked) {
-            filter.push(secondCategory.value);
-        }
-        if (thirdCategory.checked) {
-            filter.push(thirdCategory.value);
-        }
-        if (fourthCategory.checked) {
-            filter.push(fourthCategory.value);
-        }
-
-        runFilter(filter, true);
-        let foundProducts: Product[] = search(whichTag.value, currentProducts);
-        createElementForProducts(foundProducts);
-    } else {
-        let foundProducts2: Product[] = search(whichTag.value, allProducts);
-        createElementForProducts(foundProducts2);
+function getCurrentPool(): Product[] {
+    //FILTER
+    let filters: string[] = [];
+    let firstCategory: HTMLInputElement = document.getElementById(
+        "onormal"
+    ) as HTMLInputElement;
+    let secondCategory: HTMLInputElement = document.getElementById(
+        "konstigt"
+    ) as HTMLInputElement;
+    let thirdCategory: HTMLInputElement = document.getElementById(
+        "jättekonstigt"
+    ) as HTMLInputElement;
+    let fourthCategory: HTMLInputElement = document.getElementById(
+        "vadihelavärlden"
+    ) as HTMLInputElement;
+    if (firstCategory.checked) {
+        filters.push(firstCategory.value);
+    }
+    if (secondCategory.checked) {
+        filters.push(secondCategory.value);
+    }
+    if (thirdCategory.checked) {
+        filters.push(thirdCategory.value);
+    }
+    if (fourthCategory.checked) {
+        filters.push(fourthCategory.value);
     }
 
-    if (whichTag.value == "") {
+    let currentProducts: Product[] = getFilteredProducts(filters, allProducts);
+    if (filters.length == 0) {
         currentProducts = allProducts;
     }
 
-    //console.log("Current products:", currentProducts);
+    //SEARCH
+    let searchInputTag: HTMLInputElement = document.getElementById(
+        "second-product-search"
+    ) as HTMLInputElement;
+    if (searchInputTag.value != "") {
+        currentProducts = search(searchInputTag.value, currentProducts);
+    }
+
+    //SORTING
+    let userChoiceTag: HTMLSelectElement = document.getElementById(
+        "categories"
+    ) as HTMLSelectElement;
+    let whichSort: string =
+        userChoiceTag.options[userChoiceTag.selectedIndex].value;
+    let sortType: Sort;
+    if (whichSort == "Stigande pris") {
+        sortType = Sort.PRICE_ASCENDING;
+    } else if (whichSort == "Sjunkande pris") {
+        sortType = Sort.PRICE_DECENDING;
+    } else if (whichSort == "Alfabetisk ordning") {
+        sortType = Sort.NAME_ALPHABETIC;
+    } else if (whichSort == "Omvänd alfabetisk ordning") {
+        sortType = Sort.NAME_ALPHABETIC_REVERSE;
+    }
+    let finalProducts: Product[] = sortProductsBy(sortType, currentProducts);
+    return finalProducts;
 }
