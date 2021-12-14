@@ -1,3 +1,6 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 import { ICustomer } from "./ICustomer";
 import { CartItem } from "./CartItem";
 import { Product } from "./Product";
@@ -30,6 +33,8 @@ export class Customer {
         this.cart = [];
     }
 
+    //Get a new customer object or create a customer objects from
+    //the information stored in sessionStorage.
     getCustomer(): Customer {
         //In real life, this customer object would not be taken from storage first.
         //It would get fetched from a database once the user has logged in. And if
@@ -57,10 +62,14 @@ export class Customer {
         }
     }
 
+    //Store the customer in sessionStorage.
     storeCustomer(): void {
         sessionStorage.setItem("customer", JSON.stringify(this));
     }
 
+    //Add a product to the customers cart. Will either
+    //increase the quantity of the cartItem or add a
+    //new cartItem with the givenProduct.
     addProductToCart(product: Product): void {
         for (let i = 0; i < this.cart.length; i++) {
             let item = this.cart[i];
@@ -75,6 +84,10 @@ export class Customer {
         this.storeCustomer();
     }
 
+    //Remove a product from the customers cart. Will
+    //create and reassign the customers cart to a
+    //a new list of cartItems where each item
+    //is an cartItem with quantity > 0;
     removeProductFromCart(product: Product): void {
         let recalculatedCart: CartItem[] = [];
         this.cart.forEach((item: CartItem) => {
@@ -91,6 +104,7 @@ export class Customer {
         this.storeCustomer();
     }
 
+    //Empties the customers cart.
     emptyCart(): void {
         this.cart = [];
         this.storeCustomer();

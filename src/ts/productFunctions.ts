@@ -1,9 +1,12 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 import { Product } from "./models/Product";
 import * as data from "./products-data.json";
 
 //Create a new list of Product objects for each object found in
 //the "products-data.json" file. No need for an interface sense
-//we know all its attributenames.
+//it's a local file where we know its attributes.
 export function createProductObjectsFromData(): Product[] {
     return data.map((productJson) => {
         return new Product(
@@ -22,7 +25,7 @@ export function createProductObjectsFromData(): Product[] {
 }
 
 //Search through all the products and find the products
-//which has all the specified categories.
+//which have all the specified categories.
 export function getFilteredProducts(
     searchFilters: string[],
     products: Product[]
@@ -47,7 +50,7 @@ export function getFilteredProducts(
 }
 
 //Search through all the products and find the products
-//which has all the specified categories.
+//which have all the specified categories.
 export function getCategoryProducts(
     searchCategories: string[],
     products: Product[]
@@ -70,6 +73,7 @@ export function getCategoryProducts(
 
     return result;
 }
+
 //Find the product that has matching id and return that
 //object in a new list. Otherwise return empty list.
 export function getProductById(id: number, products: Product[]): Product[] {

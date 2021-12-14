@@ -1,5 +1,9 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 import { CartItem } from "./CartItem";
 
+//Used primarily for constructing customer objects from storage.
 export interface ICustomer {
     firstname: string;
     lastname: string;

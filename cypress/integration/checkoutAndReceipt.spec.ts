@@ -1,5 +1,5 @@
-import { first } from "cypress/types/lodash";
-import { Product } from "../../src/ts/models/Product";
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
 
 describe("Checkout and Receipt page tests", () => {
     beforeEach(() => {

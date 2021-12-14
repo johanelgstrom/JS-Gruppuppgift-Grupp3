@@ -1,3 +1,6 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 export class Product {
     id: number;
     name: string;

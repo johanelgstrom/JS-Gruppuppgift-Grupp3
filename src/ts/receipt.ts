@@ -1,3 +1,6 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
 
@@ -6,12 +9,15 @@ window.onload = function () {
     renderHTML();
 };
 
+//Initializes all eventlisteners.
 function initialize(): void {
     document.getElementById("back-button").addEventListener("click", () => {
         window.location.replace("/");
     });
 }
 
+//Renders the customers cart items which they just purchased. Along with
+//the customers credentials, ordernumber and deliverytime.
 function renderHTML(): void {
     let customer: Customer = Customer.prototype.getCustomer();
     let totalCost: number = 0;
@@ -19,8 +25,6 @@ function renderHTML(): void {
     let basketContainer: HTMLDivElement = document.getElementById(
         "basket-inner-wrapper"
     ) as HTMLDivElement;
-
-    console.log("CUSTOMER: ", customer);
 
     customer.cart.forEach((cartItem: CartItem) => {
         //Product wrapper
@@ -92,7 +96,8 @@ function renderHTML(): void {
     document.getElementById("delivery-time").innerText = "3 veckor";
 }
 
-// ORDERNUMBER CONSTRUCTION
+//Creates and returns a random number. (Simple simulation
+//of a random ordernumber).
 function getRandomNumber(): number {
     return Math.round(
         (Math.random() * 10 +
@@ -103,7 +108,8 @@ function getRandomNumber(): number {
     );
 }
 
-// DATE STRING CONSTRUCTION
+//Creates a datestring based on the given Date object
+//formatted according to UTC standard.
 function createDateString(dateObject: Date): string {
     let date: string =
         padTo2Digits(dateObject.getUTCDate()) +
@@ -114,6 +120,9 @@ function createDateString(dateObject: Date): string {
 
     return date;
 }
+
+//Makes a number a string with minimun of 2 digits, where
+//we fill with 0's before the number.
 function padTo2Digits(num: number): string {
     return num.toString().padStart(2, "0");
 }

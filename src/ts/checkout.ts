@@ -1,3 +1,6 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
 
@@ -6,6 +9,7 @@ window.onload = function () {
     renderHTML();
 };
 
+//Initializes all eventlisteners.
 function initialize(): void {
     let form: HTMLFormElement = document.getElementById(
         "input-container"
@@ -21,6 +25,8 @@ function initialize(): void {
     });
 }
 
+//Renders all products in the customers cart to the screen and
+//calculates the total cost.
 function renderHTML(): void {
     let customer: Customer = Customer.prototype.getCustomer();
     let totalCost: number = 0;
@@ -103,6 +109,7 @@ function renderHTML(): void {
         "Total: " + totalCost.toString() + "kr";
 }
 
+//Makes the button enter loading state.
 function runLoadingButton(): void {
     let button: HTMLButtonElement = document.getElementById(
         "pay-button"
@@ -114,6 +121,8 @@ function runLoadingButton(): void {
     button.appendChild(i);
 }
 
+//Fills in the customer object with credentials from the
+//user and goes to the receipt page.
 function triggerBuy(): void {
     let firstNameInput: HTMLInputElement = document.getElementById(
         "customer-firstname"

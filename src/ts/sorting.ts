@@ -1,3 +1,6 @@
+// Made by: Elias Fredriksson
+// Medieinstitutet FED21S
+
 import { Product } from "./models/product";
 
 //Enum to make sure the developers input the correct syntax for the sorting.
