@@ -113,7 +113,6 @@
             gap: 20px;
             flex-shrink: 0;
 
-            border: 1px solid grey;
             background-color: white;
             overflow-x: scroll;
             overflow-y: hidden;
@@ -121,7 +120,7 @@
             height: 300px;
             padding: 20px;
             @include mixins.tablet {
-                // height: 350px;
+                height: 350px;
                 gap: 40px;
             }
             @include mixins.desktop {
@@ -130,7 +129,11 @@
             }
             .new-item,
             .campaign-item {
-                display: inline-block;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
                 border-radius: 10px;
                 box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
                 background-color: white;
@@ -169,7 +172,7 @@
             width: 88%;
             height: 50px;
             @include mixins.tablet {
-                width: 86%;
+                width: 75%;
             }
             @include mixins.desktop {
                 width: 80%;
