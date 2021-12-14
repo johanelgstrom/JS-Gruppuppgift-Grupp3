@@ -13,6 +13,7 @@ import {
     getSaleProducts,
 } from "./productFunctions";
 import { search } from "./search";
+import { sortProductsBy, Sort } from "./sorting";
 
 let allProducts: Product[] = [];
 let currentProducts: Product[] = [];
@@ -135,8 +136,50 @@ function initialize(): void {
         "second-product-search"
     ) as HTMLInputElement;
 
-    secondUserInputTag.addEventListener("keydown", () => {
+    secondUserInputTag.addEventListener("keyup", () => {
         runSearch(secondUserInputTag);
+    });
+
+    let userChoiceTag: HTMLSelectElement = document.getElementById(
+        "categories"
+    ) as HTMLSelectElement;
+    createElementForProducts(
+        sortProductsBy(Sort.PRICE_ASCENDING, currentProducts)
+    );
+
+    userChoiceTag.addEventListener("change", () => {
+        let value: number = parseInt(
+            userChoiceTag.options[userChoiceTag.selectedIndex].value
+        );
+
+        if (value == 1) {
+            let categorizedProducts: Product[] = sortProductsBy(
+                Sort.PRICE_ASCENDING,
+                currentProducts
+            );
+            createElementForProducts(categorizedProducts);
+        }
+        if (value == 2) {
+            let categorizedProducts: Product[] = sortProductsBy(
+                Sort.PRICE_DECENDING,
+                currentProducts
+            );
+            createElementForProducts(categorizedProducts);
+        }
+        if (value == 3) {
+            let categorizedProducts: Product[] = sortProductsBy(
+                Sort.NAME_ALPHABETIC,
+                currentProducts
+            );
+            createElementForProducts(categorizedProducts);
+        }
+        if (value == 4) {
+            let categorizedProducts: Product[] = sortProductsBy(
+                Sort.NAME_ALPHABETIC_REVERSE,
+                currentProducts
+            );
+            createElementForProducts(categorizedProducts);
+        }
     });
 }
 
@@ -154,6 +197,9 @@ function createElementForProducts(productPool: Product[]): void {
             "div"
         ) as HTMLDivElement;
         productItem.className = "product-item";
+        productItem.addEventListener("click", () => {
+            goToProductPage(productPool[index]);
+        });
 
         // PRODUCT IMAGE //
         let imageContainer: HTMLDivElement = document.createElement(
@@ -165,9 +211,6 @@ function createElementForProducts(productPool: Product[]): void {
         ) as HTMLImageElement;
         productImage.src = product.imageUrl[0];
         productImage.alt = "Image";
-        productImage.addEventListener("click", () => {
-            goToProductPage(productPool[index]);
-        });
 
         // PRODUCT TITLE //
         let titleContainer: HTMLDivElement = document.createElement(
@@ -245,6 +288,9 @@ function createNewsProducts(productPool: Product[]): void {
             "div"
         ) as HTMLDivElement;
         productItem.className = "new-item";
+        productItem.addEventListener("click", () => {
+            goToProductPage(newProducts[index]);
+        });
 
         // PRODUCT IMAGE //
         let imageContainer: HTMLDivElement = document.createElement(
@@ -256,9 +302,6 @@ function createNewsProducts(productPool: Product[]): void {
         ) as HTMLImageElement;
         productImage.src = product.imageUrl[0];
         productImage.alt = "Image";
-        productImage.addEventListener("click", () => {
-            goToProductPage(newProducts[index]);
-        });
 
         // PRODUCT TITLE //
         let titleContainer: HTMLDivElement = document.createElement(
@@ -336,6 +379,9 @@ function createCampaignProducts(productPool: Product[]): void {
             "div"
         ) as HTMLDivElement;
         productItem.className = "campaign-item";
+        productItem.addEventListener("click", () => {
+            goToProductPage(campaignProducts[index]);
+        });
 
         // PRODUCT IMAGE //
         let imageContainer: HTMLDivElement = document.createElement(
@@ -347,9 +393,6 @@ function createCampaignProducts(productPool: Product[]): void {
         ) as HTMLImageElement;
         productImage.src = product.imageUrl[0];
         productImage.alt = "Image";
-        productImage.addEventListener("click", () => {
-            goToProductPage(campaignProducts[index]);
-        });
 
         // PRODUCT TITLE //
         let titleContainer: HTMLDivElement = document.createElement(
@@ -450,8 +493,17 @@ function createProductFilter(): void {
     window.addEventListener("scroll", iconScrollFunc);
 }
 
-function runFilter(filters: string[]): void {
-    currentProducts = getFilteredProducts(filters, allProducts);
+function runFilter(filters: string[], isFromSearch: boolean = false): void {
+    if (isFromSearch == false) {
+        let secondUserInputTag: HTMLInputElement = document.getElementById(
+            "second-product-search"
+        ) as HTMLInputElement;
+        runSearch(secondUserInputTag, true);
+        currentProducts = getFilteredProducts(filters, currentProducts);
+    } else {
+        currentProducts = getFilteredProducts(filters, allProducts);
+    }
+
     createElementForProducts(currentProducts);
 }
 
@@ -470,14 +522,46 @@ function triggerFilterWindow() {
     mainPart.appendChild(filterContainer);
 }
 
-function runSearch(whichTag: HTMLInputElement) {
-    let foundProducts: Product[] = search(whichTag.value, currentProducts);
+function runSearch(whichTag: HTMLInputElement, isFromFilter: boolean = false) {
+    if (isFromFilter == false) {
+        let firstCategory: HTMLInputElement = document.getElementById(
+            "onormal"
+        ) as HTMLInputElement;
+        let secondCategory: HTMLInputElement = document.getElementById(
+            "konstigt"
+        ) as HTMLInputElement;
+        let thirdCategory: HTMLInputElement = document.getElementById(
+            "jättekonstigt"
+        ) as HTMLInputElement;
+        let fourthCategory: HTMLInputElement = document.getElementById(
+            "vadihelavärlden"
+        ) as HTMLInputElement;
 
-    createElementForProducts(foundProducts);
+        let filter: string[] = [];
+        if (firstCategory.checked) {
+            filter.push(firstCategory.value);
+        }
+        if (secondCategory.checked) {
+            filter.push(secondCategory.value);
+        }
+        if (thirdCategory.checked) {
+            filter.push(thirdCategory.value);
+        }
+        if (fourthCategory.checked) {
+            filter.push(fourthCategory.value);
+        }
+
+        runFilter(filter, true);
+        let foundProducts: Product[] = search(whichTag.value, currentProducts);
+        createElementForProducts(foundProducts);
+    } else {
+        let foundProducts2: Product[] = search(whichTag.value, allProducts);
+        createElementForProducts(foundProducts2);
+    }
 
     if (whichTag.value == "") {
         currentProducts = allProducts;
     }
 
-    console.log("Current products:", currentProducts);
+    //console.log("Current products:", currentProducts);
 }

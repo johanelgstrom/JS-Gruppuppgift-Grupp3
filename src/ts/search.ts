@@ -11,8 +11,8 @@ export function search(search: string, searchPool: Product[]): Product[] {
 }
 
 function isInName(search: string, p: Product): boolean {
-    let name: string = p.name;
-    if (name.indexOf(search) != -1) {
+    let name: string = p.name.toLowerCase();
+    if (name.indexOf(search.toLowerCase()) != -1) {
         return true;
     } else {
         return false;
