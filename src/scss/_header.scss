@@ -1,384 +1,387 @@
+// Made by: Johan Elgström
+// Medieinstitutet FED21S
+
 @use "mixins";
 @use "extends";
 @use "variables";
 %headertop {
-    .header-top {
-        height: 50%;
-        width: 100%;
-        display: flex;
-        .social-container {
-            width: 33%;
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            i {
-                padding-left: 10px;
-                font-size: 1.7rem;
-                color: variables.$secondary-color;
-            }
-        }
-        .slogan-container {
-            width: 33%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            p {
-                color: variables.$primary-color;
-            }
-        }
-        .cart-container {
-            position: relative;
-            width: 34%;
-            display: flex;
-            justify-content: end;
-            align-items: center;
-            cursor: pointer;
-            z-index: 100;
-            i {
-                font-size: 1.7rem;
-                padding-right: 10px;
-                color: variables.$secondary-color;
-                transition: 0.1s;
-            }
-            #cart-on {
-                right: 0px;
-                position: absolute;
-            }
-
-            .cart-toggle {
-                transform: scale(0);
-            }
-        }
+  .header-top {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    .social-container {
+      width: 33%;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      i {
+        padding-left: 10px;
+        font-size: 1.7rem;
+        color: variables.$secondary-color;
+      }
     }
+    .slogan-container {
+      width: 33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      p {
+        color: variables.$primary-color;
+      }
+    }
+    .cart-container {
+      position: relative;
+      width: 34%;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      cursor: pointer;
+      z-index: 100;
+      i {
+        font-size: 1.7rem;
+        padding-right: 10px;
+        color: variables.$secondary-color;
+        transition: 0.1s;
+      }
+      #cart-on {
+        right: 0px;
+        position: absolute;
+      }
+
+      .cart-toggle {
+        transform: scale(0);
+      }
+    }
+  }
 }
 %headerbottom {
-    .header-bottom {
-        height: 50%;
-        width: 100%;
+  .header-bottom {
+    height: 50%;
+    width: 100%;
+    display: flex;
+    border-top: 1px solid variables.$secondary-color;
+    .menu-search-container {
+      width: 50%;
+      @include mixins.desktop {
+        width: 25%;
+      }
+      display: flex;
+      .burger-container {
         display: flex;
-        border-top: 1px solid variables.$secondary-color;
-        .menu-search-container {
-            width: 50%;
-            @include mixins.desktop {
-                width: 25%;
-            }
-            display: flex;
-            .burger-container {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                margin-left: 10px;
-                margin-right: 10px;
-                @extend %burger-animation;
-            }
+        align-items: center;
+        gap: 5px;
+        margin-left: 10px;
+        margin-right: 10px;
+        @extend %burger-animation;
+      }
 
-            .search {
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                i {
-                    color: variables.$secondary-color;
-                }
-                input {
-                    width: 130px;
-                }
-            }
+      .search {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        i {
+          color: variables.$secondary-color;
         }
-        .header-logo-container {
-            width: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            @include mixins.tablet {
-                #logo-tablet {
-                    width: 100%;
-                }
-                #logo-desktop {
-                    display: none;
-                }
-            }
-            @include mixins.desktop {
-                #logo-tablet {
-                    display: none;
-                }
-                #logo-desktop {
-                    display: unset;
-                    width: 65%;
-                }
-            }
+        input {
+          width: 130px;
         }
+      }
     }
+    .header-logo-container {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include mixins.tablet {
+        #logo-tablet {
+          width: 100%;
+        }
+        #logo-desktop {
+          display: none;
+        }
+      }
+      @include mixins.desktop {
+        #logo-tablet {
+          display: none;
+        }
+        #logo-desktop {
+          display: unset;
+          width: 65%;
+        }
+      }
+    }
+  }
 }
 .menu-container {
-    position: absolute;
-    transform: translateX(-100%);
-    transition: transform 0.5s;
+  position: absolute;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 99;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include mixins.tablet {
+    height: 80% !important;
+    justify-content: flex-start;
+  }
+  @include mixins.desktop {
+    height: 80% !important;
+    width: 25%;
+    justify-content: space-between;
+  }
+
+  .menu-list {
+    list-style: none;
+    height: 90%;
     width: 100%;
-    height: 100%;
-    bottom: 0;
-    z-index: 99;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-
-    @include mixins.tablet {
-        height: 80% !important;
-        justify-content: flex-start;
-    }
-    @include mixins.desktop {
-        height: 80% !important;
-        width: 25%;
-        justify-content: space-between;
+    a {
+      text-decoration: none;
+      color: black;
     }
 
-    .menu-list {
-        list-style: none;
-        height: 90%;
-        width: 100%;
-        a {
-            text-decoration: none;
-            color: black;
-        }
-
-        .menu-item {
-            font-size: 1.3rem;
-            font-weight: 500;
-            height: 20%;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding-left: 30px;
-            border-top: 1px solid variables.$secondary-color;
-            transition: 0.1s linear;
-            @include mixins.tablet {
-                height: 21%;
-            }
-            &:hover {
-                background-color: variables.$secondary-color;
-            }
-        }
-        .menu-item-last {
-            border-bottom: 1px solid variables.$secondary-color;
-        }
+    .menu-item {
+      font-size: 1.3rem;
+      font-weight: 500;
+      height: 20%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding-left: 30px;
+      border-top: 1px solid variables.$secondary-color;
+      transition: 0.1s linear;
+      @include mixins.tablet {
+        height: 21%;
+      }
+      &:hover {
+        background-color: variables.$secondary-color;
+      }
     }
+    .menu-item-last {
+      border-bottom: 1px solid variables.$secondary-color;
+    }
+  }
 }
 .show-menu {
-    transform: translateX(0%);
-    position: absolute;
+  transform: translateX(0%);
+  position: absolute;
 }
 
 .phone-icon-container {
-    height: 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-right: 10px;
-    margin-left: 10px;
-    grid-area: phone-icons;
-    @extend %burger-animation;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 10px;
+  grid-area: phone-icons;
+  @extend %burger-animation;
 
-    @include mixins.tablet {
-        display: none;
+  @include mixins.tablet {
+    display: none;
+  }
+  @include mixins.desktop {
+    display: none;
+  }
+  .cart-icon {
+    z-index: 100;
+    i {
+      font-size: 2rem;
+      color: variables.$secondary-color;
+      transition: 0.1s;
     }
-    @include mixins.desktop {
-        display: none;
-    }
-    .cart-icon {
-        z-index: 100;
-        i {
-            font-size: 2rem;
-            color: variables.$secondary-color;
-            transition: 0.1s;
-        }
-    }
+  }
 }
 .basket-menu-container {
-    position: fixed;
-    transform: translateX(100%);
-    transition: transform 0.5s;
-    width: 100%;
-    min-height: 100%;
-    bottom: 0;
-    background-color: white;
-    z-index: 9;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  position: fixed;
+  transform: translateX(100%);
+  transition: transform 0.5s;
+  width: 100%;
+  min-height: 100%;
+  bottom: 0;
+  background-color: white;
+  z-index: 9;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 
+  @include mixins.tablet {
+    bottom: unset;
+    width: 50%;
+    right: 0;
+    min-height: 50%;
+    background-color: unset;
+    overflow-y: auto;
+  }
+  @include mixins.desktop {
+    bottom: unset;
+    width: 33%;
+    right: 0;
+    min-height: 80%;
+    background-color: unset;
+    overflow-y: auto;
+  }
+  .basket-text-and-item {
+    width: 100%;
+    margin-top: 20%;
+    position: absolute;
+    background-color: white;
     @include mixins.tablet {
-        bottom: unset;
-        width: 50%;
-        right: 0;
-        min-height: 50%;
-        background-color: unset;
-        overflow-y: auto;
+      margin-top: unset;
     }
     @include mixins.desktop {
-        bottom: unset;
-        width: 33%;
-        right: 0;
-        min-height: 80%;
-        background-color: unset;
-        overflow-y: auto;
+      margin-top: unset;
     }
-    .basket-text-and-item {
+    p {
+      padding: 5px;
+    }
+    .random-button {
+      background-color: #0051ff;
+      padding: 10px;
+      width: 80%;
+      height: 100%;
+      font-size: 1.3rem;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      margin-left: 10%;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .basket-container {
+      border: 1px solid variables.$secondary-color;
+      width: 100%;
+      min-height: 90%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
+      .item-container {
+        border: 1px solid variables.$secondary-color;
         width: 100%;
-        margin-top: 20%;
-        position: absolute;
-        background-color: white;
-        @include mixins.tablet {
-            margin-top: unset;
+        // height: 25%;
+        padding: 5px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        display: flex;
+        justify-content: space-between;
+        box-shadow: 0px 0px 3px 1px variables.$secondary-color;
+        .item-picture {
+          width: 25%;
+          height: 100%;
+          @include mixins.desktop {
+            width: 33%;
+          }
+          img {
+            width: 100px;
+            height: 100px;
+          }
         }
-        @include mixins.desktop {
-            margin-top: unset;
-        }
-        p {
-            padding: 5px;
-        }
-        .random-button {
-            background-color: #0051ff;
-            padding: 10px;
-            width: 80%;
-            height: 100%;
-            font-size: 1.3rem;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            margin-left: 10%;
-            margin-top: 10px;
-            margin-bottom: 10px;
-        }
-        .basket-container {
-            border: 1px solid variables.$secondary-color;
+        .item-info-and-buttons {
+          width: 70%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          @include mixins.tablet {
+            flex-direction: row;
+          }
+          @include mixins.desktop {
+            flex-direction: row;
+            width: 67%;
+          }
+          .item-info {
+            min-height: 75px;
+            width: 50%;
+            font-size: 0.9rem;
+            padding-left: 5px;
+            @include mixins.tablet {
+              width: 65%;
+            }
+            @include mixins.desktop {
+              width: 65%;
+            }
+          }
+          .item-buttons {
+            height: 25px;
             width: 100%;
-            min-height: 90%;
+            padding: 2px;
             display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            padding-left: 10px;
-            padding-right: 10px;
-            .item-container {
-                border: 1px solid variables.$secondary-color;
-                width: 100%;
-                // height: 25%;
-                padding: 5px;
-                margin-top: 5px;
-                margin-bottom: 5px;
-                display: flex;
-                justify-content: space-between;
-                box-shadow: 0px 0px 3px 1px variables.$secondary-color;
-                .item-picture {
-                    width: 25%;
-                    height: 100%;
-                    @include mixins.desktop {
-                        width: 33%;
-                    }
-                    img {
-                        width: 100px;
-                        height: 100px;
-                    }
-                }
-                .item-info-and-buttons {
-                    width: 70%;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    @include mixins.tablet {
-                        flex-direction: row;
-                    }
-                    @include mixins.desktop {
-                        flex-direction: row;
-                        width: 67%;
-                    }
-                    .item-info {
-                        min-height: 75px;
-                        width: 50%;
-                        font-size: 0.9rem;
-                        padding-left: 5px;
-                        @include mixins.tablet {
-                            width: 65%;
-                        }
-                        @include mixins.desktop {
-                            width: 65%;
-                        }
-                    }
-                    .item-buttons {
-                        height: 25px;
-                        width: 100%;
-                        padding: 2px;
-                        display: flex;
-                        flex-direction: row;
-                        justify-content: space-evenly;
-                        @include mixins.tablet {
-                            flex-direction: column;
-                            height: 100%;
-                            width: 35%;
-                            align-items: flex-end;
-                        }
-                        @include mixins.desktop {
-                            flex-direction: column;
-                            height: 100%;
-                            width: 35%;
-                            align-items: flex-end;
-                        }
-                        button {
-                            width: 45%;
-                            background-color: variables.$secondary-color;
-                            border: none;
-                            border-radius: 5px;
-                            @include mixins.tablet {
-                                width: 80%;
-                                height: 30%;
-                            }
-                            @include mixins.desktop {
-                                width: 80%;
-                                height: 30%;
-                            }
-                        }
-                    }
-                }
+            flex-direction: row;
+            justify-content: space-evenly;
+            @include mixins.tablet {
+              flex-direction: column;
+              height: 100%;
+              width: 35%;
+              align-items: flex-end;
             }
-            .basket-total-and-button {
-                height: 10%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                margin: 10px;
-                gap: 5px;
-                button {
-                    background-color: #0051ff;
-                    padding: 10px;
-                    width: 200px;
-                    height: 50px;
-                    font-size: 1.3rem;
-                    color: white;
-                    border: none;
-                    border-radius: 5px;
-                    @include mixins.desktop {
-                        width: 160px;
-                        font-size: 1rem;
-                        padding: 5px;
-                    }
-                }
+            @include mixins.desktop {
+              flex-direction: column;
+              height: 100%;
+              width: 35%;
+              align-items: flex-end;
             }
+            button {
+              width: 45%;
+              background-color: variables.$secondary-color;
+              border: none;
+              border-radius: 5px;
+              @include mixins.tablet {
+                width: 80%;
+                height: 30%;
+              }
+              @include mixins.desktop {
+                width: 80%;
+                height: 30%;
+              }
+            }
+          }
         }
+      }
+      .basket-total-and-button {
+        height: 10%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 10px;
+        gap: 5px;
+        button {
+          background-color: #0051ff;
+          padding: 10px;
+          width: 200px;
+          height: 50px;
+          font-size: 1.3rem;
+          color: white;
+          border: none;
+          border-radius: 5px;
+          @include mixins.desktop {
+            width: 160px;
+            font-size: 1rem;
+            padding: 5px;
+          }
+        }
+      }
     }
+  }
 }
 .show-basket {
-    position: absolute;
-    transform: translateX(0%);
+  position: absolute;
+  transform: translateX(0%);
 }
 .cart-toggle {
-    transform: scale(0);
-    color: variables.$primary-color;
+  transform: scale(0);
+  color: variables.$primary-color;
 }
 #cart-on-mobile {
-    right: 10px;
-    position: absolute;
+  right: 10px;
+  position: absolute;
 }

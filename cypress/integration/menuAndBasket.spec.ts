@@ -1,3 +1,6 @@
+// Made by: Johan Elgström
+// Medieinstitutet FED21S
+
 describe("should make sure that menu and buttons  works", () => {
     it("should go to home mobile", () => {
         //Arrange
@@ -95,76 +98,93 @@ describe("should make sure that menu and buttons  works", () => {
         cy.url().should('eq', 'http://localhost:1234/index.html')
     })
     it("should take you to browse mobile", () => {
+        //Arrange
         cy.visit("http://localhost:1234");
         cy.viewport('iphone-x');
-
+        //Act
         cy.get("i.fa-arrow-circle-right").click();
+        //Assert
         cy.url().should("eq", "http://localhost:1234/pages/browse.html")
     })
     it("should take you to browse desktop", () => {
+        //Arrange
         cy.visit("http://localhost:1234");
-
+        //Act
         cy.get("button#to-browse").click();
+        //Assert
         cy.url().should("eq", "http://localhost:1234/pages/browse.html")
     })
     
 })
 describe("make sure that cart works", () => {
     it("should add random item to cart", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
-
+        //Act
         cy.get('#cart-on').click();
         cy.get('.random-button').click();
+        //Assert
         cy.get('.item-info > :nth-child(3)').should("contain", "Antal: 1");
     })
     it("should add one to amount of product", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
         cy.get('#cart-on').click();
         cy.get('.random-button').click();
-
+        //Act
         cy.get('.item-buttons > :nth-child(1)').click();
+        //Assert
         cy.get('.item-info > :nth-child(3)').should("contain", "Antal: 2");
 
     })
     it("should add one to amount of product, then subtract one", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
         cy.get('#cart-on').click();
         cy.get('.random-button').click();
-
+        //Act
         cy.get('.item-buttons > :nth-child(1)').click();
         cy.get('.item-buttons > :nth-child(2)').click();
+        //Assert
         cy.get('.item-info > :nth-child(3)').should("contain", "Antal: 1");
     })
     it("should add one item, then remove it", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
         cy.get('#cart-on').click();
+        //Act
         cy.get('.random-button').click();
-
         cy.get('.item-buttons > :nth-child(2)').click();
+        //Assert
         cy.get('#your-basket').should("contain", "Beslutsångest?")
     })
     it("should add one item, remove it, then add another one", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
         cy.get('#cart-on').click();
+        //Act
         cy.get('.random-button').click();
-
         cy.get('.item-buttons > :nth-child(2)').click();
         cy.get('.random-button').click();
+        //Arrange
+        cy.get('.item-info > :nth-child(3)').should("contain", "Antal: 1");
     })
     it("should add one item, go to checkout and make sure it's the right item", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
         cy.get('#cart-on').click();
+        //Act
         cy.get('.random-button').click();
         cy.get('.item-info > :nth-child(1)').then(($info) => {
             let info = $info.text();
             cy.get('.basket-total-and-button > a').click();
-
+        //Assert
         cy.url().should('eq', 'http://localhost:1234/pages/checkout.html');
         cy.get('.product-text > :nth-child(1)').then(($info2) => {
             expect($info2.text()).to.eq(info)
@@ -174,9 +194,11 @@ describe("make sure that cart works", () => {
         
     })
     it("should add one item, add one amount, go to checkout and make sure that it's the right item and right amount", () => {
+        //Arrange
         sessionStorage.clear()
         cy.visit("http://localhost:1234");
         cy.get('#cart-on').click();
+        //Act
         cy.get('.random-button').click();
         cy.get('.item-buttons > :nth-child(1)').click();
         cy.get('.item-info > :nth-child(1)').then(($info) => {
@@ -185,7 +207,7 @@ describe("make sure that cart works", () => {
                 let amount = $amount.text();
 
                 cy.get('.basket-total-and-button > a').click();
-
+                //Assert
                 cy.url().should('eq', 'http://localhost:1234/pages/checkout.html');
                 cy.get('.product-text > :nth-child(1)').then(($info2) => {
                     expect($info2.text()).to.eq(info);

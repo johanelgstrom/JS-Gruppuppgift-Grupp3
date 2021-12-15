@@ -1,157 +1,160 @@
+// Made by: Johan Elgström
+// Medieinstitutet FED21S
+
 @use "mixins";
 @use "extends";
 @use "header";
 @import "variables";
 
 #index-header {
-    height: 20%;
-    display: none;
-    @extend %headertop;
-    @extend %headerbottom;
-    @include mixins.tablet {
-        display: flex;
-        flex-direction: column;
-    }
-    @include mixins.desktop {
-        display: flex;
-        flex-direction: column;
-    }
+  height: 20%;
+  display: none;
+  @extend %headertop;
+  @extend %headerbottom;
+  @include mixins.tablet {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mixins.desktop {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 #index-main {
-    height: 100%;
-    background-image: url(/assets/images/MicrosoftTeams-image.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 20%;
-    @include mixins.tablet {
-        height: 80%;
-        background-position: 1%;
-    }
-    @include mixins.desktop {
-        height: 80%;
-        background-position: 1%;
-    }
+  height: 100%;
+  background-image: url(/assets/images/MicrosoftTeams-image.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 20%;
+  @include mixins.tablet {
+    height: 80%;
+    background-position: 1%;
+  }
+  @include mixins.desktop {
+    height: 80%;
+    background-position: 1%;
+  }
 
-    .main-wrapper {
-        height: 80%;
+  .main-wrapper {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    .content-container {
+      display: none;
+      width: 80%;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      @include mixins.tablet {
         display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        .content-container {
-            display: none;
-            width: 80%;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-            @include mixins.tablet {
-                display: flex;
-            }
-            @include mixins.desktop {
-                display: flex;
-            }
+      }
+      @include mixins.desktop {
+        display: flex;
+      }
 
-            .team-container {
-                width: 100%;
-                display: flex;
-                justify-content: space-between;
-                .person-container {
-                    width: 30%;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    padding-top: 5px;
-                    padding-bottom: 5px;
-                    .img-container {
-                        height: 170px;
-                        width: 170px;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        @include mixins.desktop {
-                            height: 200px;
-                            width: 200px;
-                        }
-                        img {
-                            height: 100%;
-                            width: 100%;
-                            border-radius: 100%;
-                            box-shadow: 0px 0px 10px 3px $secondary-color;
-                        }
-                    }
-                    .name {
-                        font-size: 1.5rem;
-                        height: 50px;
-                    }
-                    .quote {
-                        width: 75%;
-                        display: flex;
-                        justify-content: center;
-                        align-items: center;
-                        p {
-                            font-size: 0.8rem;
-                        }
-                    }
-                }
-            }
-        }
-        .logo-container {
+      .team-container {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        .person-container {
+          width: 30%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding-top: 5px;
+          padding-bottom: 5px;
+          .img-container {
+            height: 170px;
+            width: 170px;
             display: flex;
-            flex-direction: column;
-            width: 100%;
+            justify-content: center;
             align-items: center;
-            @include mixins.tablet {
-                display: none;
-            }
             @include mixins.desktop {
-                display: none;
+              height: 200px;
+              width: 200px;
             }
             img {
-                width: 60%;
+              height: 100%;
+              width: 100%;
+              border-radius: 100%;
+              box-shadow: 0px 0px 10px 3px $secondary-color;
             }
+          }
+          .name {
+            font-size: 1.5rem;
+            height: 50px;
+          }
+          .quote {
+            width: 75%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            p {
+              font-size: 0.8rem;
+            }
+          }
         }
+      }
     }
-    .to-mainpage {
-        height: 10%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    .logo-container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      align-items: center;
+      @include mixins.tablet {
+        display: none;
+      }
+      @include mixins.desktop {
+        display: none;
+      }
+      img {
+        width: 60%;
+      }
+    }
+  }
+  .to-mainpage {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @include mixins.desktop {
+      align-items: flex-end;
+      height: 15%;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+      button {
+        display: none;
+        background-color: #0051ff;
+        padding: 10px;
+        width: 180px;
+        height: 40px;
+        font-size: 1rem;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        @include mixins.tablet {
+          display: unset;
+        }
         @include mixins.desktop {
-            align-items: flex-end;
-            height: 15%;
+          display: unset;
         }
-        a {
-            color: white;
-            text-decoration: none;
-            button {
-                display: none;
-                background-color: #0051ff;
-                padding: 10px;
-                width: 180px;
-                height: 40px;
-                font-size: 1rem;
-                color: white;
-                border: none;
-                border-radius: 5px;
-                @include mixins.tablet {
-                    display: unset;
-                }
-                @include mixins.desktop {
-                    display: unset;
-                }
-                @extend %clickable;
-            }
-            i {
-                font-size: 2rem;
-                color: white;
-                @include mixins.tablet {
-                    display: none;
-                }
-                @include mixins.desktop {
-                    display: none;
-                }
-            }
+        @extend %clickable;
+      }
+      i {
+        font-size: 2rem;
+        color: white;
+        @include mixins.tablet {
+          display: none;
         }
+        @include mixins.desktop {
+          display: none;
+        }
+      }
     }
+  }
 }

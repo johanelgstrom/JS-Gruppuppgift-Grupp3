@@ -1,249 +1,248 @@
 @use "mixins";
 @use "variables";
 @use "header";
-@use "footer";
 @use "extends";
 
 #products-header {
-    height: 20%;
-    display: none;
-    @extend %headertop;
-    @extend %headerbottom;
-    @include mixins.tablet {
-        display: flex;
-        flex-direction: column;
-    }
-    @include mixins.desktop {
-        display: flex;
-        flex-direction: column;
-    }
+  height: 20%;
+  display: none;
+  @extend %headertop;
+  @extend %headerbottom;
+  @include mixins.tablet {
+    display: flex;
+    flex-direction: column;
+  }
+  @include mixins.desktop {
+    display: flex;
+    flex-direction: column;
+  }
 }
 .phone-icon-container-browse {
-    height: 100%;
+  height: 100%;
 }
 #products-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1% 1fr;
-    grid-template-areas: "phone-icons" "middle-part";
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1% 1fr;
+  grid-template-areas: "phone-icons" "middle-part";
 
-    background-image: url(../../assets/images/backgrounds/products-mobile-background.svg);
-    background-size: contain;
-    @include mixins.tablet {
-        background-image: url(../../assets/images/backgrounds/products-tablet-background.svg);
-    }
+  background-image: url(../../assets/images/backgrounds/products-mobile-background.svg);
+  background-size: contain;
+  @include mixins.tablet {
+    background-image: url(../../assets/images/backgrounds/products-tablet-background.svg);
+  }
+  @include mixins.desktop {
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: 1fr;
+    grid-template-areas: "left-bar middle-part right-bar";
+
+    background-image: none;
+  }
+  .filter-button-show {
+    position: fixed;
+    bottom: 10px;
+    left: 15px;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    @extend %clickable;
     @include mixins.desktop {
-        grid-template-columns: 200px 1fr 200px;
-        grid-template-rows: 1fr;
-        grid-template-areas: "left-bar middle-part right-bar";
+      display: none;
+    }
+    i {
+      font-size: 1.5rem;
+    }
+  }
+  .filter-button-hide {
+    display: none;
+  }
+  .left-bar {
+    display: none;
+    width: 200px;
+    @include mixins.desktop {
+      display: grid;
+      grid-area: left-bar;
 
-        background-image: none;
+      background-image: url(../../assets/images/backgrounds/products-desktop-left-background.svg);
+      background-size: contain;
     }
-    .filter-button-show {
-        position: fixed;
-        bottom: 10px;
-        left: 15px;
-        width: 70px;
-        height: 70px;
-        border: none;
-        border-radius: 50%;
-        @extend %clickable;
-        @include mixins.desktop {
-            display: none;
-        }
-        i {
-            font-size: 1.5rem;
-        }
-    }
-    .filter-button-hide {
-        display: none;
-    }
-    .left-bar {
-        display: none;
-        width: 200px;
-        @include mixins.desktop {
-            display: grid;
-            grid-area: left-bar;
+  }
+  .right-bar {
+    display: none;
+    width: 200px;
+    @include mixins.desktop {
+      display: grid;
+      grid-area: right-bar;
 
-            background-image: url(../../assets/images/backgrounds/products-desktop-left-background.svg);
-            background-size: contain;
-        }
+      background-image: url(../../assets/images/backgrounds/products-desktop-right-background.svg);
+      background-size: contain;
     }
-    .right-bar {
-        display: none;
-        width: 200px;
-        @include mixins.desktop {
-            display: grid;
-            grid-area: right-bar;
+  }
+  .middle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
-            background-image: url(../../assets/images/backgrounds/products-desktop-right-background.svg);
-            background-size: contain;
+    grid-area: middle-part;
+    .news-container-header,
+    .campaigns-container-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      width: 90%;
+      color: black;
+      h2 {
+        font-size: 1.5rem;
+      }
+      button {
+        @include mixins.tablet {
+          display: none;
         }
+      }
     }
-    .middle {
+    .news-container,
+    .campaigns-container {
+      justify-self: center;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      gap: 20px;
+      flex-shrink: 0;
+
+      background-color: white;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      width: 90%;
+      height: 300px;
+      padding: 20px;
+      @include mixins.tablet {
+        height: 350px;
+        gap: 40px;
+      }
+      @include mixins.desktop {
+        // height: 300px;
+        gap: 30px;
+      }
+      .product-item {
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
+        flex-direction: column;
 
-        grid-area: middle-part;
-        .news-container-header,
-        .campaigns-container-header {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            width: 90%;
-            color: black;
-            h2 {
-                font-size: 1.5rem;
-            }
-            button {
-                @include mixins.tablet {
-                    display: none;
-                }
-            }
+        border-radius: 10px;
+        box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
+        background-color: white;
+        width: 200px;
+        height: 300px;
+        @include mixins.tablet {
+          width: 250px;
+          height: 350px;
         }
-        .news-container,
-        .campaigns-container {
-            justify-self: center;
-
-            display: flex;
-            flex-direction: column;
-            flex-wrap: wrap;
-            gap: 20px;
-            flex-shrink: 0;
-
-            background-color: white;
-            overflow-x: scroll;
-            overflow-y: hidden;
-            width: 90%;
-            height: 300px;
-            padding: 20px;
-            @include mixins.tablet {
-                height: 350px;
-                gap: 40px;
-            }
-            @include mixins.desktop {
-                // height: 300px;
-                gap: 30px;
-            }
-            .product-item {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-
-                border-radius: 10px;
-                box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
-                background-color: white;
-                width: 200px;
-                height: 300px;
-                @include mixins.tablet {
-                    width: 250px;
-                    height: 350px;
-                }
-                @include mixins.desktop {
-                    width: 200px;
-                    height: 300px;
-                }
-                @extend %browseProductsStyling;
-                @extend %clickable;
-            }
-
-            @extend %scrollbarStyling;
-        }
-        .blue-line-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            width: 100%;
-            height: 100px;
-            .blue-line {
-                width: 90%;
-                height: 3%;
-                background-color: variables.$primary-color;
-            }
-        }
-        .products-container-header {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-
-            width: 88%;
-            height: 50px;
-            @include mixins.tablet {
-                width: 75%;
-            }
-            @include mixins.desktop {
-                width: 80%;
-            }
-            h2 {
-                font-size: 1.5rem;
-                color: black;
-            }
-            select {
-                width: 50%;
-                height: 30px;
-            }
-        }
-        .products-container {
-            display: flex;
-            justify-content: center;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 10px;
-
-            width: 90%;
-            @include mixins.tablet {
-                gap: 30px;
-            }
-            .product-item {
-                @extend %browseProductsStyling;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-
-                width: 150px;
-                height: 250px;
-                background-color: white;
-                border-radius: 10px;
-                box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
-                @include mixins.tablet {
-                    width: 250px;
-                    height: 350px;
-                }
-                @include mixins.desktop {
-                    width: 200px;
-                    height: 300px;
-                }
-                @extend %clickable;
-                .shopping-container {
-                    #add-to-cart {
-                        z-index: 2;
-                    }
-                }
-            }
-        }
-    }
-
-    #filter-outer-wrapper {
         @include mixins.desktop {
-            grid-area: left-bar;
+          width: 200px;
+          height: 300px;
         }
-        #above {
-            width: 100%;
-            height: 20%;
-        }
+        @extend %browseProductsStyling;
+        @extend %clickable;
+      }
 
-        #below {
-            width: 100%;
-            height: 80%;
+      @extend %scrollbarStyling;
+    }
+    .blue-line-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
-            @extend %filterStyling;
+      width: 100%;
+      height: 100px;
+      .blue-line {
+        width: 90%;
+        height: 3%;
+        background-color: variables.$primary-color;
+      }
+    }
+    .products-container-header {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      width: 88%;
+      height: 50px;
+      @include mixins.tablet {
+        width: 75%;
+      }
+      @include mixins.desktop {
+        width: 80%;
+      }
+      h2 {
+        font-size: 1.5rem;
+        color: black;
+      }
+      select {
+        width: 50%;
+        height: 30px;
+      }
+    }
+    .products-container {
+      display: flex;
+      justify-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      gap: 10px;
+
+      width: 90%;
+      @include mixins.tablet {
+        gap: 30px;
+      }
+      .product-item {
+        @extend %browseProductsStyling;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        width: 150px;
+        height: 250px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0px 1px 10px 0px rgb(black, 0.4);
+        @include mixins.tablet {
+          width: 250px;
+          height: 350px;
         }
+        @include mixins.desktop {
+          width: 200px;
+          height: 300px;
+        }
+        @extend %clickable;
+        .shopping-container {
+          #add-to-cart {
+            z-index: 2;
+          }
+        }
+      }
+    }
+  }
+
+  #filter-outer-wrapper {
+    @include mixins.desktop {
+      grid-area: left-bar;
+    }
+    #above {
+      width: 100%;
+      height: 20%;
     }
 
-    @extend %filterStyling;
+    #below {
+      width: 100%;
+      height: 80%;
+
+      @extend %filterStyling;
+    }
+  }
+
+  @extend %filterStyling;
 }

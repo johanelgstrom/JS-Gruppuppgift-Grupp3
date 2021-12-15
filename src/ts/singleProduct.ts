@@ -2,6 +2,7 @@ import {
     menuSlideIn,
     cartSlideIn,
     basketFunction,
+    menuAndBasketTrigger,
 } from "./burgerAndBasketFunctions";
 import { Product } from "./models/Product";
 import { IProduct } from "./models/IProduct";
@@ -14,23 +15,7 @@ import { Customer } from "./models/Customer";
 let product: Product;
 
 window.onload = function (): void {
-    let mobileBurger: HTMLDivElement = document.getElementById(
-        "burger-menu-phone"
-    ) as HTMLDivElement;
-    mobileBurger.addEventListener("click", menuSlideIn);
-    let burger: HTMLDivElement = document.getElementById(
-        "burger-menu"
-    ) as HTMLDivElement;
-    burger.addEventListener("click", menuSlideIn);
-
-    let mobileCart: HTMLDivElement = document.getElementById(
-        "cart-icon"
-    ) as HTMLDivElement;
-    mobileCart.addEventListener("click", cartSlideIn);
-    let cart: HTMLDivElement = document.getElementById(
-        "cart-container"
-    ) as HTMLDivElement;
-    cart.addEventListener("click", cartSlideIn);
+    menuAndBasketTrigger();
     initialize();
     createElementForClickedProduct();
     createRelatedProducts();

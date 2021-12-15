@@ -1,7 +1,26 @@
+// Made by: Johan Elgström
+// Medieinstitutet FED21S
+
 import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/customer";
 import { Product } from "./models/Product";
 import { createProductObjectsFromData } from "./productFunctions";
+
+export function menuAndBasketTrigger() {
+    let mobileBurger: HTMLDivElement = document.getElementById(
+        "burger-menu-phone"
+    ) as HTMLDivElement;
+    mobileBurger.addEventListener("click", menuSlideIn);
+    let burger: HTMLDivElement = document.getElementById(
+        "burger-menu"
+    ) as HTMLDivElement;
+    burger.addEventListener("click", menuSlideIn);
+
+    let mobileCart: HTMLDivElement = document.getElementById("cart-icon") as HTMLDivElement;
+    mobileCart.addEventListener("click", cartSlideIn);
+    let cart: HTMLDivElement = document.getElementById("cart-container") as HTMLDivElement;
+    cart.addEventListener("click", cartSlideIn);
+}
 
 // Meny, gör så att menyn kommer in/ut, även animering för ikonen
 // Om din sida har en hamburgarmeny, importera denna
@@ -27,7 +46,7 @@ export function menuSlideIn() {
     let bottomBun: HTMLDivElement = document.getElementById(
         "bottom-bun"
     ) as HTMLDivElement;
-
+        // Om menyn är öppen, ta bort "show-menu" så att den stängs
     if (menu.classList.contains("show-menu")) {
         menu.classList.remove("show-menu");
         topBunPhone.classList.remove("top-bun-toggle");
@@ -36,7 +55,9 @@ export function menuSlideIn() {
         topBun.classList.remove("top-bun-toggle");
         patty.classList.remove("patty-toggle");
         bottomBun.classList.remove("bottom-bun-toggle");
-    } else {
+    } 
+    // Om menyn är stängd, lägg till "show-menu"så att den öppnas
+    else {
         menu.classList.add("show-menu");
         topBunPhone.classList.add("top-bun-toggle");
         pattyPhone.classList.add("patty-toggle");
@@ -56,14 +77,16 @@ export function cartSlideIn() {
     let cartOff: HTMLElement = document.getElementById("cart-off");
     let cartOnMobile: HTMLElement = document.getElementById("cart-on-mobile");
     let cartOffMobile: HTMLElement = document.getElementById("cart-off-mobile");
-
+    // Om varukorgen är öppen, ta bort "show-basket" så att den stängs
     if (basket.classList.contains("show-basket")) {
         basket.classList.remove("show-basket");
         cartOn.classList.remove("cart-toggle");
         cartOff.classList.add("cart-toggle");
         cartOnMobile.classList.remove("cart-toggle");
         cartOffMobile.classList.add("cart-toggle");
-    } else {
+    } 
+    // Om menyn är stängd, lägg till "show-menu"så att den öppnas
+    else {
         basket.classList.add("show-basket");
         cartOn.classList.add("cart-toggle");
         cartOff.classList.remove("cart-toggle");
@@ -71,7 +94,7 @@ export function cartSlideIn() {
         cartOffMobile.classList.remove("cart-toggle");
     }
 }
-
+// Varje gång en produkt läggs till i varukorgen, ökar/minskar antalet eller tas bort så körs denna
 export function basketFunction() {
     let customer: Customer = Customer.prototype.getCustomer();
     let allProducts: Product[] = createProductObjectsFromData();
@@ -119,15 +142,14 @@ export function basketFunction() {
             document.createElement("div");
         basketTotalAndButton.classList.add("basket-total-and-button");
         let h3Total: HTMLHeadElement = document.createElement("h3");
-        let continueButton: HTMLButtonElement =
-            document.createElement("button");
+        let continueButton: HTMLButtonElement = document.createElement("button");
         continueButton.innerHTML = "Fortsätt till kassan";
         let linkToCheckout: HTMLAnchorElement = document.createElement("a");
         linkToCheckout.href = "/pages/checkout.html";
-
+        // Loopar igenom för varje produkt som finns i varukorgen och skapar HTML för desas produkter
         customer.cart.forEach((cartItem: CartItem) => {
             let quantity: number = cartItem.quantity;
-            let quantityNum = quantity.toString();
+            let quantityNum: string = quantity.toString();
             let itemContainer: HTMLDivElement = document.createElement("div");
             itemContainer.classList.add("item-container");
             // BILD
@@ -146,7 +168,7 @@ export function basketFunction() {
 
             let itemInfo: HTMLDivElement = document.createElement("div");
             itemInfo.classList.add("item-info");
-
+            // INFO
             let pName: HTMLParagraphElement = document.createElement("p");
             pName.innerHTML = cartItem.product.name;
             let pPrice: HTMLParagraphElement = document.createElement("p");
@@ -157,7 +179,7 @@ export function basketFunction() {
             let productTotalAmount: number = cartItem.product.price * quantity;
             pTotal.innerHTML = "Totalt: " + productTotalAmount + "kr";
             totalNum += productTotalAmount;
-
+            // KNAPPAR
             let itemButtonContainer: HTMLDivElement =
                 document.createElement("div");
             itemButtonContainer.classList.add("item-buttons");
@@ -189,6 +211,7 @@ export function basketFunction() {
                     totalNum -= cartItem.product.price;
                     calculateTotalNum();
                 } else {
+                    //Confirm ifall kund vill ta bort produkt, om ja, tas produkten bort och totalsumman räknas om
                     if (
                         confirm(
                             "Är du saker att du vill ta bort denna onormala grej från varukorgen?"
@@ -219,7 +242,7 @@ export function basketFunction() {
             itemButtonContainer.appendChild(minusButton);
         });
         calculateTotalNum();
-
+        // Räknar ihop totalsumman i varukorgen
         function calculateTotalNum() {
             if (totalNum > 0) {
                 h3Total.innerHTML = "Totalt: " + totalNum + "kr";
@@ -251,6 +274,7 @@ export function basketFunction() {
             basketTextAndItem.appendChild(randomButton);
             randomButton.innerHTML = "Lägg till";
             randomButton.classList.add("random-button");
+            // Tar en slumpmässig produkt mellan ID 0-34 (alla) och lägger i varukorgen
             randomButton.addEventListener("click", () => {
                 let i: number = Math.floor(Math.random() * 35);
                 customer.addProductToCart(allProducts[i]);

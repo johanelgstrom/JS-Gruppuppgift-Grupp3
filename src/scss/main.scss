@@ -1,7 +1,8 @@
+// Made by: Johan Elgström, Filip Engberg, Elias Fredriksson
+// Medieinstitutet FED21S
 @use "mixins";
 @use "variables";
 @use "header";
-@use "footer";
 @use "checkout";
 @use "receipt";
 @use "products";
@@ -10,10 +11,10 @@
 
 html,
 body {
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    font-size: 12pt;
-    font-family: "Maven Pro", sans-serif;
-    scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  font-size: 12pt;
+  font-family: "Maven Pro", sans-serif;
+  scroll-behavior: smooth;
 }
