@@ -13,7 +13,9 @@ describe("Checkout and Receipt page tests", () => {
         //1. Arrange
         cy.viewport("macbook-15");
         cy.get("#to-browse").click();
-        cy.get(".products-container > :nth-child(1)").click();
+        cy.get(
+            ".products-container > :nth-child(1) > .image-container"
+        ).click();
         cy.get("#add-button").click();
         cy.get("#cart-on").click();
 
@@ -140,7 +142,18 @@ describe("Checkout and Receipt page tests", () => {
         cy.viewport("macbook-15");
         cy.get("#to-browse").click();
         cy.get(".products-container > :nth-child(1)").click();
-        cy.get("#add-button").click();
+
+        const stub = cy.stub();
+        cy.on("window:alert", stub);
+
+        cy.get("#add-button")
+            .click()
+            .then(() => {
+                expect(stub.getCall(0)).to.be.calledWith(
+                    "La till 1st Pussel med 1 miljon bitar till din varukorg."
+                );
+            });
+
         cy.get("#cart-on").click();
         cy.get(".basket-total-and-button > a > button").click();
         cy.get("#basket-inner-wrapper > div").should("have.length", 1);
@@ -158,12 +171,16 @@ describe("Checkout and Receipt page tests", () => {
         cy.get("#customer-card-cvc").type("123");
 
         //2. Act
-        cy.get("#pay-button").click();
+        cy.get("#pay-button")
+            .click()
+            .then(() => {
+                expect(stub.getCall(1)).to.be.calledWith(
+                    "Du kan inte checka ut med en tom varukorg."
+                );
+            });
 
         //3. Asses
-        cy.on("window:alert", (str: string) => {
-            expect(str).to.equal("Du kan inte checka ut med en tom varukorg.");
-        });
+
         cy.url().should("include", "pages/checkout.html");
     });
 
