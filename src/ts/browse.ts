@@ -89,14 +89,6 @@ function initialize(): void {
         filterContainer.style.display = "none";
     });
 
-    //TOP SEARCH
-    let userInputTag: HTMLInputElement = document.getElementById(
-        "product-search"
-    ) as HTMLInputElement;
-    userInputTag.addEventListener("keyup", () => {
-        createElementForProducts(getCurrentPool());
-    });
-
     //IN FILTER SEARCH
     let secondUserInputTag: HTMLInputElement = document.getElementById(
         "second-product-search"
@@ -125,83 +117,11 @@ function createElementForProducts(productPool: Product[]): void {
 
     for (let index: number = 0; index < productPool.length; index++) {
         let product: Product = productPool[index];
-
-        // PRODUCT ITEM //
-        let productItem: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        productItem.className = "product-item";
-        productItem.addEventListener("click", () => {
-            goToProductPage(productPool[index]);
-        });
-
-        // PRODUCT IMAGE //
-        let imageContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        imageContainer.className = "image-container";
-        let productImage: HTMLImageElement = document.createElement(
-            "img"
-        ) as HTMLImageElement;
-        productImage.src = product.imageUrl[0];
-        productImage.alt = "Image";
-
-        // PRODUCT TITLE //
-        let titleContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        titleContainer.className = "title-container";
-        let productName: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        productName.innerHTML = product.name;
-
-        // PRODUCT PRICE //
-        let priceContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        priceContainer.className = "price-container";
-        let currencyText: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        currencyText.innerHTML = "kr";
-        let productPrice: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        productPrice.innerHTML = product.price.toString();
-
-        // SHOPPING BAG //
-
-        let shoppingContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        shoppingContainer.className = "shopping-container";
-        let shoppingIcon: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        shoppingIcon.className = "fas fa-shopping-bag";
-        let shoppingButton: HTMLButtonElement = document.createElement(
-            "button"
-        ) as HTMLButtonElement;
-        shoppingButton.type = "button";
-        shoppingButton.id = "add-to-cart";
-        shoppingButton.addEventListener("click", () => {
-            let customer: Customer = Customer.prototype.getCustomer();
-
-            customer.addProductToCart(productPool[index]);
-        });
-
-        // APPENDS //
-        imageContainer.appendChild(productImage);
-        productItem.appendChild(imageContainer);
-        titleContainer.appendChild(productName);
-        productItem.appendChild(titleContainer);
-        priceContainer.appendChild(productPrice);
-        priceContainer.appendChild(currencyText);
-        productItem.appendChild(priceContainer);
-        shoppingButton.appendChild(shoppingIcon);
-        shoppingContainer.appendChild(shoppingButton);
-        productItem.appendChild(shoppingContainer);
+        let productItem: HTMLDivElement = createProductHTML(
+            product,
+            productPool,
+            index
+        );
         productContainer.appendChild(productItem);
     }
 }
@@ -216,83 +136,11 @@ function createNewsProducts(productPool: Product[]): void {
 
     for (let index = 0; index < newProducts.length; index++) {
         let product: Product = newProducts[index];
-
-        // PRODUCT ITEM //
-        let productItem: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        productItem.className = "new-item";
-        productItem.addEventListener("click", () => {
-            goToProductPage(newProducts[index]);
-        });
-
-        // PRODUCT IMAGE //
-        let imageContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        imageContainer.className = "image-container";
-        let productImage: HTMLImageElement = document.createElement(
-            "img"
-        ) as HTMLImageElement;
-        productImage.src = product.imageUrl[0];
-        productImage.alt = "Image";
-
-        // PRODUCT TITLE //
-        let titleContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        titleContainer.className = "title-container";
-        let productName: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        productName.innerHTML = product.name;
-
-        // PRODUCT PRICE //
-        let priceContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        priceContainer.className = "price-container";
-        let currencyText: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        currencyText.innerHTML = "kr";
-        let productPrice: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        productPrice.innerHTML = product.price.toString();
-
-        // SHOPPING BAG //
-
-        let shoppingContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        shoppingContainer.className = "shopping-container";
-        let shoppingIcon: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        shoppingIcon.className = "fas fa-shopping-bag";
-        let shoppingButton: HTMLButtonElement = document.createElement(
-            "button"
-        ) as HTMLButtonElement;
-        shoppingButton.type = "button";
-        shoppingButton.id = "add-to-cart";
-        shoppingButton.addEventListener("click", () => {
-            let customer: Customer = Customer.prototype.getCustomer();
-
-            customer.addProductToCart(productPool[index]);
-        });
-
-        // APPENDS //
-        imageContainer.appendChild(productImage);
-        productItem.appendChild(imageContainer);
-        titleContainer.appendChild(productName);
-        productItem.appendChild(titleContainer);
-        priceContainer.appendChild(productPrice);
-        priceContainer.appendChild(currencyText);
-        productItem.appendChild(priceContainer);
-        shoppingButton.appendChild(shoppingIcon);
-        shoppingContainer.appendChild(shoppingButton);
-        productItem.appendChild(shoppingContainer);
+        let productItem: HTMLDivElement = createProductHTML(
+            product,
+            newProducts,
+            index
+        );
         newsContainer.appendChild(productItem);
     }
 }
@@ -307,85 +155,97 @@ function createCampaignProducts(productPool: Product[]): void {
 
     for (let index = 0; index < campaignProducts.length; index++) {
         let product: Product = campaignProducts[index];
-
-        // PRODUCT ITEM //
-        let productItem: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        productItem.className = "campaign-item";
-        productItem.addEventListener("click", () => {
-            goToProductPage(campaignProducts[index]);
-        });
-
-        // PRODUCT IMAGE //
-        let imageContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        imageContainer.className = "image-container";
-        let productImage: HTMLImageElement = document.createElement(
-            "img"
-        ) as HTMLImageElement;
-        productImage.src = product.imageUrl[0];
-        productImage.alt = "Image";
-
-        // PRODUCT TITLE //
-        let titleContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        titleContainer.className = "title-container";
-        let productName: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        productName.innerHTML = product.name;
-
-        // PRODUCT PRICE //
-        let priceContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        priceContainer.className = "price-container";
-        let currencyText: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        currencyText.innerHTML = "kr";
-        let productPrice: HTMLSpanElement = document.createElement(
-            "span"
-        ) as HTMLSpanElement;
-        productPrice.innerHTML = product.price.toString();
-
-        // SHOPPING BAG //
-
-        let shoppingContainer: HTMLDivElement = document.createElement(
-            "div"
-        ) as HTMLDivElement;
-        shoppingContainer.className = "shopping-container";
-        let shoppingIcon: HTMLLIElement = document.createElement(
-            "i"
-        ) as HTMLLIElement;
-        shoppingIcon.className = "fas fa-shopping-bag";
-        let shoppingButton: HTMLButtonElement = document.createElement(
-            "button"
-        ) as HTMLButtonElement;
-        shoppingButton.type = "button";
-        shoppingButton.id = "add-to-cart";
-        shoppingButton.addEventListener("click", () => {
-            let customer: Customer = Customer.prototype.getCustomer();
-
-            customer.addProductToCart(productPool[index]);
-        });
-
-        // APPENDS //
-        imageContainer.appendChild(productImage);
-        productItem.appendChild(imageContainer);
-        titleContainer.appendChild(productName);
-        productItem.appendChild(titleContainer);
-        priceContainer.appendChild(productPrice);
-        priceContainer.appendChild(currencyText);
-        productItem.appendChild(priceContainer);
-        shoppingButton.appendChild(shoppingIcon);
-        shoppingContainer.appendChild(shoppingButton);
-        productItem.appendChild(shoppingContainer);
+        let productItem: HTMLDivElement = createProductHTML(
+            product,
+            campaignProducts,
+            index
+        );
         campaignContainer.appendChild(productItem);
     }
+}
+
+function createProductHTML(
+    product: Product,
+    productPool: Product[],
+    index: number
+): HTMLDivElement {
+    let productItem: HTMLDivElement = document.createElement(
+        "div"
+    ) as HTMLDivElement;
+    productItem.className = "product-item";
+
+    // PRODUCT IMAGE //
+    let imageContainer: HTMLDivElement = document.createElement(
+        "div"
+    ) as HTMLDivElement;
+    imageContainer.className = "image-container";
+    let productImage: HTMLImageElement = document.createElement(
+        "img"
+    ) as HTMLImageElement;
+    productImage.src = product.imageUrl[0];
+    productImage.alt = "Image";
+    imageContainer.addEventListener("click", () => {
+        goToProductPage(productPool[index]);
+    });
+
+    // PRODUCT TITLE //
+    let titleContainer: HTMLDivElement = document.createElement(
+        "div"
+    ) as HTMLDivElement;
+    titleContainer.className = "title-container";
+    let productName: HTMLSpanElement = document.createElement(
+        "span"
+    ) as HTMLSpanElement;
+    productName.innerHTML = product.name;
+
+    // PRODUCT PRICE //
+    let priceContainer: HTMLDivElement = document.createElement(
+        "div"
+    ) as HTMLDivElement;
+    priceContainer.className = "price-container";
+    let currencyText: HTMLSpanElement = document.createElement(
+        "span"
+    ) as HTMLSpanElement;
+    currencyText.innerHTML = "kr";
+    let productPrice: HTMLSpanElement = document.createElement(
+        "span"
+    ) as HTMLSpanElement;
+    productPrice.innerHTML = product.price.toString();
+
+    // SHOPPING BAG //
+    let shoppingContainer: HTMLDivElement = document.createElement(
+        "div"
+    ) as HTMLDivElement;
+    shoppingContainer.className = "shopping-container";
+    let shoppingIcon: HTMLLIElement = document.createElement(
+        "i"
+    ) as HTMLLIElement;
+    shoppingIcon.className = "fas fa-shopping-bag";
+    let shoppingButton: HTMLButtonElement = document.createElement(
+        "button"
+    ) as HTMLButtonElement;
+    shoppingButton.type = "button";
+    shoppingButton.id = "add-to-cart";
+    shoppingButton.addEventListener("click", () => {
+        let customer: Customer = Customer.prototype.getCustomer();
+        customer.addProductToCart(productPool[index]);
+        basketFunction();
+        alert("Added " + productPool[index].name.toString() + " to cart.");
+    });
+
+    // APPENDS //
+    imageContainer.appendChild(productImage);
+    productItem.appendChild(imageContainer);
+    titleContainer.appendChild(productName);
+    productItem.appendChild(titleContainer);
+    priceContainer.appendChild(productPrice);
+    priceContainer.appendChild(currencyText);
+    productItem.appendChild(priceContainer);
+    shoppingButton.appendChild(shoppingIcon);
+    shoppingContainer.appendChild(shoppingButton);
+    productItem.appendChild(shoppingContainer);
+
+    return productItem;
 }
 
 // GOING TO PRODUCT-PAGE //
@@ -404,6 +264,7 @@ function createProductFilter(): void {
         "button"
     ) as HTMLButtonElement;
     filterButton.type = "button";
+    filterButton.className = "filter-button-hide";
 
     filterButton.addEventListener("click", triggerFilterWindow);
 
@@ -442,6 +303,7 @@ function triggerFilterWindow() {
     mainPart.appendChild(filterContainer);
 }
 
+// GET CURRENT POOL #######
 function getCurrentPool(): Product[] {
     //FILTER
     let filters: string[] = [];

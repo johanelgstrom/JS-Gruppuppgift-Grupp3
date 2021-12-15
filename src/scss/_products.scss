@@ -4,6 +4,10 @@
 @use "footer";
 @use "extends";
 
+#products-body {
+    overflow-x: hidden;
+}
+
 #products-header {
     height: 20%;
     display: none;
@@ -127,8 +131,7 @@
                 // height: 300px;
                 gap: 30px;
             }
-            .new-item,
-            .campaign-item {
+            .product-item {
                 display: flex;
                 justify-content: center;
                 align-items: center;
@@ -294,66 +297,67 @@
             }
         }
     }
-}
-.filter-main {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: column;
 
-    height: 100%;
-    border-top: 1px solid grey;
-
-    @include mixins.desktop {
-    }
-    .filter-catagories-container {
+    .filter-main {
         display: flex;
         align-items: center;
+        justify-content: space-between;
+        flex-direction: column;
 
-        width: 90%;
-        height: 40%;
-        form {
-            input {
-                transform: scale(2);
-                @include mixins.desktop {
-                    transform: scale(1.2);
-                }
-            }
-            label {
-                padding: 10px;
-                font-size: 1.5rem;
-                @include mixins.desktop {
-                    font-size: 0.9rem;
-                }
-            }
-        }
-    }
-    .search-container {
-        align-self: flex-start;
+        height: 100%;
+        border-top: 1px solid grey;
 
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-
-        padding: 20px;
         @include mixins.desktop {
-            justify-self: flex-start;
-            gap: 0px;
         }
+        .filter-catagories-container {
+            display: flex;
+            align-items: center;
 
-        i {
-            font-size: 1.8rem;
-            width: 20%;
-            @include mixins.desktop {
-                font-size: 1.1rem;
+            width: 90%;
+            height: 40%;
+            form {
+                input {
+                    transform: scale(2);
+                    @include mixins.desktop {
+                        transform: scale(1.2);
+                    }
+                }
+                label {
+                    padding: 10px;
+                    font-size: 1.5rem;
+                    @include mixins.desktop {
+                        font-size: 0.9rem;
+                    }
+                }
             }
         }
+        .search-container {
+            align-self: flex-start;
 
-        input {
-            transform: scale(1.2);
-            width: 80%;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+
+            padding: 20px;
             @include mixins.desktop {
-                transform: scale(1);
+                justify-self: flex-start;
+                gap: 0px;
+            }
+
+            i {
+                font-size: 1.8rem;
+                width: 20%;
+                @include mixins.desktop {
+                    font-size: 1.1rem;
+                }
+            }
+
+            input {
+                transform: scale(1.2);
+                width: 80%;
+                @include mixins.desktop {
+                    transform: scale(1);
+                }
             }
         }
     }

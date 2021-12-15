@@ -76,13 +76,23 @@ export function basketFunction() {
     let customer: Customer = Customer.prototype.getCustomer();
     let allProducts: Product[] = createProductObjectsFromData();
 
+    document.getElementById("basket-container").innerHTML = "";
+    document.getElementById("your-basket").innerHTML = "";
+
+    let randomButton: HTMLButtonElement = document.querySelector(
+        ".random-button"
+    ) as HTMLButtonElement;
+    if (randomButton != null) {
+        randomButton.remove();
+    }
+
     // Om varukorgen är tom, lägg till knapp som adderar slumpmässig produkt
     if (customer.cart.length === 0) {
         let yourBasketText: HTMLParagraphElement = document.getElementById(
             "your-basket"
         ) as HTMLParagraphElement;
         yourBasketText.innerHTML =
-            "Beslutsångest? Tryck på knappen för att lägga till en slumpmässig artikel i varukorgen ;)";
+            "Beslutsångest? Tryck på knappen för att lägga till en slumpmässig artikel i varukorgen.";
         let basketTextAndItem: HTMLDivElement = document.getElementById(
             "basket-text-and-item"
         ) as HTMLDivElement;
@@ -101,12 +111,9 @@ export function basketFunction() {
     // annars, skapa html för alla artiklar som ligger i sessionstorage
     else {
         let totalNum: number = 0;
-
         let basketContainer: HTMLDivElement = document.getElementById(
             "basket-container"
         ) as HTMLDivElement;
-        basketContainer.innerHTML = "";
-
         let basketTotalAndButton: HTMLDivElement =
             document.createElement("div");
         basketTotalAndButton.classList.add("basket-total-and-button");

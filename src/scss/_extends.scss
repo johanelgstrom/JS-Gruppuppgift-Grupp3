@@ -88,6 +88,10 @@
                 }
             }
         }
+
+        #add-to-cart {
+            z-index: 2;
+        }
     }
 
     @include mixins.tablet {
