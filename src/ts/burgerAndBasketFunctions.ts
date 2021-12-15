@@ -111,6 +111,7 @@ export function basketFunction() {
     // annars, skapa html för alla artiklar som ligger i sessionstorage
     else {
         let totalNum: number = 0;
+        document.getElementById("your-basket").innerHTML = "Din varukorg";
         let basketContainer: HTMLDivElement = document.getElementById(
             "basket-container"
         ) as HTMLDivElement;

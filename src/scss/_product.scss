@@ -12,20 +12,6 @@
 .phone-icon-container-product {
     margin-top: 10px;
 }
-.product-similiar-product::-webkit-scrollbar {
-    width: 20px;
-}
-.product-similiar-product::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey;
-    border-radius: 10px;
-}
-.product-similiar-product::-webkit-scrollbar-thumb {
-    background: rgb($color: #038537, $alpha: 0.8);
-    border-radius: 10px;
-}
-.product-similiar-product::-webkit-scrollbar-thumb:hover {
-    background: rgb($color: #038537, $alpha: 0.8);
-}
 
 #product-header {
     height: 20%;
@@ -100,6 +86,7 @@
 
             img {
                 width: 100%;
+                height: 100%;
             }
             @include mixins.tablet {
                 grid-area: product-image;
@@ -255,8 +242,11 @@
         height: 340px;
         @include mixins.tablet {
             align-items: center;
-
             width: 90%;
+        }
+
+        @include mixins.desktop {
+            width: 80%;
         }
         .product-similiar-product {
             display: flex;
@@ -352,6 +342,8 @@
 
                 @extend %clickable;
             }
+
+            @extend %scrollbarStyling;
         }
     }
 }

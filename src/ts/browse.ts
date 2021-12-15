@@ -3,7 +3,6 @@ import {
     cartSlideIn,
     menuSlideIn,
 } from "./burgerAndBasketFunctions";
-import { CartItem } from "./models/CartItem";
 import { Customer } from "./models/Customer";
 import { Product } from "./models/Product";
 import {
@@ -18,6 +17,17 @@ import { sortProductsBy, Sort } from "./sorting";
 let allProducts: Product[] = [];
 
 window.onload = function () {
+    burgerAndCartInitialize();
+    allProducts = createProductObjectsFromData();
+    createElementForProducts(allProducts);
+    createNewsProducts(allProducts);
+    createCampaignProducts(allProducts);
+    createProductFilter();
+    initialize();
+    basketFunction();
+};
+
+function burgerAndCartInitialize(): void {
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
     ) as HTMLDivElement;
@@ -35,14 +45,17 @@ window.onload = function () {
         "cart-container"
     ) as HTMLDivElement;
     cart.addEventListener("click", cartSlideIn);
-    allProducts = createProductObjectsFromData();
-    createElementForProducts(allProducts);
-    createNewsProducts(allProducts);
-    createCampaignProducts(allProducts);
-    createProductFilter();
-    initialize();
-    basketFunction();
-};
+
+    document.getElementById("home-link").addEventListener("click", menuSlideIn);
+    document.getElementById("news-link").addEventListener("click", menuSlideIn);
+    document
+        .getElementById("campaign-link")
+        .addEventListener("click", menuSlideIn);
+    document
+        .getElementById("products-link")
+        .addEventListener("click", menuSlideIn);
+    document.getElementById("team-link").addEventListener("click", menuSlideIn);
+}
 
 function initialize(): void {
     //FIRST
@@ -230,7 +243,11 @@ function createProductHTML(
         let customer: Customer = Customer.prototype.getCustomer();
         customer.addProductToCart(productPool[index]);
         basketFunction();
-        alert("Added " + productPool[index].name.toString() + " to cart.");
+        alert(
+            "La till " +
+                productPool[index].name.toString() +
+                " till din varukorg."
+        );
     });
 
     // APPENDS //

@@ -83,13 +83,19 @@
             <!-- SLIDE-IN MENU -->
             <div class="menu-container" id="menu-container">
                 <ul class="menu-list">
-                    <a href="./browse.html"><li class="menu-item">Hem</li></a>
-                    <a href="#news"><li class="menu-item">Nyheter</li></a>
-                    <a href="#campaigns"
+                    <a id="home-link" href="./browse.html"
+                        ><li class="menu-item">Hem</li></a
+                    >
+                    <a id="news-link" href="#news"
+                        ><li class="menu-item">Nyheter</li></a
+                    >
+                    <a id="campaign-link" href="#campaigns"
                         ><li class="menu-item">Kampanjer</li></a
                     >
-                    <a href="#products"><li class="menu-item">Produkter</li></a>
-                    <a href="../index.html"
+                    <a id="products-link" href="#products"
+                        ><li class="menu-item">Produkter</li></a
+                    >
+                    <a id="team-link" href="../index.html"
                         ><li class="menu-item menu-item-last">Teamet</li></a
                     >
                 </ul>
@@ -131,14 +137,12 @@
                 <!-- Contains all news products -->
                 <div class="news-container-header" id="news">
                     <h2>Nyheter</h2>
-                    <button>Test</button>
                 </div>
                 <div class="news-container"></div>
                 <!-- CAMPAIGNS CONTAINER -->
                 <!-- Contains all promotional products -->
                 <div class="campaigns-container-header" id="campaigns">
                     <h2>Kampanjer</h2>
-                    <button>Test</button>
                 </div>
                 <div class="campaigns-container">
                     <div class="campaign-item"></div>
@@ -169,54 +173,59 @@
                 <div class="products-container"></div>
             </div>
             <!-- FILTER WINDOW -->
-            <div class="filter-container">
-                <div class="filter-header">
-                    <div class="filter-button-container">
-                        <i class="fas fa-filter"></i>
-                        <button class="cross-button">
-                            <i class="fas fa-times"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="filter-main">
-                    <div class="filter-catagories-container">
-                        <form>
-                            <input
-                                id="onormal"
-                                type="checkbox"
-                                value="Onormal"
-                            />
-                            <label>Onormal</label>
-                            <br />
-                            <input
-                                id="konstigt"
-                                type="checkbox"
-                                value="Konstig"
-                            />
-                            <label>Konstigt</label>
-                            <br />
-                            <input
-                                id="jättekonstigt"
-                                type="checkbox"
-                                value="Jättekonstig"
-                            />
-                            <label>Jättekonstigt</label>
-                            <br />
-                            <input
-                                id="vadihelavärlden"
-                                type="checkbox"
-                                value="Vad i hela världen"
-                            />
-                            <label>Vad i hela världen</label>
-                        </form>
-                    </div>
-                    <div class="search-container">
-                        <i class="fas fa-search"></i>
-                        <input
-                            id="second-product-search"
-                            type="text"
-                            placeholder="Sök"
-                        />
+            <div id="filter-outer-wrapper">
+                <div id="above"></div>
+                <div id="below">
+                    <div class="filter-container">
+                        <div class="filter-header">
+                            <div class="filter-button-container">
+                                <i class="fas fa-filter"></i>
+                                <button class="cross-button">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="filter-main">
+                            <div class="filter-catagories-container">
+                                <form>
+                                    <input
+                                        id="onormal"
+                                        type="checkbox"
+                                        value="Onormal"
+                                    />
+                                    <label>Onormal</label>
+                                    <br />
+                                    <input
+                                        id="konstigt"
+                                        type="checkbox"
+                                        value="Konstig"
+                                    />
+                                    <label>Konstigt</label>
+                                    <br />
+                                    <input
+                                        id="jättekonstigt"
+                                        type="checkbox"
+                                        value="Jättekonstig"
+                                    />
+                                    <label>Jättekonstigt</label>
+                                    <br />
+                                    <input
+                                        id="vadihelavärlden"
+                                        type="checkbox"
+                                        value="Vad i hela världen"
+                                    />
+                                    <label>Vad i hela världen</label>
+                                </form>
+                            </div>
+                            <div class="search-container">
+                                <i class="fas fa-search"></i>
+                                <input
+                                    id="second-product-search"
+                                    type="text"
+                                    placeholder="Sök"
+                                />
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

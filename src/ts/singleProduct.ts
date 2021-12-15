@@ -34,8 +34,8 @@ window.onload = function (): void {
     initialize();
     createElementForClickedProduct();
     createRelatedProducts();
+    basketFunction();
 };
-basketFunction();
 
 function initialize(): void {
     let storedProduct: IProduct = JSON.parse(
@@ -61,18 +61,18 @@ function initialize(): void {
 
     addButton.addEventListener("click", () => {
         let customer: Customer = Customer.prototype.getCustomer();
-
         let amountTag: HTMLSelectElement = document.getElementById(
             "count"
         ) as HTMLSelectElement;
         let value: number = parseInt(
             amountTag.options[amountTag.selectedIndex].value
         );
-
         for (let count = 0; count < value; count++) {
             customer.addProductToCart(product);
         }
-
+        alert(
+            "La till " + value + "st " + product.name + " till din varukorg."
+        );
         basketFunction();
     });
 
@@ -158,13 +158,6 @@ function createRelatedProducts(): void {
             "div"
         ) as HTMLDivElement;
         relatedItem.className = "product-similiar-item";
-        relatedItem.addEventListener("click", () => {
-            sessionStorage.setItem(
-                "clicked-product",
-                JSON.stringify(relatedProduct)
-            );
-            window.location.reload();
-        });
 
         // PRODUCT IMAGE //
         let imageContainer: HTMLDivElement = document.createElement(
@@ -178,6 +171,13 @@ function createRelatedProducts(): void {
         relatedImage.className = "image-container";
         relatedImage.src = relatedProduct.imageUrl[0];
         relatedImage.alt = "image";
+        imageContainer.addEventListener("click", () => {
+            sessionStorage.setItem(
+                "clicked-product",
+                JSON.stringify(relatedProduct)
+            );
+            window.location.reload();
+        });
 
         // PRODUCT TITLE //
 
@@ -221,6 +221,14 @@ function createRelatedProducts(): void {
         ) as HTMLButtonElement;
         shoppingButton.type = "button";
         shoppingButton.id = "add-to-cart";
+        shoppingButton.addEventListener("click", () => {
+            let customer: Customer = Customer.prototype.getCustomer();
+            customer.addProductToCart(relatedProduct);
+            basketFunction();
+            alert(
+                "La till" + relatedProduct.name.toString() + " i din varukorg."
+            );
+        });
 
         // APPENDS //
         imageContainer.appendChild(relatedImage);
