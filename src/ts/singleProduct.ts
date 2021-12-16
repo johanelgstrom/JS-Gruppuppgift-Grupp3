@@ -1,8 +1,6 @@
 // Made by: Filip Engberg & Elias Fredriksson
 
 import {
-    menuSlideIn,
-    cartSlideIn,
     basketFunction,
     menuAndBasketTrigger,
 } from "./burgerAndBasketFunctions";
