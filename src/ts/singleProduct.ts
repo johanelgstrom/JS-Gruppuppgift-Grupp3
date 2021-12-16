@@ -1,3 +1,5 @@
+// Made by: Filip Engberg & Elias Fredriksson
+
 import {
     menuSlideIn,
     cartSlideIn,
@@ -22,6 +24,7 @@ window.onload = function (): void {
     basketFunction();
 };
 
+// MAIN FEATURES THAT START WHEN THE PAGE IS LOADING
 function initialize(): void {
     let storedProduct: IProduct = JSON.parse(
         sessionStorage.getItem("clicked-product")
@@ -70,6 +73,7 @@ function initialize(): void {
     });
 }
 
+// CREATES ELEMENTS FOR A SPECIFIC PRODUCT
 function createElementForClickedProduct(): void {
     // IMAGE //
     let imageContainer: HTMLDivElement = document.querySelector(
@@ -126,6 +130,7 @@ function createElementForClickedProduct(): void {
     imageContainer.appendChild(productImage);
 }
 
+// CREATES ELEMENTS FOR PRODUCTS RELATED TO THE SPECIFIC PRODUCT
 function createRelatedProducts(): void {
     let allProducts: Product[] = createProductObjectsFromData();
     for (let index = 0; index < product.related.length; index++) {

@@ -1,3 +1,5 @@
+// Made by: Filip Engberg & Elias Fredriksson
+
 import {
     basketFunction,
     cartSlideIn,
@@ -27,6 +29,7 @@ window.onload = function () {
     basketFunction();
 };
 
+// MENU AND CART FOR MOIBLE
 function burgerAndCartInitialize(): void {
     let mobileBurger: HTMLDivElement = document.getElementById(
         "burger-menu-phone"
@@ -57,6 +60,7 @@ function burgerAndCartInitialize(): void {
     document.getElementById("team-link").addEventListener("click", menuSlideIn);
 }
 
+// MAIN FEATURES THAT START WHEN THE PAGE IS LOADING
 function initialize(): void {
     //FIRST
     let firstCategory: HTMLInputElement = document.getElementById(
@@ -122,6 +126,7 @@ function initialize(): void {
     });
 }
 
+// CREATES ALL PRODUCT ELEMENTS IN PRODUCTS
 function createElementForProducts(productPool: Product[]): void {
     let productContainer: HTMLDivElement = document.querySelector(
         ".products-container"
@@ -139,6 +144,7 @@ function createElementForProducts(productPool: Product[]): void {
     }
 }
 
+// CREATES ALL PRODUCT ELEMENTS IN NEWS
 function createNewsProducts(productPool: Product[]): void {
     let newsContainer: HTMLDivElement = document.querySelector(
         ".news-container"
@@ -158,6 +164,7 @@ function createNewsProducts(productPool: Product[]): void {
     }
 }
 
+// CREATES ALL PRODUCT ELEMENTS IN CAMPAIGNS
 function createCampaignProducts(productPool: Product[]): void {
     let campaignContainer: HTMLDivElement = document.querySelector(
         ".campaigns-container"
@@ -177,6 +184,7 @@ function createCampaignProducts(productPool: Product[]): void {
     }
 }
 
+// CREATING THE HTML FOR ALL PRODUCTS
 function createProductHTML(
     product: Product,
     productPool: Product[],
@@ -271,6 +279,7 @@ function goToProductPage(clickedProduct: Product) {
     window.location.href = "product.html";
 }
 
+// CREATING THE PRODUCT FILTER
 function createProductFilter(): void {
     // FILTER BUTTON //
     let mainPart: HTMLLIElement = document.getElementById(
@@ -305,7 +314,7 @@ function createProductFilter(): void {
     window.addEventListener("scroll", iconScrollFunc);
 }
 
-// FILTER ###########
+// TRIGGER THE FILTER IN TABLET/MOBILE###########
 function triggerFilterWindow() {
     let mainPart: HTMLLIElement = document.getElementById(
         "products-main"
