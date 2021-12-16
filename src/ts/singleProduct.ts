@@ -216,7 +216,7 @@ function createRelatedProducts(): void {
             customer.addProductToCart(relatedProduct);
             basketFunction();
             alert(
-                "La till" + relatedProduct.name.toString() + " i din varukorg."
+                "La till " + relatedProduct.name.toString() + " i din varukorg."
             );
         });
 

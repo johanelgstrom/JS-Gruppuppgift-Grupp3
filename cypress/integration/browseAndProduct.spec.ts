@@ -385,7 +385,7 @@ describe("Browse and product page tests", () => {
 
         // ARRANGE
         cy.on("window:alert", (txt) => {
-            expect(txt).to.contains("La tillBanan USB-hub i din varukorg.");
+            expect(txt).to.contains("La till Banan USB-hub i din varukorg.");
         });
         cy.get("#cart-on").click();
         cy.get(".basket-container > .item-container").should("have.length", 1);
